@@ -6,6 +6,6 @@ await $`echo start push ...`;
 
 await $`git add .  `;
 await $`git commit -m "update data"`;
-await $`git push"`;
+await $`git push `;
 
 await $`echo end push ...`;
