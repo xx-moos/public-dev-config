@@ -1,19 +1,10 @@
-const baseUrl = "/";
-
 const list = async (params = {}) => {
-    const res = await x_get(baseUrl + "/category/page");
-    console.log("res -> :", res);
-
+    const res = await x_get(baseUrl + "/category/page", params);
     return {
         success: true,
         data: res.data.list,
         total: res.data.total,
     };
-};
-
-const getTreeList = async (params = {}) => {
-    const res = await x_get(baseUrl + "/category/list");
-    return res;
 };
 
 const save = async (params = {}) => {

@@ -1,31 +1,32 @@
-const { useState } = React;
-const { Menu } = antd;
 const { AppstoreOutlined, MailOutlined, SettingOutlined } = icons;
 
 // 页面内容
 const X_Header = ({ menuKey }) => {
-    const [current, setCurrent] = useState(menuKey);
+    const [current, setCurrent] = React.useState(menuKey);
     const onClick = (e) => {
         console.log("e - >:", e);
         setCurrent(e.key);
     };
+
+    const items = [
+        {
+            label: <a href="/">分类管理</a>,
+            key: "category",
+            icon: <AppstoreOutlined />,
+        },
+        {
+            label: <a href="/site.html">网站管理</a>,
+            icon: <SettingOutlined />,
+            key: "site",
+        },
+    ];
+
     return (
-        <Menu
+        <antd.Menu
             onClick={onClick}
             selectedKeys={[current]}
             mode="horizontal"
-            items={[
-                {
-                    label: <a href="/">分类管理</a>,
-                    key: "category",
-                    icon: <AppstoreOutlined />,
-                },
-                {
-                    label: <a href="/site.html">网站管理</a>,
-                    icon: <SettingOutlined />,
-                    key: "site",
-                },
-            ]}
+            items={items}
         />
     );
 };

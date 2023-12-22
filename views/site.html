@@ -17,21 +17,25 @@
             href="https://libs.cdnjs.net/ant-design-pro/2.3.2/ant-design-pro.css"
         />
 
-        <link
+        <!-- <link
             rel="stylesheet"
             href="https://libs.cdnjs.net/tailwindcss/2.2.9/tailwind.min.css"
-        />
+        /> -->
+
+        <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/babel-standalone/7.0.0-alpha.20/babel.min.js"></script>
+        <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/react/18.2.0/umd/react.production.min.js"></script>
+        <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+        <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/dayjs/1.10.8/dayjs.min.js"></script>
+        <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/ant-design-icons/4.7.0/index.umd.min.js"></script>
+
+        <script src="https://libs.cdnjs.net/antd/5.12.4/antd.min.js"></script>
+
+        <script src="https://unpkg.shop.jd.com/@ant-design/pro-components/dist/pro-components.min.js"></script>
+        <script src="https://unpkg.shop.jd.com/ahooks/dist/ahooks.js"></script>
     </head>
     <body>
         <div id="root">15156</div>
-        <script src="https://libs.cdnjs.net/babel-standalone/7.23.6/babel.min.js"></script>
-        <script src="https://libs.cdnjs.net/react/18.2.0/umd/react.production.min.js"></script>
-        <script src="https://libs.cdnjs.net/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-        <script src="https://libs.cdnjs.net/dayjs/1.11.10/dayjs.min.js"></script>
-        <script src="https://libs.cdnjs.net/antd/5.12.4/antd.min.js"></script>
-        <script src="https://libs.cdnjs.net/ant-design-icons/5.2.6/index.umd.js"></script>
-        <script src="https://unpkg.shop.jd.com/@ant-design/pro-components/dist/pro-components.min.js"></script>
-        <script src="https://unpkg.shop.jd.com/ahooks/dist/ahooks.js"></script>
+
         <script
             type="text/babel"
             src="./javascripts/request.js"
@@ -39,7 +43,12 @@
 
         <script
             type="text/babel"
-            src="./javascripts/api.js"
+            src="./javascripts/api/common.js"
+        ></script>
+
+        <script
+            type="text/babel"
+            src="./javascripts/api/website.js"
         ></script>
 
         <script
@@ -216,11 +225,10 @@
                     },
 
                     request: async (params = {}, sort, filter) => {
-                        if (params?.pTitle?.length) {
+                        if (params.pTitle && params.pTitle.length) {
                             params.pId = params.pTitle[params.pTitle.length - 1];
                             delete params.pTitle;
                         }
-                        console.log("params -> :", params);
                         return list(params);
                     },
 
@@ -251,7 +259,7 @@
                     row: {},
                 });
                 return (
-                    <>
+                    <React.Fragment>
                         <ProTable {...config} />
 
                         <ModalForm
@@ -273,7 +281,7 @@
                             }}
                             onFinish={async (values) => {
                                 values.pId = values.pId ? values.pId[values.pId.length - 1] : 0;
-                                if (state?.row?.id) {
+                                if (state.row && state.row.id) {
                                     values.id = state.row.id;
                                 }
                                 console.log("values -> :", values);
@@ -390,7 +398,7 @@
                                 ]}
                             />
                         </ModalForm>
-                    </>
+                    </React.Fragment>
                 );
             };
             // 将页面内容渲染到指定容器

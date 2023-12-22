@@ -1,5 +1,14 @@
-const x_get = (url) =>
-    fetch(url)
+function obj2params(obj) {
+    let str = "";
+    for (let key in obj) {
+        str += key + "=" + obj[key] + "&";
+    }
+    return str.substr(0, str.length - 1);
+}
+
+const x_get = (str, data) => {
+    const url = JSON.stringify(data) !== "{}" ? `${str}?${obj2params(data)}` : str;
+    return fetch(url)
         .then((response) => {
             // network failure, request prevented
             if (response.status >= 200 && response.status < 300) {
@@ -15,6 +24,7 @@ const x_get = (url) =>
         .catch((error) => {
             return null;
         });
+};
 
 const x_post = (url, data) =>
     fetch(url, {
