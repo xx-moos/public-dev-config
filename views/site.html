@@ -54,7 +54,7 @@
 
         <script type="text/babel">
             console.log("window - >:", window);
-            renderHeader("category");
+            renderHeader("site");
 
             const { Button, Form, message, Modal } = antd;
             const { useState } = React;
@@ -72,14 +72,11 @@
 
             // 页面内容
             const App = (props) => {
-                const state = useReactive({
-                    open: false,
-                    title: "新建分类",
-                    row: {},
-                });
+                const [opts] = useCategoryOptions();
 
-                const [messageApi, contextHolder] = message.useMessage();
-                const [opts, refesh] = useCategoryOptions();
+                const [form] = Form.useForm();
+
+                const baseTable = React.useRef(null);
 
                 const columns = [
                     {
@@ -94,7 +91,7 @@
                         ellipsis: true,
                     },
                     {
-                        title: "上级分类",
+                        title: "网站分类",
                         dataIndex: "pTitle",
                         valueType: "cascader",
                         fieldProps: {
@@ -111,6 +108,33 @@
                         dataIndex: "description",
                         search: false,
                     },
+                    {
+                        title: "状态",
+                        dataIndex: "state",
+                        ellipsis: true,
+                        valueType: "select",
+                        valueEnum: {
+                            0: { text: "停用", status: "0" },
+                            1: { text: "启用", status: "1" },
+                        },
+                    }, // {
+                    //     disable: true,
+                    //     title: "标签",
+                    //     dataIndex: "labels",
+                    //     search: false,
+                    //     renderFormItem: (_, {defaultRender}) => {
+                    //         return defaultRender(_);
+                    //     },
+                    //     render: (_, record) => (
+                    //         <Space>
+                    //             {record.labels.map(({name, color}) => (
+                    //                 <Tag color={color} key={name}>
+                    //                     {name}
+                    //                 </Tag>
+                    //             ))}
+                    //         </Space>
+                    //     ),
+                    // },
 
                     {
                         title: "操作",
@@ -121,7 +145,7 @@
                                 key="editable"
                                 onClick={() => {
                                     state.open = true;
-                                    state.title = "编辑分类";
+                                    state.title = "编辑网站";
                                     state.row = record;
                                     console.log("record -> :", record);
 
@@ -129,19 +153,35 @@
                                         .split("-")
                                         .map((item) => Number(item));
                                     if (record.pId.length > 1) {
-                                        record.pId.pop();
                                         record.pId.shift();
-                                    } else {
-                                        record.pId = [];
                                     }
                                     form.setFieldsValue(record);
                                 }}
                             >
                                 编辑
                             </a>,
-
-                            // <a key="view">删除</a>,
-
+                            // <a
+                            //     key="del"
+                            //     onClick={() => {
+                            //         Modal.confirm({
+                            //             title: "确认删除？",
+                            //             content: "是否确认删除该数据",
+                            //             onOk: () => {
+                            //                 deletes({ ids: record.id }).then((res) => {
+                            //                     console.log("res", res);
+                            //                     if (res.code === 200) {
+                            //                         baseTable?.current?.reload();
+                            //                     }
+                            //                 });
+                            //             },
+                            //             onCancel() {
+                            //                 console.log("Cancel");
+                            //             },
+                            //         });
+                            //     }}
+                            // >
+                            //     删除
+                            // </a>,
                             // <TableDropdown
                             //   key="actionGroup"
                             //   onSelect={() => action?.reload()}
@@ -154,8 +194,6 @@
                     },
                 ];
 
-                const baseTable = React.useRef(null);
-
                 const config = {
                     columns,
 
@@ -164,7 +202,6 @@
                     size: "middle",
 
                     dateFormatter: "string",
-
                     actionRef: baseTable,
 
                     search: {
@@ -183,6 +220,7 @@
                             params.pId = params.pTitle[params.pTitle.length - 1];
                             delete params.pTitle;
                         }
+                        console.log("params -> :", params);
                         return list(params);
                     },
 
@@ -192,7 +230,7 @@
                             type="primary"
                             onClick={() => {
                                 state.open = true;
-                                state.title = "新建分类";
+                                state.title = "新增网站";
                             }}
                         >
                             新增
@@ -207,12 +245,13 @@
                     ],
                 };
 
-                const [form] = Form.useForm();
-
+                const state = useReactive({
+                    open: false,
+                    title: "新建网站",
+                    row: {},
+                });
                 return (
                     <>
-                        {contextHolder}
-
                         <ProTable {...config} />
 
                         <ModalForm
@@ -223,8 +262,8 @@
                             size="middle"
                             modalProps={{
                                 destroyOnClose: true,
-                                forceRender: true,
                                 maskClosable: false,
+                                forceRender: true,
                                 preserve: false,
                                 onCancel: () => {
                                     state.open = false;
@@ -234,35 +273,48 @@
                             }}
                             onFinish={async (values) => {
                                 values.pId = values.pId ? values.pId[values.pId.length - 1] : 0;
-                                if (state.row.id) {
+                                if (state?.row?.id) {
                                     values.id = state.row.id;
                                 }
+                                console.log("values -> :", values);
 
                                 const res = await save(values);
-
                                 if (res.code !== 200) {
-                                    messageApi.error(res.msg);
+                                    message.error(res.message);
                                     return false;
                                 }
-                                messageApi.success("提交成功");
+                                message.success("提交成功");
                                 state.open = false;
                                 state.row = {};
                                 baseTable.current.reload();
-                                refesh();
                                 return true;
                             }}
                         >
                             <ProFormText
                                 width="100%"
                                 name="title"
-                                label="分类名称"
-                                placeholder="请输入分类名称"
-                                initialValues={state.row.title}
+                                label="网站名称"
+                                placeholder="请输入网站名称"
                                 rules={[
                                     {
                                         required: true,
-                                        message: "请输入分类名称",
+                                        message: "请输入网站名称",
                                     },
+                                ]}
+                            />
+                            <ProFormText
+                                width="100%"
+                                name="url"
+                                label="网站访问链接"
+                                placeholder="请输入网站访问链接"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "请输入网站访问链接",
+                                    }, // {
+                                    //   type: "url",
+                                    //   message: "请输入正确的网站访问链接",
+                                    // },
                                 ]}
                             />
 
@@ -271,14 +323,12 @@
                                 name="pId"
                                 label="关联分类"
                                 placeholder="请选择网站分类"
-                                rules={
-                                    [
-                                        // {
-                                        //   required: true,
-                                        //   message: "请选择网站分类",
-                                        // },
-                                    ]
-                                }
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "请选择网站分类",
+                                    },
+                                ]}
                                 fieldProps={{
                                     options: opts,
                                     fieldNames: {
@@ -289,12 +339,55 @@
                                 }}
                             />
 
+                            <ProFormText
+                                width="100%"
+                                name="sort"
+                                label="图标排序"
+                                placeholder="请输入在该分类下的排序"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "请输入在该分类下的排序",
+                                    },
+                                ]}
+                            />
+
+                            <ProFormText
+                                width="100%"
+                                name="icon"
+                                label="图标链接"
+                                placeholder="请输入图标链接"
+                                rules={
+                                    [
+                                        // {
+                                        //   type: "url",
+                                        //   message: "请输入正确的图标链接",
+                                        // },
+                                    ]
+                                }
+                            />
+
                             <ProFormTextArea
                                 width="100%"
                                 name="description"
-                                initialValues={state.row.description}
-                                label="分类描述"
-                                placeholder="请分类描述"
+                                label="网站描述"
+                                placeholder="请输入描述"
+                            />
+
+                            <ProFormRadio.Group
+                                name="state"
+                                label="是否启用"
+                                initialValue={1}
+                                options={[
+                                    {
+                                        label: "是",
+                                        value: 1,
+                                    },
+                                    {
+                                        label: "否",
+                                        value: 0,
+                                    },
+                                ]}
                             />
                         </ModalForm>
                     </>
