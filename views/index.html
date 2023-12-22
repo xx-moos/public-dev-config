@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <link
+            href="https://cdn.bootcdn.net/ajax/libs/antd/5.9.0/reset.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div id="root">15156</div>
+
+        <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.22.17/babel.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/antd/5.9.0/antd.js"></script>
+
+        <script type="text/babel">
+            // 组件内容
+            const Text = (props) => {
+                // useState 使用
+                const [name, setName] = React.useState("张三");
+                // 渲染
+                return <div className="title">组件内容</div>;
+            };
+            // 页面内容
+            const Page = (props) => {
+                const touchClick = () => {
+                    console.log("点击 + 1");
+                };
+                return (
+                    <div>
+                        <Text />
+                        <antd.Button
+                            type="primary"
+                            onClick={touchClick}
+                        >
+                            Primary Button
+                        </antd.Button>
+                    </div>
+                );
+            };
+            // 将页面内容渲染到指定容器
+            ReactDOM.render(<Page />, document.querySelector("#root"));
+        </script>
+    </body>
+</html>
