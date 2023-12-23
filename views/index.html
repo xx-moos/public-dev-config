@@ -95,8 +95,9 @@
                 const columns = [
                     {
                         dataIndex: "id",
-                        valueType: "indexBorder",
-                        width: 48,
+                        // valueType: "index",
+                        copyable: true,
+                        width: 60,
                     },
                     {
                         title: "标题",
@@ -177,6 +178,10 @@
                     dateFormatter: "string",
 
                     actionRef: baseTable,
+
+                    pagination: {
+                        defaultPageSize: 40,
+                    },
 
                     search: {
                         labelWidth: 100,

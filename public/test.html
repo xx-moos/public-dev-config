@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var data = [
+    {
+        "text": "vscode下载",
+        "url": "http://vscode.cdn.azure.cn/"
+    },
+    {
+        "text": "IntelliCode",
+        "url": "https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode"
+    },
+    {
+        "text": "react-快捷键",
+        "url": "https://github.com/dsznajder/vscode-react-javascript-snippets/blob/HEAD/docs/Snippets.md"
+    },
+    {
+        "text": "jq-快捷键",
+        "url": "https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets"
+    },
+    {
+        "text": "js-快捷键",
+        "url": "https://marketplace.visualstudio.com/items?itemName=NicholasHsiang.vscode-javascript-snippet"
+    },
+    {
+        "text": "1loc-快捷键",
+        "url": "https://1loc.dev/"
+    }
+]
+
+
+            const newData = data
+                .filter((val) => {
+                    if (val.type === "line") {
+                        return false;
+                    }
+                    return true;
+                })
+                .map((it, ind) => ({
+                    // title: it.text,
+                    // description: it.text,
+                    // id: ind + 1,
+                    // pId: 1,
+                    // fullId: `0-1-${ind + 1}`,
+
+                    title: it.text,
+                    url: it.url,
+                    sort: ind,
+                    icon: it.imgSrc || "",
+                    description: it.title || it.text,
+                    state: 1,
+
+                    pId: 24,
+                    id: ind + 1 + 243,
+                    fullId: `${`0-12-24`}-${ind + 1 + 243}`,
+                }));
+
+            console.table(newData);
+        </script>
+    </body>
+</html>

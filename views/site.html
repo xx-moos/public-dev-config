@@ -90,8 +90,9 @@
                 const columns = [
                     {
                         dataIndex: "id",
-                        valueType: "indexBorder",
-                        width: 48,
+                        // valueType: "index",
+                        copyable: true,
+                        width: 60,
                     },
                     {
                         title: "标题",
@@ -100,7 +101,7 @@
                         ellipsis: true,
                     },
                     {
-                        title: "网站分类",
+                        title: "网站上级分类",
                         dataIndex: "pTitle",
                         valueType: "cascader",
                         fieldProps: {

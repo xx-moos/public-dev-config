@@ -1,27 +1,30 @@
 /** 分页函数 */
 const pagingFunction = (pageNo = 1, pageSize = 10, array) => {
-    const offset = (pageNo - 1) * pageSize;
-
-    return offset + pageSize >= array.length
-        ? array.slice(offset, array.length)
-        : array.slice(offset, offset + pageSize);
+    var offset = (pageNo - 1) * pageSize;
+    var t = Number(offset) + Number(pageSize);
+    return t >= array.length ? array.slice(offset, array.length) : array.slice(offset, t);
 };
 
 exports.pagingFunction = pagingFunction;
 
 /** 获取列表页数据 */
 exports.getListPageData = function getListPageData(filters) {
-    const { data, current, pageSize, ...other } = filters;
-    let res = data;
-
-    for (const key in other) {
-        if (![undefined, null].includes(other[key])) {
-            res = res.filter((item) => item[key].toString().includes(other[key]));
+    let { data, current, pageSize, ...other } = filters;
+    const filterKeys = Object.keys(other);
+    filterKeys.forEach((key) => {
+        if (other[key] == undefined || other[key] == "") {
+            return data;
         }
-    }
-    res = pagingFunction(current, pageSize, res);
+        data = data.filter((p) => {
+            return p[key].toString().includes(other[key]);
+        });
+    });
+    console.log("data - >:", data.length);
+
+    let res = data;
+    res = pagingFunction(current, pageSize, data);
     return {
         list: res,
-        total: res.length,
+        total: data.length,
     };
 };
