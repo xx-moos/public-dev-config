@@ -65,7 +65,7 @@
             console.log("window - >:", window);
             renderHeader("site");
 
-            const { Button, Form, message, Modal } = antd;
+            const { Button, Form, message, Modal, Table, Space } = antd;
             const { useState } = React;
             const { useReactive } = ahooks;
             const { AppstoreOutlined, MailOutlined, SettingOutlined } = icons;
@@ -89,10 +89,12 @@
 
                 const columns = [
                     {
+                        title: "ID",
                         dataIndex: "id",
                         // valueType: "index",
                         copyable: true,
-                        width: 60,
+                        search: false,
+                        width: 120,
                     },
                     {
                         title: "标题",
@@ -116,6 +118,7 @@
                     {
                         title: "描述",
                         dataIndex: "description",
+                        width: 680,
                         search: false,
                     },
                     {
@@ -155,6 +158,7 @@
                                 key="editable"
                                 onClick={() => {
                                     state.open = true;
+                                    state.batch = false;
                                     state.title = "编辑网站";
                                     state.row = record;
                                     console.log("record -> :", record);
@@ -163,6 +167,7 @@
                                         .split("-")
                                         .map((item) => Number(item));
                                     if (record.pId.length > 1) {
+                                        record.pId.pop();
                                         record.pId.shift();
                                     }
                                     form.setFieldsValue(record);
@@ -204,8 +209,41 @@
                     },
                 ];
 
+                const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+                const [selectedRows, setSelectedRows] = useState([]);
+
+                const onSelectChange = (newSelectedRowKeys, selectedRows) => {
+                    setSelectedRowKeys(newSelectedRowKeys);
+                    setSelectedRows(selectedRows);
+                };
+
                 const config = {
                     columns,
+
+                    rowSelection: {
+                        // 自定义选择项参考: https://ant.design/components/table-cn/#components-table-demo-row-selection-custom
+                        // 注释该行则默认不显示下拉选项
+                        selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
+                        selectedRowKeys,
+                        onChange: onSelectChange,
+                        columnWidth: 100,
+                    },
+
+                    tableAlertOptionRender: () => {
+                        return (
+                            <Space size={16}>
+                                <a
+                                    onClick={() => {
+                                        state.title = "批量修改";
+                                        state.batch = true;
+                                        state.open = true;
+                                    }}
+                                >
+                                    批量修改
+                                </a>
+                            </Space>
+                        );
+                    },
 
                     rowKey: "id",
                     options: false,
@@ -257,6 +295,7 @@
                 const state = useReactive({
                     open: false,
                     title: "新建网站",
+                    batch: false,
                     row: {},
                 });
                 return (
@@ -285,9 +324,16 @@
                                 if (state.row && state.row.id) {
                                     values.id = state.row.id;
                                 }
-                                console.log("values -> :", values);
 
-                                const res = await save(values);
+                                let res = null;
+                                if (state.batch) {
+                                    values.selectedRows = selectedRows;
+                                    console.log("values -> :", values);
+                                    res = await batchSave(values);
+                                } else {
+                                    res = await save(values);
+                                }
+
                                 if (res.code !== 200) {
                                     message.error(res.message);
                                     return false;
@@ -299,33 +345,37 @@
                                 return true;
                             }}
                         >
-                            <ProFormText
-                                width="100%"
-                                name="title"
-                                label="网站名称"
-                                placeholder="请输入网站名称"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "请输入网站名称",
-                                    },
-                                ]}
-                            />
-                            <ProFormText
-                                width="100%"
-                                name="url"
-                                label="网站访问链接"
-                                placeholder="请输入网站访问链接"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "请输入网站访问链接",
-                                    }, // {
-                                    //   type: "url",
-                                    //   message: "请输入正确的网站访问链接",
-                                    // },
-                                ]}
-                            />
+                            {!state.batch && (
+                                <ProFormText
+                                    width="100%"
+                                    name="title"
+                                    label="网站名称"
+                                    placeholder="请输入网站名称"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "请输入网站名称",
+                                        },
+                                    ]}
+                                />
+                            )}
+                            {!state.batch && (
+                                <ProFormText
+                                    width="100%"
+                                    name="url"
+                                    label="网站访问链接"
+                                    placeholder="请输入网站访问链接"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "请输入网站访问链接",
+                                        }, // {
+                                        //   type: "url",
+                                        //   message: "请输入正确的网站访问链接",
+                                        // },
+                                    ]}
+                                />
+                            )}
 
                             <ProFormCascader
                                 width="100%"
@@ -348,40 +398,46 @@
                                 }}
                             />
 
-                            <ProFormText
-                                width="100%"
-                                name="sort"
-                                label="图标排序"
-                                placeholder="请输入在该分类下的排序"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "请输入在该分类下的排序",
-                                    },
-                                ]}
-                            />
+                            {!state.batch && (
+                                <ProFormText
+                                    width="100%"
+                                    name="sort"
+                                    label="图标排序"
+                                    placeholder="请输入在该分类下的排序"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "请输入在该分类下的排序",
+                                        },
+                                    ]}
+                                />
+                            )}
 
-                            <ProFormText
-                                width="100%"
-                                name="icon"
-                                label="图标链接"
-                                placeholder="请输入图标链接"
-                                rules={
-                                    [
-                                        // {
-                                        //   type: "url",
-                                        //   message: "请输入正确的图标链接",
-                                        // },
-                                    ]
-                                }
-                            />
+                            {!state.batch && (
+                                <ProFormText
+                                    width="100%"
+                                    name="icon"
+                                    label="图标链接"
+                                    placeholder="请输入图标链接"
+                                    rules={
+                                        [
+                                            // {
+                                            //   type: "url",
+                                            //   message: "请输入正确的图标链接",
+                                            // },
+                                        ]
+                                    }
+                                />
+                            )}
 
-                            <ProFormTextArea
-                                width="100%"
-                                name="description"
-                                label="网站描述"
-                                placeholder="请输入描述"
-                            />
+                            {!state.batch && (
+                                <ProFormTextArea
+                                    width="100%"
+                                    name="description"
+                                    label="网站描述"
+                                    placeholder="请输入描述"
+                                />
+                            )}
 
                             <ProFormRadio.Group
                                 name="state"

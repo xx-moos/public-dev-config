@@ -15,8 +15,9 @@ exports.getListPageData = function getListPageData(filters) {
         if (other[key] == undefined || other[key] == "") {
             return data;
         }
+        console.log("key - >:", key);
         data = data.filter((p) => {
-            return p[key].toString().includes(other[key]);
+            return key == "pId" ? p[key] == other[key] : p[key].toString().includes(other[key]);
         });
     });
     console.log("data - >:", data.length);

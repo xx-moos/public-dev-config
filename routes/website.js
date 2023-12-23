@@ -49,6 +49,8 @@ router.post("/edit", async function (req, res) {
 
     json.fullId = categoryDatas.find((item) => item.id === json.pId).fullId;
 
+    json.fullId += `-${json.id}`;
+
     if (!json.id) {
         // 新增
         json.id = datas.length + 1;
@@ -66,6 +68,32 @@ router.post("/edit", async function (req, res) {
 
     writeJsonFile(websiteFilePath, datas);
 
+    return res.json(successBody(null));
+});
+
+router.post("/batchSave", async function (req, res) {
+    const json = req.body;
+
+    let datas = await readJsonFileAndParse(websiteFilePath);
+    let categoryDatas = await readJsonFileAndParse(categoryFilePath);
+
+    const fullId = categoryDatas.find((item) => item.id === json.pId).fullId;
+
+    json.selectedRows.forEach((item) => {
+        item.fullId = `${fullId}-${item.id}`;
+        item.pId = json.pId;
+        item.state = json.state;
+    });
+
+    datas = datas.map((item) => {
+        const has = json.selectedRows.find((i) => i.id === item.id);
+        if (has) {
+            return { ...has };
+        }
+        return item;
+    });
+
+    writeJsonFile(websiteFilePath, datas);
     return res.json(successBody(null));
 });
 

@@ -94,8 +94,10 @@
 
                 const columns = [
                     {
+                        title: "ID",
                         dataIndex: "id",
                         // valueType: "index",
+                        search: false,
                         copyable: true,
                         width: 60,
                     },
@@ -280,6 +282,7 @@
                                         message: "请输入分类名称",
                                     },
                                 ]}
+                                
                             />
 
                             <ProFormCascader

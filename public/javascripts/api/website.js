@@ -12,3 +12,9 @@ const list = async (params) => {
 const save = async (params) => {
     return await x_post(baseUrl + "/website/edit", params);
 };
+
+
+// 批量保存
+const batchSave = async (params) => {
+    return await x_post(baseUrl + "/website/batchSave", params);
+};
