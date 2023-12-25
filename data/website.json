@@ -254,26 +254,26 @@
  {
   "title": "jsdelivr",
   "url": "https://www.jsdelivr.com/",
+  "pId": 26,
   "sort": 17,
-  "icon": "",
+  "icon": "https://www.jsdelivr.com/favicon.ico",
   "description": "jsdelivr",
   "state": 1,
-  "pId": 26,
   "id": 22,
   "fullId": "0-2-26-22",
-  "pTitle": "文档资源"
+  "pTitle": "cdn网址"
  },
  {
   "title": "jQ-CDN",
   "url": "http://code.jquery.com/",
+  "pId": 26,
   "sort": 18,
   "icon": "",
   "description": "jQuery CDN -最新稳定版本",
   "state": 1,
-  "pId": 26,
   "id": 23,
   "fullId": "0-2-26-23",
-  "pTitle": "文档资源"
+  "pTitle": "cdn网址"
  },
  {
   "title": "360",
@@ -314,11 +314,11 @@
  {
   "title": "ReactHook",
   "url": "http://caibaojian.com/react-hooks.html#t8",
+  "pId": 14,
   "sort": 22,
-  "icon": "",
+  "icon": "http://caibaojian.com/favicon.ico",
   "description": "React Hooks全面理解教程-前端开发博客",
   "state": 1,
-  "pId": 14,
   "id": 27,
   "fullId": "0-2-14-27",
   "pTitle": "文档资源"
@@ -338,11 +338,11 @@
  {
   "title": "react单测",
   "url": "https://blog.csdn.net/kuangshp128/article/details/119320875",
+  "pId": 14,
   "sort": 24,
-  "icon": "",
+  "icon": "https://g.csdnimg.cn/static/logo/favicon32.ico",
   "description": "react单元测试和集成测试",
   "state": 1,
-  "pId": 14,
   "id": 29,
   "fullId": "0-2-14-29",
   "pTitle": "文档资源"
@@ -410,11 +410,11 @@
  {
   "title": "m3u8",
   "url": "http://www.m3u8.tv/",
+  "pId": 29,
   "sort": 30,
-  "icon": "http://www.m3u8.tv/favicon.ico",
+  "icon": "",
   "description": "m3u8",
   "state": 1,
-  "pId": 29,
   "id": 35,
   "fullId": "0-2-29-35",
   "pTitle": "在线工具网址"
@@ -578,11 +578,11 @@
  {
   "title": "v2 element",
   "url": "https://element.eleme.cn/#/zh-CN",
+  "pId": 15,
   "sort": 5,
-  "icon": "",
+  "icon": "https://element.eleme.cn/favicon.ico",
   "description": "element vue2",
   "state": 1,
-  "pId": 15,
   "id": 49,
   "fullId": "0-3-15-49",
   "pTitle": "Vue2 周边"
@@ -590,35 +590,35 @@
  {
   "title": "v3 element-plus",
   "url": "https://element-plus.gitee.io/zh-CN/",
+  "pId": 30,
   "sort": 6,
-  "icon": "",
+  "icon": "https://element-plus.gitee.io/apple-touch-icon.png",
   "description": "element vue3",
   "state": 1,
-  "pId": 30,
   "id": 50,
   "fullId": "0-3-30-50",
-  "pTitle": "Vue2 周边"
+  "pTitle": "Vue3 周边"
  },
  {
   "title": "antd vue",
   "url": "https://www.antdv.com/docs/vue/introduce-cn/",
+  "pId": 30,
   "sort": 7,
-  "icon": "",
+  "icon": "https://next.antdv.com/assets/logo.1ef800a8.svg",
   "description": "antd vue  2,3",
   "state": 1,
-  "pId": 30,
   "id": 51,
   "fullId": "0-3-30-51",
-  "pTitle": "Vue2 周边"
+  "pTitle": "Vue3 周边"
  },
  {
   "title": "Vant2",
   "url": "https://vant-contrib.gitee.io/vant/v2/#/zh-CN",
+  "pId": 15,
   "sort": 8,
-  "icon": "",
+  "icon": "https://img01.yzcdn.cn/vant/logo.png",
   "description": "vant vue2",
   "state": 1,
-  "pId": 15,
   "id": 52,
   "fullId": "0-3-15-52",
   "pTitle": "Vue2 周边"
@@ -626,14 +626,14 @@
  {
   "title": "Vant3",
   "url": "https://vant-contrib.gitee.io/vant/v3/#/zh-CN",
+  "pId": 30,
   "sort": 9,
-  "icon": "",
+  "icon": "https://fastly.jsdelivr.net/npm/@vant/assets/logo.png",
   "description": "vant vue3",
   "state": 1,
-  "pId": 30,
   "id": 53,
   "fullId": "0-3-30-53",
-  "pTitle": "Vue2 周边"
+  "pTitle": "Vue3 周边"
  },
  {
   "title": "uview",
@@ -650,14 +650,14 @@
  {
   "title": "Naive UI",
   "url": "https://www.naiveui.com/zh-CN/light",
+  "pId": 30,
   "sort": 11,
-  "icon": "https://www.naiveui.com/assets/naivelogo.93278402.svg",
+  "icon": "https://www.naiveui.com/assets/naivelogo-XQ1U1Js8.svg",
   "description": "一个 Vue 3 组件库 比较完整，主题可调，使用 TypeScript，快 有点意思",
   "state": 1,
-  "pId": 30,
   "id": 55,
   "fullId": "0-3-30-55",
-  "pTitle": "Vue2 周边"
+  "pTitle": "Vue3 周边"
  },
  {
   "title": "varlet-ui",
@@ -674,26 +674,26 @@
  {
   "title": "react-router",
   "url": "https://reactrouter.com/en/main",
+  "pId": 31,
   "sort": 13,
-  "icon": "",
+  "icon": "https://reactrouter.com/favicon-light.png",
   "description": "react 的官方路由",
   "state": 1,
-  "pId": 31,
   "id": 57,
   "fullId": "0-3-31-57",
-  "pTitle": "Vue2 周边"
+  "pTitle": "React 周边"
  },
  {
   "title": "react-router v5",
   "url": "https://v5.reactrouter.com/web/guides/quick-start",
+  "pId": 31,
   "sort": 14,
-  "icon": "",
+  "icon": "https://reactrouter.com/favicon-light.png",
   "description": "react 的官方路由 v5",
   "state": 1,
-  "pId": 31,
   "id": 58,
   "fullId": "0-3-31-58",
-  "pTitle": "Vue2 周边"
+  "pTitle": "React 周边"
  },
  {
   "title": "mobx",
@@ -830,14 +830,14 @@
  {
   "title": "babel",
   "url": "https://www.babeljs.cn/",
+  "pId": 32,
   "sort": 26,
-  "icon": "",
+  "icon": "https://www.babeljs.cn/img/favicon.png",
   "description": "今天就开始使用下一代的 JavaScript 语法编程吧！",
   "state": 1,
-  "pId": 32,
   "id": 70,
   "fullId": "0-3-32-70",
-  "pTitle": "Vue2 周边"
+  "pTitle": "js 周边"
  },
  {
   "title": "ESLint",
