@@ -26,17 +26,17 @@ router.get("/page", async function (req, res, next) {
         state,
     });
 
-    const categoryMap = {};
-    categoryDatas.forEach((item) => {
-        categoryMap[item.id] = item;
-    });
+    // const categoryMap = {};
+    // categoryDatas.forEach((item) => {
+    //     categoryMap[item.id] = item;
+    // });
 
-    list = list.map((item) => {
-        return {
-            ...item,
-            pTitle: categoryMap[item.pId]?.title,
-        };
-    });
+    // list = list.map((item) => {
+    //     return {
+    //         ...item,
+    //         pTitle: categoryMap[item.pId]?.title,
+    //     };
+    // });
 
     return res.json(successBody({ list, total }));
 });
@@ -47,9 +47,12 @@ router.post("/edit", async function (req, res) {
     let datas = await readJsonFileAndParse(websiteFilePath);
     let categoryDatas = await readJsonFileAndParse(categoryFilePath);
 
-    json.fullId = categoryDatas.find((item) => item.id === json.pId).fullId;
+    let categoryInfo = categoryDatas.find((item) => item.id === json.pId);
+    json.fullId = categoryInfo.fullId;
 
     json.fullId += `-${json.id}`;
+
+    json.pTitle = categoryInfo.title;
 
     if (!json.id) {
         // 新增
@@ -77,12 +80,13 @@ router.post("/batchSave", async function (req, res) {
     let datas = await readJsonFileAndParse(websiteFilePath);
     let categoryDatas = await readJsonFileAndParse(categoryFilePath);
 
-    const fullId = categoryDatas.find((item) => item.id === json.pId).fullId;
+    const categoryInfo = categoryDatas.find((item) => item.id === json.pId);
 
     json.selectedRows.forEach((item) => {
-        item.fullId = `${fullId}-${item.id}`;
+        item.fullId = `${categoryInfo.fullId}-${item.id}`;
         item.pId = json.pId;
         item.state = json.state;
+        item.pTitle = categoryInfo.title;
     });
 
     datas = datas.map((item) => {

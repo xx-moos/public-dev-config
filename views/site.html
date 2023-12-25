@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src gap://ready file://* *; style-src 'self' http://* https://* 'unsafe-inline'; script-src 'self' http://* https://* 'unsafe-inline' 'unsafe-eval'"
+        />
         <meta charset="UTF-8" />
         <meta
             name="viewport"
@@ -30,6 +34,7 @@
 
         <script src="https://libs.cdnjs.net/antd/5.12.4/antd.min.js"></script>
 
+        <script src="https://unpkg.shop.jd.com/copy-to-clipboard/example/index.js"></script>
         <script src="https://unpkg.shop.jd.com/@ant-design/pro-components/dist/pro-components.min.js"></script>
         <script src="https://unpkg.shop.jd.com/ahooks/dist/ahooks.js"></script>
     </head>
@@ -65,10 +70,10 @@
             console.log("window - >:", window);
             renderHeader("site");
 
-            const { Button, Form, message, Modal, Table, Space } = antd;
+            const { Button, Form, message, Modal, Table, Space, Image } = antd;
             const { useState } = React;
             const { useReactive } = ahooks;
-            const { AppstoreOutlined, MailOutlined, SettingOutlined } = icons;
+            const { AppstoreOutlined, MailOutlined, SettingOutlined, CopyOutlined } = icons;
 
             const {
                 ModalForm,
@@ -97,6 +102,19 @@
                         width: 120,
                     },
                     {
+                        title: "地址",
+                        dataIndex: "url",
+                        search: false,
+                        render: (_) => (
+                            <a
+                                href={_}
+                                target="_blank"
+                            >
+                                {_}
+                            </a>
+                        ),
+                    },
+                    {
                         title: "标题",
                         dataIndex: "title",
                         copyable: true,
@@ -116,9 +134,36 @@
                         },
                     },
                     {
+                        title: "图标",
+                        dataIndex: "icon",
+                        width: 240,
+                        search: false,
+                        render: (text, record, _, action) => (
+                            <React.Fragment>
+                                {text != "-" ? (
+                                    <React.Fragment>
+                                        <Image
+                                            width={40}
+                                            src={text}
+                                        />
+                                        &nbsp; &nbsp;
+                                        <CopyOutlined
+                                            onClick={() => {
+                                                console.log("text - >:", text);
+                                                copyToClipboard(text);
+                                            }}
+                                        />
+                                    </React.Fragment>
+                                ) : (
+                                    "-"
+                                )}
+                            </React.Fragment>
+                        ),
+                    },
+                    {
                         title: "描述",
                         dataIndex: "description",
-                        width: 680,
+                        width: 380,
                         search: false,
                     },
                     {
@@ -310,7 +355,7 @@
                             size="middle"
                             modalProps={{
                                 destroyOnClose: true,
-                                maskClosable: false,
+                                maskClosable: true,
                                 forceRender: true,
                                 preserve: false,
                                 onCancel: () => {
