@@ -104,6 +104,7 @@
                     {
                         title: "地址",
                         dataIndex: "url",
+                        width: 260,
                         search: false,
                         render: (_) => (
                             <a
@@ -143,7 +144,7 @@
                                 {text != "-" ? (
                                     <React.Fragment>
                                         <Image
-                                            width={60}
+                                            width={38}
                                             src={text}
                                         />
                                         &nbsp; &nbsp;
@@ -265,6 +266,12 @@
                 const config = {
                     columns,
 
+                    pagination: {
+                        defaultPageSize: 60,
+                    },
+
+                    
+
                     rowSelection: {
                         // 自定义选择项参考: https://ant.design/components/table-cn/#components-table-demo-row-selection-custom
                         // 注释该行则默认不显示下拉选项
@@ -292,7 +299,7 @@
 
                     rowKey: "id",
                     options: false,
-                    size: "middle",
+                    size: "small",
 
                     dateFormatter: "string",
                     actionRef: baseTable,
