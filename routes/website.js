@@ -61,11 +61,10 @@ router.post("/edit", async function (req, res) {
         datas.push(json);
     } else {
         // 修改
-        datas = datas.map((item) => {
+        datas.forEach((item) => {
             if (item.id === json.id) {
-                return json;
+                item = { ...json };
             }
-            return item;
         });
     }
 

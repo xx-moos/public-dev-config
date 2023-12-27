@@ -104,20 +104,7 @@
         "id": 18,
         "fullId": "0-6-18"
     },
-    {
-        "title": "icon",
-        "pId": 2,
-        "description": "icon",
-        "id": 20,
-        "fullId": "0-2-20"
-    },
-    {
-        "title": "图表库",
-        "pId": 2,
-        "description": "图表库",
-        "id": 21,
-        "fullId": "0-2-21"
-    },
+
     {
         "title": "leetcode",
         "pId": 10,
@@ -161,20 +148,6 @@
         "fullId": "0-2-26"
     },
     {
-        "title": "在线工具网址",
-        "pId": 2,
-        "description": "在线工具网址",
-        "id": 29,
-        "fullId": "0-2-29"
-    },
-    {
-        "title": "在线教程网站",
-        "pId": 2,
-        "description": "在线教程网站",
-        "id": 19,
-        "fullId": "0-2-19"
-    },
-    {
         "title": "文档资源",
         "pId": 2,
         "description": "常用的文档资源",
@@ -182,11 +155,39 @@
         "fullId": "0-2-14"
     },
     {
+        "title": "在线工具网址",
+        "pId": 2,
+        "description": "在线工具网址",
+        "id": 29,
+        "fullId": "0-2-29"
+    },
+    {
+        "title": "icon",
+        "pId": 2,
+        "description": "icon",
+        "id": 20,
+        "fullId": "0-2-20"
+    },
+    {
+        "title": "图表库",
+        "pId": 2,
+        "description": "图表库",
+        "id": 21,
+        "fullId": "0-2-21"
+    },
+    {
         "title": "图片",
         "pId": 2,
         "description": "图片",
         "id": 28,
         "fullId": "0-2-28"
+    },
+    {
+        "title": "在线教程网站",
+        "pId": 2,
+        "description": "在线教程网站",
+        "id": 19,
+        "fullId": "0-2-19"
     },
     {
         "title": "Vue3 周边",
@@ -228,18 +229,18 @@
         "fullId": "0-4-35"
     },
     {
-        "title": "下载",
-        "pId": 5,
-        "description": "下载类的网址",
-        "id": 37,
-        "fullId": "0-5-37"
-    },
-    {
         "title": "常用工具网址",
         "pId": 5,
         "description": "常用工具网址",
         "id": 36,
         "fullId": "0-5-36"
+    },
+    {
+        "title": "下载",
+        "pId": 5,
+        "description": "下载类的网址",
+        "id": 37,
+        "fullId": "0-5-37"
     },
     {
         "title": "chatGPT",

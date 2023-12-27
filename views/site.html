@@ -384,9 +384,10 @@
                                     return false;
                                 }
                                 message.success("提交成功");
-                                state.open = false;
-                                state.row = {};
-                                baseTable.current.reload();
+                                window.location.reload();
+                                // state.open = false;
+                                // state.row = {};
+                                // baseTable.current.reload();
                                 return true;
                             }}
                         >

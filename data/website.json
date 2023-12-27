@@ -408,18 +408,6 @@
   "pTitle": "图片"
  },
  {
-  "title": "m3u8",
-  "url": "http://www.m3u8.tv/",
-  "pId": 29,
-  "sort": 30,
-  "icon": "",
-  "description": "m3u8",
-  "state": 1,
-  "id": 35,
-  "fullId": "0-2-29-35",
-  "pTitle": "在线工具网址"
- },
- {
   "title": "在线ps",
   "url": "https://ps.gaoding.com/#/",
   "sort": 31,
@@ -1630,14 +1618,14 @@
  {
   "title": "vscode-web",
   "url": "https://vscode.dev/",
+  "pId": 24,
   "sort": 16,
   "icon": "",
   "description": "Visual Studio Code - web",
   "state": 1,
-  "pId": 36,
   "id": 137,
-  "fullId": "0-5-36-137",
-  "pTitle": "chatGPT"
+  "fullId": "0-12-24-137",
+  "pTitle": "插件和工具"
  },
  {
   "title": "npm包趋势",
@@ -2171,7 +2159,7 @@
   "sort": 61,
   "icon": "",
   "description": "老北鼻AI AI工具集 导航 近期，用户访问量激增，官方大量处理账号，可能导致网站不稳定、 网页崩溃等情况",
-  "state": 1,
+  "state": 0,
   "pId": 17,
   "id": 182,
   "fullId": "0-5-17-182",
@@ -2183,7 +2171,7 @@
   "sort": 62,
   "icon": "",
   "description": "Easy AI 功能列表，更多功能正在火速开发中",
-  "state": 1,
+  "state": 0,
   "pId": 17,
   "id": 183,
   "fullId": "0-5-17-183",
@@ -2207,7 +2195,7 @@
   "sort": 64,
   "icon": "",
   "description": "本站最新域名 http://www.vppp.cn 。 请务必加群，否则域名被封会找不到本站。",
-  "state": 1,
+  "state": 0,
   "pId": 17,
   "id": 185,
   "fullId": "0-5-17-185",
@@ -2219,7 +2207,7 @@
   "sort": 65,
   "icon": "",
   "description": "小站 先观察到",
-  "state": 1,
+  "state": 0,
   "pId": 17,
   "id": 186,
   "fullId": "0-5-17-186",
@@ -2231,7 +2219,7 @@
   "sort": 66,
   "icon": "",
   "description": "请收藏我们的备用网址：https://chat.bk8787.com",
-  "state": 1,
+  "state": 0,
   "pId": 17,
   "id": 187,
   "fullId": "0-5-17-187",
@@ -2243,7 +2231,7 @@
   "sort": 67,
   "icon": "",
   "description": "国内备案不封链接：https://chat.jinshutuan.com/（稳定但有严格内容审查，若要分享到国内或微信分享请用此链接） 最新网站存活（无审查且不稳定勿分享）: https://chat2.aichatos.top/",
-  "state": 1,
+  "state": 0,
   "pId": 17,
   "id": 188,
   "fullId": "0-5-17-188",
@@ -2255,7 +2243,7 @@
   "sort": 68,
   "icon": "",
   "description": "ChatGPT使用指南 由于政策问题，国内加速镜像有可能随时不可用，请收藏保存备用域名！！！",
-  "state": 1,
+  "state": 0,
   "pId": 17,
   "id": 189,
   "fullId": "0-5-17-189",
@@ -2444,11 +2432,11 @@
  {
   "title": "印记中文",
   "url": "https://docschina.org/",
+  "pId": 19,
   "sort": 6,
-  "icon": "https://docschina.org/favicon.ico",
+  "icon": "https://docschina.org/_next/static/media/docschina-logo.026ff887.svg",
   "description": "印记中文",
   "state": 1,
-  "pId": 19,
   "id": 205,
   "fullId": "0-2-19-205",
   "pTitle": "在线教程网站"
@@ -2517,7 +2505,7 @@
   "title": "icons",
   "url": "https://icons.mono.company/",
   "sort": 3,
-  "icon": "https://icons.mono.company/favicon.ico",
+  "icon": "",
   "description": "一个简单、一致的开源图标集，设计用于各种数字产品。",
   "state": 1,
   "pId": 20,
@@ -2568,10 +2556,10 @@
   "icon": "",
   "description": "echarts",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 215,
-  "fullId": "0-2-21-215",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-215",
+  "pTitle": "其他官方"
  },
  {
   "title": "highcharts",
@@ -2580,10 +2568,10 @@
   "icon": "https://www.highcharts.com/docs/img/favicon.png",
   "description": "highcharts",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 216,
-  "fullId": "0-2-21-216",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-216",
+  "pTitle": "其他官方"
  },
  {
   "title": "antv",
@@ -2592,22 +2580,22 @@
   "icon": "",
   "description": "antv",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 217,
-  "fullId": "0-2-21-217",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-217",
+  "pTitle": "其他官方"
  },
  {
   "title": "d3",
   "url": "https://d3js.org/",
+  "pId": 35,
   "sort": 3,
-  "icon": "https://d3js.org/favicon.png",
+  "icon": "https://d3js.org/logo.png",
   "description": "d3",
   "state": 1,
-  "pId": 21,
   "id": 218,
-  "fullId": "0-2-21-218",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-218",
+  "pTitle": "其他官方"
  },
  {
   "title": "threejs",
@@ -2616,10 +2604,10 @@
   "icon": "https://threejs.org/files/favicon.ico",
   "description": "threejs",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 219,
-  "fullId": "0-2-21-219",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-219",
+  "pTitle": "其他官方"
  },
  {
   "title": "fabricjs",
@@ -2628,10 +2616,10 @@
   "icon": "",
   "description": "是一个强大而简单的 Javascript HTML5 画布库",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 220,
-  "fullId": "0-2-21-220",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-220",
+  "pTitle": "其他官方"
  },
  {
   "title": "ApexCharts",
@@ -2640,10 +2628,10 @@
   "icon": "https://apexcharts.com/wp-content/themes/apexcharts/favicon.ico",
   "description": "ApexCharts",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 221,
-  "fullId": "0-2-21-221",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-221",
+  "pTitle": "其他官方"
  },
  {
   "title": "WebGL教程",
@@ -2652,10 +2640,10 @@
   "icon": "",
   "description": "国内最好、最系统的WebGL教程",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 222,
-  "fullId": "0-2-21-222",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-222",
+  "pTitle": "其他官方"
  },
  {
   "title": "Cesium中文网",
@@ -2664,10 +2652,10 @@
   "icon": "",
   "description": "Cesium中文网",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 223,
-  "fullId": "0-2-21-223",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-223",
+  "pTitle": "其他官方"
  },
  {
   "title": "Cesium-api",
@@ -2676,10 +2664,10 @@
   "icon": "",
   "description": "Cesium中文api文档",
   "state": 1,
-  "pId": 21,
+  "pId": 35,
   "id": 224,
-  "fullId": "0-2-21-224",
-  "pTitle": "图表库"
+  "fullId": "0-4-35-224",
+  "pTitle": "其他官方"
  },
  {
   "title": "剑指offer算法题",
@@ -2958,27 +2946,14 @@
   "pTitle": "插件和工具"
  },
  {
-  "title": "js-快捷键",
-  "url": "https://marketplace.visualstudio.com/items?itemName=NicholasHsiang.vscode-javascript-snippet",
-  "sort": 4,
-  "icon": "",
-  "description": "js-快捷键",
+  "title": "能用的-aichatos",
+  "url": "https://chat18.aichatos.xyz/",
+  "pId": 17,
+  "sort": "0",
+  "description": "能用的-aichatos",
   "state": 1,
-  "pId": 24,
-  "id": 248,
-  "fullId": "0-12-24-248",
-  "pTitle": "插件和工具"
- },
- {
-  "title": "1loc-快捷键",
-  "url": "https://1loc.dev/",
-  "sort": 5,
-  "icon": "",
-  "description": "1loc-快捷键",
-  "state": 1,
-  "pId": 24,
-  "id": 249,
-  "fullId": "0-12-24-249",
-  "pTitle": "插件和工具"
+  "fullId": "0-5-17-248",
+  "pTitle": "chatGPT",
+  "id": 248
  }
 ]
