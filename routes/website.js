@@ -48,9 +48,8 @@ router.post("/edit", async function (req, res) {
     let categoryDatas = await readJsonFileAndParse(categoryFilePath);
 
     let categoryInfo = categoryDatas.find((item) => item.id === json.pId);
-    json.fullId = categoryInfo.fullId;
+    // json.fullId = categoryInfo.fullId;
 
-    json.fullId += `-${json.id}`;
 
     json.pTitle = categoryInfo.title;
 
@@ -58,13 +57,17 @@ router.post("/edit", async function (req, res) {
         // 新增
         json.id = datas.length + 1;
 
+        json.fullId = `${categoryInfo.fullId}-${json.id}`;
+
         datas.push(json);
     } else {
+        json.fullId = `${categoryInfo.fullId}-${json.id}`;
         // 修改
-        datas.forEach((item) => {
-            if (item.id === json.id) {
-                item = { ...json };
+        datas = datas.map((item) => {
+            if (item.id == json.id) {
+                return json
             }
+            return item
         });
     }
 

@@ -146,14 +146,14 @@
  {
   "title": "github",
   "url": "http://github.com/",
+  "pId": 14,
   "sort": 8,
-  "icon": "https://images.frontendjs.com/github.png?imageView2/2/h/30",
+  "icon": "https://www.github-zh.com/favicon.ico",
   "description": "github",
   "state": 1,
-  "pId": 14,
   "id": 13,
-  "fullId": "0-2-14-13",
-  "pTitle": "文档资源"
+  "pTitle": "文档资源",
+  "fullId": "0-2-14-13"
  },
  {
   "title": "码云",
@@ -406,6 +406,18 @@
   "id": 34,
   "fullId": "0-2-28-34",
   "pTitle": "图片"
+ },
+ {
+  "title": "GitHub 中文社区",
+  "url": "https://www.github-zh.com/",
+  "pId": 14,
+  "sort": "1",
+  "icon": "https://www.github-zh.com/favicon.ico",
+  "description": "GitHub 中文社区  top的项目",
+  "state": 1,
+  "id": 35,
+  "fullId": "0-2-14-35",
+  "pTitle": "文档资源"
  },
  {
   "title": "在线ps",
@@ -686,14 +698,14 @@
  {
   "title": "mobx",
   "url": "https://cn.mobx.js.org/",
+  "pId": 31,
   "sort": 15,
-  "icon": "https://www.mobxjs.com/img/favicon.png",
+  "icon": "https://mobx.js.org/assets/mobx.png",
   "description": "MobX 是一个经过战火洗礼的库,使得状态管理变得简单和可扩展",
   "state": 1,
-  "pId": 31,
   "id": 59,
-  "fullId": "0-3-31-59",
-  "pTitle": "Vue2 周边"
+  "pTitle": "React 周边",
+  "fullId": "0-3-31-59"
  },
  {
   "title": "ahooks",
@@ -2955,5 +2967,41 @@
   "fullId": "0-5-17-248",
   "pTitle": "chatGPT",
   "id": 248
+ },
+ {
+  "title": "googlegemini",
+  "url": "https://googlegemini.co/try-google-gemini-for-free",
+  "pId": 17,
+  "sort": "1",
+  "icon": "https://googlegemini.co/static/img/favicon.ico",
+  "description": "谷歌对比gpt4,在线",
+  "state": 1,
+  "pTitle": "chatGPT",
+  "id": 249,
+  "fullId": "0-5-17-249"
+ },
+ {
+  "title": "Gemini Pro Chat",
+  "url": "https://geminiprochat.com/",
+  "pId": 17,
+  "sort": "2",
+  "icon": "https://geminiprochat.com/icon.svg",
+  "description": "https://geminiprochat.com/   私人开发的 Gemini  需要fq",
+  "state": 1,
+  "pTitle": "chatGPT",
+  "id": 250,
+  "fullId": "0-5-17-250"
+ },
+ {
+  "title": "ruanyf 周刊",
+  "url": "https://github.com/ruanyf/weekly",
+  "pId": 14,
+  "sort": "3",
+  "icon": "https://avatars.githubusercontent.com/u/905434?s=48&v=4",
+  "description": "科技爱好者周刊\n记录每周值得分享的科技内容，周五发布。",
+  "state": 1,
+  "id": 251,
+  "pTitle": "文档资源",
+  "fullId": "0-2-14-251"
  }
 ]
