@@ -3003,5 +3003,29 @@
   "id": 251,
   "pTitle": "文档资源",
   "fullId": "0-2-14-251"
+ },
+ {
+  "title": "讯飞星火",
+  "url": "https://xinghuo.xfyun.cn/desk",
+  "pId": 17,
+  "sort": "0",
+  "icon": "https://xhspdup.xfyun.cn/static/media/sparkdesk.34d76de5c2313b16ec3beacbe4269b9f.svg",
+  "description": "您好，我是讯飞星火认知大模型我能够学习和理解人类的语言，进行多轮对话哦~",
+  "state": 1,
+  "pTitle": "chatGPT",
+  "id": 252,
+  "fullId": "0-5-17-252"
+ },
+ {
+  "title": "通义千问",
+  "url": "https://tongyi.aliyun.com/qianwen/",
+  "pId": 17,
+  "sort": "0",
+  "icon": "https://img.alicdn.com/imgextra/i4/O1CN01c26iB51UyR3MKMFvk_!!6000000002586-2-tps-124-122.png",
+  "description": "你好，我是通义千问\n我能理解人类语言、生成内容，是你生活和工作的智能助手。",
+  "state": 1,
+  "pTitle": "chatGPT",
+  "id": 253,
+  "fullId": "0-5-17-253"
  }
 ]
