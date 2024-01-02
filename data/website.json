@@ -3033,5 +3033,27 @@
   "pTitle": "chatGPT",
   "id": 253,
   "fullId": "0-5-17-253"
+ },
+ {
+  "title": "npm依赖分析",
+  "url": "https://npmgraph.js.org/",
+  "pId": 36,
+  "sort": "0",
+  "description": "npm依赖分析,开发npm包用",
+  "state": 1,
+  "pTitle": "常用工具网址",
+  "id": 254,
+  "fullId": "0-5-36-254"
+ },
+ {
+  "title": "ocr",
+  "url": "https://ocr.space/#",
+  "pId": 36,
+  "sort": "0",
+  "description": "ocr 文字提取 国外的网站比较好用",
+  "state": 1,
+  "pTitle": "常用工具网址",
+  "id": 255,
+  "fullId": "0-5-36-255"
  }
 ]
