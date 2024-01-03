@@ -3055,5 +3055,17 @@
   "pTitle": "常用工具网址",
   "id": 255,
   "fullId": "0-5-36-255"
+ },
+ {
+  "title": "nginx可视化",
+  "url": "https://www.digitalocean.com/community/tools/nginx?global.app.lang=zhCN",
+  "pId": 36,
+  "sort": "0",
+  "icon": "https://www.digitalocean.com/_next/static/media/favicon.594d6067.ico",
+  "description": "NGINX 配置配置高性能、安全、稳定的NGINX服务器的最简单方法。",
+  "state": 1,
+  "pTitle": "常用工具网址",
+  "id": 256,
+  "fullId": "0-5-36-256"
  }
 ]
