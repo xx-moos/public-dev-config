@@ -122,9 +122,9 @@
                         ellipsis: true,
                     },
                     {
-                        title: "网站上级分类",
+                        title: "网站分类",
                         dataIndex: "pTitle",
-                        valueType: "cascader",
+                        valueType: "select",
                         fieldProps: {
                             options: opts,
                             fieldNames: {
@@ -270,8 +270,6 @@
                         defaultPageSize: 60,
                     },
 
-                    
-
                     rowSelection: {
                         // 自定义选择项参考: https://ant.design/components/table-cn/#components-table-demo-row-selection-custom
                         // 注释该行则默认不显示下拉选项
@@ -316,10 +314,14 @@
                     },
 
                     request: async (params = {}, sort, filter) => {
-                        if (params.pTitle && params.pTitle.length) {
-                            params.pId = params.pTitle[params.pTitle.length - 1];
+                        if (params.pTitle) {
+                            params.pId = params.pTitle;
                             delete params.pTitle;
                         }
+                        // if (params.pTitle && params.pTitle.length) {
+                        //     params.pId = params.pTitle[params.pTitle.length - 1];
+                        //     delete params.pTitle;
+                        // }
                         return list(params);
                     },
 

@@ -2,26 +2,26 @@
  {
   "title": "cn.bing",
   "url": "https://cn.bing.com/",
-  "pId": 13,
+  "pId": 1,
   "sort": 0,
   "icon": "https://cn.bing.com/sa/simg/favicon-2x.ico",
   "description": "cn.bing",
   "state": 1,
   "id": 1,
-  "fullId": "0-1-13-1",
-  "pTitle": "搜索引擎"
+  "pTitle": "搜索引擎",
+  "fullId": "0-1-1"
  },
  {
   "title": "google.com",
   "url": "https://www.google.com/",
-  "pId": 13,
+  "pId": 1,
   "sort": 1,
   "icon": "https://tse2-mm.cn.bing.net/th/id/OIP-C.1pgCfEXLnRUj6tf68U4TJwAAAA?rs=1&pid=ImgDetMain",
   "description": "google.com",
   "state": 1,
   "id": 2,
-  "fullId": "0-1-13-2",
-  "pTitle": "搜索引擎"
+  "pTitle": "搜索引擎",
+  "fullId": "0-1-2"
  },
  {
   "title": "猫爪导航",
@@ -32,8 +32,8 @@
   "description": "猫爪导航",
   "state": 1,
   "id": 3,
-  "fullId": "0-1-25-3",
-  "pTitle": "资讯导航"
+  "pTitle": "资讯导航",
+  "fullId": "0-25-3"
  },
  {
   "title": "今日热榜",
@@ -44,8 +44,8 @@
   "description": "今日热榜",
   "state": 1,
   "id": 4,
-  "fullId": "0-1-25-4",
-  "pTitle": "资讯导航"
+  "pTitle": "资讯导航",
+  "fullId": "0-25-4"
  },
  {
   "title": "百度翻译",
@@ -56,7 +56,7 @@
   "state": 1,
   "pId": 27,
   "id": 5,
-  "fullId": "0-2-27-5",
+  "fullId": "0-27-5",
   "pTitle": "翻译"
  },
  {
@@ -68,7 +68,7 @@
   "state": 1,
   "pId": 27,
   "id": 6,
-  "fullId": "0-2-27-6",
+  "fullId": "0-27-6",
   "pTitle": "翻译"
  },
  {
@@ -80,7 +80,7 @@
   "description": "腾讯软件",
   "state": 1,
   "id": 7,
-  "fullId": "0-2-27-7",
+  "fullId": "0-27-7",
   "pTitle": "翻译"
  },
  {
@@ -92,7 +92,7 @@
   "state": 1,
   "pId": 28,
   "id": 8,
-  "fullId": "0-2-28-8",
+  "fullId": "0-28-8",
   "pTitle": "图片"
  },
  {
@@ -104,7 +104,7 @@
   "state": 1,
   "pId": 28,
   "id": 9,
-  "fullId": "0-2-28-9",
+  "fullId": "0-28-9",
   "pTitle": "图片"
  },
  {
@@ -116,7 +116,7 @@
   "state": 1,
   "pId": 14,
   "id": 10,
-  "fullId": "0-2-14-10",
+  "fullId": "0-14-10",
   "pTitle": "文档资源"
  },
  {
@@ -128,7 +128,7 @@
   "state": 1,
   "pId": 14,
   "id": 11,
-  "fullId": "0-2-14-11",
+  "fullId": "0-14-11",
   "pTitle": "文档资源"
  },
  {
@@ -140,7 +140,7 @@
   "description": "掘金",
   "state": 1,
   "id": 12,
-  "fullId": "0-2-14-12",
+  "fullId": "0-14-12",
   "pTitle": "文档资源"
  },
  {
@@ -153,7 +153,7 @@
   "state": 1,
   "id": 13,
   "pTitle": "文档资源",
-  "fullId": "0-2-14-13"
+  "fullId": "0-14-13"
  },
  {
   "title": "码云",
@@ -164,7 +164,7 @@
   "state": 1,
   "pId": 14,
   "id": 14,
-  "fullId": "0-2-14-14",
+  "fullId": "0-14-14",
   "pTitle": "文档资源"
  },
  {
@@ -176,7 +176,7 @@
   "description": "Coding.net 是一个面向开发者的云端开发平台，提供 Git/SVN 代码托管、任务管理、在线 WebIDE、Cloud Studio、开发协作、文件管理、Wiki 管理、提供个人服务及企业版本的服务",
   "state": 1,
   "id": 15,
-  "fullId": "0-2-14-15",
+  "fullId": "0-14-15",
   "pTitle": "文档资源"
  },
  {
@@ -188,7 +188,7 @@
   "state": 1,
   "pId": 14,
   "id": 16,
-  "fullId": "0-2-14-16",
+  "fullId": "0-14-16",
   "pTitle": "文档资源"
  },
  {
@@ -200,7 +200,7 @@
   "description": "MDH Weekly MDH 前端周刊 我叫陈成（sorrycc），曾就职于阿里巴巴，取花名「云谦」，后转岗到蚂蚁集团，工作至今",
   "state": 1,
   "id": 17,
-  "fullId": "0-2-14-17",
+  "fullId": "0-14-17",
   "pTitle": "文档资源"
  },
  {
@@ -212,7 +212,7 @@
   "state": 1,
   "pId": 26,
   "id": 18,
-  "fullId": "0-2-26-18",
+  "fullId": "0-26-18",
   "pTitle": "cdn网址"
  },
  {
@@ -224,7 +224,7 @@
   "description": "cdnjs是一个免费和开源的CDN服务，超过12.5%的网站信任，每月服务超过2000亿次请求，由Cloudflare提供支持。",
   "state": 1,
   "id": 19,
-  "fullId": "0-2-26-19",
+  "fullId": "0-26-19",
   "pTitle": "cdn网址"
  },
  {
@@ -236,7 +236,7 @@
   "description": "此仓库由国内优秀的云存储服务商 七牛云 提供存储和加速赞助。同步国外 CDNJS 源站，同时由国内开源贡献值提交其它有价值的库。感谢所有开源库作者和挖掘者的努力。",
   "state": 1,
   "id": 20,
-  "fullId": "0-2-26-20",
+  "fullId": "0-26-20",
   "pTitle": "cdn网址"
  },
  {
@@ -248,7 +248,7 @@
   "state": 1,
   "pId": 26,
   "id": 21,
-  "fullId": "0-2-26-21",
+  "fullId": "0-26-21",
   "pTitle": "cdn网址"
  },
  {
@@ -260,7 +260,7 @@
   "description": "jsdelivr",
   "state": 1,
   "id": 22,
-  "fullId": "0-2-26-22",
+  "fullId": "0-26-22",
   "pTitle": "cdn网址"
  },
  {
@@ -272,7 +272,7 @@
   "description": "jQuery CDN -最新稳定版本",
   "state": 1,
   "id": 23,
-  "fullId": "0-2-26-23",
+  "fullId": "0-26-23",
   "pTitle": "cdn网址"
  },
  {
@@ -284,7 +284,7 @@
   "state": 1,
   "pId": 26,
   "id": 24,
-  "fullId": "0-2-26-24",
+  "fullId": "0-26-24",
   "pTitle": "cdn网址"
  },
  {
@@ -296,7 +296,7 @@
   "state": 1,
   "pId": 26,
   "id": 25,
-  "fullId": "0-2-26-25",
+  "fullId": "0-26-25",
   "pTitle": "cdn网址"
  },
  {
@@ -308,7 +308,7 @@
   "state": 1,
   "pId": 14,
   "id": 26,
-  "fullId": "0-2-14-26",
+  "fullId": "0-14-26",
   "pTitle": "文档资源"
  },
  {
@@ -320,7 +320,7 @@
   "description": "React Hooks全面理解教程-前端开发博客",
   "state": 1,
   "id": 27,
-  "fullId": "0-2-14-27",
+  "fullId": "0-14-27",
   "pTitle": "文档资源"
  },
  {
@@ -332,7 +332,7 @@
   "state": 1,
   "pId": 14,
   "id": 28,
-  "fullId": "0-2-14-28",
+  "fullId": "0-14-28",
   "pTitle": "文档资源"
  },
  {
@@ -344,7 +344,7 @@
   "description": "react单元测试和集成测试",
   "state": 1,
   "id": 29,
-  "fullId": "0-2-14-29",
+  "fullId": "0-14-29",
   "pTitle": "文档资源"
  },
  {
@@ -356,7 +356,7 @@
   "state": 1,
   "pId": 29,
   "id": 30,
-  "fullId": "0-2-29-30",
+  "fullId": "0-29-30",
   "pTitle": "在线工具网址"
  },
  {
@@ -368,7 +368,7 @@
   "state": 1,
   "pId": 28,
   "id": 31,
-  "fullId": "0-2-28-31",
+  "fullId": "0-28-31",
   "pTitle": "图片"
  },
  {
@@ -380,7 +380,7 @@
   "description": "中国色",
   "state": 1,
   "id": 32,
-  "fullId": "0-2-28-32",
+  "fullId": "0-28-32",
   "pTitle": "图片"
  },
  {
@@ -392,7 +392,7 @@
   "state": 1,
   "pId": 28,
   "id": 33,
-  "fullId": "0-2-28-33",
+  "fullId": "0-28-33",
   "pTitle": "图片"
  },
  {
@@ -404,7 +404,7 @@
   "state": 1,
   "pId": 28,
   "id": 34,
-  "fullId": "0-2-28-34",
+  "fullId": "0-28-34",
   "pTitle": "图片"
  },
  {
@@ -416,7 +416,7 @@
   "description": "GitHub 中文社区  top的项目",
   "state": 1,
   "id": 35,
-  "fullId": "0-2-14-35",
+  "fullId": "0-14-35",
   "pTitle": "文档资源"
  },
  {
@@ -428,7 +428,7 @@
   "state": 1,
   "pId": 28,
   "id": 36,
-  "fullId": "0-2-28-36",
+  "fullId": "0-28-36",
   "pTitle": "图片"
  },
  {
@@ -440,7 +440,7 @@
   "icon": "https://www.pixilart.com/images/favicon/favicon-32x32.png?v=jw6qNMPWz4",
   "description": "像素风设计",
   "id": 37,
-  "fullId": "0-2-28-37",
+  "fullId": "0-28-37",
   "pTitle": "图片"
  },
  {
@@ -452,7 +452,7 @@
   "state": 1,
   "pId": 29,
   "id": 38,
-  "fullId": "0-2-29-38",
+  "fullId": "0-29-38",
   "pTitle": "在线工具网址"
  },
  {
@@ -464,7 +464,7 @@
   "icon": "https://cdn-sqn.aigei.com/assets/site/img/icon/favicon.ico",
   "description": "爱给",
   "id": 39,
-  "fullId": "0-2-28-39",
+  "fullId": "0-28-39",
   "pTitle": "图片"
  },
  {
@@ -476,7 +476,7 @@
   "icon": "https://wallhaven.cc/favicon.ico",
   "description": "网络上最好的壁纸！",
   "id": 40,
-  "fullId": "0-2-28-40",
+  "fullId": "0-28-40",
   "pTitle": "图片"
  },
  {
@@ -488,7 +488,7 @@
   "state": 1,
   "pId": 29,
   "id": 41,
-  "fullId": "0-2-29-41",
+  "fullId": "0-29-41",
   "pTitle": "在线工具网址"
  },
  {
@@ -500,7 +500,7 @@
   "state": 1,
   "pId": 29,
   "id": 42,
-  "fullId": "0-2-29-42",
+  "fullId": "0-29-42",
   "pTitle": "在线工具网址"
  },
  {
@@ -512,7 +512,7 @@
   "state": 1,
   "pId": 29,
   "id": 43,
-  "fullId": "0-2-29-43",
+  "fullId": "0-29-43",
   "pTitle": "在线工具网址"
  },
  {
@@ -524,7 +524,7 @@
   "state": 1,
   "pId": 15,
   "id": 44,
-  "fullId": "0-3-15-44",
+  "fullId": "0-15-44",
   "pTitle": "Vue2 周边"
  },
  {
@@ -536,7 +536,7 @@
   "state": 1,
   "pId": 15,
   "id": 45,
-  "fullId": "0-3-15-45",
+  "fullId": "0-15-45",
   "pTitle": "Vue2 周边"
  },
  {
@@ -548,7 +548,7 @@
   "state": 1,
   "pId": 15,
   "id": 46,
-  "fullId": "0-3-15-46",
+  "fullId": "0-15-46",
   "pTitle": "Vue2 周边"
  },
  {
@@ -560,8 +560,8 @@
   "state": 1,
   "pId": 30,
   "id": 47,
-  "fullId": "0-3-30-47",
-  "pTitle": "Vue2 周边"
+  "fullId": "0-30-47",
+  "pTitle": "Vue3 周边"
  },
  {
   "title": "Pinia",
@@ -572,8 +572,8 @@
   "state": 1,
   "pId": 30,
   "id": 48,
-  "fullId": "0-3-30-48",
-  "pTitle": "Vue2 周边"
+  "fullId": "0-30-48",
+  "pTitle": "Vue3 周边"
  },
  {
   "title": "v2 element",
@@ -584,7 +584,7 @@
   "description": "element vue2",
   "state": 1,
   "id": 49,
-  "fullId": "0-3-15-49",
+  "fullId": "0-15-49",
   "pTitle": "Vue2 周边"
  },
  {
@@ -596,7 +596,7 @@
   "description": "element vue3",
   "state": 1,
   "id": 50,
-  "fullId": "0-3-30-50",
+  "fullId": "0-30-50",
   "pTitle": "Vue3 周边"
  },
  {
@@ -608,7 +608,7 @@
   "description": "antd vue  2,3",
   "state": 1,
   "id": 51,
-  "fullId": "0-3-30-51",
+  "fullId": "0-30-51",
   "pTitle": "Vue3 周边"
  },
  {
@@ -620,7 +620,7 @@
   "description": "vant vue2",
   "state": 1,
   "id": 52,
-  "fullId": "0-3-15-52",
+  "fullId": "0-15-52",
   "pTitle": "Vue2 周边"
  },
  {
@@ -632,7 +632,7 @@
   "description": "vant vue3",
   "state": 1,
   "id": 53,
-  "fullId": "0-3-30-53",
+  "fullId": "0-30-53",
   "pTitle": "Vue3 周边"
  },
  {
@@ -644,7 +644,7 @@
   "state": 1,
   "pId": 15,
   "id": 54,
-  "fullId": "0-3-15-54",
+  "fullId": "0-15-54",
   "pTitle": "Vue2 周边"
  },
  {
@@ -656,7 +656,7 @@
   "description": "一个 Vue 3 组件库 比较完整，主题可调，使用 TypeScript，快 有点意思",
   "state": 1,
   "id": 55,
-  "fullId": "0-3-30-55",
+  "fullId": "0-30-55",
   "pTitle": "Vue3 周边"
  },
  {
@@ -668,44 +668,44 @@
   "state": 1,
   "pId": 30,
   "id": 56,
-  "fullId": "0-3-30-56",
-  "pTitle": "Vue2 周边"
+  "fullId": "0-30-56",
+  "pTitle": "Vue3 周边"
  },
  {
   "title": "react-router",
   "url": "https://reactrouter.com/en/main",
-  "pId": 31,
+  "pId": 19,
   "sort": 13,
   "icon": "https://reactrouter.com/favicon-light.png",
   "description": "react 的官方路由",
   "state": 1,
   "id": 57,
-  "fullId": "0-3-31-57",
-  "pTitle": "React 周边"
+  "fullId": "0-19-57",
+  "pTitle": "react生态"
  },
  {
   "title": "react-router v5",
   "url": "https://v5.reactrouter.com/web/guides/quick-start",
-  "pId": 31,
+  "pId": 19,
   "sort": 14,
   "icon": "https://reactrouter.com/favicon-light.png",
   "description": "react 的官方路由 v5",
   "state": 1,
   "id": 58,
-  "fullId": "0-3-31-58",
-  "pTitle": "React 周边"
+  "fullId": "0-19-58",
+  "pTitle": "react生态"
  },
  {
   "title": "mobx",
   "url": "https://cn.mobx.js.org/",
-  "pId": 31,
+  "pId": 19,
   "sort": 15,
   "icon": "https://mobx.js.org/assets/mobx.png",
   "description": "MobX 是一个经过战火洗礼的库,使得状态管理变得简单和可扩展",
   "state": 1,
   "id": 59,
-  "pTitle": "React 周边",
-  "fullId": "0-3-31-59"
+  "pTitle": "react生态",
+  "fullId": "0-19-59"
  },
  {
   "title": "ahooks",
@@ -714,10 +714,10 @@
   "icon": "https://ahooks.gitee.io/simple-logo.svg",
   "description": "一套高质量可靠的 React Hooks 库",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 60,
-  "fullId": "0-3-31-60",
-  "pTitle": "React 周边"
+  "fullId": "0-19-60",
+  "pTitle": "react生态"
  },
  {
   "title": "formilyjs",
@@ -726,10 +726,10 @@
   "icon": "",
   "description": "阿里巴巴统一前端表单解决方案",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 61,
-  "fullId": "0-3-31-61",
-  "pTitle": "React 周边"
+  "fullId": "0-19-61",
+  "pTitle": "react生态"
  },
  {
   "title": "procomponents",
@@ -738,10 +738,10 @@
   "icon": "",
   "description": "让中后台开发更简单",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 62,
-  "fullId": "0-3-31-62",
-  "pTitle": "React 周边"
+  "fullId": "0-19-62",
+  "pTitle": "react生态"
  },
  {
   "title": "antd react",
@@ -750,10 +750,10 @@
   "icon": "",
   "description": "react 的 antd 框架",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 63,
-  "fullId": "0-3-31-63",
-  "pTitle": "React 周边"
+  "fullId": "0-19-63",
+  "pTitle": "react生态"
  },
  {
   "title": "antd-mobile",
@@ -762,10 +762,10 @@
   "icon": "",
   "description": "react 的 antd 移动端框架",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 64,
-  "fullId": "0-3-31-64",
-  "pTitle": "React 周边"
+  "fullId": "0-19-64",
+  "pTitle": "react生态"
  },
  {
   "title": "arco-design",
@@ -774,10 +774,10 @@
   "icon": "https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico",
   "description": "字节跳动出品的企业级设计系统 react",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 65,
-  "fullId": "0-3-31-65",
-  "pTitle": "React 周边"
+  "fullId": "0-19-65",
+  "pTitle": "react生态"
  },
  {
   "title": "MUI",
@@ -786,10 +786,10 @@
   "icon": "https://mui.com/static/favicon.ico",
   "description": "立即开始使用 React 和 Material-UI。",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 66,
-  "fullId": "0-3-31-66",
-  "pTitle": "React 周边"
+  "fullId": "0-19-66",
+  "pTitle": "react生态"
  },
  {
   "title": "TDesign",
@@ -798,10 +798,10 @@
   "icon": "",
   "description": "腾讯企业级设计体系",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 67,
-  "fullId": "0-3-31-67",
-  "pTitle": "React 周边"
+  "fullId": "0-19-67",
+  "pTitle": "react生态"
  },
  {
   "title": "NutUI-JDT",
@@ -810,22 +810,22 @@
   "icon": "https://img12.360buyimg.com/imagetools/jfs/t1/101920/21/28459/834912/62870b04E0e1f20ec/17425bea5318a22c.png",
   "description": "京东科技移动端组件库",
   "state": 1,
-  "pId": 31,
+  "pId": 19,
   "id": 68,
-  "fullId": "0-3-31-68",
-  "pTitle": "React 周边"
+  "fullId": "0-19-68",
+  "pTitle": "react生态"
  },
  {
   "title": "Antd Angular",
   "url": "https://ng.ant.design/docs/introduce/zh",
-  "pId": 31,
+  "pId": 19,
   "sort": 25,
   "icon": "https://ng.ant.design/assets/img/logo.svg",
   "description": "遵循 Ant Design 设计规范的 Angular UI 组件库",
   "state": 1,
   "id": 69,
-  "fullId": "0-3-31-69",
-  "pTitle": "React 周边"
+  "fullId": "0-19-69",
+  "pTitle": "react生态"
  },
  {
   "title": "babel",
@@ -836,7 +836,7 @@
   "description": "今天就开始使用下一代的 JavaScript 语法编程吧！",
   "state": 1,
   "id": 70,
-  "fullId": "0-3-32-70",
+  "fullId": "0-32-70",
   "pTitle": "js 周边"
  },
  {
@@ -848,7 +848,7 @@
   "state": 1,
   "pId": 32,
   "id": 71,
-  "fullId": "0-3-32-71",
+  "fullId": "0-32-71",
   "pTitle": "js 周边"
  },
  {
@@ -860,7 +860,7 @@
   "state": 1,
   "pId": 32,
   "id": 72,
-  "fullId": "0-3-32-72",
+  "fullId": "0-32-72",
   "pTitle": "js 周边"
  },
  {
@@ -872,7 +872,7 @@
   "state": 1,
   "pId": 32,
   "id": 73,
-  "fullId": "0-3-32-73",
+  "fullId": "0-32-73",
   "pTitle": "js 周边"
  },
  {
@@ -884,7 +884,7 @@
   "state": 1,
   "pId": 32,
   "id": 74,
-  "fullId": "0-3-32-74",
+  "fullId": "0-32-74",
   "pTitle": "js 周边"
  },
  {
@@ -896,7 +896,7 @@
   "state": 1,
   "pId": 32,
   "id": 75,
-  "fullId": "0-3-32-75",
+  "fullId": "0-32-75",
   "pTitle": "js 周边"
  },
  {
@@ -908,7 +908,7 @@
   "state": 1,
   "pId": 32,
   "id": 76,
-  "fullId": "0-3-32-76",
+  "fullId": "0-32-76",
   "pTitle": "js 周边"
  },
  {
@@ -920,7 +920,7 @@
   "state": 1,
   "pId": 32,
   "id": 77,
-  "fullId": "0-3-32-77",
+  "fullId": "0-32-77",
   "pTitle": "js 周边"
  },
  {
@@ -932,7 +932,7 @@
   "state": 1,
   "pId": 32,
   "id": 78,
-  "fullId": "0-3-32-78",
+  "fullId": "0-32-78",
   "pTitle": "js 周边"
  },
  {
@@ -944,7 +944,7 @@
   "state": 1,
   "pId": 32,
   "id": 79,
-  "fullId": "0-3-32-79",
+  "fullId": "0-32-79",
   "pTitle": "js 周边"
  },
  {
@@ -956,7 +956,7 @@
   "state": 1,
   "pId": 32,
   "id": 80,
-  "fullId": "0-3-32-80",
+  "fullId": "0-32-80",
   "pTitle": "js 周边"
  },
  {
@@ -968,7 +968,7 @@
   "state": 1,
   "pId": 32,
   "id": 81,
-  "fullId": "0-3-32-81",
+  "fullId": "0-32-81",
   "pTitle": "js 周边"
  },
  {
@@ -980,7 +980,7 @@
   "state": 1,
   "pId": 32,
   "id": 82,
-  "fullId": "0-3-32-82",
+  "fullId": "0-32-82",
   "pTitle": "js 周边"
  },
  {
@@ -992,7 +992,7 @@
   "state": 1,
   "pId": 32,
   "id": 83,
-  "fullId": "0-3-32-83",
+  "fullId": "0-32-83",
   "pTitle": "js 周边"
  },
  {
@@ -1004,7 +1004,7 @@
   "state": 1,
   "pId": 32,
   "id": 84,
-  "fullId": "0-3-32-84",
+  "fullId": "0-32-84",
   "pTitle": "js 周边"
  },
  {
@@ -1016,7 +1016,7 @@
   "state": 1,
   "pId": 32,
   "id": 85,
-  "fullId": "0-3-32-85",
+  "fullId": "0-32-85",
   "pTitle": "js 周边"
  },
  {
@@ -1028,7 +1028,7 @@
   "state": 1,
   "pId": 32,
   "id": 86,
-  "fullId": "0-3-32-86",
+  "fullId": "0-32-86",
   "pTitle": "js 周边"
  },
  {
@@ -1040,7 +1040,7 @@
   "state": 1,
   "pId": 32,
   "id": 87,
-  "fullId": "0-3-32-87",
+  "fullId": "0-32-87",
   "pTitle": "js 周边"
  },
  {
@@ -1052,7 +1052,7 @@
   "state": 1,
   "pId": 32,
   "id": 88,
-  "fullId": "0-3-32-88",
+  "fullId": "0-32-88",
   "pTitle": "js 周边"
  },
  {
@@ -1064,7 +1064,7 @@
   "state": 1,
   "pId": 32,
   "id": 89,
-  "fullId": "0-3-32-89",
+  "fullId": "0-32-89",
   "pTitle": "js 周边"
  },
  {
@@ -1076,7 +1076,7 @@
   "icon": "https://overapi.com/favicon.ico",
   "description": "程序员备忘录文档",
   "id": 90,
-  "fullId": "0-2-14-90",
+  "fullId": "0-14-90",
   "pTitle": "文档资源"
  },
  {
@@ -1088,7 +1088,7 @@
   "description": "你可能不需要jQuery",
   "state": 1,
   "id": 91,
-  "fullId": "0-3-32-91",
+  "fullId": "0-32-91",
   "pTitle": "js 周边"
  },
  {
@@ -1100,7 +1100,7 @@
   "state": 1,
   "pId": 16,
   "id": 92,
-  "fullId": "0-4-16-92",
+  "fullId": "0-16-92",
   "pTitle": "Vue 官方"
  },
  {
@@ -1112,7 +1112,7 @@
   "state": 1,
   "pId": 16,
   "id": 93,
-  "fullId": "0-4-16-93",
+  "fullId": "0-16-93",
   "pTitle": "Vue 官方"
  },
  {
@@ -1124,7 +1124,7 @@
   "state": 1,
   "pId": 16,
   "id": 94,
-  "fullId": "0-4-16-94",
+  "fullId": "0-16-94",
   "pTitle": "Vue 官方"
  },
  {
@@ -1136,7 +1136,7 @@
   "state": 1,
   "pId": 16,
   "id": 95,
-  "fullId": "0-4-16-95",
+  "fullId": "0-16-95",
   "pTitle": "Vue 官方"
  },
  {
@@ -1148,7 +1148,7 @@
   "state": 1,
   "pId": 16,
   "id": 96,
-  "fullId": "0-4-16-96",
+  "fullId": "0-16-96",
   "pTitle": "Vue 官方"
  },
  {
@@ -1160,7 +1160,7 @@
   "state": 1,
   "pId": 33,
   "id": 97,
-  "fullId": "0-4-33-97",
+  "fullId": "0-33-97",
   "pTitle": "React 官方"
  },
  {
@@ -1172,7 +1172,7 @@
   "state": 1,
   "pId": 33,
   "id": 98,
-  "fullId": "0-4-33-98",
+  "fullId": "0-33-98",
   "pTitle": "React 官方"
  },
  {
@@ -1184,7 +1184,7 @@
   "state": 1,
   "pId": 33,
   "id": 99,
-  "fullId": "0-4-33-99",
+  "fullId": "0-33-99",
   "pTitle": "React 官方"
  },
  {
@@ -1196,7 +1196,7 @@
   "state": 1,
   "pId": 33,
   "id": 100,
-  "fullId": "0-4-33-100",
+  "fullId": "0-33-100",
   "pTitle": "React 官方"
  },
  {
@@ -1208,7 +1208,7 @@
   "state": 1,
   "pId": 33,
   "id": 101,
-  "fullId": "0-4-33-101",
+  "fullId": "0-33-101",
   "pTitle": "React 官方"
  },
  {
@@ -1220,7 +1220,7 @@
   "state": 1,
   "pId": 33,
   "id": 102,
-  "fullId": "0-4-33-102",
+  "fullId": "0-33-102",
   "pTitle": "React 官方"
  },
  {
@@ -1232,7 +1232,7 @@
   "state": 1,
   "pId": 33,
   "id": 103,
-  "fullId": "0-4-33-103",
+  "fullId": "0-33-103",
   "pTitle": "React 官方"
  },
  {
@@ -1244,7 +1244,7 @@
   "state": 1,
   "pId": 34,
   "id": 104,
-  "fullId": "0-4-34-104",
+  "fullId": "0-34-104",
   "pTitle": "NodeJs 官方"
  },
  {
@@ -1256,7 +1256,7 @@
   "state": 1,
   "pId": 34,
   "id": 105,
-  "fullId": "0-4-34-105",
+  "fullId": "0-34-105",
   "pTitle": "NodeJs 官方"
  },
  {
@@ -1268,7 +1268,7 @@
   "state": 1,
   "pId": 34,
   "id": 106,
-  "fullId": "0-4-34-106",
+  "fullId": "0-34-106",
   "pTitle": "NodeJs 官方"
  },
  {
@@ -1280,7 +1280,7 @@
   "state": 1,
   "pId": 34,
   "id": 107,
-  "fullId": "0-4-34-107",
+  "fullId": "0-34-107",
   "pTitle": "NodeJs 官方"
  },
  {
@@ -1292,7 +1292,7 @@
   "state": 1,
   "pId": 35,
   "id": 108,
-  "fullId": "0-4-35-108",
+  "fullId": "0-35-108",
   "pTitle": "其他官方"
  },
  {
@@ -1304,7 +1304,7 @@
   "state": 1,
   "pId": 35,
   "id": 109,
-  "fullId": "0-4-35-109",
+  "fullId": "0-35-109",
   "pTitle": "其他官方"
  },
  {
@@ -1316,7 +1316,7 @@
   "state": 1,
   "pId": 35,
   "id": 110,
-  "fullId": "0-4-35-110",
+  "fullId": "0-35-110",
   "pTitle": "其他官方"
  },
  {
@@ -1328,7 +1328,7 @@
   "state": 1,
   "pId": 35,
   "id": 111,
-  "fullId": "0-4-35-111",
+  "fullId": "0-35-111",
   "pTitle": "其他官方"
  },
  {
@@ -1340,7 +1340,7 @@
   "state": 1,
   "pId": 35,
   "id": 112,
-  "fullId": "0-4-35-112",
+  "fullId": "0-35-112",
   "pTitle": "其他官方"
  },
  {
@@ -1352,7 +1352,7 @@
   "state": 1,
   "pId": 35,
   "id": 113,
-  "fullId": "0-4-35-113",
+  "fullId": "0-35-113",
   "pTitle": "其他官方"
  },
  {
@@ -1364,7 +1364,7 @@
   "state": 1,
   "pId": 35,
   "id": 114,
-  "fullId": "0-4-35-114",
+  "fullId": "0-35-114",
   "pTitle": "其他官方"
  },
  {
@@ -1376,7 +1376,7 @@
   "state": 1,
   "pId": 35,
   "id": 115,
-  "fullId": "0-4-35-115",
+  "fullId": "0-35-115",
   "pTitle": "其他官方"
  },
  {
@@ -1388,7 +1388,7 @@
   "state": 1,
   "pId": 35,
   "id": 116,
-  "fullId": "0-4-35-116",
+  "fullId": "0-35-116",
   "pTitle": "其他官方"
  },
  {
@@ -1400,7 +1400,7 @@
   "state": 1,
   "pId": 35,
   "id": 117,
-  "fullId": "0-4-35-117",
+  "fullId": "0-35-117",
   "pTitle": "其他官方"
  },
  {
@@ -1412,7 +1412,7 @@
   "state": 1,
   "pId": 35,
   "id": 118,
-  "fullId": "0-4-35-118",
+  "fullId": "0-35-118",
   "pTitle": "其他官方"
  },
  {
@@ -1424,7 +1424,7 @@
   "state": 1,
   "pId": 35,
   "id": 119,
-  "fullId": "0-4-35-119",
+  "fullId": "0-35-119",
   "pTitle": "其他官方"
  },
  {
@@ -1436,7 +1436,7 @@
   "state": 1,
   "pId": 34,
   "id": 120,
-  "fullId": "0-4-34-120",
+  "fullId": "0-34-120",
   "pTitle": "NodeJs 官方"
  },
  {
@@ -1448,7 +1448,7 @@
   "state": 1,
   "pId": 36,
   "id": 121,
-  "fullId": "0-5-36-121",
+  "fullId": "0-36-121",
   "pTitle": "常用工具网址"
  },
  {
@@ -1460,7 +1460,7 @@
   "state": 1,
   "pId": 36,
   "id": 122,
-  "fullId": "0-5-36-122",
+  "fullId": "0-36-122",
   "pTitle": "常用工具网址"
  },
  {
@@ -1473,7 +1473,7 @@
   "state": 1,
   "id": 123,
   "pTitle": "下载",
-  "fullId": "0-5-37-123"
+  "fullId": "0-37-123"
  },
  {
   "title": "工具大全",
@@ -1484,7 +1484,7 @@
   "state": 1,
   "pId": 36,
   "id": 124,
-  "fullId": "0-5-36-124",
+  "fullId": "0-36-124",
   "pTitle": "常用工具网址"
  },
  {
@@ -1496,7 +1496,7 @@
   "state": 1,
   "pId": 36,
   "id": 125,
-  "fullId": "0-5-36-125",
+  "fullId": "0-36-125",
   "pTitle": "常用工具网址"
  },
  {
@@ -1509,7 +1509,7 @@
   "state": 1,
   "id": 126,
   "pTitle": "下载",
-  "fullId": "0-5-37-126"
+  "fullId": "0-37-126"
  },
  {
   "title": "md5破解",
@@ -1520,7 +1520,7 @@
   "state": 1,
   "pId": 36,
   "id": 127,
-  "fullId": "0-5-36-127",
+  "fullId": "0-36-127",
   "pTitle": "常用工具网址"
  },
  {
@@ -1533,7 +1533,7 @@
   "state": 1,
   "id": 128,
   "pTitle": "下载",
-  "fullId": "0-5-37-128"
+  "fullId": "0-37-128"
  },
  {
   "title": "程序员笔记",
@@ -1544,7 +1544,7 @@
   "state": 1,
   "pId": 36,
   "id": 129,
-  "fullId": "0-5-36-129",
+  "fullId": "0-36-129",
   "pTitle": "常用工具网址"
  },
  {
@@ -1556,7 +1556,7 @@
   "state": 1,
   "pId": 36,
   "id": 130,
-  "fullId": "0-5-36-130",
+  "fullId": "0-36-130",
   "pTitle": "常用工具网址"
  },
  {
@@ -1568,7 +1568,7 @@
   "state": 1,
   "pId": 36,
   "id": 131,
-  "fullId": "0-5-36-131",
+  "fullId": "0-36-131",
   "pTitle": "常用工具网址"
  },
  {
@@ -1581,7 +1581,7 @@
   "state": 1,
   "id": 132,
   "pTitle": "下载",
-  "fullId": "0-5-37-132"
+  "fullId": "0-37-132"
  },
  {
   "title": "图解前端",
@@ -1592,7 +1592,7 @@
   "state": 1,
   "pId": 36,
   "id": 133,
-  "fullId": "0-5-36-133",
+  "fullId": "0-36-133",
   "pTitle": "常用工具网址"
  },
  {
@@ -1604,7 +1604,7 @@
   "state": 1,
   "pId": 36,
   "id": 134,
-  "fullId": "0-5-36-134",
+  "fullId": "0-36-134",
   "pTitle": "常用工具网址"
  },
  {
@@ -1616,7 +1616,7 @@
   "state": 1,
   "pId": 36,
   "id": 135,
-  "fullId": "0-5-36-135",
+  "fullId": "0-36-135",
   "pTitle": "常用工具网址"
  },
  {
@@ -1628,7 +1628,7 @@
   "state": 1,
   "pId": 36,
   "id": 136,
-  "fullId": "0-5-36-136",
+  "fullId": "0-36-136",
   "pTitle": "常用工具网址"
  },
  {
@@ -1640,7 +1640,7 @@
   "description": "Visual Studio Code - web",
   "state": 1,
   "id": 137,
-  "fullId": "0-12-24-137",
+  "fullId": "0-24-137",
   "pTitle": "插件和工具"
  },
  {
@@ -1652,7 +1652,7 @@
   "state": 1,
   "pId": 36,
   "id": 138,
-  "fullId": "0-5-36-138",
+  "fullId": "0-36-138",
   "pTitle": "常用工具网址"
  },
  {
@@ -1665,7 +1665,7 @@
   "state": 1,
   "id": 139,
   "pTitle": "下载",
-  "fullId": "0-5-37-139"
+  "fullId": "0-37-139"
  },
  {
   "title": "监控系统—SDK",
@@ -1676,7 +1676,7 @@
   "state": 1,
   "pId": 36,
   "id": 140,
-  "fullId": "0-5-36-140",
+  "fullId": "0-36-140",
   "pTitle": "常用工具网址"
  },
  {
@@ -1689,7 +1689,7 @@
   "state": 1,
   "id": 141,
   "pTitle": "下载",
-  "fullId": "0-5-37-141"
+  "fullId": "0-37-141"
  },
  {
   "title": "Code预览工具",
@@ -1700,7 +1700,7 @@
   "state": 1,
   "pId": 37,
   "id": 142,
-  "fullId": "0-5-37-142",
+  "fullId": "0-37-142",
   "pTitle": "下载"
  },
  {
@@ -1712,7 +1712,7 @@
   "state": 1,
   "pId": 36,
   "id": 143,
-  "fullId": "0-5-36-143",
+  "fullId": "0-36-143",
   "pTitle": "常用工具网址"
  },
  {
@@ -1724,7 +1724,7 @@
   "icon": "",
   "description": "localhost name – Yandex Translate – dictionary and online translation\n      between English and over 90 other languages.",
   "id": 144,
-  "fullId": "0-2-27-144",
+  "fullId": "0-27-144",
   "pTitle": "翻译"
  },
  {
@@ -1736,7 +1736,7 @@
   "state": 1,
   "pId": 36,
   "id": 145,
-  "fullId": "0-5-36-145",
+  "fullId": "0-36-145",
   "pTitle": "常用工具网址"
  },
  {
@@ -1748,7 +1748,7 @@
   "state": 1,
   "pId": 36,
   "id": 146,
-  "fullId": "0-5-36-146",
+  "fullId": "0-36-146",
   "pTitle": "常用工具网址"
  },
  {
@@ -1760,7 +1760,7 @@
   "state": 1,
   "pId": 36,
   "id": 147,
-  "fullId": "0-5-36-147",
+  "fullId": "0-36-147",
   "pTitle": "常用工具网址"
  },
  {
@@ -1772,7 +1772,7 @@
   "state": 1,
   "pId": 37,
   "id": 148,
-  "fullId": "0-5-37-148",
+  "fullId": "0-37-148",
   "pTitle": "下载"
  },
  {
@@ -1784,7 +1784,7 @@
   "state": 1,
   "pId": 37,
   "id": 149,
-  "fullId": "0-5-37-149",
+  "fullId": "0-37-149",
   "pTitle": "下载"
  },
  {
@@ -1796,7 +1796,7 @@
   "state": 1,
   "pId": 36,
   "id": 150,
-  "fullId": "0-5-36-150",
+  "fullId": "0-36-150",
   "pTitle": "常用工具网址"
  },
  {
@@ -1808,7 +1808,7 @@
   "state": 1,
   "pId": 36,
   "id": 151,
-  "fullId": "0-5-36-151",
+  "fullId": "0-36-151",
   "pTitle": "常用工具网址"
  },
  {
@@ -1820,7 +1820,7 @@
   "state": 1,
   "pId": 36,
   "id": 152,
-  "fullId": "0-5-36-152",
+  "fullId": "0-36-152",
   "pTitle": "常用工具网址"
  },
  {
@@ -1832,7 +1832,7 @@
   "state": 1,
   "pId": 36,
   "id": 153,
-  "fullId": "0-5-36-153",
+  "fullId": "0-36-153",
   "pTitle": "常用工具网址"
  },
  {
@@ -1844,7 +1844,7 @@
   "state": 1,
   "pId": 37,
   "id": 154,
-  "fullId": "0-5-37-154",
+  "fullId": "0-37-154",
   "pTitle": "下载"
  },
  {
@@ -1856,7 +1856,7 @@
   "state": 1,
   "pId": 37,
   "id": 155,
-  "fullId": "0-5-37-155",
+  "fullId": "0-37-155",
   "pTitle": "下载"
  },
  {
@@ -1868,7 +1868,7 @@
   "state": 1,
   "pId": 37,
   "id": 156,
-  "fullId": "0-5-37-156",
+  "fullId": "0-37-156",
   "pTitle": "下载"
  },
  {
@@ -1880,7 +1880,7 @@
   "state": 1,
   "pId": 37,
   "id": 157,
-  "fullId": "0-5-37-157",
+  "fullId": "0-37-157",
   "pTitle": "下载"
  },
  {
@@ -1892,7 +1892,7 @@
   "state": 1,
   "pId": 37,
   "id": 158,
-  "fullId": "0-5-37-158",
+  "fullId": "0-37-158",
   "pTitle": "下载"
  },
  {
@@ -1904,7 +1904,7 @@
   "state": 1,
   "pId": 37,
   "id": 159,
-  "fullId": "0-5-37-159",
+  "fullId": "0-37-159",
   "pTitle": "下载"
  },
  {
@@ -1916,7 +1916,7 @@
   "state": 1,
   "pId": 36,
   "id": 160,
-  "fullId": "0-5-36-160",
+  "fullId": "0-36-160",
   "pTitle": "常用工具网址"
  },
  {
@@ -1928,7 +1928,7 @@
   "state": 1,
   "pId": 36,
   "id": 161,
-  "fullId": "0-5-36-161",
+  "fullId": "0-36-161",
   "pTitle": "常用工具网址"
  },
  {
@@ -1940,7 +1940,7 @@
   "state": 1,
   "pId": 37,
   "id": 162,
-  "fullId": "0-5-37-162",
+  "fullId": "0-37-162",
   "pTitle": "下载"
  },
  {
@@ -1952,7 +1952,7 @@
   "state": 1,
   "pId": 36,
   "id": 163,
-  "fullId": "0-5-36-163",
+  "fullId": "0-36-163",
   "pTitle": "常用工具网址"
  },
  {
@@ -1964,7 +1964,7 @@
   "state": 1,
   "pId": 36,
   "id": 164,
-  "fullId": "0-5-36-164",
+  "fullId": "0-36-164",
   "pTitle": "常用工具网址"
  },
  {
@@ -1976,7 +1976,7 @@
   "state": 1,
   "pId": 36,
   "id": 165,
-  "fullId": "0-5-36-165",
+  "fullId": "0-36-165",
   "pTitle": "常用工具网址"
  },
  {
@@ -1988,7 +1988,7 @@
   "state": 1,
   "pId": 36,
   "id": 166,
-  "fullId": "0-5-36-166",
+  "fullId": "0-36-166",
   "pTitle": "常用工具网址"
  },
  {
@@ -2000,7 +2000,7 @@
   "state": 1,
   "pId": 37,
   "id": 167,
-  "fullId": "0-5-37-167",
+  "fullId": "0-37-167",
   "pTitle": "下载"
  },
  {
@@ -2012,7 +2012,7 @@
   "state": 1,
   "pId": 37,
   "id": 168,
-  "fullId": "0-5-37-168",
+  "fullId": "0-37-168",
   "pTitle": "下载"
  },
  {
@@ -2024,7 +2024,7 @@
   "state": 1,
   "pId": 36,
   "id": 169,
-  "fullId": "0-5-36-169",
+  "fullId": "0-36-169",
   "pTitle": "常用工具网址"
  },
  {
@@ -2036,7 +2036,7 @@
   "state": 1,
   "pId": 36,
   "id": 170,
-  "fullId": "0-5-36-170",
+  "fullId": "0-36-170",
   "pTitle": "常用工具网址"
  },
  {
@@ -2048,7 +2048,7 @@
   "state": 1,
   "pId": 37,
   "id": 171,
-  "fullId": "0-5-37-171",
+  "fullId": "0-37-171",
   "pTitle": "下载"
  },
  {
@@ -2060,7 +2060,7 @@
   "state": 1,
   "pId": 17,
   "id": 172,
-  "fullId": "0-5-17-172",
+  "fullId": "0-17-172",
   "pTitle": "chatGPT"
  },
  {
@@ -2072,7 +2072,7 @@
   "state": 1,
   "pId": 17,
   "id": 173,
-  "fullId": "0-5-17-173",
+  "fullId": "0-17-173",
   "pTitle": "chatGPT"
  },
  {
@@ -2084,7 +2084,7 @@
   "state": 1,
   "pId": 17,
   "id": 174,
-  "fullId": "0-5-17-174",
+  "fullId": "0-17-174",
   "pTitle": "chatGPT"
  },
  {
@@ -2096,7 +2096,7 @@
   "state": 1,
   "pId": 17,
   "id": 175,
-  "fullId": "0-5-17-175",
+  "fullId": "0-17-175",
   "pTitle": "chatGPT"
  },
  {
@@ -2108,7 +2108,7 @@
   "state": 1,
   "pId": 17,
   "id": 176,
-  "fullId": "0-5-17-176",
+  "fullId": "0-17-176",
   "pTitle": "chatGPT"
  },
  {
@@ -2120,7 +2120,7 @@
   "state": 1,
   "pId": 17,
   "id": 177,
-  "fullId": "0-5-17-177",
+  "fullId": "0-17-177",
   "pTitle": "chatGPT"
  },
  {
@@ -2132,7 +2132,7 @@
   "state": 1,
   "pId": 17,
   "id": 178,
-  "fullId": "0-5-17-178",
+  "fullId": "0-17-178",
   "pTitle": "chatGPT"
  },
  {
@@ -2144,7 +2144,7 @@
   "state": 1,
   "pId": 17,
   "id": 179,
-  "fullId": "0-5-17-179",
+  "fullId": "0-17-179",
   "pTitle": "chatGPT"
  },
  {
@@ -2156,7 +2156,7 @@
   "state": 1,
   "pId": 17,
   "id": 180,
-  "fullId": "0-5-17-180",
+  "fullId": "0-17-180",
   "pTitle": "chatGPT"
  },
  {
@@ -2168,7 +2168,7 @@
   "state": 1,
   "pId": 17,
   "id": 181,
-  "fullId": "0-5-17-181",
+  "fullId": "0-17-181",
   "pTitle": "chatGPT"
  },
  {
@@ -2180,7 +2180,7 @@
   "state": 1,
   "pId": 17,
   "id": 182,
-  "fullId": "0-5-17-182",
+  "fullId": "0-17-182",
   "pTitle": "chatGPT"
  },
  {
@@ -2192,7 +2192,7 @@
   "state": 1,
   "pId": 17,
   "id": 183,
-  "fullId": "0-5-17-183",
+  "fullId": "0-17-183",
   "pTitle": "chatGPT"
  },
  {
@@ -2204,7 +2204,7 @@
   "state": 1,
   "pId": 17,
   "id": 184,
-  "fullId": "0-5-17-184",
+  "fullId": "0-17-184",
   "pTitle": "chatGPT"
  },
  {
@@ -2216,7 +2216,7 @@
   "state": 1,
   "pId": 17,
   "id": 185,
-  "fullId": "0-5-17-185",
+  "fullId": "0-17-185",
   "pTitle": "chatGPT"
  },
  {
@@ -2228,7 +2228,7 @@
   "state": 1,
   "pId": 17,
   "id": 186,
-  "fullId": "0-5-17-186",
+  "fullId": "0-17-186",
   "pTitle": "chatGPT"
  },
  {
@@ -2240,7 +2240,7 @@
   "state": 1,
   "pId": 17,
   "id": 187,
-  "fullId": "0-5-17-187",
+  "fullId": "0-17-187",
   "pTitle": "chatGPT"
  },
  {
@@ -2252,7 +2252,7 @@
   "state": 1,
   "pId": 17,
   "id": 188,
-  "fullId": "0-5-17-188",
+  "fullId": "0-17-188",
   "pTitle": "chatGPT"
  },
  {
@@ -2264,7 +2264,7 @@
   "state": 1,
   "pId": 17,
   "id": 189,
-  "fullId": "0-5-17-189",
+  "fullId": "0-17-189",
   "pTitle": "chatGPT"
  },
  {
@@ -2276,7 +2276,7 @@
   "state": 1,
   "pId": 17,
   "id": 190,
-  "fullId": "0-5-17-190",
+  "fullId": "0-17-190",
   "pTitle": "chatGPT"
  },
  {
@@ -2288,7 +2288,7 @@
   "state": 1,
   "pId": 17,
   "id": 191,
-  "fullId": "0-5-17-191",
+  "fullId": "0-17-191",
   "pTitle": "chatGPT"
  },
  {
@@ -2300,7 +2300,7 @@
   "state": 1,
   "pId": 18,
   "id": 192,
-  "fullId": "0-6-18-192",
+  "fullId": "0-18-192",
   "pTitle": "java 相关"
  },
  {
@@ -2312,7 +2312,7 @@
   "state": 1,
   "pId": 18,
   "id": 193,
-  "fullId": "0-6-18-193",
+  "fullId": "0-18-193",
   "pTitle": "java 相关"
  },
  {
@@ -2324,7 +2324,7 @@
   "state": 1,
   "pId": 18,
   "id": 194,
-  "fullId": "0-6-18-194",
+  "fullId": "0-18-194",
   "pTitle": "java 相关"
  },
  {
@@ -2336,7 +2336,7 @@
   "description": "w3cschool-java的文档",
   "state": 1,
   "id": 195,
-  "fullId": "0-6-18-195",
+  "fullId": "0-18-195",
   "pTitle": "java 相关"
  },
  {
@@ -2348,7 +2348,7 @@
   "state": 1,
   "pId": 18,
   "id": 196,
-  "fullId": "0-6-18-196",
+  "fullId": "0-18-196",
   "pTitle": "java 相关"
  },
  {
@@ -2360,7 +2360,7 @@
   "state": 1,
   "pId": 18,
   "id": 197,
-  "fullId": "0-6-18-197",
+  "fullId": "0-18-197",
   "pTitle": "java 相关"
  },
  {
@@ -2372,7 +2372,7 @@
   "state": 1,
   "pId": 18,
   "id": 198,
-  "fullId": "0-6-18-198",
+  "fullId": "0-18-198",
   "pTitle": "java 相关"
  },
  {
@@ -2576,7 +2576,7 @@
   "state": 1,
   "pId": 35,
   "id": 215,
-  "fullId": "0-4-35-215",
+  "fullId": "0-35-215",
   "pTitle": "其他官方"
  },
  {
@@ -2588,7 +2588,7 @@
   "state": 1,
   "pId": 35,
   "id": 216,
-  "fullId": "0-4-35-216",
+  "fullId": "0-35-216",
   "pTitle": "其他官方"
  },
  {
@@ -2600,7 +2600,7 @@
   "state": 1,
   "pId": 35,
   "id": 217,
-  "fullId": "0-4-35-217",
+  "fullId": "0-35-217",
   "pTitle": "其他官方"
  },
  {
@@ -2612,7 +2612,7 @@
   "description": "d3",
   "state": 1,
   "id": 218,
-  "fullId": "0-4-35-218",
+  "fullId": "0-35-218",
   "pTitle": "其他官方"
  },
  {
@@ -2624,7 +2624,7 @@
   "state": 1,
   "pId": 35,
   "id": 219,
-  "fullId": "0-4-35-219",
+  "fullId": "0-35-219",
   "pTitle": "其他官方"
  },
  {
@@ -2636,7 +2636,7 @@
   "state": 1,
   "pId": 35,
   "id": 220,
-  "fullId": "0-4-35-220",
+  "fullId": "0-35-220",
   "pTitle": "其他官方"
  },
  {
@@ -2648,7 +2648,7 @@
   "state": 1,
   "pId": 35,
   "id": 221,
-  "fullId": "0-4-35-221",
+  "fullId": "0-35-221",
   "pTitle": "其他官方"
  },
  {
@@ -2660,7 +2660,7 @@
   "state": 1,
   "pId": 35,
   "id": 222,
-  "fullId": "0-4-35-222",
+  "fullId": "0-35-222",
   "pTitle": "其他官方"
  },
  {
@@ -2672,7 +2672,7 @@
   "state": 1,
   "pId": 35,
   "id": 223,
-  "fullId": "0-4-35-223",
+  "fullId": "0-35-223",
   "pTitle": "其他官方"
  },
  {
@@ -2684,7 +2684,7 @@
   "state": 1,
   "pId": 35,
   "id": 224,
-  "fullId": "0-4-35-224",
+  "fullId": "0-35-224",
   "pTitle": "其他官方"
  },
  {
@@ -2696,7 +2696,7 @@
   "state": 1,
   "pId": 22,
   "id": 225,
-  "fullId": "0-10-22-225",
+  "fullId": "0-22-225",
   "pTitle": "leetcode"
  },
  {
@@ -2708,7 +2708,7 @@
   "state": 1,
   "pId": 22,
   "id": 226,
-  "fullId": "0-10-22-226",
+  "fullId": "0-22-226",
   "pTitle": "leetcode"
  },
  {
@@ -2720,7 +2720,7 @@
   "state": 1,
   "pId": 23,
   "id": 227,
-  "fullId": "0-11-23-227",
+  "fullId": "0-23-227",
   "pTitle": "前端面试"
  },
  {
@@ -2732,7 +2732,7 @@
   "state": 1,
   "pId": 23,
   "id": 228,
-  "fullId": "0-11-23-228",
+  "fullId": "0-23-228",
   "pTitle": "前端面试"
  },
  {
@@ -2744,7 +2744,7 @@
   "state": 1,
   "pId": 23,
   "id": 229,
-  "fullId": "0-11-23-229",
+  "fullId": "0-23-229",
   "pTitle": "前端面试"
  },
  {
@@ -2756,7 +2756,7 @@
   "state": 1,
   "pId": 23,
   "id": 230,
-  "fullId": "0-11-23-230",
+  "fullId": "0-23-230",
   "pTitle": "前端面试"
  },
  {
@@ -2768,7 +2768,7 @@
   "state": 1,
   "pId": 23,
   "id": 231,
-  "fullId": "0-11-23-231",
+  "fullId": "0-23-231",
   "pTitle": "前端面试"
  },
  {
@@ -2780,7 +2780,7 @@
   "state": 1,
   "pId": 23,
   "id": 232,
-  "fullId": "0-11-23-232",
+  "fullId": "0-23-232",
   "pTitle": "前端面试"
  },
  {
@@ -2792,7 +2792,7 @@
   "state": 1,
   "pId": 23,
   "id": 233,
-  "fullId": "0-11-23-233",
+  "fullId": "0-23-233",
   "pTitle": "前端面试"
  },
  {
@@ -2804,7 +2804,7 @@
   "state": 1,
   "pId": 23,
   "id": 234,
-  "fullId": "0-11-23-234",
+  "fullId": "0-23-234",
   "pTitle": "前端面试"
  },
  {
@@ -2816,7 +2816,7 @@
   "state": 1,
   "pId": 23,
   "id": 235,
-  "fullId": "0-11-23-235",
+  "fullId": "0-23-235",
   "pTitle": "前端面试"
  },
  {
@@ -2828,7 +2828,7 @@
   "state": 1,
   "pId": 23,
   "id": 236,
-  "fullId": "0-11-23-236",
+  "fullId": "0-23-236",
   "pTitle": "前端面试"
  },
  {
@@ -2840,7 +2840,7 @@
   "state": 1,
   "pId": 23,
   "id": 237,
-  "fullId": "0-11-23-237",
+  "fullId": "0-23-237",
   "pTitle": "前端面试"
  },
  {
@@ -2852,7 +2852,7 @@
   "state": 1,
   "pId": 23,
   "id": 238,
-  "fullId": "0-11-23-238",
+  "fullId": "0-23-238",
   "pTitle": "前端面试"
  },
  {
@@ -2864,7 +2864,7 @@
   "state": 1,
   "pId": 23,
   "id": 239,
-  "fullId": "0-11-23-239",
+  "fullId": "0-23-239",
   "pTitle": "前端面试"
  },
  {
@@ -2876,7 +2876,7 @@
   "state": 1,
   "pId": 23,
   "id": 240,
-  "fullId": "0-11-23-240",
+  "fullId": "0-23-240",
   "pTitle": "前端面试"
  },
  {
@@ -2888,7 +2888,7 @@
   "state": 1,
   "pId": 23,
   "id": 241,
-  "fullId": "0-11-23-241",
+  "fullId": "0-23-241",
   "pTitle": "前端面试"
  },
  {
@@ -2900,7 +2900,7 @@
   "state": 1,
   "pId": 23,
   "id": 242,
-  "fullId": "0-11-23-242",
+  "fullId": "0-23-242",
   "pTitle": "前端面试"
  },
  {
@@ -2912,7 +2912,7 @@
   "description": "Spring Boot学习教程+实战项目",
   "state": 1,
   "id": 243,
-  "fullId": "0-6-18-243",
+  "fullId": "0-18-243",
   "pTitle": "java 相关"
  },
  {
@@ -2924,7 +2924,7 @@
   "description": "vscode国内加速下载",
   "state": 1,
   "id": 244,
-  "fullId": "0-12-24-244",
+  "fullId": "0-24-244",
   "pTitle": "插件和工具"
  },
  {
@@ -2936,7 +2936,7 @@
   "state": 1,
   "pId": 24,
   "id": 245,
-  "fullId": "0-12-24-245",
+  "fullId": "0-24-245",
   "pTitle": "插件和工具"
  },
  {
@@ -2948,7 +2948,7 @@
   "state": 1,
   "pId": 24,
   "id": 246,
-  "fullId": "0-12-24-246",
+  "fullId": "0-24-246",
   "pTitle": "插件和工具"
  },
  {
@@ -2960,7 +2960,7 @@
   "state": 1,
   "pId": 24,
   "id": 247,
-  "fullId": "0-12-24-247",
+  "fullId": "0-24-247",
   "pTitle": "插件和工具"
  },
  {
@@ -2970,7 +2970,7 @@
   "sort": "0",
   "description": "能用的-aichatos",
   "state": 1,
-  "fullId": "0-5-17-248",
+  "fullId": "0-17-248",
   "pTitle": "chatGPT",
   "id": 248
  },
@@ -2984,7 +2984,7 @@
   "state": 1,
   "pTitle": "chatGPT",
   "id": 249,
-  "fullId": "0-5-17-249"
+  "fullId": "0-17-249"
  },
  {
   "title": "Gemini Pro Chat",
@@ -2996,7 +2996,7 @@
   "state": 1,
   "pTitle": "chatGPT",
   "id": 250,
-  "fullId": "0-5-17-250"
+  "fullId": "0-17-250"
  },
  {
   "title": "ruanyf 周刊",
@@ -3008,7 +3008,7 @@
   "state": 1,
   "id": 251,
   "pTitle": "文档资源",
-  "fullId": "0-2-14-251"
+  "fullId": "0-14-251"
  },
  {
   "title": "讯飞星火",
@@ -3020,7 +3020,7 @@
   "state": 1,
   "pTitle": "chatGPT",
   "id": 252,
-  "fullId": "0-5-17-252"
+  "fullId": "0-17-252"
  },
  {
   "title": "通义千问",
@@ -3032,7 +3032,7 @@
   "state": 1,
   "pTitle": "chatGPT",
   "id": 253,
-  "fullId": "0-5-17-253"
+  "fullId": "0-17-253"
  },
  {
   "title": "npm依赖分析",
@@ -3043,7 +3043,7 @@
   "state": 1,
   "pTitle": "常用工具网址",
   "id": 254,
-  "fullId": "0-5-36-254"
+  "fullId": "0-36-254"
  },
  {
   "title": "ocr",
@@ -3054,7 +3054,7 @@
   "state": 1,
   "pTitle": "常用工具网址",
   "id": 255,
-  "fullId": "0-5-36-255"
+  "fullId": "0-36-255"
  },
  {
   "title": "nginx可视化",
@@ -3066,6 +3066,6 @@
   "state": 1,
   "pTitle": "常用工具网址",
   "id": 256,
-  "fullId": "0-5-36-256"
+  "fullId": "0-36-256"
  }
 ]
