@@ -17,57 +17,46 @@ router.get("/page", async function (req, res, next) {
     let webDatas = await readJsonFileAndParse(websiteFilePath);
     let categoryDatas = await readJsonFileAndParse(categoryFilePath);
 
-    let { list, total } = getListPageData({
-        data: webDatas,
-        current,
-        pageSize,
-        title,
-        pId,
-        state,
-    });
+    if (!pId) {
+        let { list, total } = getListPageData({
+            data: webDatas,
+            current,
+            pageSize,
+            title,
+            pId,
+            state,
+        });
+        return res.json(successBody({ list, total }));
+    } else {
+        let { childrens = [] } = categoryDatas.find((item) => item.id == pId) || {};
+        let list = [],
+            total = 0;
 
-    // const categoryMap = {};
-    // categoryDatas.forEach((item) => {
-    //     categoryMap[item.id] = item;
-    // });
-
-    // list = list.map((item) => {
-    //     return {
-    //         ...item,
-    //         pTitle: categoryMap[item.pId]?.title,
-    //     };
-    // });
-
-    return res.json(successBody({ list, total }));
+        if (childrens.length) {
+            list = webDatas.filter((item) => childrens.includes(item.id));
+            total = list.length;
+        }
+        return res.json(successBody({ list, total }));
+    }
 });
 
 router.post("/edit", async function (req, res) {
     const json = req.body;
 
     let datas = await readJsonFileAndParse(websiteFilePath);
-    let categoryDatas = await readJsonFileAndParse(categoryFilePath);
-
-    let categoryInfo = categoryDatas.find((item) => item.id === json.pId);
-    // json.fullId = categoryInfo.fullId;
-
-
-    json.pTitle = categoryInfo.title;
 
     if (!json.id) {
         // 新增
         json.id = datas.length + 1;
 
-        json.fullId = `${categoryInfo.fullId}-${json.id}`;
-
         datas.push(json);
     } else {
-        json.fullId = `${categoryInfo.fullId}-${json.id}`;
         // 修改
         datas = datas.map((item) => {
             if (item.id == json.id) {
-                return json
+                return json;
             }
-            return item
+            return item;
         });
     }
 
@@ -82,24 +71,16 @@ router.post("/batchSave", async function (req, res) {
     let datas = await readJsonFileAndParse(websiteFilePath);
     let categoryDatas = await readJsonFileAndParse(categoryFilePath);
 
-    const categoryInfo = categoryDatas.find((item) => item.id === json.pId);
+    const childrens = json.selectedRows.map((it, ind) => it.id);
+    categoryDatas.forEach((item) => {
+        item.childrens = item.childrens.filter((id) => !childrens.includes(id));
 
-    json.selectedRows.forEach((item) => {
-        item.fullId = `${categoryInfo.fullId}-${item.id}`;
-        item.pId = json.pId;
-        item.state = json.state;
-        item.pTitle = categoryInfo.title;
-    });
-
-    datas = datas.map((item) => {
-        const has = json.selectedRows.find((i) => i.id === item.id);
-        if (has) {
-            return { ...has };
+        if (item.id === json.pId) {
+            item.childrens = [...item.childrens, ...childrens];
         }
-        return item;
     });
 
-    writeJsonFile(websiteFilePath, datas);
+    writeJsonFile(categoryFilePath, categoryDatas);
     return res.json(successBody(null));
 });
 

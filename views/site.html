@@ -82,6 +82,7 @@
                 ProFormText,
                 ProFormTextArea,
                 ProTable,
+                ProFormSelect,
             } = ProComponents;
 
             // 页面内容
@@ -123,8 +124,9 @@
                     },
                     {
                         title: "网站分类",
-                        dataIndex: "pTitle",
+                        dataIndex: "pId",
                         valueType: "select",
+                        hideInTable: true,
                         fieldProps: {
                             options: opts,
                             fieldNames: {
@@ -314,15 +316,7 @@
                     },
 
                     request: async (params = {}, sort, filter) => {
-                        if (params.pTitle) {
-                            params.pId = params.pTitle;
-                            delete params.pTitle;
-                        }
-                        // if (params.pTitle && params.pTitle.length) {
-                        //     params.pId = params.pTitle[params.pTitle.length - 1];
-                        //     delete params.pTitle;
-                        // }
-                        return list(params);
+                        return api_website.list(params);
                     },
 
                     headerTitle: [
@@ -374,7 +368,6 @@
                                 },
                             }}
                             onFinish={async (values) => {
-                                values.pId = values.pId ? values.pId[values.pId.length - 1] : 0;
                                 if (state.row && state.row.id) {
                                     values.id = state.row.id;
                                 }
@@ -382,10 +375,9 @@
                                 let res = null;
                                 if (state.batch) {
                                     values.selectedRows = selectedRows;
-                                    console.log("values -> :", values);
-                                    res = await batchSave(values);
+                                    res = await api_website.batchSave(values);
                                 } else {
-                                    res = await save(values);
+                                    res = await api_website.save(values);
                                 }
 
                                 if (res.code !== 200) {
@@ -393,11 +385,14 @@
                                     return false;
                                 }
                                 message.success("提交成功");
-                                window.location.reload();
-                                // state.open = false;
-                                // state.row = {};
-                                // baseTable.current.reload();
-                                return true;
+                                state.open = false;
+                                state.row = {};
+                                setSelectedRowKeys([]);
+                                setSelectedRows([]);
+
+                                setTimeout(() => {
+                                    baseTable.current.reload();
+                                }, 1000);
                             }}
                         >
                             {!state.batch && (
@@ -424,7 +419,8 @@
                                         {
                                             required: true,
                                             message: "请输入网站访问链接",
-                                        }, // {
+                                        },
+                                        // {
                                         //   type: "url",
                                         //   message: "请输入正确的网站访问链接",
                                         // },
@@ -432,26 +428,27 @@
                                 />
                             )}
 
-                            <ProFormCascader
-                                width="100%"
-                                name="pId"
-                                label="关联分类"
-                                placeholder="请选择网站分类"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "请选择网站分类",
-                                    },
-                                ]}
-                                fieldProps={{
-                                    options: opts,
-                                    fieldNames: {
-                                        label: "title",
-                                        value: "id",
-                                    },
-                                    changeOnSelect: true,
-                                }}
-                            />
+                            {state.batch && (
+                                <ProFormSelect
+                                    width="100%"
+                                    name="pId"
+                                    label="关联分类"
+                                    placeholder="请选择网站分类"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "请选择网站分类",
+                                        },
+                                    ]}
+                                    fieldProps={{
+                                        options: opts,
+                                        fieldNames: {
+                                            label: "title",
+                                            value: "id",
+                                        },
+                                    }}
+                                />
+                            )}
 
                             {!state.batch && (
                                 <ProFormText
@@ -493,22 +490,6 @@
                                     placeholder="请输入描述"
                                 />
                             )}
-
-                            <ProFormRadio.Group
-                                name="state"
-                                label="是否启用"
-                                initialValue={1}
-                                options={[
-                                    {
-                                        label: "是",
-                                        value: 1,
-                                    },
-                                    {
-                                        label: "否",
-                                        value: 0,
-                                    },
-                                ]}
-                            />
                         </ModalForm>
                     </React.Fragment>
                 );

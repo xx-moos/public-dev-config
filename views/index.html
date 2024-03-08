@@ -54,6 +54,11 @@
 
         <script
             type="text/babel"
+            src="./javascripts/api/website.js"
+        ></script>
+
+        <script
+            type="text/babel"
             src="./javascripts/header.js"
         ></script>
 
@@ -67,8 +72,8 @@
 
             renderHeader("category");
 
-            const { Button, Form, message, Modal } = antd;
-            const { useState } = React;
+            const { Col, Row, Button, Checkbox, Form, message, Modal, Tooltip } = antd;
+            const { useState, useEffect } = React;
             const { useReactive } = ahooks;
             const { AppstoreOutlined, MailOutlined, SettingOutlined } = icons;
 
@@ -79,6 +84,7 @@
                 ProFormText,
                 ProFormTextArea,
                 ProTable,
+                ProFormCheckbox,
             } = ProComponents;
 
             // 页面内容
@@ -89,8 +95,25 @@
                     row: {},
                 });
 
+                const [option, setOption] = useState([]);
+
                 const [messageApi, contextHolder] = message.useMessage();
                 const [opts, refesh] = useCategoryOptions();
+
+                const getList = () => {
+                    api_website.list({ pageSize: 1000 }).then((res) => {
+                        const data = res.data.map((it, ind) => ({
+                            ...it,
+                            label: it.title,
+                            value: it.id,
+                        }));
+                        setOption(data);
+                    });
+                };
+
+                useEffect(() => {
+                    getList();
+                }, []);
 
                 const columns = [
                     {
@@ -106,20 +129,6 @@
                         dataIndex: "title",
                         copyable: true,
                         ellipsis: true,
-                    },
-                    {
-                        title: "上级分类",
-                        dataIndex: "pTitle",
-                        search: false,
-                        valueType: "cascader",
-                        fieldProps: {
-                            options: opts,
-                            fieldNames: {
-                                label: "title",
-                                value: "id",
-                            },
-                            changeOnSelect: true,
-                        },
                     },
                     {
                         title: "描述",
@@ -139,16 +148,6 @@
                                     state.title = "编辑分类";
                                     state.row = record;
                                     console.log("record -> :", record);
-
-                                    record.pId = record.fullId
-                                        .split("-")
-                                        .map((item) => Number(item));
-                                    if (record.pId.length > 1) {
-                                        record.pId.pop();
-                                        record.pId.shift();
-                                    } else {
-                                        record.pId = [];
-                                    }
                                     form.setFieldsValue(record);
                                 }}
                             >
@@ -198,11 +197,11 @@
                     },
 
                     request: async (params = {}, sort, filter) => {
-                        if (params.pTitle && params.pTitle.length) {
-                            params.pId = params.pTitle[params.pTitle.length - 1];
-                            delete params.pTitle;
-                        }
-                        return list(params);
+                        // if (params.pTitle && params.pTitle.length) {
+                        //     params.pId = params.pTitle[params.pTitle.length - 1];
+                        //     delete params.pTitle;
+                        // }
+                        return api_category.list(params);
                     },
 
                     headerTitle: [
@@ -252,12 +251,11 @@
                                 },
                             }}
                             onFinish={async (values) => {
-                                values.pId = values.pId ? values.pId[values.pId.length - 1] : 0;
                                 if (state.row.id) {
                                     values.id = state.row.id;
                                 }
 
-                                const res = await save(values);
+                                const res = await api_category.save(values);
 
                                 if (res.code !== 200) {
                                     messageApi.error(res.msg);
@@ -267,8 +265,6 @@
                                 state.open = false;
                                 state.row = {};
                                 baseTable.current.reload();
-                                refesh();
-                                return true;
                             }}
                         >
                             <ProFormText
@@ -285,29 +281,6 @@
                                 ]}
                             />
 
-                            <ProFormCascader
-                                width="100%"
-                                name="pId"
-                                label="关联分类"
-                                placeholder="请选择网站分类"
-                                rules={
-                                    [
-                                        // {
-                                        //   required: true,
-                                        //   message: "请选择网站分类",
-                                        // },
-                                    ]
-                                }
-                                fieldProps={{
-                                    options: opts,
-                                    fieldNames: {
-                                        label: "title",
-                                        value: "id",
-                                    },
-                                    changeOnSelect: true,
-                                }}
-                            />
-
                             <ProFormTextArea
                                 width="100%"
                                 name="description"
@@ -315,6 +288,19 @@
                                 label="分类描述"
                                 placeholder="请分类描述"
                             />
+
+                            <div
+                                style={{
+                                    height: "300px",
+                                    overflowY: "auto",
+                                }}
+                            >
+                                <ProFormCheckbox.Group
+                                    name="childrens"
+                                    label="该分类下的网站"
+                                    options={option}
+                                ></ProFormCheckbox.Group>
+                            </div>
                         </ModalForm>
                     </React.Fragment>
                 );

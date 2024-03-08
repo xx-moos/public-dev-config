@@ -28,18 +28,6 @@ router.get("/page", async function (req, res, next) {
         title,
         pId,
     });
-    const map = {};
-    (data || []).forEach((item) => {
-        map[item.id] = item;
-    });
-
-    list = list.map((item) => {
-        return {
-            ...item,
-            pTitle: map[item.pId]?.title,
-            // fullId: `${map[item.pId]?.fullId || '0'}-${item.id}`,
-        };
-    });
 
     return res.json(successBody({ list, total }));
 });
@@ -49,45 +37,18 @@ router.post("/edit", async function (req, res, next) {
 
     let allCategorys = await readJsonFileAndParse(categoryFilePath);
 
-    if (json.id == json.pId) {
-        return res.json(errorBody(500, null, "父节点不能是自己"));
-    }
-
     if (!json.id) {
-        // 判断同级别下是否存在
-        const isHas = allCategorys.find(
-            (item) => item.title === json.title && item.pId === json.pId
-        );
+        // 判断是否存在
+        const isHas = allCategorys.find((item) => item.title === json.title);
         if (isHas) {
-            return res.json(errorBody(500, null, "同级别下已存在该分类"));
+            return res.json(errorBody(500, null, "已存在该分类"));
         }
-
         // 新增
         json.id = allCategorys.length + 1;
-
-        if (!json.pId) {
-            json.fullId = `0-${json.id}`;
-        } else {
-            json.fullId = `${allCategorys.find((item) => item.id === json.pId).fullId}-${json.id}`;
-        }
-
-        if (json.fullId.split("-").length > 3) {
-            return res.json(errorBody(500, null, "节点不能超过2层"));
-        }
 
         allCategorys.push(json);
     } else {
         // 修改
-        if (!json.pId) {
-            json.fullId = `0-${json.id}`;
-        } else {
-            json.fullId = `${allCategorys.find((item) => item.id === json.pId).fullId}-${json.id}`;
-        }
-
-        if (json.fullId.split("-").length > 3) {
-            return res.json(errorBody(500, null, "节点不能超过2层"));
-        }
-
         allCategorys = allCategorys.map((item) => {
             if (item.id === json.id) {
                 return json;
