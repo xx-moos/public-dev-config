@@ -95,6 +95,7 @@
                     row: {},
                 });
 
+                const [categorys, setCategorys] = useState([]);
                 const [option, setOption] = useState([]);
 
                 const [messageApi, contextHolder] = message.useMessage();
@@ -107,13 +108,15 @@
                             label: it.title,
                             value: it.id,
                         }));
-                        setOption(data);
+                        const isUsedId = [...new Set(categorys.map((it) => it.childrens).flat(3))];
+                        const filterData = data.filter((it) => !isUsedId.includes(it.id));
+                        setOption(filterData);
                     });
                 };
 
-                useEffect(() => {
-                    getList();
-                }, []);
+                // useEffect(() => {
+                //     getList();
+                // }, []);
 
                 const columns = [
                     {
@@ -149,6 +152,7 @@
                                     state.row = record;
                                     console.log("record -> :", record);
                                     form.setFieldsValue(record);
+                                    getList();
                                 }}
                             >
                                 编辑
@@ -201,7 +205,10 @@
                         //     params.pId = params.pTitle[params.pTitle.length - 1];
                         //     delete params.pTitle;
                         // }
-                        return api_category.list(params);
+
+                        const res = await api_category.list(params);
+                        setCategorys(res.data);
+                        return res;
                     },
 
                     headerTitle: [
