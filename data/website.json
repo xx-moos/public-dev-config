@@ -277,28 +277,28 @@
   {
     "title": "vue-Cli",
     "url": "https://cli.vuejs.org/zh/guide/",
-    "icon": "https://cn.vuejs.org/logo.svg",
+    "icon": "https://cli.vuejs.org/favicon.png",
     "description": "Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统",
     "id": 40
   },
   {
     "title": "vue-Router",
     "url": "https://router.vuejs.org/zh/",
-    "icon": "https://cn.vuejs.org/logo.svg",
+    "icon": "https://cli.vuejs.org/favicon.png",
     "description": "Vue.js 的官方路由",
     "id": 41
   },
   {
     "title": "vue-Vuex",
     "url": "https://vuex.vuejs.org/zh/",
-    "icon": "https://cn.vuejs.org/logo.svg",
+    "icon": "https://cli.vuejs.org/favicon.png",
     "description": " Vue.js 应用程序开发的状态管理模式 + 库",
     "id": 42
   },
   {
     "title": "vueUse",
     "url": "https://vueuse.org/",
-    "icon": "https://cn.vuejs.org/logo.svg",
+    "icon": "https://cli.vuejs.org/favicon.png",
     "description": "基本Vue合成实用程序集合",
     "id": 43
   },
@@ -452,8 +452,8 @@
   },
   {
     "title": "Antd Angular",
-    "url": "https://ng.ant.design/docs/introduce/zh",
-    "icon": "https://ng.ant.design/assets/img/logo.svg",
+    "url": "https://ng-zorro.gitee.io/components/overview/zh",
+    "icon": "https://ng-zorro.gitee.io/assets/img/logo.svg",
     "description": "遵循 Ant Design 设计规范的 Angular UI 组件库",
     "id": 65
   },
@@ -587,7 +587,7 @@
   {
     "title": "css 选择器",
     "url": "https://www.runoob.com/cssref/css-selectors.html",
-    "icon": "https://static.runoob.com/images/favicon.ico",
+    "icon": "https://static.jyshare.com/images/favicon.ico",
     "description": "css 选择器",
     "id": 84
   },
@@ -834,7 +834,7 @@
   {
     "title": "All转换工具",
     "url": "http://www.alltoall.net/",
-    "icon": "https://ccdn.goodq.top/caches/2bf25eeab1dd9ac68280087e9f26d920/aHR0cHM6Ly93d3cuYWxsdG9hbGwubmV0L3FmeS1jb250ZW50L3VwbG9hZHMvMjAyMi8wNy9iNDI3NTlhYjVjZjc0YWE4ZjFjZTA4ZDEzMTdiNjk0MC5qcGc_p_p100_p_3D.jpg",
+    "icon": "https://www.alltoall.net/qfy-content/uploads/2022/07/b42759ab5cf74aa8f1ce08d1317b6940.jpg",
     "description": "在线格式转换 All2All | 免费在线格式转换工具 免费在线转换工具",
     "id": 119
   },
@@ -1551,7 +1551,7 @@
   {
     "title": "剑指offer算法题",
     "url": "https://eveningwater.github.io/to-offer/#/",
-    "icon": "https://www.eveningwater.com/static/image/icon.jpg",
+    "icon": "https://eveningwater.github.io/to-offer/images/icon.svg",
     "description": "剑指offer算法题",
     "id": 221
   },
@@ -1725,7 +1725,7 @@
   {
     "title": "Gemini Pro Chat",
     "url": "https://geminiprochat.com/",
-    "icon": "https://geminiprochat.com/icon.svg",
+    "icon": "https://cli.vuejs.org/favicon.png",
     "description": "https://geminiprochat.com/   私人开发的 Gemini  需要fq",
     "id": 246
   },
