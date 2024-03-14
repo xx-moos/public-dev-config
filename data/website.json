@@ -127,7 +127,7 @@
   },
   {
     "title": "jQ-CDN",
-    "url": "http://code.jquery.com/",
+    "url": "https://releases.jquery.com/wp-content/themes/jquery/images/logo-jquery.png",
     "icon": "",
     "description": "jQuery CDN -最新稳定版本",
     "id": 19
@@ -142,14 +142,14 @@
   {
     "title": "字节跳动cdn",
     "url": "https://cdn.bytedance.com/",
-    "icon": "",
+    "icon": "https://cdn.bytedance.com/src/res/favicon.png",
     "description": "字节跳动cdn",
     "id": 21
   },
   {
     "title": "React资源",
     "url": "https://github.com/tsrot/study-notes/blob/master/React%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB.md",
-    "icon": "",
+    "icon": "https://pngimg.com/uploads/github/github_PNG45.png",
     "description": "React学习资源汇总",
     "id": 22
   },
@@ -163,7 +163,7 @@
   {
     "title": "fb的crud",
     "url": "https://github.com/firebase/snippets-web/blob/8a72018c094b2d48ecbf1690787b94a01ee8fab4/firestore/test.firestore.js#L334-L355",
-    "icon": "",
+    "icon": "https://pngimg.com/uploads/github/github_PNG45.png",
     "description": "firebase 的 firestore 使用例子",
     "id": 24
   },
@@ -212,7 +212,7 @@
   {
     "title": "GitHub 中文社区",
     "url": "https://www.github-zh.com/",
-    "icon": "https://www.github-zh.com/favicon.ico",
+    "icon": "https://pngimg.com/uploads/github/github_PNG45.png",
     "description": "GitHub 中文社区  top的项目",
     "id": 31
   },
@@ -247,15 +247,14 @@
   {
     "title": "WallHaven",
     "url": "https://wallhaven.cc/",
-    "icon": "https://wallhaven.cc/favicon.ico",
+    "icon": "https://img.xz7.com/d/file/2023/05-10/a5ed505a67c6ebb118a1e4446296d872.png",
     "description": "网络上最好的壁纸！",
     "id": 36
   },
-
   {
     "title": "ts 语法解释器",
     "url": "https://www.typescriptlang.org/",
-    "icon": "",
+    "icon": "https://www.typescriptlang.org/favicon-32x32.png",
     "description": "ts 语法解释器",
     "id": 37
   },
@@ -273,7 +272,6 @@
     "description": "astexplorer AST",
     "id": 39
   },
-
   {
     "title": "vue-Cli",
     "url": "https://cli.vuejs.org/zh/guide/",
@@ -365,7 +363,6 @@
     "description": "Varlet 是一个基于 Vue3 开发的 Material 风格移动端组件库",
     "id": 52
   },
-
   {
     "title": "react-router",
     "url": "https://reactrouter.com/en/main",
@@ -383,7 +380,7 @@
   {
     "title": "mobx",
     "url": "https://cn.mobx.js.org/",
-    "icon": "https://mobx.js.org/assets/mobx.png",
+    "icon": "https://velog.velcdn.com/post-images/velopert/014d22d0-b353-11e8-9696-f1fffe8a36f1/mobx.png",
     "description": "MobX 是一个经过战火洗礼的库,使得状态管理变得简单和可扩展",
     "id": 55
   },
@@ -457,7 +454,6 @@
     "description": "遵循 Ant Design 设计规范的 Angular UI 组件库",
     "id": 65
   },
-
   {
     "title": "babel",
     "url": "https://www.babeljs.cn/",
@@ -559,7 +555,7 @@
   {
     "title": "ejs",
     "url": "https://ejs.bootcss.com/",
-    "icon": "https://ejs.bootcss.com/assets/images/ejs-logo.png",
+    "icon": "https://web-sourcecode.com/wp/wp-content/uploads/2018/02/ejs2.jpg",
     "description": "高效的嵌入式 JavaScript 模板引擎",
     "id": 80
   },
@@ -612,7 +608,6 @@
     "description": "你可能不需要jQuery",
     "id": 87
   },
-
   {
     "title": "vue2",
     "url": "https://cn.vuejs.org/",
@@ -735,21 +730,21 @@
   {
     "title": "sass",
     "url": "https://www.sass.hk/",
-    "icon": "https://www.sass.hk/favicon.ico",
+    "icon": "https://www.sass.hk/images/sass.png",
     "description": "sass",
     "id": 105
   },
   {
     "title": "less",
     "url": "https://less.bootcss.com/",
-    "icon": "https://less.bootcss.com/public/ico/favicon.ico",
+    "icon": "https://less.bootcss.com/public/img/less_logo.png",
     "description": "less",
     "id": 106
   },
   {
     "title": "stylus",
     "url": "https://www.stylus-lang.cn/",
-    "icon": "https://www.stylus-lang.cn/favicon.ico",
+    "icon": "https://www.stylus-lang.cn/img/stylus-logo.png",
     "description": "stylus",
     "id": 107
   },
@@ -816,7 +811,6 @@
     "description": "jquery 文档",
     "id": 116
   },
-
   {
     "title": "Sass/Less转换CSS",
     "url": "https://www.sass.hk/css2sass/",
@@ -1173,7 +1167,6 @@
     "description": "导入程序后，搜索80 38 00更改为FE 00 90(第一个匹配到的),保存下来就行",
     "id": 167
   },
-
   {
     "title": "poe",
     "url": "https://poe.com/ChatGPT",
@@ -1314,7 +1307,6 @@
     "description": "160 多种 prompt 提示词指令合集",
     "id": 187
   },
-
   {
     "title": "java-sql工具",
     "url": "https://www.bejson.com/",
@@ -1409,7 +1401,7 @@
   {
     "title": "印记中文",
     "url": "https://docschina.org/",
-    "icon": "https://docschina.org/_next/static/media/docschina-logo.026ff887.svg",
+    "icon": "https://docschina.org/apple-touch-icon.png",
     "description": "印记中文",
     "id": 201
   },
@@ -1427,7 +1419,6 @@
     "description": "三维模型下载",
     "id": 203
   },
-
   {
     "title": "iconfont",
     "url": "https://www.iconfont.cn/",
@@ -1477,7 +1468,6 @@
     "description": "字体天下",
     "id": 210
   },
-
   {
     "title": "echarts",
     "url": "https://echarts.apache.org/zh/index.html",
@@ -1509,7 +1499,7 @@
   {
     "title": "threejs",
     "url": "https://threejs.org/",
-    "icon": "https://threejs.org/files/favicon.ico",
+    "icon": "https://web-finder.ru/wp-content/uploads/2018/02/new-logo-three-js.jpg",
     "description": "threejs",
     "id": 215
   },
