@@ -133,17 +133,17 @@
     "id": 19
   },
   {
-    "title": "360",
-    "url": "https://cdn.baomitu.com/",
-    "icon": "",
-    "description": "360 前端静态资源库是由奇舞团支持并维护的开源项目免费 CDN 服务，支持 HTTPS 和 HTTP/2，囊括上千个前端资源库和 Google 字体库。",
-    "id": 20
-  },
-  {
     "title": "字节跳动cdn",
     "url": "https://cdn.bytedance.com/",
     "icon": "https://cdn.bytedance.com/src/res/favicon.png",
     "description": "字节跳动cdn",
+    "id": 20
+  },
+  {
+    "title": "CDN加速静态文件",
+    "url": "https://note.ifoxhui.com/index.php/archives/74/",
+    "icon": "https://static.shutu.cn/shutu/attachment/49c6f9/2024/01/24/087af25b9e33f07a318846e98c7ff5d9.webp",
+    "description": "利用NPM用大厂CDN加速静态文件/NPM镜像源合集",
     "id": 21
   },
   {
