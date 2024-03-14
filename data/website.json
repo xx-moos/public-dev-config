@@ -953,9 +953,9 @@
   },
   {
     "title": "git太慢",
-    "url": "https://blog.csdn.net/m0_47700906/article/details/126225169",
-    "icon": "https://g.csdnimg.cn/static/logo/favicon32.ico",
-    "description": "git clone 失败或速度慢_BonnieZhang.的博客-CSDN博客_git太慢",
+    "url": "https://mirror.ghproxy.com/",
+    "icon": "https://mirror.ghproxy.com/img/github.png",
+    "description": "git clone 失败或速度慢",
     "id": 137
   },
   {
@@ -1260,10 +1260,10 @@
     "id": 180
   },
   {
-    "title": "vppp.cn",
-    "url": "http://www.vppp.cn",
+    "title": "AI搜索",
+    "url": "https://aoyo.ai/",
     "icon": "",
-    "description": "本站最新域名 http://www.vppp.cn 。 请务必加群，否则域名被封会找不到本站。",
+    "description": "AI搜索",
     "id": 181
   },
   {
@@ -1281,10 +1281,10 @@
     "id": 183
   },
   {
-    "title": "binjie",
-    "url": "https://chat.jinshutuan.com/",
+    "title": "codegist",
+    "url": "https://codegist.cn/",
     "icon": "",
-    "description": "国内备案不封链接：https://chat.jinshutuan.com/（稳定但有严格内容审查，若要分享到国内或微信分享请用此链接） 最新网站存活（无审查且不稳定勿分享）: https://chat2.aichatos.top/",
+    "description": "即刻记录代码片段",
     "id": 184
   },
   {
