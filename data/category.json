@@ -40,7 +40,7 @@
         "description": "vue 生态",
         "childrens": [],
         "id": 7
-    }
+    },
     {
         "title": "react 生态",
         "description": "react 生态",
@@ -58,7 +58,7 @@
         "description": "java 生态",
         "childrens": [],
         "id": 10
-    }
+    },
     {
         "title": "chat-gpt",
         "description": "chat-gpt",
