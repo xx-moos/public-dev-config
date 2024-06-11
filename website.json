@@ -602,24 +602,24 @@
         "id": 86
     },
     {
-        "title": "IntelliCode",
-        "url": "https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode",
+        "title": "nodejs-快捷键",
+        "url": "https://github.com/mu-mx/work-box/blob/main/vscode/config/snippets/node.code-snippets",
         "icon": "",
-        "description": "IntelliCode",
+        "description": "nodejs-快捷键",
         "id": 87
     },
     {
-        "title": "react-快捷键",
-        "url": "https://github.com/dsznajder/vscode-react-javascript-snippets/blob/HEAD/docs/Snippets.md",
+        "title": "rn-快捷键",
+        "url": "https://github.com/mu-mx/work-box/blob/main/vscode/config/snippets/rn.code-snippets",
         "icon": "",
-        "description": "react-快捷键",
+        "description": "rn-快捷键",
         "id": 88
     },
     {
-        "title": "jq-快捷键",
-        "url": "https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets",
+        "title": "es-快捷键",
+        "url": "https://github.com/mu-mx/work-box/blob/main/vscode/config/snippets/es.code-snippets",
         "icon": "",
-        "description": "jq-快捷键",
+        "description": "es-快捷键",
         "id": 89
     },
     {
