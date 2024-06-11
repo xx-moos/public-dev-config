@@ -681,5 +681,11 @@
         "icon": "https://www.digitalocean.com/_next/static/media/favicon.594d6067.ico",
         "description": "NGINX 配置配置高性能、安全、稳定的NGINX服务器的最简单方法。",
         "id": 98
+    },
+    {
+        "title": "vue-快捷键",
+        "url": "https://github.com/mu-mx/work-box/blob/main/vscode/config/snippets/vue.code-snippets",
+        "description": "vue-快捷键",
+        "id": 99
     }
 ]
