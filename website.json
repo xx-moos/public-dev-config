@@ -687,5 +687,11 @@
         "url": "https://github.com/mu-mx/work-box/blob/main/vscode/config/snippets/vue.code-snippets",
         "description": "vue-快捷键",
         "id": 99
+    },
+    {
+        "title": "html-to-jsx",
+        "url": "https://transform.tools/html-to-jsx",
+        "description": "html-to-jsx",
+        "id": 100
     }
 ]
