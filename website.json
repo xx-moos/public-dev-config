@@ -693,5 +693,35 @@
         "url": "https://transform.tools/html-to-jsx",
         "description": "html-to-jsx",
         "id": 100
+    },
+    {
+        "title": "url转对象",
+        "url": "https://www.urlxcode.com/zh",
+        "description": "url转对象",
+        "id": 101
+    },
+    {
+        "title": "开发工具箱",
+        "url": "https://linktre.cc/",
+        "description": "开发工具箱",
+        "id": 102
+    },
+    {
+        "title": "fly63工具箱",
+        "url": "https://www.fly63.com/tool/home.html",
+        "description": "fly63工具箱",
+        "id": 103
+    },
+    {
+        "title": "最佳平替",
+        "url": "https://www.pingti.app/",
+        "description": "最佳平替",
+        "id": 104
+    },
+    {
+        "title": "邮箱 📧 newsletter RSS 荟萃 News",
+        "url": "https://github.com/alaskasquirrel/Email-newsletter-RSS?tab=readme-ov-file",
+        "description": "邮箱 📧 newsletter RSS 荟萃 News",
+        "id": 105
     }
 ]
