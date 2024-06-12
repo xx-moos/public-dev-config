@@ -136,7 +136,7 @@
         "title": "在线工具",
         "url": "https://tool.lu/",
         "icon": "https://tool.lu/favicon.ico",
-        "description": "在线工具",
+        "description": "在线工具, watermark图片加水印 , 在线php美化、格式化、解密 , 在线html美化、格式化、压缩 , websocket测试工具 , 正则测试工具 , sql工具 , json工具",
         "id": 20
     },
     {
@@ -290,7 +290,7 @@
         "title": "工具大全",
         "url": "http://www.gjw123.com/",
         "icon": "",
-        "description": "工具123 - 在线工具大全_免下载_全在线小工具网站",
+        "description": "工具123 - 在线工具大全_免下载_全在线小工具网站, 发音转换器 , 微信对话生成器2022版 , 2022工资个税计算器 , 2022花呗我的额度生成 , LOGO在线制作 , 图查查 , 算数指数 , 文字配音 , 疫情实时查询 , 备案域名批量查询 , 爱小说搜索",
         "id": 42
     },
     {
@@ -703,7 +703,8 @@
     {
         "title": "开发工具箱",
         "url": "https://linktre.cc/",
-        "description": "开发工具箱",
+        "description": "开发工具箱, Favicon.ico图标在线转换 , Favicon.ico图标生成器 , scamalyticsIp 在线ip干净程度检测工具 , whoer 在线ip、dns检查工具 , ipinfo 在线ip机场检查工具 , tinypng 在线免费图片压缩工具 , kraken 在线图片压缩工具 , Removebg 免登录的100%免费的在线 AI 抠图工具。
+",
         "id": 102
     },
     {
