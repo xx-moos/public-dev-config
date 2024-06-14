@@ -723,5 +723,11 @@
         "url": "https://github.com/alaskasquirrel/Email-newsletter-RSS?tab=readme-ov-file",
         "description": "邮箱 📧 newsletter RSS 荟萃 News",
         "id": 105
+    },
+    {
+        "title": "gpt4",
+        "url": "https://gpt4o.so/zh-CN/app",
+        "description": "gpt4 - 可用的",
+        "id": 106
     }
 ]
