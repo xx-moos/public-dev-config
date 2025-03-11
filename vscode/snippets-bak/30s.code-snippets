@@ -1,0 +1,3341 @@
+{
+  "all": {
+      "prefix": "30s_all",
+      "body": [
+          "const all = (arr, fn = Boolean) => arr.every(fn);"
+      ],
+      "description": "如果提供的谓词函数对集合中的所有元素返回 `true`，则返回 `true`；否则返回 `false`。\n\n使用 `Array.prototype.every()` 来检测集合中的所有元素是否根据 `fn` 返回 `true`。\n省略第二个参数 `fn` 时，默认使用 `Boolean`。"
+  },
+  "allEqual": {
+      "prefix": "30s_allEqual",
+      "body": [
+          "const allEqual = arr => arr.every(val => val === arr[0]);"
+      ],
+      "description": "检查数组中的所有元素是否相等。\n\n使用 `Array.prototype.every()` 检查数组的所有元素是否与第一个元素相同。"
+  },
+  "any": {
+      "prefix": "30s_any",
+      "body": [
+          "const any = (arr, fn = Boolean) => arr.some(fn);"
+      ],
+      "description": "如果提供的谓词函数对集合中的至少一个元素返回 `true`，则返回 `true`；否则返回 `false`。\n\n使用 `Array.prototype.some()` 来检测集合中的任何元素是否根据 `fn` 返回 `true`。\n省略第二个参数 `fn` 时，默认使用 `Boolean`。"
+  },
+  "approximatelyEqual": {
+      "prefix": "30s_approximatelyEqual",
+      "body": [
+          "const approximatelyEqual = (v1, v2, epsilon = 0.001) => Math.abs(v1 - v2) < epsilon;"
+      ],
+      "description": "检查两个数字是否近似相等。\n\n使用 `Math.abs()` 比较两个值的绝对差与 `epsilon`。\n省略第三个参数 `epsilon` 时，默认值为 `0.001`。"
+  },
+  "arrayToCSV": {
+      "prefix": "30s_arrayToCSV",
+      "body": [
+          "const arrayToCSV = (arr, delimiter = ',') =>",
+          "  arr.map(v => v.map(x => `\"${x}\"`).join(delimiter)).join('\\n');"
+      ],
+      "description": "将二维数组转换为逗号分隔值（CSV）字符串。\n\n使用 `Array.prototype.map()` 和 `Array.prototype.join(delimiter)` 将单个一维数组（行）组合成字符串。\n使用 `Array.prototype.join('\\n')` 将所有行组合成 CSV 字符串，每行之间用换行符分隔。\n省略第二个参数 `delimiter` 时，默认分隔符为 `,`。"
+  },
+  "arrayToHtmlList": {
+      "prefix": "30s_arrayToHtmlList",
+      "body": [
+          "const arrayToHtmlList = (arr, listID) =>",
+          "  (el => (",
+          "    (el = document.querySelector('#' + listID)),",
+          "    (el.innerHTML += arr.map(item => `<li>${item}</li>`).join(''))",
+          "  ))();"
+      ],
+      "description": "将给定数组元素转换为 `<li>` 标签并附加到具有指定 ID 的列表中。\n\n使用 `Array.prototype.map()`、`document.querySelector()` 和匿名内部闭包来创建 HTML 标签列表。"
+  },
+  "ary": {
+      "prefix": "30s_ary",
+      "body": [
+          "const ary = (fn, n) => (...args) => fn(...args.slice(0, n));"
+      ],
+      "description": "创建一个最多接受 `n` 个参数的函数，忽略任何额外的参数。\n\n调用提供的函数 `fn`，最多使用 `n` 个参数，并使用 `Array.prototype.slice(0, n)` 和扩展运算符 (`...`)。"
+  },
+  "atob": {
+      "prefix": "30s_atob",
+      "body": [
+          "const atob = str => Buffer.from(str, 'base64').toString('binary');"
+      ],
+      "description": "解码使用 Base-64 编码的数据字符串。\n\n为给定字符串创建一个 Base-64 编码的 `Buffer` 并使用 `Buffer.toString('binary')` 返回解码后的字符串。"
+  },
+  "attempt": {
+      "prefix": "30s_attempt",
+      "body": [
+          "const attempt = (fn, ...args) => {",
+          "  try {",
+          "    return fn(...args);",
+          "  } catch (e) {",
+          "    return e instanceof Error ? e : new Error(e);",
+          "  }",
+          "};"
+      ],
+      "description": "尝试使用提供的参数调用一个函数，返回结果或捕获的错误对象。\n\n使用 `try... catch` 块返回函数的结果或适当的错误。"
+  },
+  "average": {
+      "prefix": "30s_average",
+      "body": [
+          "const average = (...nums) => nums.reduce((acc, val) => acc + val, 0) / nums.length;"
+      ],
+      "description": "返回两个或多个数字的平均值。\n\n使用 `Array.prototype.reduce()` 将每个值累加到初始值为 `0` 的累加器中，然后除以数组的长度。"
+  },
+  "averageBy": {
+      "prefix": "30s_averageBy",
+      "body": [
+          "const averageBy = (arr, fn) =>",
+          "  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => acc + val, 0) /",
+          "  arr.length;"
+      ],
+      "description": "返回数组的平均值，在使用提供的函数映射每个元素后。\n\n使用 `Array.prototype.map()` 映射每个元素到 `fn` 返回的值，使用 `Array.prototype.reduce()` 将每个值累加到初始值为 `0` 的累加器中，然后除以数组的长度。"
+  },
+  "bifurcate": {
+      "prefix": "30s_bifurcate",
+      "body": [
+          "const bifurcate = (arr, filter) =>",
+          "  arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [[], []]);"
+      ],
+      "description": "将值分为两组。如果 `filter` 中的元素为真，则对应的集合元素属于第一组；否则，属于第二组。\n\n使用 `Array.prototype.reduce()` 和 `Array.prototype.push()` 根据 `filter` 将元素添加到不同的组中。"
+  },
+  "bifurcateBy": {
+      "prefix": "30s_bifurcateBy",
+      "body": [
+          "const bifurcateBy = (arr, fn) =>",
+          "  arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1].push(val), acc), [[], []]);"
+      ],
+      "description": "根据谓词函数将值分为两组，该函数指定了输入集合中的元素属于哪个组。如果谓词函数返回真值，则集合元素属于第一组；否则，属于第二组。\n\n使用 `Array.prototype.reduce()` 和 `Array.prototype.push()` 根据 `fn` 返回的值将元素添加到不同的组中。"
+  },
+  "bind": {
+      "prefix": "30s_bind",
+      "body": [
+          "const bind = (fn, context, ...boundArgs) => (...args) => fn.apply(context, [...boundArgs, ...args]);"
+      ],
+      "description": "创建一个函数，该函数使用给定的上下文调用 `fn`，可选地将任何额外提供的参数添加到参数的开头。\n\n返回一个使用 `Function.prototype.apply()` 应用给定上下文 `context` 到 `fn` 的函数。\n使用 `Array.prototype.concat()` 将任何额外提供的参数添加到参数的开头。"
+  },
+  "bindAll": {
+      "prefix": "30s_bindAll",
+      "body": [
+          "const bindAll = (obj, ...fns) =>",
+          "  fns.forEach(",
+          "    fn => (",
+          "      (f = obj[fn]),",
+          "      (obj[fn] = function() {",
+          "        return f.apply(obj);",
+          "      })",
+          "    )",
+          "  );"
+      ],
+      "description": "将对象的方法绑定到对象本身，覆盖现有的方法。\n\n使用 `Array.prototype.forEach()` 返回一个使用 `Function.prototype.apply()` 应用给定上下文 `obj` 到 `fn` 的函数，对于每个指定的函数。"
+  },
+  "bindKey": {
+      "prefix": "30s_bindKey",
+      "body": [
+          "const bindKey = (context, fn, ...boundArgs) => (...args) =>",
+          "  context[fn].apply(context, [...boundArgs, ...args]);"
+      ],
+      "description": "创建一个函数，该函数调用对象中给定键的方法，可选地将任何额外提供的参数添加到参数的开头。\n\n返回一个使用 `Function.prototype.apply()` 绑定 `context[fn]` 到 `context` 的函数。\n使用扩展运算符 (`...`) 将任何额外提供的参数添加到参数的开头。"
+  },
+  "binomialCoefficient": {
+      "prefix": "30s_binomialCoefficient",
+      "body": [
+          "const binomialCoefficient = (n, k) => {",
+          "  if (Number.isNaN(n) || Number.isNaN(k)) return NaN;",
+          "  if (k < 0 || k > n) return 0;",
+          "  if (k === 0 || k === n) return 1;",
+          "  if (k === 1 || k === n - 1) return n;",
+          "  if (n - k < k) k = n - k;",
+          "  let res = n;",
+          "  for (let j = 2; j <= k; j++) res *= (n - j + 1) / j;",
+          "  return Math.round(res);",
+          "};"
+      ],
+      "description": "计算两个整数 `n` 和 `k` 的二项式系数。\n\n使用 `Number.isNaN()` 检查两个值是否为 `NaN`。\n检查 `k` 是否小于 `0` 或大于等于 `n`，等于 `1` 或 `n - 1` 并返回适当的结果。\n检查 `n - k` 是否小于 `k` 并相应地交换它们的值。\n从 `2` 循环到 `k` 并计算二项式系数。\n使用 `Math.round()` 处理计算中的舍入误差。"
+  },
+  "bottomVisible": {
+      "prefix": "30s_bottomVisible",
+      "body": [
+          "const bottomVisible = () =>",
+          "  document.documentElement.clientHeight + window.scrollY >=",
+          "  (document.documentElement.scrollHeight || document.documentElement.clientHeight);"
+      ],
+      "description": "如果页面底部可见，则返回 `true`；否则返回 `false`。\n\n使用 `scrollY`、`scrollHeight` 和 `clientHeight` 来判断页面底部是否可见。"
+  },
+  "btoa": {
+      "prefix": "30s_btoa",
+      "body": [
+          "const btoa = str => Buffer.from(str, 'binary').toString('base64');"
+      ],
+      "description": "将字符串对象中的每个字符作为二进制数据创建一个 Base-64 编码的 ASCII 字符串。\n\n为给定字符串创建一个 `Buffer` 对象，并使用 `Buffer.toString('base64')` 返回编码后的字符串。"
+  },
+  "byteSize": {
+      "prefix": "30s_byteSize",
+      "body": [
+          "const byteSize = str => new Blob([str]).size;"
+      ],
+      "description": "返回字符串的字节数。\n\n将给定字符串转换为 `Blob` 对象并获取其大小。"
+  },
+  "call": {
+      "prefix": "30s_call",
+      "body": [
+          "const call = (key, ...args) => context => context[key](...args);"
+      ],
+      "description": "给定一个键和一组参数，在给定上下文时调用它们。主要用于组合操作。"
+  },
+  "capitalize": {
+      "prefix": "30s_capitalize",
+      "body": [
+          "const capitalize = ([first, ...rest], lowerRest = false) =>",
+          "  first.toUpperCase() + (lowerRest ? rest.join('').toLowerCase() : rest.join(''));"
+      ],
+      "description": "将字符串的第一个字母大写。\n\n使用数组解构和 `String.prototype.toUpperCase()` 大写第一个字母，`...rest` 获取第一个字母之后的所有字符，并使用 `Array.prototype.join('')` 将其重新组合为字符串。\n忽略 `lowerRest` 参数以保持字符串其余部分不变，或将其设置为 `true` 以转换为小写。"
+  },
+  "capitalizeEveryWord": {
+      "prefix": "30s_capitalizeEveryWord",
+      "body": [
+          "const capitalizeEveryWord = str => str.replace(/\\b[a-z]/g, char => char.toUpperCase());"
+      ],
+      "description": "将字符串中每个单词的第一个字母大写。\n\n使用 `String.prototype.replace()` 匹配每个单词的第一个字符，并使用 `String.prototype.toUpperCase()` 将其大写。"
+  },
+  "castArray": {
+      "prefix": "30s_castArray",
+      "body": [
+          "const castArray = val => (Array.isArray(val) ? val : [val]);"
+      ],
+      "description": "将提供的值转换为数组（如果不是数组的话）。\n\n使用 `Array.prototype.isArray()` 判断 `val` 是否为数组，并相应地返回原样或封装在数组中的 `val`。"
+  },
+  "chainAsync": {
+      "prefix": "30s_chainAsync",
+      "body": [
+          "const chainAsync = fns => {",
+          "  let curr = 0;",
+          "  const next = () => fns[curr++](next);",
+          "  next();",
+          "};"
+      ],
+      "description": "链接异步函数。\n\n遍历包含异步事件的函数数组，在每个异步事件完成后调用 `next`。"
+  },
+  "chunk": {
+      "prefix": "30s_chunk",
+      "body": [
+          "const chunk = (arr, size) =>",
+          "  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>",
+          "    arr.slice(i * size, i * size + size)",
+          "  );"
+      ],
+      "description": "将数组分割成指定大小的小数组。\n\n使用 `Array.from()` 创建一个新数组，其长度等于将产生的块数。\n使用 `Array.prototype.slice()` 映射新数组的每个元素到一个长度为 `size` 的块。\n如果原始数组无法均匀分割，最后一个块将包含剩余的元素。"
+  },
+  "clampNumber": {
+      "prefix": "30s_clampNumber",
+      "body": [
+          "const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));"
+      ],
+      "description": "将 `num` 限制在由边界值 `a` 和 `b` 指定的范围内。\n\n如果 `num` 在范围内，则返回 `num`。\n否则，返回范围内的最近数值。"
+  },
+  "cloneRegExp": {
+      "prefix": "30s_cloneRegExp",
+      "body": [
+          "const cloneRegExp = regExp => new RegExp(regExp.source, regExp.flags);"
+      ],
+      "description": "克隆正则表达式。\n\n使用 `new RegExp()`、`RegExp.source` 和 `RegExp.flags` 克隆给定的正则表达式。"
+  },
+  "coalesce": {
+      "prefix": "30s_coalesce",
+      "body": [
+          "const coalesce = (...args) => args.find(_ => ![undefined, null].includes(_));"
+      ],
+      "description": "返回第一个非空/非 `undefined` 的参数。\n\n使用 `Array.prototype.find()` 返回第一个非 `null`/`undefined` 的参数。"
+  },
+  "coalesceFactory": {
+      "prefix": "30s_coalesceFactory",
+      "body": [
+          "const coalesceFactory = valid => (...args) => args.find(valid);"
+      ],
+      "description": "返回一个自定义的 coalesce 函数，该函数返回通过提供的参数验证函数返回 `true` 的第一个参数。\n\n使用 `Array.prototype.find()` 返回通过提供的参数验证函数返回 `true` 的第一个参数。"
+  },
+  "collectInto": {
+      "prefix": "30s_collectInto",
+      "body": [
+          "const collectInto = fn => (...args) => fn(args);"
+      ],
+      "description": "将接受数组的函数转换为变长参数函数。"
+  },
+  "colorize": {
+      "prefix": "30s_colorize",
+      "body": [
+          "const colorize = (...args) => ({",
+          "  black: `\\x1b[30m${args.join(' ')}`,",
+          "  red: `\\x1b[31m${args.join(' ')}`,",
+          "  green: `\\x1b[32m${args.join(' ')}`,",
+          "  yellow: `\\x1b[33m${args.join(' ')}`,",
+          "  blue: `\\x1b[34m${args.join(' ')}`,",
+          "  magenta: `\\x1b[35m${args.join(' ')}`,",
+          "  cyan: `\\x1b[36m${args.join(' ')}`,",
+          "  white: `\\x1b[37m${args.join(' ')}`,",
+          "  bgBlack: `\\x1b[40m${args.join(' ')}\\x1b[0m`,",
+          "  bgRed: `\\x1b[41m${args.join(' ')}\\x1b[0m`,",
+          "  bgGreen: `\\x1b[42m${args.join(' ')}\\x1b[0m`,",
+          "  bgYellow: `\\x1b[43m${args.join(' ')}\\x1b[0m`,",
+          "  bgBlue: `\\x1b[44m${args.join(' ')}\\x1b[0m`,",
+          "  bgMagenta: `\\x1b[45m${args.join(' ')}\\x1b[0m`,",
+          "  bgCyan: `\\x1b[46m${args.join(' ')}\\x1b[0m`,",
+          "  bgWhite: `\\x1b[47m${args.join(' ')}\\x1b[0m`",
+          "});"
+      ],
+      "description": "向文本添加特殊字符以便在控制台中以颜色打印（结合 `console.log()` 使用）。\n\n使用模板字符串和特殊字符为字符串输出添加适当的颜色代码。\n对于背景颜色，在字符串末尾添加一个重置背景颜色的特殊字符。"
+  },
+  "compact": {
+      "prefix": "30s_compact",
+      "body": [
+          "const compact = arr => arr.filter(Boolean);"
+      ],
+      "description": "从数组中移除假值。\n\n使用 `Array.prototype.filter()` 过滤掉假值 (`false`, `null`, `0`, `\"\"`, `undefined`, `NaN`)。"
+  },
+  "compose": {
+      "prefix": "30s_compose",
+      "body": [
+          "const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));"
+      ],
+      "description": "执行右至左的函数组合。\n\n使用 `Array.prototype.reduce()` 执行右至左的函数组合。\n最后一个（最右侧）函数可以接受一个或多个参数；其余函数必须是一元函数。"
+  },
+  "composeRight": {
+      "prefix": "30s_composeRight",
+      "body": [
+          "const composeRight = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));"
+      ],
+      "description": "执行左至右的函数组合。\n\n使用 `Array.prototype.reduce()` 执行左至右的函数组合。\n第一个（最左侧）函数可以接受一个或多个参数；其余函数必须是一元函数。"
+  },
+  "converge": {
+      "prefix": "30s_converge",
+      "body": [
+          "const converge = (converger, fns) => (...args) => converger(...fns.map(fn => fn.apply(null, args)));"
+      ],
+      "description": "接受一个汇聚函数和一系列分支函数，并返回一个函数，该函数将每个分支函数应用于参数并将分支函数的结果作为参数传递给汇聚函数。\n\n使用 `Array.prototype.map()` 和 `Function.prototype.apply()` 应用于给定的参数。\n使用扩展运算符 (`...`) 调用 `converger` 并传入所有其他函数的结果。"
+  },
+  "copyToClipboard": {
+      "prefix": "30s_copyToClipboard",
+      "body": [
+          "const copyToClipboard = str => {",
+          "  const el = document.createElement('textarea');",
+          "  el.value = str;",
+          "  el.setAttribute('readonly', '');",
+          "  el.style.position = 'absolute';",
+          "  el.style.left = '-9999px';",
+          "  document.body.appendChild(el);",
+          "  const selected =",
+          "    document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;",
+          "  el.select();",
+          "  document.execCommand('copy');",
+          "  document.body.removeChild(el);",
+          "  if (selected) {",
+          "    document.getSelection().removeAllRanges();",
+          "    document.getSelection().addRange(selected);",
+          "  }",
+          "};"
+      ],
+      "description": "⚠️ **注意：** 相同的功能可以通过使用新的异步 Clipboard API 实现，尽管它仍然是实验性的，但在未来应该替代此片段。更多信息见 [这里](https://github.com/w3c/clipboard-apis/blob/master/explainer.adoc#writing-to-the-clipboard)。\n\n将字符串复制到剪贴板。\n仅在用户操作（例如点击事件监听器内）时有效。\n\n创建一个新的 `<textarea>` 元素，填充所提供的数据并将其添加到 HTML 文档中。\n使用 `Selection.getRangeAt()` 存储选区（如果有）。\n使用 `document.execCommand('copy')` 复制到剪贴板。\n从 HTML 文档中移除 `<textarea>` 元素。\n最后，使用 `Selection().addRange()` 恢复原来的选区（如果有）。"
+  },
+  "countBy": {
+      "prefix": "30s_countBy",
+      "body": [
+          "const countBy = (arr, fn) =>",
+          "  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => {",
+          "    acc[val] = (acc[val] || 0) + 1;",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "根据给定的函数对数组元素进行分组，并返回每个分组的计数。\n\n使用 `Array.prototype.map()` 映射数组值到函数或属性名称。\n使用 `Array.prototype.reduce()` 创建一个对象，其中的键是由映射结果生成的。"
+  },
+  "counter": {
+      "prefix": "30s_counter",
+      "body": [
+          "const counter = (selector, start, end, step = 1, duration = 2000) => {",
+          "  let current = start,",
+          "    _step = (end - start) * step < 0 ? -step : step,",
+          "    timer = setInterval(() => {",
+          "      current += _step;",
+          "      document.querySelector(selector).innerHTML = current;",
+          "      if (current >= end) document.querySelector(selector).innerHTML = end;",
+          "      if (current >= end) clearInterval(timer);",
+          "    }, Math.abs(Math.floor(duration / (end - start))));",
+          "  return timer;",
+          "};"
+      ],
+      "description": "创建一个计数器，指定范围、步长和持续时间，并应用于指定的选择器。\n\n检查 `step` 是否符号正确并据此调整。\n使用 `setInterval()` 结合 `Math.abs()` 和 `Math.floor()` 来计算每次新文本绘制之间的时间间隔。\n使用 `document.querySelector().innerHTML` 更新选定元素的值。\n省略第四个参数 `step` 使用默认步长 `1`。\n省略第五个参数 `duration` 使用默认持续时间 `2000` 毫秒。"
+  },
+  "countOccurrences": {
+      "prefix": "30s_countOccurrences",
+      "body": [
+          "const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);"
+      ],
+      "description": "统计数组中某个值出现的次数。\n\n使用 `Array.prototype.reduce()` 在数组中每次遇到特定值时递增计数器。"
+  },
+  "createElement": {
+      "prefix": "30s_createElement",
+      "body": [
+          "const createElement = str => {",
+          "  const el = document.createElement('div');",
+          "  el.innerHTML = str;",
+          "  return el.firstElementChild;",
+          "};"
+      ],
+      "description": "从字符串创建一个元素（不附加到文档）。\n如果给定的字符串包含多个元素，则只返回第一个。\n\n使用 `document.createElement()` 创建一个新元素。\n将其 `innerHTML` 设置为作为参数提供的字符串。\n使用 `ParentNode.firstElementChild` 返回字符串的元素版本。"
+  },
+  "createEventHub": {
+      "prefix": "30s_createEventHub",
+      "body": [
+          "const createEventHub = () => ({",
+          "  hub: Object.create(null),",
+          "  emit(event, data) {",
+          "    (this.hub[event] || []).forEach(handler => handler(data));",
+          "  },",
+          "  on(event, handler) {",
+          "    if (!this.hub[event]) this.hub[event] = [];",
+          "    this.hub[event].push(handler);",
+          "  },",
+          "  off(event, handler) {",
+          "    const i = (this.hub[event] || []).findIndex(h => h === handler);",
+          "    if (i > -1) this.hub[event].splice(i, 1);",
+          "  }",
+          "});"
+      ],
+      "description": "创建一个具有 `emit`、`on` 和 `off` 方法的发布订阅事件中心。\n\n使用 `Object.create(null)` 创建一个空的 `hub` 对象，该对象不继承 `Object.prototype` 的属性。\n对于 `emit`，根据 `event` 参数解析处理程序数组，然后使用 `Array.prototype.forEach()` 运行每个处理程序，将数据作为参数传递。\n对于 `on`，如果尚未存在则为事件创建一个数组，然后使用 `Array.prototype.push()` 将处理程序添加到数组中。\n对于 `off`，使用 `Array.prototype.findIndex()` 查找事件数组中的处理程序索引，并使用 `Array.prototype.splice()` 删除它。"
+  },
+  "CSVToArray": {
+      "prefix": "30s_CSVToArray",
+      "body": [
+          "const CSVToArray = (data, delimiter = ',', omitFirstRow = false) =>",
+          "  data",
+          "    .slice(omitFirstRow ? data.indexOf('\\n') + 1 : 0)",
+          "    .split('\\n')",
+          "    .map(v => v.split(delimiter));"
+      ],
+      "description": "将逗号分隔值（CSV）字符串转换为二维数组。\n\n使用 `Array.prototype.slice()` 和 `Array.prototype.indexOf('\\n')` 如果 `omitFirstRow` 为 `true` 则移除第一行（标题行）。\n使用 `String.prototype.split('\\n')` 为每一行创建一个字符串，然后使用 `String.prototype.split(delimiter)` 分离每行中的值。\n省略第二个参数 `delimiter` 使用默认分隔符 ``,`。\n省略第三个参数 `omitFirstRow` 包含 CSV 字符串的第一行（标题行）。"
+  },
+  "CSVToJSON": {
+      "prefix": "30s_CSVToJSON",
+      "body": [
+          "const CSVToJSON = (data, delimiter = ',') => {",
+          "  const titles = data.slice(0, data.indexOf('\\n')).split(delimiter);",
+          "  return data",
+          "    .slice(data.indexOf('\\n') + 1)",
+          "    .split('\\n')",
+          "    .map(v => {",
+          "      const values = v.split(delimiter);",
+          "      return titles.reduce((obj, title, index) => ((obj[title] = values[index]), obj), {});",
+          "    });",
+          "};"
+      ],
+      "description": "将逗号分隔值（CSV）字符串转换为二维对象数组。\n字符串的第一行用作标题行。\n\n使用 `Array.prototype.slice()` 和 `Array.prototype.indexOf('\\n')` 以及 `String.prototype.split(delimiter)` 将第一行（标题行）分离成值。\n使用 `String.prototype.split('\\n')` 为每一行创建一个字符串，然后使用 `Array.prototype.map()` 和 `String.prototype.split(delimiter)` 分离每行中的值。\n使用 `Array.prototype.reduce()` 为每一行的值创建一个对象，键由标题行解析。\n省略第二个参数 `delimiter` 使用默认分隔符 ``,`。"
+  },
+  "currentURL": {
+      "prefix": "30s_currentURL",
+      "body": [
+          "const currentURL = () => window.location.href;"
+      ],
+      "description": "返回当前 URL。\n\n使用 `window.location.href` 获取当前 URL。"
+  },
+  "curry": {
+      "prefix": "30s_curry",
+      "body": [
+          "const curry = (fn, arity = fn.length, ...args) =>",
+          "  arity <= args.length ? fn(...args) : curry.bind(null, fn, arity, ...args);"
+      ],
+      "description": "柯里化一个函数。\n\n使用递归。\n如果提供的参数数量 (`args`) 足够，调用传递的函数 `fn`。\n否则，返回一个柯里化的函数 `fn` 期望剩余的参数。\n如果你想柯里化一个接受可变数量参数的函数（如 `Math.min()`），可以可选地将参数数量传递给第二个参数 `arity`。"
+  },
+  "dayOfYear": {
+      "prefix": "30s_dayOfYear",
+      "body": [
+          "const dayOfYear = date =>",
+          "  Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);"
+      ],
+      "description": "从 `Date` 对象获取一年中的天数。\n\n使用 `new Date()` 和 `Date.prototype.getFullYear()` 获取一年的第一天作为 `Date` 对象，将其从提供的 `date` 中减去并除以每天的毫秒数以得到结果。\n使用 `Math.floor()` 将结果天数适当地四舍五入为整数。"
+  },
+  "debounce": {
+      "prefix": "30s_debounce",
+      "body": [
+          "const debounce = (fn, ms = 0) => {",
+          "  let timeoutId;",
+          "  return function(...args) {",
+          "    clearTimeout(timeoutId);",
+          "    timeoutId = setTimeout(() => fn.apply(this, args), ms);",
+          "  };",
+          "};"
+      ],
+      "description": "创建一个防抖函数，延迟调用提供的函数直到至少 `ms` 毫秒已自上次调用以来经过。\n\n每次调用防抖函数时，使用 `clearTimeout()` 清除当前挂起的超时，并使用 `setTimeout()` 创建一个新的超时，延迟调用函数直到至少 `ms` 毫秒已过。使用 `Function.prototype.apply()` 将 `this` 上下文应用到函数并提供必要的参数。\n省略第二个参数 `ms` 将超时设置为默认的 0 毫秒。"
+  },
+  "decapitalize": {
+      "prefix": "30s_decapitalize",
+      "body": [
+          "const decapitalize = ([first, ...rest], upperRest = false) =>",
+          "  first.toLowerCase() + (upperRest ? rest.join('').toUpperCase() : rest.join(''));"
+      ],
+      "description": "将字符串的第一个字母转为小写。\n\n使用数组解构和 `String.toLowerCase()` 将第一个字母转为小写，使用 `...rest` 获取第一个字母之后的字符数组，然后使用 `Array.prototype.join('')` 将其再次组合成字符串。\n省略 `upperRest` 参数以保持字符串其余部分不变，或将其设置为 `true` 以将剩余部分转为大写。"
+  },
+  "deepClone": {
+      "prefix": "30s_deepClone",
+      "body": [
+          "const deepClone = obj => {",
+          "  let clone = Object.assign({}, obj);",
+          "  Object.keys(clone).forEach(",
+          "    key => (clone[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])",
+          "  );",
+          "  return Array.isArray(obj) ? (clone.length = obj.length) && Array.from(clone) : clone;",
+          "};"
+      ],
+      "description": "创建一个对象的深克隆。\n\n使用递归。\n使用 `Object.assign()` 和一个空对象 (`{}`) 创建原始对象的浅克隆。\n使用 `Object.keys()` 和 `Array.prototype.forEach()` 确定哪些键值对需要进行深克隆。"
+  },
+  "deepFlatten": {
+      "prefix": "30s_deepFlatten",
+      "body": [
+          "const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)));"
+      ],
+      "description": "深度展平数组。\n\n使用递归。\n使用 `Array.prototype.concat()` 结合空数组 (`[]`) 和扩展运算符 (`...`) 展平数组。\n递归地展平每个是数组的元素。"
+  },
+  "deepFreeze": {
+      "prefix": "30s_deepFreeze",
+      "body": [
+          "const deepFreeze = obj =>",
+          "  Object.keys(obj).forEach(",
+          "    prop =>",
+          "      !(obj[prop] instanceof Object) || Object.isFrozen(obj[prop]) ? null : deepFreeze(obj[prop])",
+          "  ) || Object.freeze(obj);"
+      ],
+      "description": "深度冻结对象。\n\n递归地在所有未被冻结的对象属性上调用 `Object.freeze(obj)`。"
+  },
+  "defaults": {
+      "prefix": "30s_defaults",
+      "body": [
+          "const defaults = (obj, ...defs) => Object.assign({}, obj, ...defs.reverse(), obj);"
+      ],
+      "description": "为对象中所有未定义的属性分配默认值。\n\n使用 `Object.assign()` 创建一个新的空对象并复制原始对象以保持键顺序，使用 `Array.prototype.reverse()` 和扩展运算符 `...` 从左到右合并默认值，最后再次使用 `obj` 覆盖原本有值的属性。"
+  },
+  "defer": {
+      "prefix": "30s_defer",
+      "body": [
+          "const defer = (fn, ...args) => setTimeout(fn, 1, ...args);"
+      ],
+      "description": "延迟调用函数直到当前调用栈清空。\n\n使用 `setTimeout()` 带有 1 毫秒的超时来将新事件添加到浏览器事件队列，并允许渲染引擎完成其工作。使用扩展运算符 (`...`) 向函数提供任意数量的参数。"
+  },
+  "degreesToRads": {
+      "prefix": "30s_degreesToRads",
+      "body": [
+          "const degreesToRads = deg => (deg * Math.PI) / 180.0;"
+      ],
+      "description": "将角度从度转换为弧度。\n\n使用 `Math.PI` 和度到弧度的公式将角度从度转换为弧度。"
+  },
+  "delay": {
+      "prefix": "30s_delay",
+      "body": [
+          "const delay = (fn, wait, ...args) => setTimeout(fn, wait, ...args);"
+      ],
+      "description": "在 `wait` 毫秒后调用提供的函数。\n\n使用 `setTimeout()` 延迟执行 `fn`。\n使用扩展运算符 (`...`) 向函数提供任意数量的参数。"
+  },
+  "detectDeviceType": {
+      "prefix": "30s_detectDeviceType",
+      "body": [
+          "const detectDeviceType = () =>",
+          "  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)",
+          "    ? 'Mobile'",
+          "    : 'Desktop';"
+      ],
+      "description": "检测网站是在移动设备还是桌面/笔记本电脑上打开的。\n\n使用正则表达式测试 `navigator.userAgent` 属性，以确定设备是移动设备还是桌面/笔记本电脑。"
+  },
+  "difference": {
+      "prefix": "30s_difference",
+      "body": [
+          "const difference = (a, b) => {",
+          "  const s = new Set(b);",
+          "  return a.filter(x => !s.has(x));",
+          "};"
+      ],
+      "description": "返回两个数组之间的差集。\n\n从 `b` 创建一个 `Set`，然后在 `a` 上使用 `Array.prototype.filter()` 来保留不在 `b` 中的值。"
+  },
+  "differenceBy": {
+      "prefix": "30s_differenceBy",
+      "body": [
+          "const differenceBy = (a, b, fn) => {",
+          "  const s = new Set(b.map(fn));",
+          "  return a.filter(x => !s.has(fn(x)));",
+          "};"
+      ],
+      "description": "在对两个数组中的每个元素应用提供的函数后，返回两个数组之间的差集。\n\n通过将 `fn` 应用于 `b` 中的每个元素来创建一个 `Set`，然后在 `a` 上结合使用 `Array.prototype.filter()` 和 `fn` 来保留不在之前创建的集合中的值。"
+  },
+  "differenceWith": {
+      "prefix": "30s_differenceWith",
+      "body": [
+          "const differenceWith = (arr, val, comp) => arr.filter(a => val.findIndex(b => comp(a, b)) === -1);"
+      ],
+      "description": "过滤掉数组中比较函数不返回 `true` 的所有值。\n\n使用 `Array.prototype.filter()` 和 `Array.prototype.findIndex()` 找到合适的值。"
+  },
+  "dig": {
+      "prefix": "30s_dig",
+      "body": [
+          "const dig = (obj, target) =>",
+          "  target in obj",
+          "    ? obj[target]",
+          "    : Object.values(obj).reduce((acc, val) => {",
+          "      if (acc !== undefined) return acc;",
+          "      if (typeof val === 'object') return dig(val, target);",
+          "    }, undefined);"
+      ],
+      "description": "根据给定的键返回嵌套 JSON 对象中的目标值。\n\n使用 `in` 运算符检查 `target` 是否存在于 `obj` 中。\n如果找到，则返回 `obj[target]` 的值，否则使用 `Object.values(obj)` 和 `Array.prototype.reduce()` 递归调用 `dig` 直到找到第一个匹配的键/值对。"
+  },
+  "digitize": {
+      "prefix": "30s_digitize",
+      "body": [
+          "const digitize = n => [...`${n}`].map(i => parseInt(i));"
+      ],
+      "description": "将数字转换为数字数组。\n\n将数字转换为字符串，使用扩展运算符 (`...`) 构建数组。\n使用 `Array.prototype.map()` 和 `parseInt()` 将每个值转换为整数。"
+  },
+  "distance": {
+      "prefix": "30s_distance",
+      "body": [
+          "const distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0);"
+      ],
+      "description": "返回两点之间的距离。\n\n使用 `Math.hypot()` 计算两点之间的欧几里得距离。"
+  },
+  "drop": {
+      "prefix": "30s_drop",
+      "body": [
+          "const drop = (arr, n = 1) => arr.slice(n);"
+      ],
+      "description": "返回一个新的数组，其中从左侧移除了 `n` 个元素。\n\n使用 `Array.prototype.slice()` 切片以移除指定数量的左侧元素。"
+  },
+  "dropRight": {
+      "prefix": "30s_dropRight",
+      "body": [
+          "const dropRight = (arr, n = 1) => arr.slice(0, -n);"
+      ],
+      "description": "返回一个新的数组，其中从右侧移除了 `n` 个元素。\n\n使用 `Array.prototype.slice()` 切片以移除指定数量的右侧元素。"
+  },
+  "dropRightWhile": {
+      "prefix": "30s_dropRightWhile",
+      "body": [
+          "const dropRightWhile = (arr, func) => {",
+          "  while (arr.length > 0 && !func(arr[arr.length - 1])) arr = arr.slice(0, -1);",
+          "  return arr;",
+          "};"
+      ],
+      "description": "从数组末尾移除元素，直到传递的函数返回 `true`。返回数组中剩余的元素。\n\n遍历数组，使用 `Array.prototype.slice()` 移除数组的最后一个元素，直到函数返回的值为 `true`。\n返回剩余的元素。"
+  },
+  "dropWhile": {
+      "prefix": "30s_dropWhile",
+      "body": [
+          "const dropWhile = (arr, func) => {",
+          "  while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);",
+          "  return arr;",
+          "};"
+      ],
+      "description": "从数组中移除元素，直到传递的函数返回 `true`。返回数组中剩余的元素。\n\n遍历数组，使用 `Array.prototype.slice()` 移除数组的第一个元素，直到函数返回的值为 `true`。\n返回剩余的元素。"
+  },
+  "elementContains": {
+      "prefix": "30s_elementContains",
+      "body": [
+          "const elementContains = (parent, child) => parent !== child && parent.contains(child);"
+      ],
+      "description": "如果 `parent` 元素包含 `child` 元素，则返回 `true`，否则返回 `false`。\n\n检查 `parent` 是否与 `child` 是同一个元素，使用 `parent.contains(child)` 检查 `parent` 元素是否包含 `child` 元素。"
+  },
+  "elementIsVisibleInViewport": {
+      "prefix": "30s_elementIsVisibleInViewport",
+      "body": [
+          "const elementIsVisibleInViewport = (el, partiallyVisible = false) => {",
+          "  const { top, left, bottom, right } = el.getBoundingClientRect();",
+          "  const { innerHeight, innerWidth } = window;",
+          "  return partiallyVisible",
+          "    ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&",
+          "        ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))",
+          "    : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;",
+          "};"
+      ],
+      "description": "如果指定的元素在视口内可见，则返回 `true`，否则返回 `false`。\n\n使用 `Element.getBoundingClientRect()` 和 `window.inner(Width|Height)` 值来确定给定元素是否在视口内可见。\n省略第二个参数以确定元素是否完全可见，或者指定 `true` 以确定元素是否部分可见。"
+  },
+  "elo": {
+      "prefix": "30s_elo",
+      "body": [
+          "const elo = ([...ratings], kFactor = 32, selfRating) => {",
+          "  const [a, b] = ratings;",
+          "  const expectedScore = (self, opponent) => 1 / (1 + 10 ** ((opponent - self) / 400));",
+          "  const newRating = (rating, i) =>",
+          "    (selfRating || rating) + kFactor * (i - expectedScore(i ? a : b, i ? b : a));",
+          "  if (ratings.length === 2) return [newRating(a, 1), newRating(b, 0)];",
+          "",
+          "  for (let i = 0, len = ratings.length; i < len; i++) {",
+          "    let j = i;",
+          "    while (j < len - 1) {",
+          "      j++;",
+          "      [ratings[i], ratings[j]] = elo([ratings[i], ratings[j]], kFactor);",
+          "    }",
+          "  }",
+          "  return ratings;",
+          "};"
+      ],
+      "description": "使用 [Elo 评分系统](https://en.wikipedia.org/wiki/Elo_rating_system) 计算两个或多个对手之间的新评分。它接受一个预评分数组并返回一个包含后评分的数组。\n数组应按表现最佳到最差的顺序排列（胜者 -> 败者）。\n\n使用指数 `**` 运算符和数学运算符计算每个对手的预期得分（获胜几率），并计算每个对手的新评分。\n遍历评分，使用每种排列方式以成对的方式计算每个玩家的后 Elo 评分。\n省略第二个参数以使用默认的 `kFactor` 32。"
+  },
+  "equals": {
+      "prefix": "30s_equals",
+      "body": [
+          "const equals = (a, b) => {",
+          "  if (a === b) return true;",
+          "  if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();",
+          "  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object')) return a === b;",
+          "  if (a === null || a === undefined || b === null || b === undefined) return false;",
+          "  if (a.prototype !== b.prototype) return false;",
+          "  let keys = Object.keys(a);",
+          "  if (keys.length !== Object.keys(b).length) return false;",
+          "  return keys.every(k => equals(a[k], b[k]));",
+          "};"
+      ],
+      "description": "执行深度比较以确定两个值是否等价。\n\n检查两个值是否相同，如果它们都是具有相同时间的 `Date` 对象，使用 `Date.getTime()` 或者如果它们都是具有等价值的非对象值（严格比较）。\n检查是否只有一个值为 `null` 或 `undefined` 或者它们的原型不同。\n如果没有满足上述任何条件，使用 `Object.keys()` 检查两个值是否具有相同数量的键，然后使用 `Array.prototype.every()` 检查第一个值中的每个键是否存在于第二个值中，并且它们是否等价，通过递归调用此方法。"
+  },
+  "escapeHTML": {
+      "prefix": "30s_escapeHTML",
+      "body": [
+          "const escapeHTML = str =>",
+          "  str.replace(",
+          "    /[&<>'\"]/g,",
+          "    tag =>",
+          "      ({",
+          "        '&': '&amp;',",
+          "        '<': '&lt;',",
+          "        '>': '&gt;',",
+          "        \"'\":'&#39;',",
+          "        '\"': '&quot;'",
+          "      }[tag] || tag)",
+          "  );"
+      ],
+      "description": "对字符串进行转义以便在 HTML 中使用。\n\n使用 `String.prototype.replace()` 与一个匹配需要转义字符的正则表达式，使用回调函数将每个字符实例替换为其关联的转义字符，使用字典（对象）。"
+  },
+  "escapeRegExp": {
+      "prefix": "30s_escapeRegExp",
+      "body": [
+          "const escapeRegExp = str => str.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');"
+      ],
+      "description": "对字符串进行转义以便在正则表达式中使用。\n\n使用 `String.prototype.replace()` 转义特殊字符。"
+  },
+  "everyNth": {
+      "prefix": "30s_everyNth",
+      "body": [
+          "const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);"
+      ],
+      "description": "返回数组中的每隔 `nth` 个元素。\n\n使用 `Array.prototype.filter()` 创建一个新的数组，该数组包含给定数组中的每隔 `nth` 个元素。"
+  },
+  "extendHex": {
+      "prefix": "30s_extendHex",
+      "body": [
+          "const extendHex = shortHex =>",
+          "  '#' +",
+          "  shortHex",
+          "    .slice(shortHex.startsWith('#') ? 1 : 0)",
+          "    .split('')",
+          "    .map(x => x + x)",
+          "    .join('');"
+      ],
+      "description": "将 3 位颜色代码扩展为 6 位颜色代码。\n\n使用 `Array.prototype.map()`、`String.prototype.split()` 和 `Array.prototype.join()` 将映射后的数组连接起来，以将 3 位 RGB 标记的十六进制颜色代码转换为 6 位形式。\n`Array.prototype.slice()` 用于从字符串开头删除 `#`，因为只添加一次。"
+  },
+  "factorial": {
+      "prefix": "30s_factorial",
+      "body": [
+          "const factorial = n =>",
+          "  n < 0",
+          "    ? (() => {",
+          "      throw new TypeError('负数不允许！');",
+          "    })()",
+          "    : n <= 1",
+          "      ? 1",
+          "      : n * factorial(n - 1);"
+      ],
+      "description": "计算一个数字的阶乘。\n\n使用递归。\n如果 `n` 小于或等于 `1`，返回 `1`。\n否则，返回 `n` 与 `n - 1` 的阶乘的乘积。\n如果 `n` 是负数，则抛出异常。"
+  },
+  "fibonacci": {
+      "prefix": "30s_fibonacci",
+      "body": [
+          "const fibonacci = n =>",
+          "  Array.from({ length: n }).reduce(",
+          "    (acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),",
+          "    []",
+          "  );"
+      ],
+      "description": "生成一个包含斐波那契数列的数组，直到第 `n` 项。\n\n创建一个特定长度的空数组，并初始化前两个值（`0` 和 `1`）。\n使用 `Array.prototype.reduce()` 向数组中添加值，使用最后两个值的和，除了前两个值外。"
+  },
+  "filterNonUnique": {
+      "prefix": "30s_filterNonUnique",
+      "body": [
+          "const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));"
+      ],
+      "description": "过滤掉数组中的非唯一值。\n\n使用 `Array.prototype.filter()` 创建一个仅包含唯一值的数组。"
+  },
+  "filterNonUniqueBy": {
+      "prefix": "30s_filterNonUniqueBy",
+      "body": [
+          "const filterNonUniqueBy = (arr, fn) =>",
+          "  arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)));"
+      ],
+      "description": "根据提供的比较函数过滤掉数组中的非唯一值。\n\n使用 `Array.prototype.filter()` 和 `Array.prototype.every()` 创建一个仅包含基于比较函数 `fn` 的唯一值的数组。\n比较函数接受四个参数：正在比较的两个元素的值及其索引。"
+  },
+  "findKey": {
+      "prefix": "30s_findKey",
+      "body": [
+          "const findKey = (obj, fn) => Object.keys(obj).find(key => fn(obj[key], key, obj));"
+      ],
+      "description": "返回第一个满足提供的测试函数的键。否则返回 `undefined`。\n\n使用 `Object.keys(obj)` 获取对象的所有属性，使用 `Array.prototype.find()` 测试每个键值对提供的函数。回调函数接收三个参数——值、键和对象。"
+  },
+  "findLast": {
+      "prefix": "30s_findLast",
+      "body": [
+          "const findLast = (arr, fn) => arr.filter(fn).pop();"
+      ],
+      "description": "返回提供的函数返回真值的最后一个元素。\n\n使用 `Array.prototype.filter()` 移除非 `fn` 返回假值的元素，使用 `Array.prototype.pop()` 获取最后一个元素。"
+  },
+  "findLastIndex": {
+      "prefix": "30s_findLastIndex",
+      "body": [
+          "const findLastIndex = (arr, fn) =>",
+          "  arr",
+          "    .map((val, i) => [i, val])",
+          "    .filter(([i, val]) => fn(val, i, arr))",
+          "    .pop()[0];"
+      ],
+      "description": "返回提供的函数返回真值的最后一个元素的索引。\n\n使用 `Array.prototype.map()` 将每个元素映射为其索引和值的数组。\n使用 `Array.prototype.filter()` 移除非 `fn` 返回真值的元素，使用 `Array.prototype.pop()` 获取最后一个元素。"
+  },
+  "findLastKey": {
+      "prefix": "30s_findLastKey",
+      "body": [
+          "const findLastKey = (obj, fn) =>",
+          "  Object.keys(obj)",
+          "    .reverse()",
+          "    .find(key => fn(obj[key], key, obj));"
+      ],
+      "description": "返回满足提供的测试函数的最后一个键。\n否则返回 `undefined`。\n\n使用 `Object.keys(obj)` 获取对象的所有属性，使用 `Array.prototype.reverse()` 反转它们的顺序，并使用 `Array.prototype.find()` 对每个键值对进行测试。\n回调函数接收三个参数——值、键和对象。"
+  },
+  "flatten": {
+      "prefix": "30s_flatten",
+      "body": [
+          "const flatten = (arr, depth = 1) =>",
+          "  arr.reduce((a, v) => a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v), []);"
+      ],
+      "description": "展平数组到指定深度。\n\n使用递归，每深入一层递减 `depth` 的值。\n使用 `Array.prototype.reduce()` 和 `Array.prototype.concat()` 来合并元素或数组。\n当 `depth` 等于 `1` 时停止递归。\n省略第二个参数 `depth` 以仅展平到深度为 `1`（单层展平）。"
+  },
+  "flattenObject": {
+      "prefix": "30s_flattenObject",
+      "body": [
+          "const flattenObject = (obj, prefix = '') =>",
+          "  Object.keys(obj).reduce((acc, k) => {",
+          "    const pre = prefix.length ? prefix + '.' : '';",
+          "    if (typeof obj[k] === 'object') Object.assign(acc, flattenObject(obj[k], pre + k));",
+          "    else acc[pre + k] = obj[k];",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "将对象展平，键为路径。\n\n使用递归。\n使用 `Object.keys(obj)` 结合 `Array.prototype.reduce()` 将每个叶子节点转换为展平的路径节点。\n如果键的值是对象，则使用 `Object.assign()` 调用自身并传递适当的 `prefix` 以创建路径。\n否则，将适当带前缀的键值对添加到累加器对象。\n通常情况下应省略第二个参数 `prefix`，除非希望每个键都有前缀。"
+  },
+  "flip": {
+      "prefix": "30s_flip",
+      "body": [
+          "const flip = fn => (first, ...rest) => fn(...rest, first);"
+      ],
+      "description": "将函数的第一个参数变为最后一个参数。"
+  },
+  "forEachRight": {
+      "prefix": "30s_forEachRight",
+      "body": [
+          "const forEachRight = (arr, callback) =>",
+          "  arr",
+          "    .slice(0)",
+          "    .reverse()",
+          "    .forEach(callback);"
+      ],
+      "description": "从数组的最后一个元素开始，对每个数组元素执行一次提供的函数。\n\n使用 `Array.prototype.slice(0)` 克隆给定数组，使用 `Array.prototype.reverse()` 反转它，并使用 `Array.prototype.forEach()` 遍历反转后的数组。"
+  },
+  "formatDuration": {
+      "prefix": "30s_formatDuration",
+      "body": [
+          "const formatDuration = ms => {",
+          "  if (ms < 0) ms = -ms;",
+          "  const time = {",
+          "    day: Math.floor(ms / 86400000),",
+          "    hour: Math.floor(ms / 3600000) % 24,",
+          "    minute: Math.floor(ms / 60000) % 60,",
+          "    second: Math.floor(ms / 1000) % 60,",
+          "    millisecond: Math.floor(ms) % 1000",
+          "  };",
+          "  return Object.entries(time)",
+          "    .filter(val => val[1] !== 0)",
+          "    .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)",
+          "    .join(', ');",
+          "};"
+      ],
+      "description": "返回给定毫秒数的人类可读格式。\n\n使用适当的值除以 `ms` 以获取 `day`、`hour`、`minute`、`second` 和 `millisecond` 的值。\n使用 `Object.entries()` 结合 `Array.prototype.filter()` 保留非零值。\n使用 `Array.prototype.map()` 为每个值创建字符串，并根据需要复数化。\n使用 `String.prototype.join(', ')` 将值组合成字符串。"
+  },
+  "forOwn": {
+      "prefix": "30s_forOwn",
+      "body": [
+          "const forOwn = (obj, fn) => Object.keys(obj).forEach(key => fn(obj[key], key, obj));"
+      ],
+      "description": "遍历对象的所有自有属性，并为每个属性运行一个回调函数。\n\n使用 `Object.keys(obj)` 获取对象的所有属性，使用 `Array.prototype.forEach()` 运行提供的函数对每个键值对。回调函数接收三个参数——值、键和对象。"
+  },
+  "forOwnRight": {
+      "prefix": "30s_forOwnRight",
+      "body": [
+          "const forOwnRight = (obj, fn) =>",
+          "  Object.keys(obj)",
+          "    .reverse()",
+          "    .forEach(key => fn(obj[key], key, obj));"
+      ],
+      "description": "反向遍历对象的所有自有属性，并为每个属性运行一个回调函数。\n\n使用 `Object.keys(obj)` 获取对象的所有属性，使用 `Array.prototype.reverse()` 反转它们的顺序，并使用 `Array.prototype.forEach()` 运行提供的函数对每个键值对。回调函数接收三个参数——值、键和对象。"
+  },
+  "fromCamelCase": {
+      "prefix": "30s_fromCamelCase",
+      "body": [
+          "const fromCamelCase = (str, separator = '_') =>",
+          "  str",
+          "    .replace(/([a-z\\d])([A-Z])/g, '$1' + separator + '$2')",
+          "    .replace(/([A-Z]+)([A-Z][a-z\\d]+)/g, '$1' + separator + '$2')",
+          "    .toLowerCase();"
+      ],
+      "description": "将字符串从驼峰式命名转换为其他形式。\n\n使用 `String.prototype.replace()` 替换下划线、连字符和空格，并将单词转换为驼峰式命名。\n省略第二个参数以使用默认分隔符 `_`。"
+  },
+  "functionName": {
+      "prefix": "30s_functionName",
+      "body": [
+          "const functionName = fn => (console.debug(fn.name), fn);"
+      ],
+      "description": "记录函数名称。\n\n使用 `console.debug()` 和传递的方法的 `name` 属性将方法名称记录到控制台的调试通道。"
+  },
+  "functions": {
+      "prefix": "30s_functions",
+      "body": [
+          "const functions = (obj, inherited = false) =>",
+          "  (inherited",
+          "    ? [...Object.keys(obj), ...Object.keys(Object.getPrototypeOf(obj))]",
+          "    : Object.keys(obj)",
+          "  ).filter(key => typeof obj[key] === 'function');"
+      ],
+      "description": "返回对象的自有（以及可选的继承）枚举属性中的函数属性名称数组。\n\n使用 `Object.keys(obj)` 遍历对象的自有属性。\n如果 `inherited` 为 `true`，则使用 `Object.getPrototypeOf(obj)` 获取对象的继承属性。\n使用 `Array.prototype.filter()` 保留那些是函数的属性。\n省略第二个参数 `inherited` 以默认不包括继承属性。"
+  },
+  "gcd": {
+      "prefix": "30s_gcd",
+      "body": [
+          "const gcd = (...arr) => {",
+          "  const _gcd = (x, y) => (!y ? x : gcd(y, x % y));",
+          "  return [...arr].reduce((a, b) => _gcd(a, b));",
+          "};"
+      ],
+      "description": "计算两个或多个数字/数组之间的最大公约数。\n\n内部 `_gcd` 函数使用递归。\n基本情形是当 `y` 等于 `0` 时，返回 `x`。\n否则，返回 `y` 和 `x/y` 除法的余数的最大公约数。"
+  },
+  "geometricProgression": {
+      "prefix": "30s_geometricProgression",
+      "body": [
+          "const geometricProgression = (end, start = 1, step = 2) =>",
+          "  Array.from({ length: Math.floor(Math.log(end / start) / Math.log(step)) + 1 }).map(",
+          "    (v, i) => start * step ** i",
+          "  );"
+      ],
+      "description": "初始化一个数组，包含指定范围内的数字，其中 `start` 和 `end` 是包含在内的，两个项之间的比例是 `step`。\n如果 `step` 等于 `1`，则返回错误。\n\n使用 `Array.from()`、`Math.log()` 和 `Math.floor()` 创建所需长度的数组，使用 `Array.prototype.map()` 填充范围内的期望值。\n省略第二个参数 `start` 以使用默认值 `1`。\n省略第三个参数 `step` 以使用默认值 `2`。"
+  },
+  "get": {
+      "prefix": "30s_get",
+      "body": [
+          "const get = (from, ...selectors) =>",
+          "  [...selectors].map(s =>",
+          "    s",
+          "      .replace(/\\[([^\\[\\]]*)\\]/g, '.$1.')",
+          "      .split('.')",
+          "      .filter(t => t !== '')",
+          "      .reduce((prev, cur) => prev && prev[cur], from)",
+          "  );"
+      ],
+      "description": "从对象中检索由给定选择器指示的一组属性。\n\n使用 `Array.prototype.map()` 对每个选择器，使用 `String.prototype.replace()` 替换方括号为点，使用 `String.prototype.split('.')` 分割每个选择器，使用 `Array.prototype.filter()` 删除空值，并使用 `Array.prototype.reduce()` 获取其指示的值。"
+  },
+  "getColonTimeFromDate": {
+      "prefix": "30s_getColonTimeFromDate",
+      "body": [
+          "const getColonTimeFromDate = date => date.toTimeString().slice(0, 8);"
+      ],
+      "description": "从 `Date` 对象返回形式为 `HH:MM:SS` 的字符串。\n\n使用 `Date.prototype.toTimeString()` 和 `String.prototype.slice()` 获取给定 `Date` 对象的 `HH:MM:SS` 部分。"
+  },
+  "getDaysDiffBetweenDates": {
+      "prefix": "30s_getDaysDiffBetweenDates",
+      "body": [
+          "const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>",
+          "  (dateFinal - dateInitial) / (1000 * 3600 * 24);"
+      ],
+      "description": "返回两个日期之间的差异（天数）。\n\n计算两个 `Date` 对象之间的差异（天数）。"
+  },
+  "getImages": {
+      "prefix": "30s_getImages",
+      "body": [
+          "const getImages = (el, includeDuplicates = false) => {",
+          "  const images = [...el.getElementsByTagName('img')].map(img => img.getAttribute('src'));",
+          "  return includeDuplicates ? images : [...new Set(images)];",
+          "};"
+      ],
+      "description": "从指定元素内获取所有图片并放入数组。\n\n使用 `Element.prototype.getElementsByTagName()` 获取提供的元素内的所有 `<img>` 元素，使用 `Array.prototype.map()` 映射每个 `<img>` 元素的 `src` 属性，然后创建一个 `Set` 来消除重复项并返回数组。"
+  },
+  "getMeridiemSuffixOfInteger": {
+      "prefix": "30s_getMeridiemSuffixOfInteger",
+      "body": [
+          "const getMeridiemSuffixOfInteger = num =>",
+          "  num === 0 || num === 24",
+          "    ? 12 + 'am'",
+          "    : num === 12",
+          "      ? 12 + 'pm'",
+          "      : num < 12",
+          "        ? (num % 12) + 'am'",
+          "        : (num % 12) + 'pm';"
+      ],
+      "description": "根据整数值将其转换为带 `am` 或 `pm` 后缀的字符串。\n\n使用模运算符 (`%`) 和条件检查将整数转换为带有后缀的 12 小时格式字符串。"
+  },
+  "getScrollPosition": {
+      "prefix": "30s_getScrollPosition",
+      "body": [
+          "const getScrollPosition = (el = window) => ({",
+          "  x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,",
+          "  y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop",
+          "});"
+      ],
+      "description": "返回当前页面的滚动位置。\n\n如果定义了 `pageXOffset` 和 `pageYOffset` 则使用它们，否则使用 `scrollLeft` 和 `scrollTop`。\n可以省略 `el` 参数以使用默认值 `window`。"
+  },
+  "getStyle": {
+      "prefix": "30s_getStyle",
+      "body": [
+          "const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];"
+      ],
+      "description": "返回指定元素的 CSS 规则值。\n\n使用 `Window.getComputedStyle()` 获取指定元素的 CSS 规则值。"
+  },
+  "getType": {
+      "prefix": "30s_getType",
+      "body": [
+          "const getType = v =>",
+          "  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();"
+      ],
+      "description": "返回值的原生类型。\n\n如果值为 `undefined` 或 `null`，则返回对应的字符串；否则返回值的构造函数名称的小写形式。"
+  },
+  "getURLParameters": {
+      "prefix": "30s_getURLParameters",
+      "body": [
+          "const getURLParameters = url =>",
+          "  (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce(",
+          "    (a, v) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a),",
+          "    {}",
+          "  );"
+      ],
+      "description": "返回当前 URL 的参数对象。\n\n使用 `String.match()` 并结合适当的正则表达式来获取所有键值对，使用 `Array.prototype.reduce()` 将它们映射并组合成单个对象。\n将 `location.search` 作为参数传递以应用于当前 `url`。"
+  },
+  "groupBy": {
+      "prefix": "30s_groupBy",
+      "body": [
+          "const groupBy = (arr, fn) =>",
+          "  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {",
+          "    acc[val] = (acc[val] || []).concat(arr[i]);",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "根据给定函数对数组元素进行分组。\n\n使用 `Array.prototype.map()` 将数组值映射到函数或属性名。\n使用 `Array.prototype.reduce()` 创建一个对象，其中键由映射结果生成。"
+  },
+  "hammingDistance": {
+      "prefix": "30s_hammingDistance",
+      "body": [
+          "const hammingDistance = (num1, num2) => ((num1 ^ num2).toString(2).match(/1/g) || '').length;"
+      ],
+      "description": "计算两个值之间的汉明距离。\n\n使用异或运算符 (`^`) 找出两个数字之间的位差，使用 `toString(2)` 转换为二进制字符串。\n使用 `match(/1/g)` 计算并返回字符串中 `1` 的数量。"
+  },
+  "hasClass": {
+      "prefix": "30s_hasClass",
+      "body": [
+          "const hasClass = (el, className) => el.classList.contains(className);"
+      ],
+      "description": "如果元素具有指定的类，则返回 `true`，否则返回 `false`。\n\n使用 `element.classList.contains()` 检查元素是否具有指定的类。"
+  },
+  "hasFlags": {
+      "prefix": "30s_hasFlags",
+      "body": [
+          "const hasFlags = (...flags) =>",
+          "  flags.every(flag => process.argv.includes(/^-{1,2}/.test(flag) ? flag : '--' + flag));"
+      ],
+      "description": "检查当前进程的参数是否包含指定的标志。\n\n使用 `Array.prototype.every()` 和 `Array.prototype.includes()` 检查 `process.argv` 是否包含所有指定的标志。\n使用正则表达式测试指定的标志是否以 `-` 或 `--` 开头，并相应地添加前缀。"
+  },
+  "hashBrowser": {
+      "prefix": "30s_hashBrowser",
+      "body": [
+          "const hashBrowser = val =>",
+          "  crypto.subtle.digest('SHA-256', new TextEncoder('utf-8').encode(val)).then(h => {",
+          "    let hexes = [],",
+          "      view = new DataView(h);",
+          "    for (let i = 0; i < view.byteLength; i += 4)",
+          "      hexes.push(('00000000' + view.getUint32(i).toString(16)).slice(-8));",
+          "    return hexes.join('');",
+          "  });"
+      ],
+      "description": "使用 [SHA-256](https://en.wikipedia.org/wiki/SHA-2) 算法为值创建哈希。返回一个 Promise。\n\n使用 [SubtleCrypto](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto) API 为给定值创建哈希。"
+  },
+  "hashNode": {
+      "prefix": "30s_hashNode",
+      "body": [
+          "const crypto = require('crypto');",
+          "const hashNode = val =>",
+          "  new Promise(resolve =>",
+          "    setTimeout(",
+          "      () =>",
+          "        resolve(",
+          "          crypto",
+          "            .createHash('sha256')",
+          "            .update(val)",
+          "            .digest('hex')",
+          "        ),",
+          "      0",
+          "    )",
+          "  );"
+      ],
+      "description": "使用 [SHA-256](https://en.wikipedia.org/wiki/SHA-2) 算法为值创建哈希。返回一个 Promise。\n\n使用 `crypto` API 为给定值创建哈希。"
+  },
+  "head": {
+      "prefix": "30s_head",
+      "body": [
+          "const head = arr => arr[0];"
+      ],
+      "description": "返回列表的第一个元素。\n\n使用 `arr[0]` 返回传入数组的第一个元素。"
+  },
+  "hexToRGB": {
+      "prefix": "30s_hexToRGB",
+      "body": [
+          "const hexToRGB = hex => {",
+          "  let alpha = false,",
+          "    h = hex.slice(hex.startsWith('#') ? 1 : 0);",
+          "  if (h.length === 3) h = [...h].map(x => x + x).join('');",
+          "  else if (h.length === 8) alpha = true;",
+          "  h = parseInt(h, 16);",
+          "  return (",
+          "    'rgb' +",
+          "    (alpha ? 'a' : '') +",
+          "    '(' +",
+          "    (h >>> (alpha ? 24 : 16)) +",
+          "    ', ' +",
+          "    ((h & (alpha ? 0x00ff0000 : 0x00ff00)) >>> (alpha ? 16 : 8)) +",
+          "    ', ' +",
+          "    ((h & (alpha ? 0x0000ff00 : 0x0000ff)) >>> (alpha ? 8 : 0)) +",
+          "    (alpha ? `, ${h & 0x000000ff}` : '') +",
+          "    ')'",
+          "  );",
+          "};"
+      ],
+      "description": "将颜色代码转换为 `rgb()` 或 `rgba()` 字符串（如果提供了 alpha 值）。\n\n使用位右移运算符和按位与运算符 `&` 将十六进制颜色代码（带或不带前缀 `#`）转换为包含 RGB 值的字符串。如果是三位颜色代码，先转换为六位版本。如果提供了 alpha 值和六位十六进制颜色代码，则返回 `rgba()` 字符串。"
+  },
+  "hide": {
+      "prefix": "30s_hide",
+      "body": [
+          "const hide = (...el) => [...el].forEach(e => (e.style.display = 'none'));"
+      ],
+      "description": "隐藏所有指定的元素。\n\n使用 `NodeList.prototype.forEach()` 将 `display: none` 应用于每个指定的元素。"
+  },
+  "httpGet": {
+      "prefix": "30s_httpGet",
+      "body": [
+          "const httpGet = (url, callback, err = console.error) => {",
+          "  const request = new XMLHttpRequest();",
+          "  request.open('GET', url, true);",
+          "  request.onload = () => callback(request.responseText);",
+          "  request.onerror = () => err(request);",
+          "  request.send();",
+          "};"
+      ],
+      "description": "向传入的 URL 发送 `GET` 请求。\n\n使用 [`XMLHttpRequest`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest) Web API 向给定的 `url` 发送 `GET` 请求。\n处理 `onload` 事件，通过调用给定的 `callback` 函数处理 `responseText`。\n处理 `onerror` 事件，通过运行提供的 `err` 函数。\n忽略第三个参数 `err`，默认情况下将错误记录到控制台的 `error` 流。"
+  },
+  "httpPost": {
+      "prefix": "30s_httpPost",
+      "body": [
+          "const httpPost = (url, data, callback, err = console.error) => {",
+          "  const request = new XMLHttpRequest();",
+          "  request.open('POST', url, true);",
+          "  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');",
+          "  request.onload = () => callback(request.responseText);",
+          "  request.onerror = () => err(request);",
+          "  request.send(data);",
+          "};"
+      ],
+      "description": "向传入的 URL 发送 `POST` 请求。\n\n使用 [`XMLHttpRequest`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest) Web API 向给定的 `url` 发送 `POST` 请求。\n使用 `setRequestHeader` 方法设置 `HTTP` 请求头的值。\n处理 `onload` 事件，通过调用给定的 `callback` 函数处理 `responseText`。\n处理 `onerror` 事件，通过运行提供的 `err` 函数。\n忽略第二个参数 `data`，默认发送空数据到提供的 `url`。\n忽略第四个参数 `err`，默认情况下将错误记录到控制台的 `error` 流。"
+  },
+  "httpsRedirect": {
+      "prefix": "30s_httpsRedirect",
+      "body": [
+          "const httpsRedirect = () => {",
+          "  if (location.protocol !== 'https:') location.replace('https://' + location.href.split('//')[1]);",
+          "};"
+      ],
+      "description": "如果当前页面处于 HTTP 状态，则重定向到 HTTPS。同时，按下后退按钮不会回到 HTTP 页面，因为历史记录中的页面被替换了。\n\n使用 `location.protocol` 获取当前使用的协议。如果不是 HTTPS，则使用 `location.replace()` 替换现有页面为 HTTPS 版本。使用 `location.href` 获取完整地址，并使用 `String.prototype.split()` 分割字符串以去除 URL 中的协议部分。"
+  },
+  "hz": {
+      "prefix": "30s_hz",
+      "body": [
+          "const hz = (fn, iterations = 100) => {",
+          "  const before = performance.now();",
+          "  for (let i = 0; i < iterations; i++) fn();",
+          "  return (1000 * iterations) / (performance.now() - before);",
+          "};"
+      ],
+      "description": "返回函数每秒执行的次数。\n`hz` 是频率单位 `赫兹` 的缩写，定义为每秒一次循环。\n\n使用 `performance.now()` 获取迭代前后的时间差，以毫秒为单位，计算执行函数 `iterations` 次所需的时间。\n通过将毫秒转换为秒并除以时间差来返回每秒的循环次数。\n忽略第二个参数 `iterations`，使用默认的 100 次迭代。"
+  },
+  "indentString": {
+      "prefix": "30s_indentString",
+      "body": [
+          "const indentString = (str, count, indent = ' ') => str.replace(/^/gm, indent.repeat(count));"
+      ],
+      "description": "缩进提供的字符串中的每一行。\n\n使用 `String.replace` 和正则表达式在每行开始处添加由 `indent` 指定的字符 `count` 次。\n忽略第三个参数 `indent`，使用默认的缩进字符 `' '`。"
+  },
+  "indexOfAll": {
+      "prefix": "30s_indexOfAll",
+      "body": [
+          "const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);"
+      ],
+      "description": "返回数组中所有 `val` 的索引。\n如果 `val` 从未出现，则返回 `[]`。\n\n使用 `Array.prototype.reduce()` 遍历元素并将匹配元素的索引存储起来。\n返回索引数组。"
+  },
+  "initial": {
+      "prefix": "30s_initial",
+      "body": [
+          "const initial = arr => arr.slice(0, -1);"
+      ],
+      "description": "返回数组中的所有元素，除了最后一个。\n\n使用 `arr.slice(0, -1)` 返回数组中除了最后一个元素之外的所有元素。"
+  },
+  "initialize2DArray": {
+      "prefix": "30s_initialize2DArray",
+      "body": [
+          "const initialize2DArray = (w, h, val = null) =>",
+          "  Array.from({ length: h }).map(() => Array.from({ length: w }).fill(val));"
+      ],
+      "description": "初始化一个具有指定宽度和高度及值的二维数组。\n\n使用 `Array.prototype.map()` 生成 h 行，其中每一行是一个大小为 w 的新数组，并初始化为指定值。如果没有提供值，默认为 `null`。"
+  },
+  "initializeArrayWithRange": {
+      "prefix": "30s_initializeArrayWithRange",
+      "body": [
+          "const initializeArrayWithRange = (end, start = 0, step = 1) =>",
+          "  Array.from({ length: Math.ceil((end - start + 1) / step) }, (v, i) => i * step + start);"
+      ],
+      "description": "初始化一个包含指定范围内数字的数组，其中 `start` 和 `end` 包含在内，步长为 `step`。\n\n使用 `Array.from()` 创建长度为 `(end - start + 1)/step` 的数组，并使用映射函数填充该范围内的期望值。\n可以省略 `start` 使用默认值 `0`。\n可以省略 `step` 使用默认值 `1`。"
+  },
+  "initializeArrayWithRangeRight": {
+      "prefix": "30s_initializeArrayWithRangeRight",
+      "body": [
+          "const initializeArrayWithRangeRight = (end, start = 0, step = 1) =>",
+          "  Array.from({ length: Math.ceil((end + 1 - start) / step) }).map(",
+          "    (v, i, arr) => (arr.length - i - 1) * step + start",
+          "  );"
+      ],
+      "description": "初始化一个包含指定范围内的数字（逆序）的数组，其中 `start` 和 `end` 包含在内，步长为 `step`。\n\n使用 `Array.from(Math.ceil((end+1-start)/step))` 创建长度为 `(end-start)/step` 或 `(end+1-start)/step` 的数组（取决于 `end` 是否包含），使用 `Array.prototype.map()` 填充该范围内的期望值。\n可以省略 `start` 使用默认值 `0`。\n可以省略 `step` 使用默认值 `1`。"
+  },
+  "initializeArrayWithValues": {
+      "prefix": "30s_initializeArrayWithValues",
+      "body": [
+          "const initializeArrayWithValues = (n, val = 0) => Array(n).fill(val);"
+      ],
+      "description": "初始化并填充一个具有指定值的数组。\n\n使用 `Array(n)` 创建长度为期望长度的数组，使用 `fill(val)` 填充所需的值。\n可以省略 `val` 使用默认值 `0`。"
+  },
+  "initializeNDArray": {
+      "prefix": "30s_initializeNDArray",
+      "body": [
+          "const initializeNDArray = (val, ...args) =>",
+          "  args.length === 0",
+          "    ? val",
+          "    : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));"
+      ],
+      "description": "创建一个具有指定值的 n 维数组。\n\n使用递归。\n使用 `Array.prototype.map()` 生成行，其中每一行是一个使用 `initializeNDArray` 初始化的新数组。"
+  },
+  "inRange": {
+      "prefix": "30s_inRange",
+      "body": [
+          "const inRange = (n, start, end = null) => {",
+          "  if (end && start > end) [end, start] = [start, end];",
+          "  return end == null ? n >= 0 && n < start : n >= start && n < end;",
+          "};"
+      ],
+      "description": "检查给定数字是否位于给定范围内。\n\n使用算术比较检查给定数字是否在指定范围内。\n如果第二个参数 `end` 未指定，则范围被认为是 `0` 到 `start`。"
+  },
+  "insertAfter": {
+      "prefix": "30s_insertAfter",
+      "body": [
+          "const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlString);"
+      ],
+      "description": "在指定元素的末尾插入一个 HTML 字符串。\n\n使用 `el.insertAdjacentHTML()` 并将位置设置为 `'afterend'` 来解析 `htmlString` 并将其插入到 `el` 的末尾。"
+  },
+  "insertBefore": {
+      "prefix": "30s_insertBefore",
+      "body": [
+          "const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebegin', htmlString);"
+      ],
+      "description": "在指定元素的开头之前插入一个 HTML 字符串。\n\n使用 `el.insertAdjacentHTML()` 并将位置设置为 `'beforebegin'` 来解析 `htmlString` 并将其插入到 `el` 的开头之前。"
+  },
+  "intersection": {
+      "prefix": "30s_intersection",
+      "body": [
+          "const intersection = (a, b) => {",
+          "  const s = new Set(b);",
+          "  return a.filter(x => s.has(x));",
+          "};"
+      ],
+      "description": "返回两个数组中存在的元素列表。\n\n从 `b` 创建一个 `Set`，然后在 `a` 上使用 `Array.prototype.filter()` 只保留 `b` 中存在的值。"
+  },
+  "intersectionBy": {
+      "prefix": "30s_intersectionBy",
+      "body": [
+          "const intersectionBy = (a, b, fn) => {",
+          "  const s = new Set(b.map(fn));",
+          "  return a.filter(x => s.has(fn(x)));",
+          "};"
+      ],
+      "description": "返回应用提供的函数后存在于两个数组中的元素列表。\n\n对 `b` 中的所有元素应用 `fn` 创建一个 `Set`，然后在 `a` 上使用 `Array.prototype.filter()` 仅保留应用 `fn` 后产生的值在 `b` 中存在的元素。"
+  },
+  "intersectionWith": {
+      "prefix": "30s_intersectionWith",
+      "body": [
+          "const intersectionWith = (a, b, comp) => a.filter(x => b.findIndex(y => comp(x, y)) !== -1);"
+      ],
+      "description": "使用提供的比较函数返回存在于两个数组中的元素列表。\n\n结合使用 `Array.prototype.filter()` 和 `Array.prototype.findIndex()` 与提供的比较函数来确定交集值。"
+  },
+  "invertKeyValues": {
+      "prefix": "30s_invertKeyValues",
+      "body": [
+          "const invertKeyValues = (obj, fn) =>",
+          "  Object.keys(obj).reduce((acc, key) => {",
+          "    const val = fn ? fn(obj[key]) : obj[key];",
+          "    acc[val] = acc[val] || [];",
+          "    acc[val].push(key);",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "反转对象的键值对而不改变原对象。每个反转后的键对应的值是一个键的数组，这些键负责生成反转后的值。如果提供了函数，则应用于每个反转后的键。\n\n使用 `Object.keys()` 和 `Array.prototype.reduce()` 反转对象的键值对，并应用提供的函数（如果有）。\n忽略第二个参数 `fn` 以不应用任何函数获取反转后的键。"
+  },
+  "is": {
+      "prefix": "30s_is",
+      "body": [
+          "const is = (type, val) => ![, null].includes(val) && val.constructor === type;"
+      ],
+      "description": "检查提供的值是否为指定类型。\n\n使用 `Array.prototype.includes()` 确保值不是 `undefined` 或 `null`，并通过比较值上的 `constructor` 属性与 `type` 来检查提供的值是否为指定类型。"
+  },
+  "isAbsoluteURL": {
+      "prefix": "30s_isAbsoluteURL",
+      "body": [
+          "const isAbsoluteURL = str => /^[a-z][a-z0-9+.-]*:/.test(str);"
+      ],
+      "description": "如果给定字符串是绝对 URL，则返回 `true`，否则返回 `false`。\n\n使用正则表达式测试字符串是否为绝对 URL。"
+  },
+  "isAfterDate": {
+      "prefix": "30s_isAfterDate",
+      "body": [
+          "const isAfterDate = (dateA, dateB) => dateA > dateB;"
+      ],
+      "description": "检查一个日期是否在另一个日期之后。\n\n使用大于运算符 (`>`) 检查第一个日期是否在第二个日期之后。"
+  },
+  "isAnagram": {
+      "prefix": "30s_isAnagram",
+      "body": [
+          "const isAnagram = (str1, str2) => {",
+          "  const normalize = str =>",
+          "    str",
+          "      .toLowerCase()",
+          "      .replace(/[^a-z0-9]/gi, '')",
+          "      .split('')",
+          "      .sort()",
+          "      .join('');",
+          "  return normalize(str1) === normalize(str2);",
+          "};"
+      ],
+      "description": "检查一个字符串是否是另一个字符串的变位词（不区分大小写，忽略空格、标点符号和特殊字符）。\n\n使用 `String.toLowerCase()`、带有适当正则表达式的 `String.prototype.replace()`、`String.prototype.split('')`、`Array.prototype.sort()` 和 `Array.prototype.join('')` 对两个字符串进行标准化处理，然后检查它们标准化后的形式是否相等。"
+  },
+  "isArrayLike": {
+      "prefix": "30s_isArrayLike",
+      "body": [
+          "const isArrayLike = obj => obj != null && typeof obj[Symbol.iterator] === 'function';"
+      ],
+      "description": "检查提供的参数是否类似数组（即是否可迭代）。\n\n检查提供的参数是否不是 `null` 且其 `Symbol.iterator` 属性是一个函数。"
+  },
+  "isBeforeDate": {
+      "prefix": "30s_isBeforeDate",
+      "body": [
+          "const isBeforeDate = (dateA, dateB) => dateA < dateB;"
+      ],
+      "description": "检查一个日期是否在另一个日期之前。\n\n使用小于运算符 (`<`) 检查第一个日期是否在第二个日期之前。"
+  },
+  "isBoolean": {
+      "prefix": "30s_isBoolean",
+      "body": [
+          "const isBoolean = val => typeof val === 'boolean';"
+      ],
+      "description": "检查给定的参数是否为原生布尔值。\n\n使用 `typeof` 检查值是否被分类为布尔原始类型。"
+  },
+  "isBrowser": {
+      "prefix": "30s_isBrowser",
+      "body": [
+          "const isBrowser = () => ![typeof window, typeof document].includes('undefined');"
+      ],
+      "description": "判断当前运行环境是否为浏览器环境，以便前端模块可以在服务器（Node）上运行而不抛出错误。\n\n使用 `Array.prototype.includes()` 检查 `window` 和 `document` 的 `typeof` 值（全局变量通常只在浏览器环境中可用，除非显式定义），如果其中一个为 `undefined` 则返回 `true`。\n`typeof` 允许在不抛出 `ReferenceError` 的情况下检查全局变量是否存在。\n如果两者都不是 `undefined`，则认为当前环境为浏览器环境。"
+  },
+  "isBrowserTabFocused": {
+      "prefix": "30s_isBrowserTabFocused",
+      "body": [
+          "const isBrowserTabFocused = () => !document.hidden;"
+      ],
+      "description": "如果页面的浏览器标签处于聚焦状态，则返回 `true`，否则返回 `false`。\n\n使用由 Page Visibility API 引入的 `Document.hidden` 属性来检查页面的浏览器标签是否可见或隐藏。"
+  },
+  "isDivisible": {
+      "prefix": "30s_isDivisible",
+      "body": [
+          "const isDivisible = (dividend, divisor) => dividend % divisor === 0;"
+      ],
+      "description": "检查第一个数字参数是否能被第二个参数整除。\n\n使用模运算符 (`%`) 检查余数是否等于 `0`。"
+  },
+  "isDuplexStream": {
+      "prefix": "30s_isDuplexStream",
+      "body": [
+          "const isDuplexStream = val =>",
+          "  val !== null &&",
+          "  typeof val === 'object' &&",
+          "  typeof val.pipe === 'function' &&",
+          "  typeof val._read === 'function' &&",
+          "  typeof val._readableState === 'object' &&",
+          "  typeof val._write === 'function' &&",
+          "  typeof val._writableState === 'object';"
+      ],
+      "description": "检查给定的参数是否为双工流（可读和可写）。\n\n检查值是否不为 `null`，使用 `typeof` 检查值是否为 `object` 类型并且 `pipe` 属性是否为 `function` 类型。\n此外，检查 `_read`、`_write` 和 `_readableState`、`_writableState` 属性的 `typeof` 是否分别为 `function` 和 `object`。"
+  },
+  "isEmpty": {
+      "prefix": "30s_isEmpty",
+      "body": [
+          "const isEmpty = val => val == null || !(Object.keys(val) || val).length;"
+      ],
+      "description": "如果值为空对象、集合、映射或集合，没有可枚举属性或不属于集合类型的任何类型，则返回 `true`。\n\n检查提供的值是否为 `null` 或其 `length` 是否等于 `0`。"
+  },
+  "isEven": {
+      "prefix": "30s_isEven",
+      "body": [
+          "const isEven = num => num % 2 === 0;"
+      ],
+      "description": "如果给定的数字为偶数，则返回 `true`，否则返回 `false`。\n\n使用模运算符 (`%`) 检查数字是否为奇数或偶数。\n如果数字为偶数，则返回 `true`；如果数字为奇数，则返回 `false`。"
+  },
+  "isFunction": {
+      "prefix": "30s_isFunction",
+      "body": [
+          "const isFunction = val => typeof val === 'function';"
+      ],
+      "description": "检查给定的参数是否为函数。\n\n使用 `typeof` 检查值是否被分类为函数原始类型。"
+  },
+  "isLowerCase": {
+      "prefix": "30s_isLowerCase",
+      "body": [
+          "const isLowerCase = str => str === str.toLowerCase();"
+      ],
+      "description": "检查字符串是否为小写形式。\n\n使用 `String.toLowerCase()` 将给定的字符串转换为小写形式并与原字符串进行比较。"
+  },
+  "isNegativeZero": {
+      "prefix": "30s_isNegativeZero",
+      "body": [
+          "const isNegativeZero = val => val === 0 && 1 / val === -Infinity;"
+      ],
+      "description": "检查给定的值是否等于负零 (`-0`)。\n\n检查传递的值是否等于 `0` 并且 `1` 除以该值是否等于 `-Infinity`。"
+  },
+  "isNil": {
+      "prefix": "30s_isNil",
+      "body": [
+          "const isNil = val => val === undefined || val === null;"
+      ],
+      "description": "如果指定的值为 `null` 或 `undefined`，则返回 `true`，否则返回 `false`。\n\n使用严格相等运算符检查 `val` 是否等于 `null` 或 `undefined`。"
+  },
+  "isNull": {
+      "prefix": "30s_isNull",
+      "body": [
+          "const isNull = val => val === null;"
+      ],
+      "description": "如果指定的值为 `null`，则返回 `true`，否则返回 `false`。\n\n使用严格相等运算符检查 `val` 是否等于 `null`。"
+  },
+  "isNumber": {
+      "prefix": "30s_isNumber",
+      "body": [
+          "const isNumber = val => typeof val === 'number';"
+      ],
+      "description": "检查给定的参数是否为数字。\n\n使用 `typeof` 检查值是否被分类为数字原始类型。"
+  },
+  "isObject": {
+      "prefix": "30s_isObject",
+      "body": [
+          "const isObject = obj => obj === Object(obj);"
+      ],
+      "description": "返回一个布尔值，确定传递的值是否为对象。\n\n使用 `Object` 构造函数为给定的值创建对象包装器。\n如果值为 `null` 或 `undefined`，创建并返回一个空对象。否则，返回一个与给定值类型对应的对象。"
+  },
+  "isObjectLike": {
+      "prefix": "30s_isObjectLike",
+      "body": [
+          "const isObjectLike = val => val !== null && typeof val === 'object';"
+      ],
+      "description": "检查一个值是否为类似对象的形式。\n\n检查提供的值是否不为 `null` 并且其 `typeof` 等于 `'object'`。"
+  },
+  "isPlainObject": {
+      "prefix": "30s_isPlainObject",
+      "body": [
+          "const isPlainObject = val => !!val && typeof val === 'object' && val.constructor === Object;"
+      ],
+      "description": "检查提供的值是否由 `Object` 构造函数创建的对象。\n\n检查提供的值是否为真值，使用 `typeof` 检查它是否为对象，并使用 `Object.constructor` 确保构造函数等于 `Object`。"
+  },
+  "isPrime": {
+      "prefix": "30s_isPrime",
+      "body": [
+          "const isPrime = num => {",
+          "  const boundary = Math.floor(Math.sqrt(num));",
+          "  for (var i = 2; i <= boundary; i++) if (num % i === 0) return false;",
+          "  return num >= 2;",
+          "};"
+      ],
+      "description": "检查提供的整数是否为质数。\n\n从 `2` 到给定数字的平方根范围内检查数字。\n如果其中任何一个数字能够整除给定的数字，则返回 `false`，否则返回 `true`，除非该数字小于 `2`。"
+  },
+  "isPrimitive": {
+      "prefix": "30s_isPrimitive",
+      "body": [
+          "const isPrimitive = val => Object(val) !== val;"
+      ],
+      "description": "返回一个布尔值，确定传递的值是否为原始类型。\n\n从 `val` 创建一个对象并与 `val` 进行比较，以确定传递的值是否为原始类型（即不等于创建的对象）。"
+  },
+  "isPromiseLike": {
+      "prefix": "30s_isPromiseLike",
+      "body": [
+          "const isPromiseLike = obj =>",
+          "  obj !== null &&",
+          "  (typeof obj === 'object' || typeof obj === 'function') &&",
+          "  typeof obj.then === 'function';"
+      ],
+      "description": "如果对象看起来像一个 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)，则返回 `true`，否则返回 `false`。\n\n检查对象是否不为 `null`，其 `typeof` 是否匹配 `object` 或 `function`，并且它是否有一个 `.then` 属性，该属性也是一个 `function`。"
+  },
+  "isReadableStream": {
+      "prefix": "30s_isReadableStream",
+      "body": [
+          "const isReadableStream = val =>",
+          "  val !== null &&",
+          "  typeof val === 'object' &&",
+          "  typeof val.pipe === 'function' &&",
+          "  typeof val._read === 'function' &&",
+          "  typeof val._readableState === 'object';"
+      ],
+      "description": "检查给定参数是否为可读流。\n\n检查值是否不等于 `null`，使用 `typeof` 检查值是否为 `object` 类型且 `pipe` 属性为 `function` 类型。\n另外检查 `_read` 和 `_readableState` 属性的 `typeof` 是否分别为 `function` 和 `object` 类型。"
+  },
+  "isSameDate": {
+      "prefix": "30s_isSameDate",
+      "body": [
+          "const isSameDate = (dateA, dateB) => dateA.toISOString() === dateB.toISOString();"
+      ],
+      "description": "检查一个日期是否与另一个日期相同。\n\n使用 `Date.prototype.toISOString()` 和严格相等比较 (`===`) 来检查第一个日期是否与第二个日期相同。"
+  },
+  "isSorted": {
+      "prefix": "30s_isSorted",
+      "body": [
+          "const isSorted = arr => {",
+          "  let direction = -(arr[0] - arr[1]);",
+          "  for (let [i, val] of arr.entries()) {",
+          "    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;",
+          "    if (i === arr.length - 1) return !direction ? 0 : direction;",
+          "    else if ((val - arr[i + 1]) * direction > 0) return 0;",
+          "  }",
+          "};"
+      ],
+      "description": "如果数组按升序排序则返回 `1`，按降序排序则返回 `-1`，否则返回 `0` 表示未排序。\n\n计算前两个元素的排序方向 `direction`。\n使用 `Object.entries()` 循环遍历数组对象并成对比较它们。\n如果 `direction` 发生变化则返回 `0` 或者在到达最后一个元素时返回 `direction`。"
+  },
+  "isStream": {
+      "prefix": "30s_isStream",
+      "body": [
+          "const isStream = val => val !== null && typeof val === 'object' && typeof val.pipe === 'function';"
+      ],
+      "description": "检查给定参数是否为流。\n\n检查值是否不等于 `null`，使用 `typeof` 检查值是否为 `object` 类型且 `pipe` 属性为 `function` 类型。"
+  },
+  "isString": {
+      "prefix": "30s_isString",
+      "body": [
+          "const isString = val => typeof val === 'string';"
+      ],
+      "description": "检查给定参数是否为字符串。仅适用于字符串原语。\n\n使用 `typeof` 检查值是否被分类为字符串原语。"
+  },
+  "isSymbol": {
+      "prefix": "30s_isSymbol",
+      "body": [
+          "const isSymbol = val => typeof val === 'symbol';"
+      ],
+      "description": "检查给定参数是否为符号。\n\n使用 `typeof` 检查值是否被分类为符号原语。"
+  },
+  "isTravisCI": {
+      "prefix": "30s_isTravisCI",
+      "body": [
+          "const isTravisCI = () => 'TRAVIS' in process.env && 'CI' in process.env;"
+      ],
+      "description": "检查当前环境是否为 [Travis CI](https://travis-ci.org/)。\n\n检查当前环境是否有 `TRAVIS` 和 `CI` 环境变量 ([参考](https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables))。"
+  },
+  "isUndefined": {
+      "prefix": "30s_isUndefined",
+      "body": [
+          "const isUndefined = val => val === undefined;"
+      ],
+      "description": "如果指定的值为 `undefined` 则返回 `true`，否则返回 `false`。\n\n使用严格相等运算符检查 `val` 的值是否等于 `undefined`。"
+  },
+  "isUpperCase": {
+      "prefix": "30s_isUpperCase",
+      "body": [
+          "const isUpperCase = str => str === str.toUpperCase();"
+      ],
+      "description": "检查字符串是否为大写。\n\n使用 `String.prototype.toUpperCase()` 将给定字符串转换为大写，并将其与原始字符串进行比较。"
+  },
+  "isValidJSON": {
+      "prefix": "30s_isValidJSON",
+      "body": [
+          "const isValidJSON = str => {",
+          "  try {",
+          "    JSON.parse(str);",
+          "    return true;",
+          "  } catch (e) {",
+          "    return false;",
+          "  }",
+          "};"
+      ],
+      "description": "检查提供的字符串是否为有效的 JSON。\n\n使用 `JSON.parse()` 和 `try... catch` 块来检查提供的字符串是否为有效的 JSON。"
+  },
+  "isWritableStream": {
+      "prefix": "30s_isWritableStream",
+      "body": [
+          "const isWritableStream = val =>",
+          "  val !== null &&",
+          "  typeof val === 'object' &&",
+          "  typeof val.pipe === 'function' &&",
+          "  typeof val._write === 'function' &&",
+          "  typeof val._writableState === 'object';"
+      ],
+      "description": "检查给定参数是否为可写流。\n\n检查值是否不等于 `null`，使用 `typeof` 检查值是否为 `object` 类型且 `pipe` 属性为 `function` 类型。\n另外检查 `_write` 和 `_writableState` 属性的 `typeof` 是否分别为 `function` 和 `object` 类型。"
+  },
+  "join": {
+      "prefix": "30s_join",
+      "body": [
+          "const join = (arr, separator = ',', end = separator) =>",
+          "  arr.reduce(",
+          "    (acc, val, i) =>",
+          "      i === arr.length - 2",
+          "        ? acc + val + end",
+          "        : i === arr.length - 1",
+          "          ? acc + val",
+          "          : acc + val + separator,",
+          "    ''",
+          "  );"
+      ],
+      "description": "将数组的所有元素连接成一个字符串并返回该字符串。\n使用分隔符和结尾分隔符。\n\n使用 `Array.prototype.reduce()` 将元素组合成字符串。\n省略第二个参数 `separator` 以使用默认分隔符 `','`。\n省略第三个参数 `end` 以默认使用与 `separator` 相同的值。"
+  },
+  "JSONtoCSV": {
+      "prefix": "30s_JSONtoCSV",
+      "body": [
+          "const JSONtoCSV = (arr, columns, delimiter = ',') =>",
+          "  [",
+          "    columns.join(delimiter),",
+          "    ...arr.map(obj =>",
+          "      columns.reduce(",
+          "        (acc, key) => `${acc}${!acc.length ? '' : delimiter}\"${!obj[key] ? '' : obj[key]}\"`,",
+          "        ''",
+          "      )",
+          "    )",
+          "  ].join('\\n');"
+      ],
+      "description": "将对象数组转换为逗号分隔值（CSV）字符串，其中只包含指定的 `columns`。\n\n使用 `Array.prototype.join(delimiter)` 将 `columns` 中的所有名称组合成第一行。\n使用 `Array.prototype.map()` 和 `Array.prototype.reduce()` 为每个对象创建一行，用空字符串替换不存在的值，并且只映射 `columns` 中的值。\n使用 `Array.prototype.join('\\n')` 将所有行组合成一个字符串。\n省略第三个参数 `delimiter` 以使用默认分隔符 `,`。"
+  },
+  "JSONToFile": {
+      "prefix": "30s_JSONToFile",
+      "body": [
+          "const fs = require('fs');",
+          "const JSONToFile = (obj, filename) =>",
+          "  fs.writeFile(`${filename}.json`, JSON.stringify(obj, null, 2));"
+      ],
+      "description": "将 JSON 对象写入文件。\n\n使用 `fs.writeFile()`、模板字符串和 `JSON.stringify()` 将 `json` 对象写入 `.json` 文件。"
+  },
+  "last": {
+      "prefix": "30s_last",
+      "body": [
+          "const last = arr => arr[arr.length - 1];"
+      ],
+      "description": "返回数组中的最后一个元素。\n\n使用 `arr.length - 1` 计算给定数组的最后一个元素的索引并返回它。"
+  },
+  "lcm": {
+      "prefix": "30s_lcm",
+      "body": [
+          "const lcm = (...arr) => {",
+          "  const gcd = (x, y) => (!y ? x : gcd(y, x % y));",
+          "  const _lcm = (x, y) => (x * y) / gcd(x, y);",
+          "  return [...arr].reduce((a, b) => _lcm(a, b));",
+          "};"
+      ],
+      "description": "返回两个或多个数的最小公倍数。\n\n使用最大公约数（GCD）公式和 `lcm(x,y) = x * y / gcd(x,y)` 来确定最小公倍数。\nGCD 公式使用递归。"
+  },
+  "longestItem": {
+      "prefix": "30s_longestItem",
+      "body": [
+          "const longestItem = (...vals) => vals.reduce((a, x) => (x.length > a.length ? x : a));"
+      ],
+      "description": "接受任意数量的可迭代对象或具有 `length` 属性的对象，并返回最长的一个。\n如果有多个对象长度相同，则返回第一个。\n如果没有提供参数，则返回 `undefined`。\n\n使用 `Array.prototype.reduce()`，通过比较对象的 `length` 来找到最长的一个。"
+  },
+  "lowercaseKeys": {
+      "prefix": "30s_lowercaseKeys",
+      "body": [
+          "const lowercaseKeys = obj =>",
+          "  Object.keys(obj).reduce((acc, key) => {",
+          "    acc[key.toLowerCase()] = obj[key];",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "从指定对象创建一个新对象，其中所有键都为小写。\n\n使用 `Object.keys()` 和 `Array.prototype.reduce()` 从指定对象创建一个新对象。\n使用 `String.toLowerCase()` 将原始对象中的每个键转换为小写。"
+  },
+  "luhnCheck": {
+      "prefix": "30s_luhnCheck",
+      "body": [
+          "const luhnCheck = num => {",
+          "  let arr = (num + '')",
+          "    .split('')",
+          "    .reverse()",
+          "    .map(x => parseInt(x));",
+          "  let lastDigit = arr.splice(0, 1)[0];",
+          "  let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);",
+          "  sum += lastDigit;",
+          "  return sum % 10 === 0;",
+          "};"
+      ],
+      "description": "实现用于验证各种识别号码（如信用卡号、IMEI 号码、国家提供者标识号等）的 [Luhn 算法](https://en.wikipedia.org/wiki/Luhn_algorithm)。\n\n使用 `String.prototype.split('')`、`Array.prototype.reverse()` 和 `Array.prototype.map()` 结合 `parseInt()` 获取数字数组。\n使用 `Array.prototype.splice(0,1)` 获取最后一个数字。\n使用 `Array.prototype.reduce()` 实现 Luhn 算法。\n如果 `sum` 能被 `10` 整除，则返回 `true`，否则返回 `false`。"
+  },
+  "mapKeys": {
+      "prefix": "30s_mapKeys",
+      "body": [
+          "const mapKeys = (obj, fn) =>",
+          "  Object.keys(obj).reduce((acc, k) => {",
+          "    acc[fn(obj[k], k, obj)] = obj[k];",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "根据提供的函数为每个键生成新的键，创建一个具有相同值的新对象。\n\n使用 `Object.keys(obj)` 迭代对象的键。\n使用 `Array.prototype.reduce()` 创建一个具有相同值和使用 `fn` 映射的键的新对象。"
+  },
+  "mapObject": {
+      "prefix": "30s_mapObject",
+      "body": [
+          "const mapObject = (arr, fn) =>",
+          "  (a => (",
+          "    (a = [arr, arr.map(fn)]), a[0].reduce((acc, val, ind) => ((acc[val] = a[1][ind]), acc), {})",
+          "  ))();"
+      ],
+      "description": "使用函数将数组的值映射到一个对象，其中键值对由原始值作为键和映射后的值组成。\n\n使用匿名内部函数作用域声明一个未定义的内存空间，使用闭包存储返回值。使用一个新的 `Array` 存储带有其数据集上的函数映射的数组，并使用逗号操作符返回第二步，无需从一个上下文移动到另一个上下文（由于闭包和操作顺序）。"
+  },
+  "mapString": {
+      "prefix": "30s_mapString",
+      "body": [
+          "const mapString = (str, fn) =>",
+          "  str",
+          "    .split('')",
+          "    .map((c, i) => fn(c, i, str))",
+          "    .join('');"
+      ],
+      "description": "创建一个新字符串，该字符串由调用所提供的函数处理后得到的结果组成。\n\n使用 `String.prototype.split('')` 和 `Array.prototype.map()` 调用所提供的函数 `fn` 处理 `str` 中的每个字符。\n使用 `Array.prototype.join('')` 将字符数组重新组合成一个字符串。\n回调函数 `fn` 接受三个参数（当前字符、当前字符的索引以及调用 `mapString` 的字符串）。"
+  },
+  "mapValues": {
+      "prefix": "30s_mapValues",
+      "body": [
+          "const mapValues = (obj, fn) =>",
+          "  Object.keys(obj).reduce((acc, k) => {",
+          "    acc[k] = fn(obj[k], k, obj);",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "创建一个具有与提供的对象相同的键和通过运行提供的函数为每个值生成的新值的对象。\n\n使用 `Object.keys(obj)` 迭代对象的键。\n使用 `Array.prototype.reduce()` 创建一个具有相同键和使用 `fn` 映射的值的新对象。"
+  },
+  "mask": {
+      "prefix": "30s_mask",
+      "body": [
+          "const mask = (cc, num = 4, mask = '*') => `${cc}`.slice(-num).padStart(`${cc}`.length, mask);"
+      ],
+      "description": "将除了最后 `num` 个字符之外的所有字符替换为指定的掩码字符。\n\n使用 `String.prototype.slice()` 获取将保持未掩码的部分字符，并使用 `String.padStart()` 从字符串开头填充掩码字符直到原始长度。\n省略第二个参数 `num` 以保持默认 `4` 个字符不被掩码。如果 `num` 是负数，未掩码的字符将在字符串的开头。\n省略第三个参数 `mask` 以使用默认字符 `'*'` 作为掩码。"
+  },
+  "matches": {
+      "prefix": "30s_matches",
+      "body": [
+          "const matches = (obj, source) =>",
+          "  Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);"
+      ],
+      "description": "比较两个对象以确定第一个对象是否包含与第二个对象等价的属性值。\n\n使用 `Object.keys(source)` 获取第二个对象的所有键，然后使用 `Array.prototype.every()`、`Object.hasOwnProperty()` 和严格比较来确定所有键是否存在于第一个对象中并且具有相同的值。"
+  },
+  "matchesWith": {
+      "prefix": "30s_matchesWith",
+      "body": [
+          "const matchesWith = (obj, source, fn) =>",
+          "  Object.keys(source).every(",
+          "    key =>",
+          "      obj.hasOwnProperty(key) && fn",
+          "        ? fn(obj[key], source[key], key, obj, source)",
+          "        : obj[key] == source[key]",
+          "  );"
+      ],
+      "description": "根据提供的函数比较两个对象以确定第一个对象是否包含与第二个对象等价的属性值。\n\n使用 `Object.keys(source)` 获取第二个对象的所有键，然后使用 `Array.prototype.every()`、`Object.hasOwnProperty()` 和提供的函数来确定所有键是否存在于第一个对象中并且具有等价的值。\n如果没有提供函数，则使用相等运算符进行值的比较。"
+  },
+  "maxBy": {
+      "prefix": "30s_maxBy",
+      "body": [
+          "const maxBy = (arr, fn) => Math.max(...arr.map(typeof fn === 'function' ? fn : val => val[fn]));"
+      ],
+      "description": "返回数组中的最大值，在使用提供的函数将每个元素映射到一个值之后。\n\n使用 `Array.prototype.map()` 将每个元素映射到 `fn` 返回的值，使用 `Math.max()` 获取最大值。"
+  },
+  "maxDate": {
+      "prefix": "30s_maxDate",
+      "body": [
+          "const maxDate = (...dates) => new Date(Math.max.apply(null, ...dates));"
+      ],
+      "description": "返回给定日期中的最大值。\n\n使用 `Math.max.apply()` 查找最大日期值，使用 `new Date()` 将其转换为 `Date` 对象。"
+  },
+  "maxN": {
+      "prefix": "30s_maxN",
+      "body": [
+          "const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);"
+      ],
+      "description": "返回提供的数组中的 `n` 个最大元素。\n如果 `n` 大于或等于提供的数组长度，则返回原始数组（按降序排序）。\n\n使用 `Array.prototype.sort()` 结合扩展运算符 (`...`) 创建数组的浅克隆并按降序排序。\n使用 `Array.prototype.slice()` 获取指定数量的元素。\n省略第二个参数 `n` 以获取单个元素的数组。"
+  },
+  "median": {
+      "prefix": "30s_median",
+      "body": [
+          "const median = arr => {",
+          "  const mid = Math.floor(arr.length / 2),",
+          "    nums = [...arr].sort((a, b) => a - b);",
+          "  return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;",
+          "};"
+      ],
+      "description": "返回一组数字的中位数。\n\n找到数组的中间位置，使用 `Array.prototype.sort()` 对值进行排序。\n如果 `length` 是奇数，则返回中点处的数字；否则返回两个中间数字的平均值。"
+  },
+  "memoize": {
+      "prefix": "30s_memoize",
+      "body": [
+          "const memoize = fn => {",
+          "  const cache = new Map();",
+          "  const cached = function(val) {",
+          "    return cache.has(val) ? cache.get(val) : cache.set(val, fn.call(this, val)) && cache.get(val);",
+          "  };",
+          "  cached.cache = cache;",
+          "  return cached;",
+          "};"
+      ],
+      "description": "返回缓存（记忆化）的函数。\n\n通过实例化一个新的 `Map` 对象来创建一个空缓存。\n返回一个函数，该函数接收一个参数，并首先检查该特定输入值的函数输出是否已经被缓存，或者如果没有缓存则存储并返回它。必须使用 `function` 关键字以便在必要时允许记忆化函数改变其 `this` 上下文。\n通过将其设置为返回函数的属性来允许访问 `cache`。"
+  },
+  "merge": {
+      "prefix": "30s_merge",
+      "body": [
+          "const merge = (...objs) =>",
+          "  [...objs].reduce(",
+          "    (acc, obj) =>",
+          "      Object.keys(obj).reduce((a, k) => {",
+          "        acc[k] = acc.hasOwnProperty(k) ? [].concat(acc[k]).concat(obj[k]) : obj[k];",
+          "        return acc;",
+          "      }, {}),",
+          "    {}",
+          "  );"
+      ],
+      "description": "从两个或更多对象的组合中创建一个新对象。\n\n使用 `Array.prototype.reduce()` 结合 `Object.keys(obj)` 迭代所有对象和键。\n使用 `hasOwnProperty()` 和 `Array.prototype.concat()` 为存在于多个对象中的键追加值。"
+  },
+  "minBy": {
+      "prefix": "30s_minBy",
+      "body": [
+          "const minBy = (arr, fn) => Math.min(...arr.map(typeof fn === 'function' ? fn : val => val[fn]));"
+      ],
+      "description": "返回数组中的最小值，在使用提供的函数将每个元素映射到一个值之后。\n\n使用 `Array.prototype.map()` 将每个元素映射到 `fn` 返回的值，使用 `Math.min()` 获取最小值。"
+  },
+  "minDate": {
+      "prefix": "30s_minDate",
+      "body": [
+          "const minDate = (...dates) => new Date(Math.min.apply(null, ...dates));"
+      ],
+      "description": "返回给定日期中的最小值。\n\n使用 `Math.min.apply()` 查找最小日期值，使用 `new Date()` 将其转换为 `Date` 对象。"
+  },
+  "minN": {
+      "prefix": "30s_minN",
+      "body": [
+          "const minN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);"
+      ],
+      "description": "返回提供的数组中的 `n` 个最小元素。\n如果 `n` 大于或等于提供的数组长度，则返回原始数组（按升序排序）。\n\n使用 `Array.prototype.sort()` 结合扩展运算符 (`...`) 来创建数组的浅克隆并按升序排序。\n使用 `Array.prototype.slice()` 获取指定数量的元素。\n省略第二个参数 `n` 以获取单个元素的数组。"
+  },
+  "mostPerformant": {
+      "prefix": "30s_mostPerformant",
+      "body": [
+          "const mostPerformant = (fns, iterations = 10000) => {",
+          "  const times = fns.map(fn => {",
+          "    const before = performance.now();",
+          "    for (let i = 0; i < iterations; i++) fn();",
+          "    return performance.now() - before;",
+          "  });",
+          "  return times.indexOf(Math.min(...times));",
+          "};"
+      ],
+      "description": "返回一个函数数组中执行速度最快的函数的索引。\n\n使用 `Array.prototype.map()` 生成一个数组，其中每个值是在 `iterations` 次迭代后执行函数所需的总时间。通过 `performance.now()` 在执行前后的时间差来获取高精度的总时间（毫秒）。\n使用 `Math.min()` 查找最小执行时间，并返回对应最短时间的索引，该索引对应执行效率最高的函数。\n省略第二个参数 `iterations` 以使用默认的 10,000 次迭代。迭代次数越多，结果越可靠，但耗时越长。"
+  },
+  "negate": {
+      "prefix": "30s_negate",
+      "body": [
+          "const negate = func => (...args) => !func(...args);"
+      ],
+      "description": "取反一个谓词函数。\n\n取一个谓词函数，并对其应用逻辑非操作符 (`!`) 并传入其参数。"
+  },
+  "nest": {
+      "prefix": "30s_nest",
+      "body": [
+          "const nest = (items, id = null, link = 'parent_id') =>",
+          "  items",
+          "    .filter(item => item[link] === id)",
+          "    .map(item => ({ ...item, children: nest(items, item.id) }));"
+      ],
+      "description": "给定一个相互关联的对象的扁平数组，递归地嵌套它们。\n对于嵌套评论非常有用，例如 reddit.com 上的评论。\n\n使用递归。\n使用 `Array.prototype.filter()` 筛选出 `id` 匹配 `link` 的项，然后使用 `Array.prototype.map()` 将每一项映射为一个新的对象，该对象有一个 `children` 属性，递归地根据哪些项是当前项的子项来嵌套这些项。\n省略第二个参数 `id` 以默认为 `null`，这表示对象不链接到另一个对象（即它是顶级对象）。\n省略第三个参数 `link` 以使用 `'parent_id'` 作为默认属性，该属性通过 `id` 将对象链接到另一个对象。"
+  },
+  "nodeListToArray": {
+      "prefix": "30s_nodeListToArray",
+      "body": [
+          "const nodeListToArray = nodeList => [...nodeList];"
+      ],
+      "description": "将 `NodeList` 转换为数组。\n\n在新数组中使用扩展运算符将 `NodeList` 转换为数组。"
+  },
+  "none": {
+      "prefix": "30s_none",
+      "body": [
+          "const none = (arr, fn = Boolean) => !arr.some(fn);"
+      ],
+      "description": "如果提供的谓词函数对集合中的所有元素都返回 `false`，则返回 `true`，否则返回 `false`。\n\n使用 `Array.prototype.some()` 测试集合中的任何元素是否基于 `fn` 返回 `true`。\n省略第二个参数 `fn` 以使用 `Boolean` 作为默认值。"
+  },
+  "nthArg": {
+      "prefix": "30s_nthArg",
+      "body": [
+          "const nthArg = n => (...args) => args.slice(n)[0];"
+      ],
+      "description": "创建一个函数，该函数获取索引为 `n` 的参数。如果 `n` 为负数，则返回从末尾算起的第 `n` 个参数。\n\n使用 `Array.prototype.slice()` 获取索引为 `n` 的目标参数。"
+  },
+  "nthElement": {
+      "prefix": "30s_nthElement",
+      "body": [
+          "const nthElement = (arr, n = 0) => (n === -1 ? arr.slice(n) : arr.slice(n, n + 1))[0];"
+      ],
+      "description": "返回数组中的第 n 个元素。\n\n使用 `Array.prototype.slice()` 获取包含第 n 个元素的数组。\n如果索引超出范围，返回 `undefined`。\n省略第二个参数 `n` 以获取数组的第一个元素。"
+  },
+  "objectFromPairs": {
+      "prefix": "30s_objectFromPairs",
+      "body": [
+          "const objectFromPairs = arr => arr.reduce((a, [key, val]) => ((a[key] = val), a), {});"
+      ],
+      "description": "根据给定的键值对创建一个对象。\n\n使用 `Array.prototype.reduce()` 创建并组合键值对。"
+  },
+  "objectToPairs": {
+      "prefix": "30s_objectToPairs",
+      "body": [
+          "const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]]);"
+      ],
+      "description": "根据对象创建一个包含键值对数组的数组。\n\n使用 `Object.keys()` 和 `Array.prototype.map()` 遍历对象的键并生成包含键值对的数组。"
+  },
+  "observeMutations": {
+      "prefix": "30s_observeMutations",
+      "body": [
+          "const observeMutations = (element, callback, options) => {",
+          "  const observer = new MutationObserver(mutations => mutations.forEach(m => callback(m)));",
+          "  observer.observe(",
+          "    element,",
+          "    Object.assign(",
+          "      {",
+          "        childList: true,",
+          "        attributes: true,",
+          "        attributeOldValue: true,",
+          "        characterData: true,",
+          "        characterDataOldValue: true,",
+          "        subtree: true",
+          "      },",
+          "      options",
+          "    )",
+          "  );",
+          "  return observer;",
+          "};"
+      ],
+      "description": "返回一个新的 MutationObserver，并为指定元素上的每次变异运行提供的回调。\n\n使用 `MutationObserver` 监听给定元素上的变异。\n使用 `Array.prototype.forEach()` 运行为观察到的每个变异运行回调。\n省略第三个参数 `options` 以使用默认选项（全部为 `true`）。"
+  },
+  "off": {
+      "prefix": "30s_off",
+      "body": [
+          "const off = (el, evt, fn, opts = false) => el.removeEventListener(evt, fn, opts);"
+      ],
+      "description": "从元素中移除事件监听器。\n\n使用 `EventTarget.removeEventListener()` 从元素中移除事件监听器。\n省略第四个参数 `opts` 以使用 `false` 或根据添加事件监听器时使用的选项进行指定。"
+  },
+  "offset": {
+      "prefix": "30s_offset",
+      "body": [
+          "const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];"
+      ],
+      "description": "将指定数量的元素移动到数组的末尾。\n\n使用 `Array.prototype.slice()` 两次来获取指定索引之后的元素和之前的元素。\n使用扩展运算符 (`...`) 将两者合并成一个数组。\n如果 `offset` 为负数，则元素将从末尾移到开头。"
+  },
+  "omit": {
+      "prefix": "30s_omit",
+      "body": [
+          "const omit = (obj, arr) =>",
+          "  Object.keys(obj)",
+          "    .filter(k => !arr.includes(k))",
+          "    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});"
+      ],
+      "description": "从对象中删除与给定键对应的键值对。\n\n使用 `Object.keys(obj)`、`Array.prototype.filter()` 和 `Array.prototype.includes()` 删除提供的键。\n使用 `Array.prototype.reduce()` 将过滤后的键重新转换为包含相应键值对的对象。"
+  },
+  "omitBy": {
+      "prefix": "30s_omitBy",
+      "body": [
+          "const omitBy = (obj, fn) =>",
+          "  Object.keys(obj)",
+          "    .filter(k => !fn(obj[k], k))",
+          "    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});"
+      ],
+      "description": "创建一个对象，该对象由给定函数返回假值的属性组成。函数接受两个参数：(value, key)。\n\n使用 `Object.keys(obj)` 和 `Array.prototype.filter()` 删除 `fn` 返回真值的键。\n使用 `Array.prototype.reduce()` 将过滤后的键重新转换为包含相应键值对的对象。"
+  },
+  "on": {
+      "prefix": "30s_on",
+      "body": [
+          "const on = (el, evt, fn, opts = {}) => {",
+          "  const delegatorFn = e => e.target.matches(opts.target) && fn.call(e.target, e);",
+          "  el.addEventListener(evt, opts.target ? delegatorFn : fn, opts.options || false);",
+          "  if (opts.target) return delegatorFn;",
+          "};"
+      ],
+      "description": "向元素添加事件监听器，并支持事件委托。\n\n使用 `EventTarget.addEventListener()` 向元素添加事件监听器。如果有 `target` 属性提供给选项对象，请确保事件目标匹配指定的目标，然后通过提供正确的 `this` 上下文调用回调。\n返回自定义委托函数的引用，以便可以与 `off` 一起使用。\n省略 `opts` 以默认为非委托行为和事件冒泡。"
+  },
+  "once": {
+      "prefix": "30s_once",
+      "body": [
+          "const once = fn => {",
+          "  let called = false;",
+          "  return function(...args) {",
+          "    if (called) return;",
+          "    called = true;",
+          "    return fn.apply(this, args);",
+          "  };",
+          "};"
+      ],
+      "description": "确保一个函数只被调用一次。\n\n利用闭包，使用一个标志 `called` 并在函数首次调用时将其设置为 `true`，防止再次调用。为了允许函数改变其 `this` 上下文（例如在事件监听器中），必须使用 `function` 关键字，并且提供的函数必须应用上下文。\n使用剩余/扩展运算符 (`...`) 允许函数接收任意数量的参数。"
+  },
+  "onUserInputChange": {
+      "prefix": "30s_onUserInputChange",
+      "body": [
+          "const onUserInputChange = callback => {",
+          "  let type = 'mouse',",
+          "    lastTime = 0;",
+          "  const mousemoveHandler = () => {",
+          "    const now = performance.now();",
+          "    if (now - lastTime < 20)",
+          "      (type = 'mouse'), callback(type), document.removeEventListener('mousemove', mousemoveHandler);",
+          "    lastTime = now;",
+          "  };",
+          "  document.addEventListener('touchstart', () => {",
+          "    if (type === 'touch') return;",
+          "    (type = 'touch'), callback(type), document.addEventListener('mousemove', mousemoveHandler);",
+          "  });",
+          "};"
+      ],
+      "description": "当用户输入类型变化时（`mouse` 或 `touch`）运行回调。对于根据输入设备启用或禁用代码非常有用。此过程是动态的，并适用于混合设备（如触摸屏笔记本电脑）。\n\n使用两个事件监听器。最初假设 `mouse` 输入，并绑定文档上的 `touchstart` 事件监听器。\n在 `touchstart` 时，添加 `mousemove` 事件监听器来监听连续两次 `mousemove` 事件在 20 毫秒内触发，使用 `performance.now()`。\n在这两种情况下，使用输入类型作为参数运行回调。"
+  },
+  "orderBy": {
+      "prefix": "30s_orderBy",
+      "body": [
+          "const orderBy = (arr, props, orders) =>",
+          "  [...arr].sort((a, b) =>",
+          "    props.reduce((acc, prop, i) => {",
+          "      if (acc === 0) {",
+          "        const [p1, p2] = orders && orders[i] === 'desc' ? [b[prop], a[prop]] : [a[prop], b[prop]];",
+          "        acc = p1 > p2 ? 1 : p1 < p2 ? -1 : 0;",
+          "      }",
+          "      return acc;",
+          "    }, 0)",
+          "  );"
+      ],
+      "description": "按属性和顺序返回排序的对象数组。\n\n使用 `Array.prototype.sort()` 和 `Array.prototype.reduce()` 在 `props` 数组上，默认值为 `0`，使用数组解构根据传递的顺序交换属性位置。\n如果没有传递 `orders` 数组，默认按 `'asc'` 排序。"
+  },
+  "over": {
+      "prefix": "30s_over",
+      "body": [
+          "const over = (...fns) => (...args) => fns.map(fn => fn.apply(null, args));"
+      ],
+      "description": "创建一个函数，将接收到的参数传递给每个提供的函数，并返回结果。\n\n使用 `Array.prototype.map()` 和 `Function.prototype.apply()` 将每个函数应用于给定的参数。"
+  },
+  "overArgs": {
+      "prefix": "30s_overArgs",
+      "body": [
+          "const overArgs = (fn, transforms) => (...args) => fn(...args.map((val, i) => transforms[i](val)));"
+      ],
+      "description": "创建一个函数，以转换后的参数调用提供的函数。\n\n使用 `Array.prototype.map()` 将 `transforms` 应用于 `args`，结合扩展运算符 (`...`) 将转换后的参数传递给 `fn`。"
+  },
+  "pad": {
+      "prefix": "30s_pad",
+      "body": [
+          "const pad = (str, length, char = ' ') =>",
+          "  str.padStart((str.length + length) / 2, char).padEnd(length, char);"
+      ],
+      "description": "如果字符串短于指定长度，则在其两侧填充指定字符。\n\n使用 `String.padStart()` 和 `String.padEnd()` 填充给定字符串的两侧。\n省略第三个参数 `char` 以使用空格字符作为默认填充字符。"
+  },
+  "palindrome": {
+      "prefix": "30s_palindrome",
+      "body": [
+          "const palindrome = str => {",
+          "  const s = str.toLowerCase().replace(/[\\W_]/g, '');",
+          "  return s === [...s].reverse().join('');",
+          "};"
+      ],
+      "description": "如果给定的字符串是回文，则返回 `true`，否则返回 `false`。\n\n将字符串转换为小写并使用 `String.prototype.replace()` 移除非字母数字字符。\n然后，使用扩展运算符 (`...`) 将字符串拆分为单个字符，使用 `Array.prototype.reverse()` 和 `String.prototype.join('')` 进行比较，转换为小写后与原始未反转的字符串比较。"
+  },
+  "parseCookie": {
+      "prefix": "30s_parseCookie",
+      "body": [
+          "const parseCookie = str =>",
+          "  str",
+          "    .split(';')",
+          "    .map(v => v.split('='))",
+          "    .reduce((acc, v) => {",
+          "      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());",
+          "      return acc;",
+          "    }, {});"
+      ],
+      "description": "解析 HTTP Cookie 头部字符串并返回所有 Cookie 名称-值对的对象。\n\n使用 `String.prototype.split(';')` 分离各键值对。\n使用 `Array.prototype.map()` 和 `String.prototype.split('=')` 分离每对中的键和值。\n使用 `Array.prototype.reduce()` 和 `decodeURIComponent()` 创建包含所有键值对的对象。"
+  },
+  "partial": {
+      "prefix": "30s_partial",
+      "body": [
+          "const partial = (fn, ...partials) => (...args) => fn(...partials, ...args);"
+      ],
+      "description": "创建一个函数，将 `partials` 作为参数前置传递给 `fn`。\n\n使用扩展运算符 (`...`) 将 `partials` 前置到 `fn` 的参数列表中。"
+  },
+  "partialRight": {
+      "prefix": "30s_partialRight",
+      "body": [
+          "const partialRight = (fn, ...partials) => (...args) => fn(...args, ...partials);"
+      ],
+      "description": "创建一个函数，将 `partials` 作为参数追加传递给 `fn`。\n\n使用扩展运算符 (`...`) 将 `partials` 追加到 `fn` 的参数列表中。"
+  },
+  "partition": {
+      "prefix": "30s_partition",
+      "body": [
+          "const partition = (arr, fn) =>",
+          "  arr.reduce(",
+          "    (acc, val, i, arr) => {",
+          "      acc[fn(val, i, arr) ? 0 : 1].push(val);",
+          "      return acc;",
+          "    },",
+          "    [[], []]",
+          "  );"
+      ],
+      "description": "根据提供的函数对每个元素的真假性，将元素分组到两个数组中。\n\n使用 `Array.prototype.reduce()` 创建一个包含两个数组的数组。\n使用 `Array.prototype.push()` 将 `fn` 返回 `true` 的元素添加到第一个数组，将 `fn` 返回 `false` 的元素添加到第二个数组。"
+  },
+  "percentile": {
+      "prefix": "30s_percentile",
+      "body": [
+          "const percentile = (arr, val) =>",
+          "  (100 * arr.reduce((acc, v) => acc + (v < val ? 1 : 0) + (v === val ? 0.5 : 0), 0)) / arr.length;"
+      ],
+      "description": "使用百分位公式计算给定数组中有多少数字小于或等于给定值。\n\n使用 `Array.prototype.reduce()` 计算有多少数字低于给定值以及有多少相同的值，并应用百分位公式。"
+  },
+  "permutations": {
+      "prefix": "30s_permutations",
+      "body": [
+          "const permutations = arr => {",
+          "  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;",
+          "  return arr.reduce(",
+          "    (acc, item, i) =>",
+          "      acc.concat(",
+          "        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [item, ...val])",
+          "      ),",
+          "    []",
+          "  );",
+          "};"
+      ],
+      "description": "⚠️ **警告**：此函数的执行时间随着每个数组元素的增加呈指数增长。超过 8 到 10 个条目将导致浏览器尝试解决所有不同的组合时卡住。\n\n生成数组元素的所有排列（包含重复项）。\n\n使用递归。\n对于给定数组中的每个元素，创建其余元素的所有部分排列。\n使用 `Array.prototype.map()` 将元素与每个部分排列组合，然后使用 `Array.prototype.reduce()` 将所有排列组合成一个数组。\n基本情况是数组长度等于 `2` 或 `1`。"
+  },
+  "pick": {
+      "prefix": "30s_pick",
+      "body": [
+          "const pick = (obj, arr) =>",
+          "  arr.reduce((acc, curr) => (curr in obj && (acc[curr] = obj[curr]), acc), {});"
+      ],
+      "description": "从对象中挑选出对应于给定键的键值对。\n\n使用 `Array.prototype.reduce()` 将过滤/挑选的键转换回包含相应键值对的对象（如果键存在于对象中）。"
+  },
+  "pickBy": {
+      "prefix": "30s_pickBy",
+      "body": [
+          "const pickBy = (obj, fn) =>",
+          "  Object.keys(obj)",
+          "    .filter(k => fn(obj[k], k))",
+          "    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});"
+      ],
+      "description": "创建一个由给定函数返回真值的属性组成的对象。该函数接受两个参数：(value, key)。\n\n使用 `Object.keys(obj)` 和 `Array.prototype.filter()` 删除 `fn` 返回假值的键。\n使用 `Array.prototype.reduce()` 将过滤后的键转换回包含相应键值对的对象。"
+  },
+  "pipeAsyncFunctions": {
+      "prefix": "30s_pipeAsyncFunctions",
+      "body": [
+          "const pipeAsyncFunctions = (...fns) => arg => fns.reduce((p, f) => p.then(f), Promise.resolve(arg));"
+      ],
+      "description": "对异步函数进行从左到右的函数组合。\n\n使用 `Array.prototype.reduce()` 结合扩展运算符 (`...`) 使用 `Promise.then()` 从左到右进行函数组合。\n这些函数可以返回简单的值、`Promise` 或通过 `await` 定义的 `async` 函数。\n所有函数都必须是一元的。"
+  },
+  "pipeFunctions": {
+      "prefix": "30s_pipeFunctions",
+      "body": [
+          "const pipeFunctions = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));"
+      ],
+      "description": "对函数进行从左到右的组合。\n\n使用 `Array.prototype.reduce()` 结合扩展运算符 (`...`) 从左到右进行函数组合。\n最左边的第一个函数可以接受一个或多个参数；剩余的函数必须是一元的。"
+  },
+  "pluralize": {
+      "prefix": "30s_pluralize",
+      "body": [
+          "const pluralize = (val, word, plural = word + 's') => {",
+          "  const _pluralize = (num, word, plural = word + 's') =>",
+          "    [1, -1].includes(Number(num)) ? word : plural;",
+          "  if (typeof val === 'object') return (num, word) => _pluralize(num, word, val[word]);",
+          "  return _pluralize(val, word, plural);",
+          "};"
+      ],
+      "description": "根据输入数字返回单词的单数或复数形式。如果第一个参数是 `object`，它将使用闭包返回一个可以自动处理非简单以 `s` 结尾的单词的函数，如果提供的词典包含该单词。\n\n如果 `num` 是 `-1` 或 `1`，返回单词的单数形式；如果 `num` 是其他任何数字，返回复数形式。省略第三个参数使用默认的单词 + `s`，或者在必要时提供自定义的复数形式。如果第一个参数是 `object`，使用闭包返回一个可以使用提供的词典来解决单词正确复数形式的函数。"
+  },
+  "powerset": {
+      "prefix": "30s_powerset",
+      "body": [
+          "const powerset = arr => arr.reduce((a, v) => a.concat(a.map(r => [v].concat(r))), [[]]);"
+      ],
+      "description": "返回给定数字数组的幂集。\n\n使用 `Array.prototype.reduce()` 结合 `Array.prototype.map()` 遍历元素并将它们组合成包含所有组合的数组。"
+  },
+  "prefix": {
+      "prefix": "30s_prefix",
+      "body": [
+          "const prefix = prop => {",
+          "  const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1);",
+          "  const prefixes = ['', 'webkit', 'moz', 'ms', 'o'];",
+          "  const i = prefixes.findIndex(",
+          "    prefix => typeof document.body.style[prefix ? prefix + capitalizedProp : prop] !== 'undefined'",
+          "  );",
+          "  return i !== -1 ? (i === 0 ? prop : prefixes[i] + capitalizedProp) : null;",
+          "};"
+      ],
+      "description": "返回浏览器支持的 CSS 属性的带前缀版本（如果需要）。\n\n使用 `Array.prototype.findIndex()` 在包含供应商前缀字符串的数组上测试 `document.body` 是否在其 `CSSStyleDeclaration` 对象中定义了其中一个前缀，否则返回 `null`。\n使用 `String.prototype.charAt()` 和 `String.prototype.toUpperCase()` 将属性首字母大写，这将附加到供应商前缀字符串上。"
+  },
+  "prettyBytes": {
+      "prefix": "30s_prettyBytes",
+      "body": [
+          "const prettyBytes = (num, precision = 3, addSpace = true) => {",
+          "  const UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];",
+          "  if (Math.abs(num) < 1) return num + (addSpace ? ' ' : '') + UNITS[0];",
+          "  const exponent = Math.min(Math.floor(Math.log10(num < 0 ? -num : num) / 3), UNITS.length - 1);",
+          "  const n = Number(((num < 0 ? -num : num) / 1000 ** exponent).toPrecision(precision));",
+          "  return (num < 0 ? '-' : '') + n + (addSpace ? ' ' : '') + UNITS[exponent];",
+          "};"
+      ],
+      "description": "将字节数转换为易于阅读的字符串。\n\n使用一个单位数组字典，根据指数访问。\n使用 `Number.toPrecision()` 截断数字到特定位数。\n通过构建字符串并考虑提供的选项和是否为负数来返回格式化后的字符串。\n省略第二个参数 `precision` 以使用默认精度 `3` 位。\n省略第三个参数 `addSpace` 以默认在数字和单位之间添加空格。"
+  },
+  "primes": {
+      "prefix": "30s_primes",
+      "body": [
+          "const primes = num => {",
+          "  let arr = Array.from({ length: num - 1 }).map((x, i) => i + 2),",
+          "    sqroot = Math.floor(Math.sqrt(num)),",
+          "    numsTillSqroot = Array.from({ length: sqroot - 1 }).map((x, i) => i + 2);",
+          "  numsTillSqroot.forEach(x => (arr = arr.filter(y => y % x !== 0 || y === x)));",
+          "  return arr;",
+          "};"
+      ],
+      "description": "使用埃拉托斯特尼筛法生成给定数字以下的所有质数。\n\n生成从 `2` 到给定数字的数组。使用 `Array.prototype.filter()` 过滤掉任何能被 `2` 到给定数字平方根之间的数字整除的值。"
+  },
+  "promisify": {
+      "prefix": "30s_promisify",
+      "body": [
+          "const promisify = func => (...args) =>",
+          "  new Promise((resolve, reject) =>",
+          "    func(...args, (err, result) => (err ? reject(err) : resolve(result)))",
+          "  );"
+      ],
+      "description": "将异步函数转换为返回一个 Promise。\n\n使用柯里化返回一个调用原始函数并返回 `Promise` 的函数。\n使用 `...rest` 操作符传递所有参数。\n\n*在 Node 8+ 中，可以使用 [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original)*"
+  },
+  "pull": {
+      "prefix": "30s_pull",
+      "body": [
+          "const pull = (arr, ...args) => {",
+          "  let argState = Array.isArray(args[0]) ? args[0] : args;",
+          "  let pulled = arr.filter((v, i) => !argState.includes(v));",
+          "  arr.length = 0;",
+          "  pulled.forEach(v => arr.push(v));",
+          "};"
+      ],
+      "description": "修改原始数组以过滤掉指定的值。\n\n使用 `Array.prototype.filter()` 和 `Array.prototype.includes()` 过滤掉不需要的值。\n使用 `Array.prototype.length = 0` 通过重置其长度为零来修改传入的数组，并使用 `Array.prototype.push()` 重新填充数组。\n\n_（对于不修改原始数组的代码片段，请参见 [`without`](#without)）_"
+  },
+  "pullAtIndex": {
+      "prefix": "30s_pullAtIndex",
+      "body": [
+          "const pullAtIndex = (arr, pullArr) => {",
+          "  let removed = [];",
+          "  let pulled = arr",
+          "    .map((v, i) => (pullArr.includes(i) ? removed.push(v) : v))",
+          "    .filter((v, i) => !pullArr.includes(i));",
+          "  arr.length = 0;",
+          "  pulled.forEach(v => arr.push(v));",
+          "  return removed;",
+          "};"
+      ],
+      "description": "修改原始数组以过滤掉指定索引处的值。\n\n使用 `Array.prototype.filter()` 和 `Array.prototype.includes()` 过滤掉不需要的值。\n使用 `Array.prototype.length = 0` 通过重置其长度为零来修改传入的数组，并使用 `Array.prototype.push()` 重新填充数组。\n使用 `Array.prototype.push()` 记录被移除的值。"
+  },
+  "pullAtValue": {
+      "prefix": "30s_pullAtValue",
+      "body": [
+          "const pullAtValue = (arr, pullArr) => {",
+          "  let removed = [],",
+          "    pushToRemove = arr.forEach((v, i) => (pullArr.includes(v) ? removed.push(v) : v)),",
+          "    mutateTo = arr.filter((v, i) => !pullArr.includes(v));",
+          "  arr.length = 0;",
+          "  mutateTo.forEach(v => arr.push(v));",
+          "  return removed;",
+          "};"
+      ],
+      "description": "修改原始数组以过滤掉指定的值，并返回被移除的元素。\n\n使用 `Array.prototype.filter()` 和 `Array.prototype.includes()` 过滤掉不需要的值。\n使用 `Array.prototype.length = 0` 通过重置其长度为零来修改传入的数组，并使用 `Array.prototype.push()` 重新填充数组。\n使用 `Array.prototype.push()` 记录被移除的值。"
+  },
+  "pullBy": {
+      "prefix": "30s_pullBy",
+      "body": [
+          "const pullBy = (arr, ...args) => {",
+          "  const length = args.length;",
+          "  let fn = length > 1 ? args[length - 1] : undefined;",
+          "  fn = typeof fn == 'function' ? (args.pop(), fn) : undefined;",
+          "  let argState = (Array.isArray(args[0]) ? args[0] : args).map(val => fn(val));",
+          "  let pulled = arr.filter((v, i) => !argState.includes(fn(v)));",
+          "  arr.length = 0;",
+          "  pulled.forEach(v => arr.push(v));",
+          "};"
+      ],
+      "description": "根据给定的迭代器函数修改原始数组以过滤掉指定的值。\n\n检查最后一个参数是否为函数。\n使用 `Array.prototype.map()` 应用迭代器函数 `fn` 到所有数组元素。\n使用 `Array.prototype.filter()` 和 `Array.prototype.includes()` 过滤掉不需要的值。\n使用 `Array.prototype.length = 0` 通过重置其长度为零来修改传入的数组，并使用 `Array.prototype.push()` 重新填充数组。"
+  },
+  "radsToDegrees": {
+      "prefix": "30s_radsToDegrees",
+      "body": [
+          "const radsToDegrees = rad => (rad * 180.0) / Math.PI;"
+      ],
+      "description": "将角度从弧度转换为度数。\n\n使用 `Math.PI` 和弧度到度数的公式将角度从弧度转换为度数。"
+  },
+  "randomHexColorCode": {
+      "prefix": "30s_randomHexColorCode",
+      "body": [
+          "const randomHexColorCode = () => {",
+          "  let n = (Math.random() * 0xfffff * 1000000).toString(16);",
+          "  return '#' + n.slice(0, 6);",
+          "};"
+      ],
+      "description": "生成随机的十六进制颜色代码。\n\n使用 `Math.random` 生成一个随机的 24 位（6x4 位）十六进制数。使用位移操作，然后使用 `toString(16)` 转换为十六进制字符串。"
+  },
+  "randomIntArrayInRange": {
+      "prefix": "30s_randomIntArrayInRange",
+      "body": [
+          "const randomIntArrayInRange = (min, max, n = 1) =>",
+          "  Array.from({ length: n }, () => Math.floor(Math.random() * (max - min + 1)) + min);"
+      ],
+      "description": "返回指定范围内 n 个随机整数的数组。\n\n使用 `Array.from()` 创建特定长度的空数组，使用 `Math.random()` 生成随机数，并将其映射到所需的范围内，使用 `Math.floor()` 将其转换为整数。"
+  },
+  "randomIntegerInRange": {
+      "prefix": "30s_randomIntegerInRange",
+      "body": [
+          "const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;"
+      ],
+      "description": "返回指定范围内的随机整数。\n\n使用 `Math.random()` 生成随机数，并将其映射到所需的范围内，使用 `Math.floor()` 将其转换为整数。"
+  },
+  "randomNumberInRange": {
+      "prefix": "30s_randomNumberInRange",
+      "body": [
+          "const randomNumberInRange = (min, max) => Math.random() * (max - min) + min;"
+      ],
+      "description": "返回指定范围内的随机数。\n\n使用 `Math.random()` 生成随机值，并使用乘法将其映射到所需范围内。"
+  },
+  "readFileLines": {
+      "prefix": "30s_readFileLines",
+      "body": [
+          "const fs = require('fs');",
+          "const readFileLines = filename =>",
+          "  fs",
+          "    .readFileSync(filename)",
+          "    .toString('UTF8')",
+          "    .split('\\n');"
+      ],
+      "description": "返回指定文件中的行数组。\n\n使用 `fs` 节点包中的 `readFileSync` 函数从文件创建一个 `Buffer`。\n使用 `toString(encoding)` 函数将缓冲区转换为字符串。\n通过逐行分割文件内容 (`split`) 来从文件内容创建数组。"
+  },
+  "rearg": {
+      "prefix": "30s_rearg",
+      "body": [
+          "const rearg = (fn, indexes) => (...args) => fn(...indexes.map(i => args[i]));"
+      ],
+      "description": "创建一个函数，按照指定的索引重新排列提供的函数的参数。\n\n使用 `Array.prototype.map()` 根据 `indexes` 重新排列参数，并结合扩展运算符 (`...`) 将转换后的参数传递给 `fn`。"
+  },
+  "recordAnimationFrames": {
+      "prefix": "30s_recordAnimationFrames",
+      "body": [
+          "const recordAnimationFrames = (callback, autoStart = true) => {",
+          "  let running = true,",
+          "    raf;",
+          "  const stop = () => {",
+          "    running = false;",
+          "    cancelAnimationFrame(raf);",
+          "  };",
+          "  const start = () => {",
+          "    running = true;",
+          "    run();",
+          "  };",
+          "  const run = () => {",
+          "    raf = requestAnimationFrame(() => {",
+          "      callback();",
+          "      if (running) run();",
+          "    });",
+          "  };",
+          "  if (autoStart) start();",
+          "  return { start, stop };",
+          "};"
+      ],
+      "description": "在每个动画帧上执行提供的回调。\n\n使用递归。如果 `running` 为 `true`，则继续调用 `window.requestAnimationFrame()`，该方法会调用提供的回调。\n返回一个包含两个方法 `start` 和 `stop` 的对象，允许手动控制录制。\n省略第二个参数 `autoStart` 以在调用函数时隐式调用 `start`。"
+  },
+  "redirect": {
+      "prefix": "30s_redirect",
+      "body": [
+          "const redirect = (url, asLink = true) =>",
+          "  asLink ? (window.location.href = url) : window.location.replace(url);"
+      ],
+      "description": "重定向到指定的 URL。\n\n使用 `window.location.href` 或 `window.location.replace()` 重定向到 `url`。\n传递第二个参数来模拟链接点击 (`true` - 默认) 或 HTTP 重定向 (`false`)。"
+  },
+  "reducedFilter": {
+      "prefix": "30s_reducedFilter",
+      "body": [
+          "const reducedFilter = (data, keys, fn) =>",
+          "  data.filter(fn).map(el =>",
+          "    keys.reduce((acc, key) => {",
+          "      acc[key] = el[key];",
+          "      return acc;",
+          "    }, {})",
+          "  );"
+      ],
+      "description": "根据条件过滤对象数组的同时也过滤掉未指定的键。\n\n使用 `Array.prototype.filter()` 根据谓词 `fn` 过滤数组，返回条件返回真值的对象。\n在过滤后的数组上使用 `Array.prototype.map()` 返回新的对象，使用 `Array.prototype.reduce()` 过滤掉未作为 `keys` 参数提供的键。"
+  },
+  "reduceSuccessive": {
+      "prefix": "30s_reduceSuccessive",
+      "body": [
+          "const reduceSuccessive = (arr, fn, acc) =>",
+          "  arr.reduce((res, val, i, arr) => (res.push(fn(res.slice(-1)[0], val, i, arr)), res), [acc]);"
+      ],
+      "description": "将一个函数应用于累加器和数组中的每个元素（从左到右），返回连续减少的值数组。\n\n使用 `Array.prototype.reduce()` 应用于给定数组，存储每个新结果。"
+  },
+  "reduceWhich": {
+      "prefix": "30s_reduceWhich",
+      "body": [
+          "const reduceWhich = (arr, comparator = (a, b) => a - b) =>",
+          "  arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));"
+      ],
+      "description": "应用提供的函数设置比较规则后，返回数组中的最小/最大值。\n\n使用 `Array.prototype.reduce()` 结合 `comparator` 函数获取数组中的适当元素。\n可以省略第二个参数 `comparator` 使用默认的函数返回数组中的最小元素。"
+  },
+  "reject": {
+      "prefix": "30s_reject",
+      "body": [
+          "const reject = (pred, array) => array.filter((...args) => !pred(...args));"
+      ],
+      "description": "接受一个谓词和数组，类似于 `Array.prototype.filter()`，但只保留 `x` 如果 `pred(x) === false`。"
+  },
+  "remove": {
+      "prefix": "30s_remove",
+      "body": [
+          "const remove = (arr, func) =>",
+          "  Array.isArray(arr)",
+          "    ? arr.filter(func).reduce((acc, val) => {",
+          "        arr.splice(arr.indexOf(val), 1);",
+          "        return acc.concat(val);",
+          "      }, [])",
+          "    : [];"
+      ],
+      "description": "移除数组中给定函数返回 `false` 的元素。\n\n使用 `Array.prototype.filter()` 查找返回真值的数组元素，并使用 `Array.prototype.reduce()` 和 `Array.prototype.splice()` 移除元素。\n`func` 接受三个参数 (`value, index, array`)。"
+  },
+  "removeNonASCII": {
+      "prefix": "30s_removeNonASCII",
+      "body": [
+          "const removeNonASCII = str => str.replace(/[^\\x20-\\x7E]/g, '');"
+      ],
+      "description": "移除非打印的 ASCII 字符。\n\n使用正则表达式移除非打印的 ASCII 字符。"
+  },
+  "renameKeys": {
+      "prefix": "30s_renameKeys",
+      "body": [
+          "const renameKeys = (keysMap, obj) =>",
+          "  Object.keys(obj).reduce(",
+          "    (acc, key) => ({",
+          "      ...acc,",
+          "      ...{ [keysMap[key] || key]: obj[key] }",
+          "    }),",
+          "    {}",
+          "  );"
+      ],
+      "description": "根据提供的值替换多个对象键的名称。\n\n使用 `Object.keys()` 结合 `Array.prototype.reduce()` 和扩展运算符 (`...`) 获取对象的键并根据 `keysMap` 重命名它们。"
+  },
+  "reverseString": {
+      "prefix": "30s_reverseString",
+      "body": [
+          "const reverseString = str => [...str].reverse().join('');"
+      ],
+      "description": "反转字符串。\n\n使用扩展运算符 (`...`) 和 `Array.prototype.reverse()` 反转字符串中的字符顺序。\n使用 `String.prototype.join('')` 组合字符以获得字符串。"
+  },
+  "RGBToHex": {
+      "prefix": "30s_RGBToHex",
+      "body": [
+          "const RGBToHex = (r, g, b) => ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');"
+      ],
+      "description": "将 RGB 组件的值转换为颜色代码。\n\n使用位左移运算符 (`<<`) 和 `toString(16)` 将给定的 RGB 参数转换为十六进制字符串，然后使用 `String.padStart(6,'0')` 获取六位数的十六进制值。"
+  },
+  "round": {
+      "prefix": "30s_round",
+      "body": [
+          "const round = (n, decimals = 0) => Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`);"
+      ],
+      "description": "将数字四舍五入到指定的小数位数。\n\n使用 `Math.round()` 和模板字符串将数字四舍五入到指定的小数位数。\n省略第二个参数 `decimals` 以四舍五入到整数。"
+  },
+  "runAsync": {
+      "prefix": "30s_runAsync",
+      "body": [
+          "const runAsync = fn => {",
+          "  const worker = new Worker(",
+          "    URL.createObjectURL(new Blob([`postMessage((${fn})());`]), {",
+          "      type: 'application/javascript; charset=utf-8'",
+          "    })",
+          "  );",
+          "  return new Promise((res, rej) => {",
+          "    worker.onmessage = ({ data }) => {",
+          "      res(data), worker.terminate();",
+          "    };",
+          "    worker.onerror = err => {",
+          "      rej(err), worker.terminate();",
+          "    };",
+          "  });",
+          "};"
+      ],
+      "description": "使用 [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) 在单独的线程中运行函数，允许长时间运行的函数不阻塞用户界面。\n\n使用 `Blob` 对象 URL 创建一个新的 `Worker`，其中的内容应该是提供的函数的字符串化版本。\n立即发布调用该函数的返回值。\n返回一个监听 `onmessage` 和 `onerror` 事件的 promise，并解析从工作线程发送回来的数据或抛出错误。"
+  },
+  "runPromisesInSeries": {
+      "prefix": "30s_runPromisesInSeries",
+      "body": [
+          "const runPromisesInSeries = ps => ps.reduce((p, next) => p.then(next), Promise.resolve());"
+      ],
+      "description": "按顺序运行一组 promise。\n\n使用 `Array.prototype.reduce()` 创建一个 promise 链，其中每个 promise 解析时返回下一个 promise。"
+  },
+  "sample": {
+      "prefix": "30s_sample",
+      "body": [
+          "const sample = arr => arr[Math.floor(Math.random() * arr.length)];"
+      ],
+      "description": "从数组中返回一个随机元素。\n\n使用 `Math.random()` 生成一个随机数，将其乘以 `length` 并使用 `Math.floor()` 四舍五入到最接近的整数。\n此方法也适用于字符串。"
+  },
+  "sampleSize": {
+      "prefix": "30s_sampleSize",
+      "body": [
+          "const sampleSize = ([...arr], n = 1) => {",
+          "  let m = arr.length;",
+          "  while (m) {",
+          "    const i = Math.floor(Math.random() * m--);",
+          "    [arr[m], arr[i]] = [arr[i], arr[m]];",
+          "  }",
+          "  return arr.slice(0, n);",
+          "};"
+      ],
+      "description": "从数组 `array` 中获取 `n` 个具有唯一键的随机元素，最多可达到数组大小。\n\n使用 [Fisher-Yates 算法](https://github.com/30-seconds/30-seconds-of-code#shuffle) 打乱数组。\n使用 `Array.prototype.slice()` 获取前 `n` 个元素。\n省略第二个参数 `n` 以从数组中随机获取一个元素。"
+  },
+  "scrollToTop": {
+      "prefix": "30s_scrollToTop",
+      "body": [
+          "const scrollToTop = () => {",
+          "  const c = document.documentElement.scrollTop || document.body.scrollTop;",
+          "  if (c > 0) {",
+          "    window.requestAnimationFrame(scrollToTop);",
+          "    window.scrollTo(0, c - c / 8);",
+          "  }",
+          "};"
+      ],
+      "description": "平滑滚动到页面顶部。\n\n使用 `document.documentElement.scrollTop` 或 `document.body.scrollTop` 获取距离顶部的距离。\n滚动距离顶部的部分距离。使用 `window.requestAnimationFrame()` 动画滚动效果。"
+  },
+  "sdbm": {
+      "prefix": "30s_sdbm",
+      "body": [
+          "const sdbm = str => {",
+          "  let arr = str.split('');",
+          "  return arr.reduce(",
+          "    (hashCode, currentVal) =>",
+          "      (hashCode = currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode),",
+          "    0",
+          "  );",
+          "};"
+      ],
+      "description": "将输入字符串散列成一个整数。\n\n使用 `String.prototype.split('')` 和 `Array.prototype.reduce()` 创建输入字符串的哈希值，利用位移操作。"
+  },
+  "serializeCookie": {
+      "prefix": "30s_serializeCookie",
+      "body": [
+          "const serializeCookie = (name, val) => `${encodeURIComponent(name)}=${encodeURIComponent(val)}`;"
+      ],
+      "description": "将 cookie 名称-值对序列化为 Set-Cookie 头字符串。\n\n使用模板字符串和 `encodeURIComponent()` 创建适当的字符串。"
+  },
+  "setStyle": {
+      "prefix": "30s_setStyle",
+      "body": [
+          "const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);"
+      ],
+      "description": "为指定元素设置 CSS 规则的值。\n\n使用 `element.style` 将指定元素的 CSS 规则值设置为 `val`。"
+  },
+  "shallowClone": {
+      "prefix": "30s_shallowClone",
+      "body": [
+          "const shallowClone = obj => Object.assign({}, obj);"
+      ],
+      "description": "创建对象的浅克隆。\n\n使用 `Object.assign()` 和空对象 (`{}`) 创建原始对象的浅克隆。"
+  },
+  "shank": {
+      "prefix": "30s_shank",
+      "body": [
+          "const shank = (arr, index = 0, delCount = 0, ...elements) =>",
+          "  arr",
+          "    .slice(0, index)",
+          "    .concat(elements)",
+          "    .concat(arr.slice(index + delCount));"
+      ],
+      "description": "功能与 `Array.prototype.splice()` 相同，但返回新数组而不是修改原数组。\n\n使用 `Array.prototype.slice()` 和 `Array.prototype.concat()` 获取删除现有元素和/或添加新元素后的新数组。\n省略第二个参数 `index` 以从 `0` 开始。\n省略第三个参数 `delCount` 以删除 `0` 个元素。\n省略第四个参数 `elements` 以不添加任何新元素。"
+  },
+  "show": {
+      "prefix": "30s_show",
+      "body": [
+          "const show = (...el) => [...el].forEach(e => (e.style.display = ''));"
+      ],
+      "description": "显示所有指定的元素。\n\n使用扩展运算符 (`...`) 和 `Array.prototype.forEach()` 清除每个指定元素的 `display` 属性。"
+  },
+  "shuffle": {
+      "prefix": "30s_shuffle",
+      "body": [
+          "const shuffle = ([...arr]) => {",
+          "  let m = arr.length;",
+          "  while (m) {",
+          "    const i = Math.floor(Math.random() * m--);",
+          "    [arr[m], arr[i]] = [arr[i], arr[m]];",
+          "  }",
+          "  return arr;",
+          "};"
+      ],
+      "description": "随机化数组中的值顺序，并返回一个新的数组。\n\n使用 [Fisher-Yates 算法](https://github.com/30-seconds/30-seconds-of-code#shuffle) 来重新排序数组中的元素。"
+  },
+  "similarity": {
+      "prefix": "30s_similarity",
+      "body": [
+          "const similarity = (arr, values) => arr.filter(v => values.includes(v));"
+      ],
+      "description": "返回两个数组中共有的元素组成的数组。\n\n使用 `Array.prototype.filter()` 去除不属于 `values` 的值，通过 `Array.prototype.includes()` 判断。"
+  },
+  "size": {
+      "prefix": "30s_size",
+      "body": [
+          "const size = val =>",
+          "  Array.isArray(val)",
+          "    ? val.length",
+          "    : val && typeof val === 'object'",
+          "      ? val.size || val.length || Object.keys(val).length",
+          "      : typeof val === 'string'",
+          "        ? new Blob([val]).size",
+          "        : 0;"
+      ],
+      "description": "获取数组、对象或字符串的大小。\n\n获取 `val` 的类型（`array`、`object` 或 `string`）。\n对于数组使用 `length` 属性。\n对于对象，如果有 `length` 或 `size` 属性，则使用这些属性，否则使用键的数量。\n对于字符串，使用从 `val` 创建的 `Blob` 对象的 `size` 属性。\n\n将字符串拆分为字符数组并返回其长度。"
+  },
+  "sleep": {
+      "prefix": "30s_sleep",
+      "body": [
+          "const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));"
+      ],
+      "description": "延迟异步函数的执行。\n\n通过将其置于睡眠状态来延迟执行 `async` 函数的一部分，并返回一个 `Promise`。"
+  },
+  "smoothScroll": {
+      "prefix": "30s_smoothScroll",
+      "body": [
+          "const smoothScroll = element =>",
+          "  document.querySelector(element).scrollIntoView({",
+          "    behavior: 'smooth'",
+          "  });"
+      ],
+      "description": "平滑滚动到调用该方法的元素在浏览器窗口中的可见区域。\n\n使用 `.scrollIntoView` 方法滚动元素。\n传递 `{ behavior: 'smooth' }` 给 `.scrollIntoView` 使其平滑滚动。"
+  },
+  "sortCharactersInString": {
+      "prefix": "30s_sortCharactersInString",
+      "body": [
+          "const sortCharactersInString = str => [...str].sort((a, b) => a.localeCompare(b)).join('');"
+      ],
+      "description": "按字母顺序对字符串中的字符进行排序。\n\n使用扩展运算符 (`...`)、`Array.prototype.sort()` 和 `String.localeCompare()` 对 `str` 中的字符进行排序，然后使用 `String.prototype.join('')` 重新组合。"
+  },
+  "sortedIndex": {
+      "prefix": "30s_sortedIndex",
+      "body": [
+          "const sortedIndex = (arr, n) => {",
+          "  const isDescending = arr[0] > arr[arr.length - 1];",
+          "  const index = arr.findIndex(el => (isDescending ? n >= el : n <= el));",
+          "  return index === -1 ? arr.length : index;",
+          "};"
+      ],
+      "description": "返回值应插入数组中的最低索引位置，以保持其排序顺序。\n\n检查数组是否按降序排列（宽松比较）。\n使用 `Array.prototype.findIndex()` 查找元素应插入的适当索引。"
+  },
+  "sortedIndexBy": {
+      "prefix": "30s_sortedIndexBy",
+      "body": [
+          "const sortedIndexBy = (arr, n, fn) => {",
+          "  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);",
+          "  const val = fn(n);",
+          "  const index = arr.findIndex(el => (isDescending ? val >= fn(el) : val <= fn(el)));",
+          "  return index === -1 ? arr.length : index;",
+          "};"
+      ],
+      "description": "根据提供的迭代器函数返回值应插入数组中的最低索引位置，以保持其排序顺序。\n\n检查数组是否按降序排列（宽松比较）。\n使用 `Array.prototype.findIndex()` 根据迭代器函数 `fn` 查找元素应插入的适当索引。"
+  },
+  "sortedLastIndex": {
+      "prefix": "30s_sortedLastIndex",
+      "body": [
+          "const sortedLastIndex = (arr, n) => {",
+          "  const isDescending = arr[0] > arr[arr.length - 1];",
+          "  const index = arr.reverse().findIndex(el => (isDescending ? n <= el : n >= el));",
+          "  return index === -1 ? 0 : arr.length - index;",
+          "};"
+      ],
+      "description": "返回值应插入数组中的最高索引位置，以保持其排序顺序。\n\n检查数组是否按降序排列（宽松比较）。\n使用 `Array.prototype.reverse()` 和 `Array.prototype.findIndex()` 查找元素应插入的适当末尾索引。"
+  },
+  "sortedLastIndexBy": {
+      "prefix": "30s_sortedLastIndexBy",
+      "body": [
+          "const sortedLastIndexBy = (arr, n, fn) => {",
+          "  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);",
+          "  const val = fn(n);",
+          "  const index = arr",
+          "    .map(fn)",
+          "    .reverse()",
+          "    .findIndex(el => (isDescending ? val <= el : val >= el));",
+          "  return index === -1 ? 0 : arr.length - index;",
+          "};"
+      ],
+      "description": "根据提供的迭代器函数返回值应插入数组中的最高索引位置，以保持其排序顺序。\n\n检查数组是否按降序排列（宽松比较）。\n使用 `Array.prototype.map()` 将迭代器函数应用于数组的所有元素。\n使用 `Array.prototype.reverse()` 和 `Array.prototype.findIndex()` 根据提供的迭代器函数查找元素应插入的适当末尾索引。"
+  },
+  "splitLines": {
+      "prefix": "30s_splitLines",
+      "body": [
+          "const splitLines = str => str.split(/\\r?\\n/);"
+      ],
+      "description": "将多行字符串分割成行的数组。\n\n使用 `String.prototype.split()` 和正则表达式匹配换行符并创建数组。"
+  },
+  "spreadOver": {
+      "prefix": "30s_spreadOver",
+      "body": [
+          "const spreadOver = fn => argsArr => fn(...argsArr);"
+      ],
+      "description": "接受一个变参函数并返回一个闭包，该闭包接受参数数组并映射到函数的输入。"
+  },
+  "stableSort": {
+      "prefix": "30s_stableSort",
+      "body": [
+          "const stableSort = (arr, compare) =>",
+          "  arr",
+          "    .map((item, index) => ({ item, index }))",
+          "    .sort((a, b) => compare(a.item, b.item) || a.index - b.index)",
+          "    .map(({ item }) => item);"
+      ],
+      "description": "执行稳定排序，当值相同时保留数组中元素的初始索引。\n不修改原始数组，而是返回新数组。\n\n使用 `Array.prototype.map()` 将输入数组的每个元素与其对应的索引配对。\n使用 `Array.prototype.sort()` 和比较函数对列表进行排序，如果比较的项相等则保留它们的初始顺序。\n使用 `Array.prototype.map()` 将结果转换回初始数组元素。"
+  },
+  "standardDeviation": {
+      "prefix": "30s_standardDeviation",
+      "body": [
+          "const standardDeviation = (arr, usePopulation = false) => {",
+          "  const mean = arr.reduce((acc, val) => acc + val, 0) / arr.length;",
+          "  return Math.sqrt(",
+          "    arr.reduce((acc, val) => acc.concat((val - mean) ** 2), []).reduce((acc, val) => acc + val, 0) /",
+          "      (arr.length - (usePopulation ? 0 : 1))",
+          "  );",
+          "};"
+      ],
+      "description": "返回数字数组的标准差。\n\n使用 `Array.prototype.reduce()` 计算均值、方差和值的方差总和，然后确定标准差。\n可以省略第二个参数以获得样本标准差，或者将其设置为 `true` 以获得总体标准差。"
+  },
+  "stringPermutations": {
+      "prefix": "30s_stringPermutations",
+      "body": [
+          "const stringPermutations = str => {",
+          "  if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];",
+          "  return str",
+          "    .split('')",
+          "    .reduce(",
+          "      (acc, letter, i) =>",
+          "        acc.concat(stringPermutations(str.slice(0, i) + str.slice(i + 1)).map(val => letter + val)),",
+          "      []",
+          "    );",
+          "};"
+      ],
+      "description": "⚠️ **警告**：此函数的执行时间随着每个字符呈指数增长。超过 8 到 10 个字符会导致浏览器卡住，因为它试图解决所有不同的组合。\n\n生成字符串的所有排列（包含重复项）。\n\n使用递归。\n对于给定字符串中的每个字母，创建其余字母的所有部分排列。\n使用 `Array.prototype.map()` 将字母与每个部分排列组合，然后使用 `Array.prototype.reduce()` 将所有排列合并为一个数组。\n基本情况是字符串长度等于 `2` 或 `1`。"
+  },
+  "stripHTMLTags": {
+      "prefix": "30s_stripHTMLTags",
+      "body": [
+          "const stripHTMLTags = str => str.replace(/<[^>]*>/g, '');"
+      ],
+      "description": "从字符串中移除 HTML/XML 标签。\n\n使用正则表达式从字符串中移除 HTML/XML 标签。"
+  },
+  "sum": {
+      "prefix": "30s_sum",
+      "body": [
+          "const sum = (...arr) => [...arr].reduce((acc, val) => acc + val, 0);"
+      ],
+      "description": "返回两个或多个数字/数组的和。\n\n使用 `Array.prototype.reduce()` 将每个值加到累加器中，初始化值为 `0`。"
+  },
+  "sumBy": {
+      "prefix": "30s_sumBy",
+      "body": [
+          "const sumBy = (arr, fn) =>",
+          "  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => acc + val, 0);"
+      ],
+      "description": "使用提供的函数映射每个元素后返回数组的和。\n\n使用 `Array.prototype.map()` 将每个元素映射为 `fn` 返回的值，使用 `Array.prototype.reduce()` 将每个值加到累加器中，初始化值为 `0`。"
+  },
+  "sumPower": {
+      "prefix": "30s_sumPower",
+      "body": [
+          "const sumPower = (end, power = 2, start = 1) =>",
+          "  Array(end + 1 - start)",
+          "    .fill(0)",
+          "    .map((x, i) => (i + start) ** power)",
+          "    .reduce((a, b) => a + b, 0);"
+      ],
+      "description": "返回从 `start` 到 `end`（包括两端）所有数字的幂次之和。\n\n使用 `Array.prototype.fill()` 创建目标范围内的所有数字数组，使用 `Array.prototype.map()` 和指数运算符 (`**`) 将它们提升到 `power` 次幂，并使用 `Array.prototype.reduce()` 将它们相加。\n省略第二个参数 `power`，默认使用幂次 `2`。\n省略第三个参数 `start`，默认使用起始值 `1`。"
+  },
+  "symmetricDifference": {
+      "prefix": "30s_symmetricDifference",
+      "body": [
+          "const symmetricDifference = (a, b) => {",
+          "  const sA = new Set(a),",
+          "    sB = new Set(b);",
+          "  return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))];",
+          "};"
+      ],
+      "description": "返回两个数组之间的对称差集，不过滤重复值。\n\n从每个数组创建一个 `Set`，然后使用 `Array.prototype.filter()` 对每个数组进行筛选，仅保留不在另一个数组中的值。"
+  },
+  "symmetricDifferenceBy": {
+      "prefix": "30s_symmetricDifferenceBy",
+      "body": [
+          "const symmetricDifferenceBy = (a, b, fn) => {",
+          "  const sA = new Set(a.map(v => fn(v))),",
+          "    sB = new Set(b.map(v => fn(v)));",
+          "  return [...a.filter(x => !sB.has(fn(x))), ...b.filter(x => !sA.has(fn(x)))];",
+          "};"
+      ],
+      "description": "在应用提供的函数到两个数组的每个元素之后，返回两个数组之间的对称差集。\n\n通过将 `fn` 应用于每个数组的元素来创建一个 `Set`，然后使用 `Array.prototype.filter()` 对每个数组进行筛选，仅保留不在另一个数组中的值。"
+  },
+  "symmetricDifferenceWith": {
+      "prefix": "30s_symmetricDifferenceWith",
+      "body": [
+          "const symmetricDifferenceWith = (arr, val, comp) => [",
+          "  ...arr.filter(a => val.findIndex(b => comp(a, b)) === -1),",
+          "  ...val.filter(a => arr.findIndex(b => comp(a, b)) === -1)",
+          "];"
+      ],
+      "description": "使用提供的比较函数返回两个数组之间的对称差集。\n\n使用 `Array.prototype.filter()` 和 `Array.prototype.findIndex()` 找到适当的值。"
+  },
+  "tail": {
+      "prefix": "30s_tail",
+      "body": [
+          "const tail = arr => (arr.length > 1 ? arr.slice(1) : arr);"
+      ],
+      "description": "返回数组中的所有元素，除了第一个。\n\n如果数组的 `length` 大于 `1`，返回 `Array.prototype.slice(1)`，否则返回整个数组。"
+  },
+  "take": {
+      "prefix": "30s_take",
+      "body": [
+          "const take = (arr, n = 1) => arr.slice(0, n);"
+      ],
+      "description": "返回从数组开头取出的前 `n` 个元素组成的数组。\n\n使用 `Array.prototype.slice()` 从数组开头创建包含 `n` 个元素的切片。"
+  },
+  "takeRight": {
+      "prefix": "30s_takeRight",
+      "body": [
+          "const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);"
+      ],
+      "description": "返回从数组末尾取出的最后 `n` 个元素组成的数组。\n\n使用 `Array.prototype.slice()` 从数组末尾创建包含 `n` 个元素的切片。"
+  },
+  "takeRightWhile": {
+      "prefix": "30s_takeRightWhile",
+      "body": [
+          "const takeRightWhile = (arr, func) =>",
+          "  arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);"
+      ],
+      "description": "从数组末尾移除元素直到传递的函数返回 `true`。返回移除的元素。\n\n使用 `Array.prototype.reduceRight()` 遍历数组，当函数返回假值时累积元素。"
+  },
+  "takeWhile": {
+      "prefix": "30s_takeWhile",
+      "body": [
+          "const takeWhile = (arr, func) => {",
+          "  for (const [i, val] of arr.entries()) if (func(val)) return arr.slice(0, i);",
+          "  return arr;",
+          "};"
+      ],
+      "description": "从数组中移除元素直到传递的函数返回 `true`。返回移除的元素。\n\n使用 `for...of` 循环遍历 `Array.prototype.entries()` 直到函数返回 `true`。\n使用 `Array.prototype.slice()` 返回移除的元素。"
+  },
+  "throttle": {
+      "prefix": "30s_throttle",
+      "body": [
+          "const throttle = (fn, wait) => {",
+          "  let inThrottle, lastFn, lastTime;",
+          "  return function() {",
+          "    const context = this,",
+          "      args = arguments;",
+          "    if (!inThrottle) {",
+          "      fn.apply(context, args);",
+          "      lastTime = Date.now();",
+          "      inThrottle = true;",
+          "    } else {",
+          "      clearTimeout(lastFn);",
+          "      lastFn = setTimeout(function() {",
+          "        if (Date.now() - lastTime >= wait) {",
+          "          fn.apply(context, args);",
+          "          lastTime = Date.now();",
+          "        }",
+          "      }, Math.max(wait - (Date.now() - lastTime), 0));",
+          "    }",
+          "  };",
+          "};"
+      ],
+      "description": "创建一个节流函数，该函数最多每 `wait` 毫秒调用一次提供的函数。\n\n使用 `setTimeout()` 和 `clearTimeout()` 节流给定的方法 `fn`。\n使用 `Function.prototype.apply()` 将 `this` 上下文应用于函数并提供必要的参数。\n使用 `Date.now()` 记录节流函数上次被调用的时间。\n省略第二个参数 `wait`，默认设置超时时间为 0 毫秒。"
+  },
+  "times": {
+      "prefix": "30s_times",
+      "body": [
+          "const times = (n, fn, context = undefined) => {",
+          "  let i = 0;",
+          "  while (fn.call(context, i) !== false && ++i < n) {}",
+          "};"
+      ],
+      "description": "迭代回调函数 `n` 次。\n\n使用 `Function.call()` 调用 `fn` `n` 次或直到它返回 `false`。\n省略最后一个参数 `context`，使用 `undefined` 对象（或非严格模式下的全局对象）。"
+  },
+  "timeTaken": {
+      "prefix": "30s_timeTaken",
+      "body": [
+          "const timeTaken = callback => {",
+          "  console.time('timeTaken');",
+          "  const r = callback();",
+          "  console.timeEnd('timeTaken');",
+          "  return r;",
+          "};"
+      ],
+      "description": "测量函数执行所需的时间。\n\n使用 `console.time()` 和 `console.timeEnd()` 测量开始时间和结束时间之间的差异，以确定回调函数执行所需的时间。"
+  },
+  "toCamelCase": {
+      "prefix": "30s_toCamelCase",
+      "body": [
+          "const toCamelCase = str => {",
+          "  let s =",
+          "    str &&",
+          "    str",
+          "      .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)",
+          "      .map(x => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase())",
+          "      .join('');",
+          "  return s.slice(0, 1).toLowerCase() + s.slice(1);",
+          "};"
+      ],
+      "description": "将字符串转换为驼峰式命名。\n\n使用正则表达式将字符串分解成单词，并组合起来，每个单词首字母大写。"
+  },
+  "toCurrency": {
+      "prefix": "30s_toCurrency",
+      "body": [
+          "const toCurrency = (n, curr, LanguageFormat = undefined) =>",
+          "  Intl.NumberFormat(LanguageFormat, { style: 'currency', currency: curr }).format(n);"
+      ],
+      "description": "接收一个数字并返回指定的货币格式。\n\n使用 `Intl.NumberFormat` 启用国家/货币敏感的格式化。"
+  },
+  "toDecimalMark": {
+      "prefix": "30s_toDecimalMark",
+      "body": [
+          "const toDecimalMark = num => num.toLocaleString('en-US');"
+      ],
+      "description": "使用 `toLocaleString()` 将浮点数转换为 [小数标记](https://en.wikipedia.org/wiki/Decimal_mark) 形式。将数字转换为逗号分隔的字符串。"
+  },
+  "toggleClass": {
+      "prefix": "30s_toggleClass",
+      "body": [
+          "const toggleClass = (el, className) => el.classList.toggle(className);"
+      ],
+      "description": "切换元素的类。\n\n使用 `element.classList.toggle()` 切换元素上的指定类。"
+  },
+  "toHash": {
+      "prefix": "30s_toHash",
+      "body": [
+          "const toHash = (object, key) =>",
+          "  Array.prototype.reduce.call(",
+          "    object,",
+          "    (acc, data, index) => ((acc[!key ? index : data[key]] = data), acc),",
+          "    {}",
+          "  );"
+      ],
+      "description": "将给定的类似数组的对象减少为键值对存储。\n\n对于给定的可迭代结构或类似数组的结构，调用 `Array.prototype.reduce.call()` 来遍历提供的对象，并返回一个键值对形式的对象。"
+  },
+  "toKebabCase": {
+      "prefix": "30s_toKebabCase",
+      "body": [
+          "const toKebabCase = str =>",
+          "  str &&",
+          "  str",
+          "    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)",
+          "    .map(x => x.toLowerCase())",
+          "    .join('-');"
+      ],
+      "description": "将字符串转换为短横线分隔的形式（kebab-case）。\n\n使用正则表达式将字符串分解成单词，并组合起来，单词之间添加 `-` 作为分隔符。"
+  },
+  "tomorrow": {
+      "prefix": "30s_tomorrow",
+      "body": [
+          "const tomorrow = (long = false) => {",
+          "  let t = new Date();",
+          "  t.setDate(t.getDate() + 1);",
+          "  const ret = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(",
+          "    t.getDate()",
+          "  ).padStart(2, '0')}`;",
+          "  return !long ? ret : `${ret}T00:00:00`;",
+          "};"
+      ],
+      "description": "返回明天日期的字符串表示。\n\n使用 `new Date()` 获取今天的日期，使用 `Date.getDate()` 和 `Date.setDate()` 增加一天，并将日期对象转换为字符串。"
+  },
+  "toOrdinalSuffix": {
+      "prefix": "30s_toOrdinalSuffix",
+      "body": [
+          "const toOrdinalSuffix = num => {",
+          "  const int = parseInt(num),",
+          "    digits = [int % 10, int % 100],",
+          "    ordinals = ['st', 'nd', 'rd', 'th'],",
+          "    oPattern = [1, 2, 3, 4],",
+          "    tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];",
+          "  return oPattern.includes(digits[0]) && !tPattern.includes(digits[1])",
+          "    ? int + ordinals[digits[0] - 1]",
+          "    : int + ordinals[3];",
+          "};"
+      ],
+      "description": "为数字添加序数后缀。\n\n使用取模运算符 (`%`) 找到个位和十位的值。\n找到与序数模式匹配的数字。\n如果数字在十几模式中，则使用十几的序数。"
+  },
+  "toSafeInteger": {
+      "prefix": "30s_toSafeInteger",
+      "body": [
+          "const toSafeInteger = num =>",
+          "  Math.round(Math.max(Math.min(num, Number.MAX_SAFE_INTEGER), Number.MIN_SAFE_INTEGER));"
+      ],
+      "description": "将值转换为安全整数。\n\n使用 `Math.max()` 和 `Math.min()` 找到最接近的安全值。\n使用 `Math.round()` 将其转换为整数。"
+  },
+  "toSnakeCase": {
+      "prefix": "30s_toSnakeCase",
+      "body": [
+          "const toSnakeCase = str =>",
+          "  str &&",
+          "  str",
+          "    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)",
+          "    .map(x => x.toLowerCase())",
+          "    .join('_');"
+      ],
+      "description": "将字符串转换为蛇形命名法（snake_case）。\n\n使用正则表达式将字符串分解成单词，并组合起来，单词之间添加 `_` 作为分隔符。"
+  },
+  "toTitleCase": {
+      "prefix": "30s_toTitleCase",
+      "body": [
+          "const toTitleCase = str =>",
+          "  str",
+          "    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)",
+          "    .map(x => x.charAt(0).toUpperCase() + x.slice(1))",
+          "    .join(' ');"
+      ],
+      "description": "将字符串转换为标题形式（title case）。\n\n使用正则表达式将字符串分解成单词，并组合起来，每个单词首字母大写，并在单词之间添加空格。"
+  },
+  "transform": {
+      "prefix": "30s_transform",
+      "body": [
+          "const transform = (obj, fn, acc) => Object.keys(obj).reduce((a, k) => fn(a, obj[k], k, obj), acc);"
+      ],
+      "description": "应用一个函数到累加器和对象中的每个键（从左到右）。\n\n使用 `Object.keys(obj)` 迭代对象中的每个键，`Array.prototype.reduce()` 来应用指定的函数到给定的累加器。"
+  },
+  "triggerEvent": {
+      "prefix": "30s_triggerEvent",
+      "body": [
+          "const triggerEvent = (el, eventType, detail) =>",
+          "  el.dispatchEvent(new CustomEvent(eventType, { detail }));"
+      ],
+      "description": "触发给定元素上的特定事件，可选地传递自定义数据。\n\n使用 `new CustomEvent()` 创建指定 `eventType` 和详细信息的事件。\n使用 `el.dispatchEvent()` 在给定元素上触发新创建的事件。\n如果不想传递自定义数据，则可以省略第三个参数 `detail`。"
+  },
+  "truncateString": {
+      "prefix": "30s_truncateString",
+      "body": [
+          "const truncateString = (str, num) =>",
+          "  str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;"
+      ],
+      "description": "截断字符串至指定长度。\n\n判断字符串的 `length` 是否大于 `num`。\n返回截断后的字符串，末尾附加 `'...'` 或原始字符串。"
+  },
+  "truthCheckCollection": {
+      "prefix": "30s_truthCheckCollection",
+      "body": [
+          "const truthCheckCollection = (collection, pre) => collection.every(obj => obj[pre]);"
+      ],
+      "description": "检查集合（第一个参数）中的所有元素是否满足谓词（第二个参数）。\n\n使用 `Array.prototype.every()` 检查每个传递的对象是否有指定属性且返回真值。"
+  },
+  "unary": {
+      "prefix": "30s_unary",
+      "body": [
+          "const unary = fn => val => fn(val);"
+      ],
+      "description": "创建一个最多接受一个参数的函数，忽略任何额外的参数。\n\n仅使用第一个给定的参数调用提供的函数 `fn`。"
+  },
+  "uncurry": {
+      "prefix": "30s_uncurry",
+      "body": [
+          "const uncurry = (fn, n = 1) => (...args) => {",
+          "  const next = acc => args => args.reduce((x, y) => x(y), acc);",
+          "  if (n > args.length) throw new RangeError('Arguments too few!');",
+          "  return next(fn)(args.slice(0, n));",
+          "};"
+      ],
+      "description": "取消柯里化一个函数至深度 `n`。\n\n返回一个变长参数函数。\n使用 `Array.prototype.reduce()` 对提供的参数进行操作，调用函数的每个后续柯里化级别。\n如果提供的参数的 `length` 小于 `n`，则抛出错误。\n否则，使用 `Array.prototype.slice(0, n)` 以正确的参数数量调用 `fn`。\n省略第二个参数 `n` 以取消柯里化至深度 `1`。"
+  },
+  "unescapeHTML": {
+      "prefix": "30s_unescapeHTML",
+      "body": [
+          "const unescapeHTML = str =>",
+          "  str.replace(",
+          "    /&amp;|&lt;|&gt;|&#39;|&quot;/g,",
+          "    tag =>",
+          "      ({",
+          "        '&amp;': '&',",
+          "        '&lt;': '<',",
+          "        '&gt;': '>',",
+          "        '&#39;': \"'\",",
+          "        '&quot;': '\"'",
+          "      }[tag] || tag)",
+          "  );"
+      ],
+      "description": "解码已转义的HTML字符。\n\n使用 `String.prototype.replace()` 和正则表达式匹配需要解码的字符，并通过字典（对象）中的回调函数将每个转义字符替换为其对应的未转义字符。"
+  },
+  "unflattenObject": {
+      "prefix": "30s_unflattenObject",
+      "body": [
+          "const unflattenObject = obj =>",
+          "  Object.keys(obj).reduce((acc, k) => {",
+          "    if (k.indexOf('.') !== -1) {",
+          "      const keys = k.split('.');",
+          "      Object.assign(",
+          "        acc,",
+          "        JSON.parse(",
+          "          '{' +",
+          "            keys.map((v, i) => (i !== keys.length - 1 ? `\"${v}\":{` : `\"${v}\":`)).join('') +",
+          "            obj[k] +",
+          "            '}'.repeat(keys.length)",
+          "        )",
+          "      );",
+          "    } else acc[k] = obj[k];",
+          "    return acc;",
+          "  }, {});"
+      ],
+      "description": "展开键路径的对象。\n\n使用 `Object.keys(obj)` 结合 `Array.prototype.reduce()` 将扁平化的路径节点转换成叶子节点。\n如果键的值包含分隔符（`.`），使用 `Array.prototype.split('.')`、字符串转换和 `JSON.parse()` 创建一个对象，然后用 `Object.assign()` 创建叶子节点。\n否则，将相应的键值对添加到累加器对象中。"
+  },
+  "unfold": {
+      "prefix": "30s_unfold",
+      "body": [
+          "const unfold = (fn, seed) => {",
+          "  let result = [],",
+          "    val = [null, seed];",
+          "  while ((val = fn(val[1]))) result.push(val[0]);",
+          "  return result;",
+          "};"
+      ],
+      "description": "使用迭代函数和初始种子值构建数组。\n\n使用 `while` 循环和 `Array.prototype.push()` 不断调用函数直到返回 `false`。\n迭代函数接受一个参数（`seed`）并始终返回一个包含两个元素的数组（[`value`, `nextSeed`]）或 `false` 来终止循环。"
+  },
+  "union": {
+      "prefix": "30s_union",
+      "body": [
+          "const union = (a, b) => Array.from(new Set([...a, ...b]));"
+      ],
+      "description": "返回两个数组中存在的所有元素一次。\n\n创建一个包含 `a` 和 `b` 所有值的 `Set` 并将其转换为数组。"
+  },
+  "unionBy": {
+      "prefix": "30s_unionBy",
+      "body": [
+          "const unionBy = (a, b, fn) => {",
+          "  const s = new Set(a.map(fn));",
+          "  return Array.from(new Set([...a, ...b.filter(x => !s.has(fn(x)))]));",
+          "};"
+      ],
+      "description": "在应用提供的函数后，返回两个数组中存在的所有元素一次。\n\n通过将所有 `fn` 应用于 `a` 的所有值来创建一个 `Set`。\n从 `a` 和所有在应用 `fn` 后不匹配先前创建集合中的值的 `b` 元素创建一个 `Set`。\n返回最后的集合并将其转换为数组。"
+  },
+  "unionWith": {
+      "prefix": "30s_unionWith",
+      "body": [
+          "const unionWith = (a, b, comp) =>",
+          "  Array.from(new Set([...a, ...b.filter(x => a.findIndex(y => comp(x, y)) === -1)]));"
+      ],
+      "description": "使用提供的比较函数返回两个数组中存在的所有元素一次。\n\n创建一个包含 `a` 和 `b` 中没有在 `a` 中找到匹配项的值的 `Set`，使用 `Array.prototype.findIndex()`。"
+  },
+  "uniqueElements": {
+      "prefix": "30s_uniqueElements",
+      "body": [
+          "const uniqueElements = arr => [...new Set(arr)];"
+      ],
+      "description": "返回数组中的所有唯一值。\n\n使用 ES6 `Set` 和剩余操作符 `...rest` 去除所有重复值。"
+  },
+  "uniqueElementsBy": {
+      "prefix": "30s_uniqueElementsBy",
+      "body": [
+          "const uniqueElementsBy = (arr, fn) =>",
+          "  arr.reduce((acc, v) => {",
+          "    if (!acc.some(x => fn(v, x))) acc.push(v);",
+          "    return acc;",
+          "  }, []);"
+      ],
+      "description": "根据提供的比较函数返回数组中的所有唯一值。\n\n使用 `Array.prototype.reduce()` 和 `Array.prototype.some()` 返回一个只包含基于比较函数 `fn` 的每个值的第一个唯一实例的数组。\n比较函数接受两个参数：正在比较的两个元素的值。"
+  },
+  "uniqueElementsByRight": {
+      "prefix": "30s_uniqueElementsByRight",
+      "body": [
+          "const uniqueElementsByRight = (arr, fn) =>",
+          "  arr.reduceRight((acc, v) => {",
+          "    if (!acc.some(x => fn(v, x))) acc.push(v);",
+          "    return acc;",
+          "  }, []);"
+      ],
+      "description": "根据提供的比较函数返回数组中的所有唯一值。\n\n使用 `Array.prototype.reduce()` 和 `Array.prototype.some()` 返回一个只包含基于比较函数 `fn` 的每个值的最后一个唯一实例的数组。\n比较函数接受两个参数：正在比较的两个元素的值。"
+  },
+  "uniqueSymmetricDifference": {
+      "prefix": "30s_uniqueSymmetricDifference",
+      "body": [
+          "const uniqueSymmetricDifference = (a, b) => [",
+          "  ...new Set([...a.filter(v => !b.includes(v)), ...b.filter(v => !a.includes(v))])",
+          "];"
+      ],
+      "description": "返回两个数组之间的唯一对称差集，不包含任一数组中的重复值。\n\n使用 `Array.prototype.filter()` 和 `Array.prototype.includes()` 对每个数组进行操作以移除另一个数组中存在的值，然后从结果创建一个 `Set` 以移除重复值。"
+  },
+  "untildify": {
+      "prefix": "30s_untildify",
+      "body": [
+          "const untildify = str => str.replace(/^~($|\\/|\\\\)/, `${require('os').homedir()}$1`);"
+      ],
+      "description": "将波浪线路径转换为绝对路径。\n\n使用 `String.prototype.replace()` 和正则表达式以及 `OS.homedir()` 替换路径开头的 `~` 为家庭目录。"
+  },
+  "unzip": {
+      "prefix": "30s_unzip",
+      "body": [
+          "const unzip = arr =>",
+          "  arr.reduce(",
+          "    (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),",
+          "    Array.from({",
+          "      length: Math.max(...arr.map(x => x.length))",
+          "    }).map(x => [])",
+          "  );"
+      ],
+      "description": "创建一个数组的数组，解开由 [zip](#zip) 产生的数组中的元素。\n\n使用 `Math.max.apply()` 获取数组中最长的子数组，使用 `Array.prototype.map()` 使每个元素成为一个数组。\n使用 `Array.prototype.reduce()` 和 `Array.prototype.forEach()` 将分组的值映射到单独的数组中。"
+  },
+  "unzipWith": {
+      "prefix": "30s_unzipWith",
+      "body": [
+          "const unzipWith = (arr, fn) =>",
+          "  arr",
+          "    .reduce(",
+          "      (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),",
+          "      Array.from({",
+          "        length: Math.max(...arr.map(x => x.length))",
+          "      }).map(x => [])",
+          "    )",
+          "    .map(val => fn(...val));"
+      ],
+      "description": "创建一个元素数组，解开由 [zip](#zip) 产生的数组中的元素，并应用提供的函数。\n\n使用 `Math.max.apply()` 获取数组中最长的子数组，使用 `Array.prototype.map()` 使每个元素成为一个数组。\n使用 `Array.prototype.reduce()` 和 `Array.prototype.forEach()` 将分组的值映射到单独的数组中。\n使用 `Array.prototype.map()` 和扩展运算符 (`...`) 将 `fn` 应用于每个单独的元素组。"
+  },
+  "URLJoin": {
+      "prefix": "30s_URLJoin",
+      "body": [
+          "const URLJoin = (...args) =>",
+          "  args",
+          "    .join('/')",
+          "    .replace(/[\\/]+/g, '/')",
+          "    .replace(/^(.+):\\//, '$1://')",
+          "    .replace(/^file:/, 'file:/')",
+          "    .replace(/\\/(\\?|&|#[^!])/g, '$1')",
+          "    .replace(/\\?/g, '&')",
+          "    .replace('&', '?');"
+      ],
+      "description": "将所有给定的 URL 段组合在一起，然后规范化生成的 URL。\n\n使用 `String.prototype.join('/')` 组合 URL 段，然后使用一系列带有不同正则表达式的 `String.prototype.replace()` 调用来规范化生成的 URL（移除双斜杠、为协议添加正确的斜杠、移除参数前的斜杠、使用 `'&'` 组合参数并规范化第一个参数分隔符）。"
+  },
+  "UUIDGeneratorBrowser": {
+      "prefix": "30s_UUIDGeneratorBrowser",
+      "body": [
+          "const UUIDGeneratorBrowser = () =>",
+          "  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>",
+          "    (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)",
+          "  );"
+      ],
+      "description": "在浏览器中生成一个 UUID。\n\n使用 `crypto` API 生成一个符合 [RFC4122](https://www.ietf.org/rfc/rfc4122.txt) 版本 4 的 UUID。"
+  },
+  "UUIDGeneratorNode": {
+      "prefix": "30s_UUIDGeneratorNode",
+      "body": [
+          "const crypto = require('crypto');",
+          "const UUIDGeneratorNode = () =>",
+          "  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>",
+          "    (c ^ (crypto.randomBytes(1)[0] & (15 >> (c / 4)))).toString(16)",
+          "  );"
+      ],
+      "description": "在 Node.js 中生成一个 UUID。\n\n使用 `crypto` API 生成一个符合 [RFC4122](https://www.ietf.org/rfc/rfc4122.txt) 版本 4 的 UUID。"
+  },
+  "validateNumber": {
+      "prefix": "30s_validateNumber",
+      "body": [
+          "const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) == n;"
+      ],
+      "description": "如果给定的值是数字，则返回 `true`，否则返回 `false`。\n\n结合使用 `!isNaN()` 和 `parseFloat()` 来检查参数是否为数字。\n使用 `isFinite()` 检查数字是否为有限。\n使用 `Number()` 检查强制转换是否有效。"
+  },
+  "when": {
+      "prefix": "30s_when",
+      "body": [
+          "const when = (pred, whenTrue) => x => (pred(x) ? whenTrue(x) : x);"
+      ],
+      "description": "测试一个值 `x` 是否满足谓词函数。如果为 `true`，则返回 `fn(x)`；否则返回 `x`。\n\n返回一个期望单个值 `x` 的函数，根据 `pred` 返回适当的值。"
+  },
+  "without": {
+      "prefix": "30s_without",
+      "body": [
+          "const without = (arr, ...args) => arr.filter(v => !args.includes(v));"
+      ],
+      "description": "过滤掉数组中具有指定值的元素。\n\n使用 `Array.prototype.filter()` 创建一个排除了（使用 `!Array.includes()`）所有给定值的数组。\n\n（对于修改原始数组的代码片段，请参见 [`pull`](#pull)）"
+  },
+  "words": {
+      "prefix": "30s_words",
+      "body": [
+          "const words = (str, pattern = /[^a-zA-Z-]+/) => str.split(pattern).filter(Boolean);"
+      ],
+      "description": "将给定的字符串转换为单词数组。\n\n使用提供的模式（默认为非字母作为正则表达式）与 `String.prototype.split()` 结合使用，将字符串转换为字符串数组。使用 `Array.prototype.filter()` 移除任何空字符串。\n省略第二个参数以使用默认正则表达式。"
+  },
+  "xProd": {
+      "prefix": "30s_xProd",
+      "body": [
+          "const xProd = (a, b) => a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);"
+      ],
+      "description": "通过创建两个数组中每个可能的配对来创建一个新的数组。\n\n使用 `Array.prototype.reduce()`、`Array.prototype.map()` 和 `Array.prototype.concat()` 来生成两个数组元素的所有可能配对并将它们保存在一个数组中。"
+  },
+  "yesNo": {
+      "prefix": "30s_yesNo",
+      "body": [
+          "const yesNo = (val, def = false) =>",
+          "  /^(y|yes)$/i.test(val) ? true : /^(n|no)$/i.test(val) ? false : def;"
+      ],
+      "description": "如果字符串为 `y`/`yes` 则返回 `true`，如果字符串为 `n`/`no` 则返回 `false`。\n\n使用 `RegExp.test()` 检查字符串是否等于 `y/yes` 或 `n/no`。\n省略第二个参数 `def` 以将默认答案设置为 `no`。"
+  },
+  "zip": {
+      "prefix": "30s_zip",
+      "body": [
+          "const zip = (...arrays) => {",
+          "  const maxLength = Math.max(...arrays.map(x => x.length));",
+          "  return Array.from({ length: maxLength }).map((_, i) => {",
+          "    return Array.from({ length: arrays.length }, (_, k) => arrays[k][i]);",
+          "  });",
+          "};"
+      ],
+      "description": "创建一个元素数组，根据原始数组中的位置进行分组。\n\n使用 `Math.max.apply()` 获取参数中最长的数组。\n创建一个长度为该长度的数组作为返回值，并使用带有映射函数的 `Array.from()` 来创建一个分组元素的数组。\n如果参数数组的长度不同，在找不到值的地方使用 `undefined`。"
+  },
+  "zipObject": {
+      "prefix": "30s_zipObject",
+      "body": [
+          "const zipObject = (props, values) =>",
+          "  props.reduce((obj, prop, index) => ((obj[prop] = values[index]), obj), {});"
+      ],
+      "description": "给定一个有效的属性标识符数组和一个值数组，返回一个将属性关联到值的对象。\n\n由于对象可以有 `undefined` 值但不能有 `undefined` 属性指针，因此使用属性数组来决定使用 `Array.prototype.reduce()` 构建的结果对象的结构。"
+  },
+  "zipWith": {
+      "prefix": "30s_zipWith",
+      "body": [
+          "const zipWith = (...array) => {",
+          "  const fn = typeof array[array.length - 1] === 'function' ? array.pop() : undefined;",
+          "  return Array.from(",
+          "    { length: Math.max(...array.map(a => a.length)) },",
+          "    (_, i) => (fn ? fn(...array.map(a => a[i])) : array.map(a => a[i]))",
+          "  );",
+          "};"
+      ],
+      "description": "根据原始数组中的位置创建一个元素数组，并使用最后一个参数作为函数来指定如何组合分组的值。\n\n检查提供的最后一个参数是否为函数。\n使用 `Math.max()` 获取参数中最长的数组。\n创建一个长度为该长度的数组作为返回值，并使用带有映射函数的 `Array.from()` 来创建一个分组元素的数组。\n如果参数数组的长度不同，在找不到值的地方使用 `undefined`。\n函数被调用时传入每个组的元素 `(...group)`。"
+  }
+}

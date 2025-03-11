@@ -1,0 +1,3103 @@
+{
+  "将值转换为数组": {
+    "prefix": ["1loccastArray", "1locArray"],
+    "body": [
+      "${1:/**\n * 将值转换为数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/cast-a-value-as-an-array.md",
+      "*/",
+      "}const castArray = (value) => (Array.isArray(value) ? value : [value]);"
+    ],
+    "description": "将值转换为数组"
+  },
+  "检查数组是否为空": {
+    "prefix": ["1locisEmpty", "1locArray"],
+    "body": [
+      "${1:/**\n * 检查数组是否为空",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/check-if-an-array-is-empty.md",
+      "*/",
+      "}const isEmpty = (arr) => !Array.isArray(arr) || arr.length === 0;"
+    ],
+    "description": "检查数组是否为空"
+  },
+  "克隆数组": {
+    "prefix": ["1locclone", "1locArray"],
+    "body": [
+      "${1:/**\n * 克隆数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/clone-an-array.md",
+      "\n  // 类似 &#128071;️",
+      "  const clone = (arr) => [...arr]",
+      "  const clone = (arr) => Array.from(arr)",
+      "  const clone = (arr) => arr.map((x) => x)",
+      "  const clone = (arr) => JSON.parse(JSON.stringify(arr))",
+      "  const clone = (arr) => arr.concat([])",
+      "*/",
+      "}const clone = (arr) => arr.slice(0)"
+    ],
+    "description": "克隆数组"
+  },
+  "比较两个数组而不考虑顺序": {
+    "prefix": ["1locisEqual", "1locArray"],
+    "body": [
+      "${1:/**\n * 比较两个数组而不考虑顺序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/compare-two-arrays-regardless-of-order.md",
+      "*/",
+      "}const isEqual = (a, b) => JSON.stringify(a.sort()) === JSON.stringify(b.sort());"
+    ],
+    "description": "比较两个数组而不考虑顺序"
+  },
+  "比较两个数组": {
+    "prefix": ["1locisEqual", "1locArray"],
+    "body": [
+      "${1:/**\n * 比较两个数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/compare-two-arrays.md",
+      "\n  // 类似 &#128071;️",
+      "  const isEqual = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);",
+      "*/",
+      "}const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b)"
+    ],
+    "description": "比较两个数组"
+  },
+  "将数组的对象转换为单个对象": {
+    "prefix": ["1loctoObject", "1locArray"],
+    "body": [
+      "${1:/**\n * 将数组的对象转换为单个对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/convert-an-array-of-objects-to-a-single-object.md",
+      "\n  // 类似 &#128071;️",
+      "  const toObject = (arr, key) => Object.fromEntries(arr.map((it) => [it[key], it]));",
+      "*/",
+      "}const toObject = (arr, key) => arr.reduce((a, b) => ({ ...a, [b[key]]: b }), {})"
+    ],
+    "description": "将数组的对象转换为单个对象"
+  },
+  "将字符串数组转换为数字数组": {
+    "prefix": ["1loctoNumbers", "1locArray"],
+    "body": [
+      "${1:/**\n * 将字符串数组转换为数字数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/convert-an-array-of-strings-to-numbers.md",
+      "\n  // 类似 &#128071;️",
+      "  const toNumbers = (arr) => arr.map((x) => +x);",
+      "*/",
+      "}const toNumbers = (arr) => arr.map(Number)"
+    ],
+    "description": "将字符串数组转换为数字数组"
+  },
+  "按对象数组的属性计数": {
+    "prefix": ["1loccountBy", "1locArray"],
+    "body": [
+      "${1:/**\n * 按对象数组的属性计数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/count-by-the-properties-of-an-array-of-objects.md",
+      "*/",
+      "}const countBy = (arr, prop) => arr.reduce((prev, curr) => ((prev[curr[prop]] = ++prev[curr[prop]] || 1), prev), {});"
+    ],
+    "description": "按对象数组的属性计数"
+  },
+  "计算数组中值的出现次数": {
+    "prefix": ["1loccountOccurrences", "1locArray"],
+    "body": [
+      "${1:/**\n * 计算数组中值的出现次数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/count-the-occurrences-of-a-value-in-an-array.md",
+      "\n  // 类似 &#128071;",
+      "  const countOccurrences = (arr, val) => arr.filter((item) => item === val).length;",
+      "*/",
+      "}const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)"
+    ],
+    "description": "计算数组中值的出现次数"
+  },
+  "计算数组元素出现的次数": {
+    "prefix": ["1loccountOccurrences", "1locArray"],
+    "body": [
+      "${1:/**\n * 计算数组元素出现的次数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/count-the-occurrences-of-array-elements.md",
+      "*/",
+      "}const countOccurrences = (arr) => arr.reduce((prev, curr) => ((prev[curr] = ++prev[curr] || 1), prev), {});"
+    ],
+    "description": "计算数组元素出现的次数"
+  },
+  "创建累积和数组": {
+    "prefix": ["1locaccumulate", "1locArray"],
+    "body": [
+      "${1:/**\n * 创建累积和数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/create-an-array-of-cumulative-sum.md",
+      "\n  // 类似 &#128071;",
+      "  const accumulate = (arr) => arr.reduce((a, b, i) => (i === 0 ? [b] : [...a, b + a[i - 1]]), [0]);",
+      "*/",
+      "}const accumulate = (arr) => arr.map(((sum) => (value) => (sum += value))(0))"
+    ],
+    "description": "创建累积和数组"
+  },
+  "在给定范围内创建数字数组": {
+    "prefix": ["1locrange", "1locArray"],
+    "body": [
+      "${1:/**\n * 在给定范围内创建数字数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/create-an-array-of-numbers-in-the-given-range.md",
+      "\n  // 类似 &#128071;",
+      "  const range = (min, max) => Array(max - min + 1).fill(0).map((_, i) => min + i)",
+      "  const range = (min, max) => Array.from({ length: max - min + 1 \\}, (_, i) => min + i);",
+      "*/",
+      "}const range = (min, max) => [...Array(max - min + 1).keys()].map((i) => i + min)"
+    ],
+    "description": "在给定范围内创建数字数组"
+  },
+  "创建笛卡尔积": {
+    "prefix": ["1loccartesian", "1locArray"],
+    "body": [
+      "${1:/**\n * 创建笛卡尔积",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/create-cartesian-product.md",
+      "*/",
+      "}const cartesian = (...sets) => sets.reduce((acc, set) => acc.flatMap((x) => set.map((y) => [...x, y])), [[]]);"
+    ],
+    "description": "创建笛卡尔积"
+  },
+  "清空数组": {
+    "prefix": ["1locempty", "1locArray"],
+    "body": [
+      "${1:/**\n * 清空数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/empty-an-array.md",
+      "*/",
+      "}const empty = (arr) => (arr.length = 0);arr = [];"
+    ],
+    "description": "清空数组"
+  },
+  "从数组中找到最接近的数": {
+    "prefix": ["1locclosest", "1locArray"],
+    "body": [
+      "${1:/**\n * 从数组中找到最接近的数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-closest-number-from-an-array.md",
+      "\n  // 类似 &#128071;",
+      "  const closest = (arr, n) => arr.sort((a, b) => Math.abs(a - n) - Math.abs(b - n))[0];",
+      "*/",
+      "}const closest = (arr, n) => arr.reduce((prev, curr) => (Math.abs(curr - n) < Math.abs(prev - n) ? curr : prev))"
+    ],
+    "description": "从数组中找到最接近的数"
+  },
+  "找到数组中最后一个匹配项的索引": {
+    "prefix": ["1loclastIndex", "1locArray"],
+    "body": [
+      "${1:/**\n * 找到数组中最后一个匹配项的索引",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-index-of-the-last-matching-item-of-an-array.md",
+      "\n  // 类似 &#128071;",
+      "  const lastIndex = (arr, predicate) => arr.map((item) => predicate(item)).lastIndexOf(true);",
+      "*/",
+      "}const lastIndex = (arr, predicate) => arr.reduce((prev, curr, index) => (predicate(curr) ? index : prev), -1)"
+    ],
+    "description": "找到数组中最后一个匹配项的索引"
+  },
+  "找到数组中最大项的索引": {
+    "prefix": ["1locindexOfMax", "1locArray"],
+    "body": [
+      "${1:/**\n * 找到数组中最大项的索引",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-index-of-the-maximum-item-of-an-array.md",
+      "*/",
+      "}const indexOfMax = (arr) => arr.reduce((prev, curr, i, a) => (curr > a[prev] ? i : prev), 0);"
+    ],
+    "description": "找到数组中最大项的索引"
+  },
+  "找到数组中最小项的索引": {
+    "prefix": ["1locindexOfMin", "1locArray"],
+    "body": [
+      "${1:/**\n * 找到数组中最小项的索引",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-index-of-the-minimum-item-of-an-array.md",
+      "*/",
+      "}const indexOfMin = (arr) => arr.reduce((prev, curr, i, a) => (curr < a[prev] ? i : prev), 0);"
+    ],
+    "description": "找到数组中最小项的索引"
+  },
+  "找到数组中最长的字符串的长度": {
+    "prefix": ["1locfindLongest", "1locArray"],
+    "body": [
+      "${1:/**\n * 找到数组中最长的字符串的长度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-length-of-the-longest-string-in-an-array.md",
+      "*/",
+      "}const findLongest = (words) => Math.max(...words.map((el) => el.length));"
+    ],
+    "description": "找到数组中最长的字符串的长度"
+  },
+  "根据给定键找到数组中的最大项": {
+    "prefix": ["1locmaxBy", "1locArray"],
+    "body": [
+      "${1:/**\n * 根据给定键找到数组中的最大项",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-maximum-item-of-an-array-by-given-key.md",
+      "*/",
+      "}const maxBy = (arr, key) => arr.reduce((a, b) => (a[key] >= b[key] ? a : b), {});"
+    ],
+    "description": "根据给定键找到数组中的最大项"
+  },
+  "找到数组中的最大项": {
+    "prefix": ["1locmax", "1locArray"],
+    "body": [
+      "${1:/**\n * 找到数组中的最大项",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-maximum-item-of-an-array.md",
+      "*/",
+      "}const max = (arr) => Math.max(...arr);"
+    ],
+    "description": "找到数组中的最大项"
+  },
+  "根据给定键找到数组中的最小项": {
+    "prefix": ["1locminBy", "1locArray"],
+    "body": [
+      "${1:/**\n * 根据给定键找到数组中的最小项",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-minimum-item-of-an-array-by-given-key.md",
+      "*/",
+      "}const minBy = (arr, key) => arr.reduce((a, b) => (a[key] < b[key] ? a : b), {});"
+    ],
+    "description": "根据给定键找到数组中的最小项"
+  },
+  "找到数组中的最小项": {
+    "prefix": ["1locmin", "1locArray"],
+    "body": [
+      "${1:/**\n * 找到数组中的最小项",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/find-the-minimum-item-of-an-array.md",
+      "*/",
+      "}const min = (arr) => Math.min(...arr);"
+    ],
+    "description": "找到数组中的最小项"
+  },
+  "展平一个数组": {
+    "prefix": ["1locflat", "1locArray"],
+    "body": [
+      "${1:/**\n * 展平一个数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/flatten-an-array.md",
+      "\n  // 类似 &#128071;",
+      "  const flat = (arr) => arr.reduce((a, b) => (Array.isArray(b) ? [...a, ...flat(b)] : [...a, b]), [])",
+      "  const flat = (arr) => arr.flat();",
+      "*/",
+      "}const flat = (arr) => [].concat.apply([], arr.map((a) => (Array.isArray(a) ? flat(a) : a)))"
+    ],
+    "description": "展平一个数组"
+  },
+  "生成字母数组": {
+    "prefix": ["1localphabet", "1locArray"],
+    "body": [
+      "/**\n * 生成字母数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/generate-an-array-of-alphabet-characters.md",
+      "\n // 类似这样 &#128071;️",
+      "const alphabet = [...'abcdefghijklmnopqrstuvwxyz']",
+      "const alphabet = Array(26).fill(0).map((_, i) => String.fromCharCode(i + 97))",
+      "const alphabet = [...Array(26).keys()].map((i) => String.fromCharCode(i + 97))",
+      "const alphabet = [...Array(26)].map((_, i) => (i + 10).toString(36))",
+      "const alphabet = String.fromCharCode(...' '.repeat(26).split('').map((_, i) => i + 97)).split('');",
+      "*/",
+      "const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')"
+    ],
+    "description": "生成字母数组"
+  },
+  "获取连续元素的所有数组": {
+    "prefix": ["1locgetConsecutiveArrays", "1locArray"],
+    "body": [
+      "/**\n * 获取连续元素的所有数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-all-arrays-of-consecutive-elements.md",
+      "*/",
+      "const getConsecutiveArrays = (arr, size) => (size > arr.length ? [] : arr.slice(size - 1).map((_, i) => arr.slice(i, size + i)));"
+    ],
+    "description": "获取连续元素的所有数组"
+  },
+  "获取所有第n个元素的数组": {
+    "prefix": ["1locgetNthItems", "1locArray"],
+    "body": [
+      "/**\n * 获取所有第n个元素的数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-all-nth-items-of-an-array.md",
+      "*/",
+      "const getNthItems = (arr, nth) => arr.filter((_, i) => i % nth === nth - 1);"
+    ],
+    "description": "获取所有第n个元素的数组"
+  },
+  "获取所有子集的数组": {
+    "prefix": ["1locgetSubsets", "1locArray"],
+    "body": [
+      "/**\n * 获取所有子集的数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-all-subsets-of-an-array.md",
+      "*/",
+      "const getSubsets = (arr) => arr.reduce((prev, cur) => prev.concat(prev.map((k) => k.concat(cur))), [[]]);"
+    ],
+    "description": "获取所有子集的数组"
+  },
+  "获取值在数组中的索引": {
+    "prefix": ["1locindices", "1locArray"],
+    "body": [
+      "/**\n * 获取值在数组中的索引",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-indices-of-a-value-in-an-array.md",
+      "\n // 类似这样 &#128071;️",
+      "const indices = (arr, value) => arr.map((v, i) => (v === value ? i : false)).filter(Boolean);",
+      "*/",
+      "const indices = (arr, value) => arr.reduce((acc, v, i) => (v === value ? [...acc, i] : acc), [])"
+    ],
+    "description": "获取值在数组中的索引"
+  },
+  "获取数组的平均值": {
+    "prefix": ["1locaverage", "1locArray"],
+    "body": [
+      "/**\n * 获取数组的平均值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-the-average-of-an-array.md",
+      "*/",
+      "const average = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;"
+    ],
+    "description": "获取数组的平均值"
+  },
+  "获取数组的交集": {
+    "prefix": ["1locgetIntersection", "1locArray"],
+    "body": [
+      "/**\n * 获取数组的交集",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-the-intersection-of-arrays.md",
+      "*/",
+      "const getIntersection = (a, ...arr) => [...new Set(a)].filter((v) => arr.every((b) => b.includes(v)));"
+    ],
+    "description": "获取数组的交集"
+  },
+  "获取数字数组的排名": {
+    "prefix": ["1locranking", "1locArray"],
+    "body": [
+      "/**\n * 获取数字数组的排名",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-the-rank-of-an-array-of-numbers.md",
+      "*/",
+      "const ranking = (arr) => arr.map((x, y, z) => z.filter((w) => w > x).length + 1);"
+    ],
+    "description": "获取数字数组的排名"
+  },
+  "获取数字数组的总和": {
+    "prefix": ["1locsum", "1locArray"],
+    "body": [
+      "/**\n * 获取数字数组的总和",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-the-sum-of-an-array-of-numbers.md",
+      "*/",
+      "const sum = (arr) => arr.reduce((a, b) => a + b, 0);"
+    ],
+    "description": "获取数字数组的总和"
+  },
+  "获取数组的唯一值": {
+    "prefix": ["1locunique", "1locArray"],
+    "body": [
+      "/**\n * 获取数组的唯一值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-the-unique-values-of-an-array.md",
+      "\n // 类似这样 &#128071;️",
+      "const unique = (arr) => arr.filter((el, i, array) => array.indexOf(el) === i)",
+      "const unique = (arr) => arr.reduce((acc, el) => (acc.includes(el) ? acc : [...acc, el]), []);",
+      "*/",
+      "const unique = (arr) => [...new Set(arr)]"
+    ],
+    "description": "获取数组的唯一值"
+  },
+  "获取数组的并集": {
+    "prefix": ["1locunion", "1locArray"],
+    "body": [
+      "/**\n * 获取数组的并集",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/get-the-union-of-arrays.md",
+      "*/",
+      "const union = (...arr) => [...new Set(arr.flat())];"
+    ],
+    "description": "获取数组的并集"
+  },
+  "按键分组对象数组": {
+    "prefix": ["1locgroupBy", "1locArray"],
+    "body": [
+      "/**\n * 按键分组对象数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/group-an-array-of-objects-by-a-key.md",
+      "*/",
+      "const groupBy = (arr, key) => arr.reduce((acc, item) => ((acc[item[key]] = [...(acc[item[key]] || []), item]), acc), {});"
+    ],
+    "description": "按键分组对象数组"
+  },
+  "合并两个数组": {
+    "prefix": ["1locmerge", "1locArray"],
+    "body": [
+      "/**\n * 合并两个数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/merge-two-arrays.md",
+      "\n // 类似这样 &#128071;️",
+      "const merge = (a, b) => [...a, ...b]",
+      "const merge = (a, b) => [...new Set(a.concat(b))]",
+      "const merge = (a, b) => [...new Set([...a, ...b])];",
+      "*/",
+      "const merge = (a, b) => a.concat(b)"
+    ],
+    "description": "合并两个数组"
+  },
+  "将数组按条件分区": {
+    "prefix": ["1locpartition", "1locArray"],
+    "body": [
+      "/**\n * 将数组按条件分区",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/partition-an-array-based-on-a-condition.md",
+      "*/",
+      "const partition = (arr, criteria) => arr.reduce((acc, i) => (acc[criteria(i) ? 0 : 1].push(i), acc), [[], []]);"
+    ],
+    "description": "将数组按条件分区"
+  },
+  "去除数组中的重复值": {
+    "prefix": ["1locremoveDuplicate", "1locArray"],
+    "body": [
+      "/**\n * 去除数组中的重复值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/remove-duplicate-values-in-an-array.md",
+      "*/",
+      "const removeDuplicate = (arr) => arr.filter((i) => arr.indexOf(i) === arr.lastIndexOf(i));"
+    ],
+    "description": "去除数组中的重复值"
+  },
+  "从数组中移除假值": {
+    "prefix": ["1locremoveFalsy", "1locArray"],
+    "body": [
+      "/**\n * 从数组中移除假值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/remove-falsy-values-from-array.md",
+      "*/",
+      "const removeFalsy = (arr) => arr.filter(Boolean);"
+    ],
+    "description": "从数组中移除假值"
+  },
+  "重复数组": {
+    "prefix": ["1locrepeat", "1locArray"],
+    "body": [
+      "/**\n * 重复数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/repeat-an-array.md",
+      "\n // 类似 &#128071;️",
+      " const repeat = (arr, n) => Array(n).fill(arr).flat()",
+      " const repeat = (arr, n) => Array(arr.length * n).fill(0).map((_, i) => arr[i % arr.length]);",
+      " const repeat = (arr, n) => Array.from({ length: arr.length * n \\}, (_, i) => arr[i % arr.length]);",
+      "*/",
+      "const repeat = (arr, n) => [].concat(...Array(n).fill(arr))"
+    ],
+    "description": "重复数组"
+  },
+  "洗牌数组": {
+    "prefix": ["1locshuffle", "1locArray"],
+    "body": [
+      "/**\n * 洗牌数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/shuffle-an-array.md",
+      "\n // 类似 &#128071;️",
+      " const shuffle = (arr) => arr.sort(() => 0.5 - Math.random());",
+      "*/",
+      "const shuffle = (arr) => arr.map((a) => ({ sort: Math.random(), value: a })).sort((a, b) => a.sort - b.sort).map((a) => a.value)"
+    ],
+    "description": "洗牌数组"
+  },
+  "按给定键对数组项进行排序": {
+    "prefix": ["1locsortBy", "1locArray"],
+    "body": [
+      "/**\n * 按给定键对数组项进行排序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/sort-an-array-of-items-by-given-key.md",
+      "*/",
+      "const sortBy = (arr, k) => arr.concat().sort((a, b) => (a[k] > b[k] ? 1 : a[k] < b[k] ? -1 : 0));"
+    ],
+    "description": "按给定键对数组项进行排序"
+  },
+  "对数组中的数值进行排序": {
+    "prefix": ["1locsort", "1locArray"],
+    "body": [
+      "/**\n * 对数组中的数值进行排序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/sort-an-array-of-numbers.md",
+      "*/",
+      "const sort = (arr) => arr.sort((a, b) => a - b);"
+    ],
+    "description": "对数组中的数值进行排序"
+  },
+  "将数组分割成块": {
+    "prefix": ["1locchunk", "1locArray"],
+    "body": [
+      "/**\n * 将数组分割成块",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/split-an-array-into-chunks.md",
+      "*/",
+      "const chunk = (arr, size) => arr.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);"
+    ],
+    "description": "将数组分割成块"
+  },
+  "交换矩阵的行和列": {
+    "prefix": ["1loctranspose", "1locArray"],
+    "body": [
+      "/**\n * 交换矩阵的行和列",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/swap-the-rows-and-columns-of-a-matrix.md",
+      "\n // 类似 &#128071;️",
+      " const transpose = (matrix) => matrix[0].map((col, c) => matrix.map((row, r) => matrix[r][c]))",
+      " const transpose = (matrix) => matrix.reduce((prev, next) => next.map((item, i) => (prev[i] || []).concat(next[i])), []);",
+      "*/",
+      "const transpose = (matrix) => matrix[0].map((col, i) => matrix.map((row) => row[i]))"
+    ],
+    "description": "交换矩阵的行和列"
+  },
+  "交换两个数组项": {
+    "prefix": ["1locswapItems", "1locArray"],
+    "body": [
+      "/**\n * 交换两个数组项",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/swap-two-array-items.md",
+      "*/",
+      "const swapItems = (a, i, j) => (a && a[i] && a[j] && [...a.slice(0, i), ...a.slice(j, j + 1), ...a.slice(i + 1, j), ...a.slice(i, i + 1), ...a.slice(j + 1)] || a);"
+    ],
+    "description": "交换两个数组项"
+  },
+  "解压一个数组的数组": {
+    "prefix": ["1locunzip", "1locArray"],
+    "body": [
+      "/**\n * 解压一个数组的数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/unzip-an-array-of-arrays.md",
+      "*/",
+      "const unzip = (arr) => arr.reduce((acc, c) => (c.forEach((v, i) => acc[i].push(v)), acc), Array.from({ length: Math.max(...arr.map((a) => a.length)) }, (_) => []));"
+    ],
+    "description": "解压一个数组的数组"
+  },
+  "压缩多个数组": {
+    "prefix": ["1loczip", "1locArray"],
+    "body": [
+      "/**\n * 压缩多个数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/array/zip-multiple-arrays.md",
+      "*/",
+      "const zip = (...arr) => Array.from({ length: Math.max(...arr.map((a) => a.length)) }, (_, i) => arr.map((a) => a[i]));"
+    ],
+    "description": "压缩多个数组"
+  },
+  "添加 AM PM 后缀到小时": {
+    "prefix": ["1locsuffixAmPm", "1locDateTime"],
+    "body": [
+      "/**\n * 添加 AM PM 后缀到小时",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/add-am-pm-suffix-to-an-hour.md",
+      "*/",
+      "const suffixAmPm = (h) => `${h % 12 === 0 ? 12 : h % 12}${h < 12 ? 'am' : 'pm'}`;"
+    ],
+    "description": "添加 AM PM 后缀到小时"
+  },
+  "计算两个日期之间的差天数": {
+    "prefix": ["1locdiffDays", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 计算两个日期之间的差天数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/calculate-the-number-of-difference-days-between-two-dates.md",
+      "*/",
+      "}const diffDays = (date, otherDate) => Math.ceil(Math.abs(date - otherDate) / (1000 * 60 * 60 * 24));"
+    ],
+    "description": "计算两个日期之间的差天数"
+  },
+  "计算两个日期之间的月份差": {
+    "prefix": ["1locmonthDiff", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 计算两个日期之间的月份差",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/calculate-the-number-of-months-between-two-dates.md",
+      "*/",
+      "}const monthDiff = (startDate, endDate) => Math.max(0, (endDate.getFullYear() - startDate.getFullYear()) * 12 - startDate.getMonth() + endDate.getMonth());"
+    ],
+    "description": "计算两个日期之间的月份差"
+  },
+  "比较两个日期": {
+    "prefix": ["1loccompare", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 比较两个日期",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/compare-two-dates.md",
+      "*/",
+      "}const compare = (a, b) => a.getTime() > b.getTime();"
+    ],
+    "description": "比较两个日期"
+  },
+  "将日期转换为YYYY-MM-DD格式": {
+    "prefix": ["1locformatYmd", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 将日期转换为YYYY-MM-DD格式",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/convert-a-date-to-yyyy-mm-dd-format.md",
+      "*/",
+      "}const formatYmd = (date) => date.toISOString().slice(0, 10);"
+    ],
+    "description": "将日期转换为YYYY-MM-DD格式"
+  },
+  "将秒转换为hh:mm:ss格式": {
+    "prefix": ["1locformatSeconds", "1locDateTime"],
+    "body": [
+      "${1:/** * 将秒转换为hh:mm:ss格式",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/convert-seconds-to-hh-mm-ss-format.md",
+      "  // 相似于以下代码",
+      "  const formatSeconds = (s) => new Date(s * 1000).toUTCString().match(/(\\d\\d:\\d\\d:\\d\\d)/)[0]",
+      "  const formatSeconds = (s) => [parseInt(s / 60 / 60), parseInt((s / 60) % 60), parseInt(s % 60)].join(':').replace(/\\b(\\d)\\b/g, '0\\$1');",
+      "*/",
+      "}const formatSeconds = (s) => new Date(s * 1000).toISOString().substr(11, 8)"
+    ],
+    "description": "将秒转换为hh:mm:ss格式"
+  },
+  "从日期中提取年、月、日、小时、分钟、秒和毫秒": {
+    "prefix": ["1locextract", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 从日期中提取年、月、日、小时、分钟、秒和毫秒",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/extract-year-month-day-hour-minute-second-and-millisecond-from-a-date.md",
+      "*/",
+      "}const extract = (date) => date.toISOString().split(/[^0-9]/).slice(0, -1);"
+    ],
+    "description": "从日期中提取年、月、日、小时、分钟、秒和毫秒"
+  },
+  "按给定区域设置格式化日期": {
+    "prefix": ["1locformat", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 按给定区域设置格式化日期",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/format-a-date-for-the-given-locale.md",
+      "*/",
+      "}const format = (date, locale) => new Intl.DateTimeFormat(locale).format(date);"
+    ],
+    "description": "按给定区域设置格式化日期"
+  },
+  "获取日期的当前季度": {
+    "prefix": ["1locgetQuarter", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 获取日期的当前季度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-current-quarter-of-a-date.md",
+      "*/",
+      "}const getQuarter = (d = new Date()) => Math.ceil((d.getMonth() + 1) / 3);"
+    ],
+    "description": "获取日期的当前季度"
+  },
+  "获取当前时间戳（以秒为单位）": {
+    "prefix": ["1locts", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 获取当前时间戳（以秒为单位）",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-current-timestamp-in-seconds.md",
+      "*/",
+      "}const ts = () => Math.floor(new Date().getTime() / 1000);"
+    ],
+    "description": "获取当前时间戳（以秒为单位）"
+  },
+  "从日期中获取年份的第几天": {
+    "prefix": ["1locdayOfYear", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 从日期中获取年份的第几天",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-day-of-the-year-from-a-date.md",
+      "*/",
+      "}const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));"
+    ],
+    "description": "从日期中获取年份的第几天"
+  },
+  "从日期中获取月份的第一天": {
+    "prefix": ["1locgetFirstDate", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 从日期中获取月份的第一天",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-first-date-in-the-month-of-a-date.md",
+      "*/",
+      "}const getFirstDate = (d = new Date()) => new Date(d.getFullYear(), d.getMonth(), 1);"
+    ],
+    "description": "从日期中获取月份的第一天"
+  },
+  "从日期中获取月份的最后一天": {
+    "prefix": ["1locgetLastDate", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 从日期中获取月份的最后一天",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-last-date-in-the-month-of-a-date.md",
+      "*/",
+      "}const getLastDate = (d = new Date()) => new Date(d.getFullYear(), d.getMonth() + 1, 0);"
+    ],
+    "description": "从日期中获取月份的最后一天"
+  },
+  "从日期中获取月份名称": {
+    "prefix": ["1locgetMonthName", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 从日期中获取月份名称",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-month-name-of-a-date.md",
+      "*/",
+      "}const getMonthName = (date) => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', ' November', 'December'][date.getMonth()];"
+    ],
+    "description": "从日期中获取月份名称"
+  },
+  "给定月份中的天数数量": {
+    "prefix": ["1locdaysInMonth", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 给定月份中的天数数量",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-number-of-days-in-given-month.md",
+      "*/",
+      "}const daysInMonth = (month, year) => new Date(year, month, 0).getDate();"
+    ],
+    "description": "给定月份中的天数数量"
+  },
+  "获取时区字符串": {
+    "prefix": ["1locgetTimezone", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 获取时区字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-timezone-string.md",
+      "*/",
+      "}const getTimezone = () => Intl.DateTimeFormat().resolvedOptions().timeZone;"
+    ],
+    "description": "获取时区字符串"
+  },
+  "获取明日日期": {
+    "prefix": ["1loctomorrow", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 获取明日日期",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-tomorrow-date.md",
+      "\n  // 相似代码 👇🏼",
+      "  const tomorrow = new Date(new Date().valueOf() + 1000 * 60 * 60 * 24);",
+      "*/",
+      "}const tomorrow = ((d) => new Date(d.setDate(d.getDate() + 1)))(new Date())"
+    ],
+    "description": "获取明日日期"
+  },
+  "获取一年中的总天数": {
+    "prefix": ["1locnumberOfDays", "1locDateTime"],
+    "body": [
+      "${1:/** * 获取一年中的总天数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-total-number-of-days-in-a-year.md",
+      " * // 相似代码 👇🏼",
+      " * const numberOfDays = (year) => (new Date(year, 1, 29).getDate() === 29 ? 366 : 365);",
+      "*/",
+      "}const numberOfDays = (year) => ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 366 : 365)"
+    ],
+    "description": "获取一年中的总天数"
+  },
+  "获取日期的星期": {
+    "prefix": ["1locgetWeekday", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 获取日期的星期",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-weekday-of-a-date.md",
+      "*/",
+      "}const getWeekday = (date) => ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()];"
+    ],
+    "description": "获取日期的星期"
+  },
+  "获取昨天的日期": {
+    "prefix": ["1locyesterday", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 获取昨天的日期",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/get-the-yesterday-date.md",
+      "\n  // 相似代码 👇🏼",
+      "  const yesterday = new Date(new Date().valueOf() - 1000 * 60 * 60 * 24);",
+      "*/",
+      "}const yesterday = ((d) => new Date(d.setDate(d.getDate() - 1)))(new Date())"
+    ],
+    "description": "获取昨天的日期"
+  },
+  "初始化当前日期但将时间设置为午夜": {
+    "prefix": ["1locmidnightOfToday", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 初始化当前日期但将时间设置为午夜",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/initialize-the-current-date-but-set-time-to-midnight.md",
+      "*/",
+      "}const midnightOfToday = () => new Date(new Date().setHours(0, 0, 0, 0));"
+    ],
+    "description": "初始化当前日期但将时间设置为午夜"
+  },
+  "对日期数组进行排序": {
+    "prefix": ["1locsortDescending", "1locDateTime"],
+    "body": [
+      "${1:/**\n * 对日期数组进行排序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/date-time/sort-an-array-of-dates.md",
+      "\n  // 相似代码 👇🏼",
+      "  const sortAscending = (arr) => arr.sort((a, b) => a.getTime() < b.getTime());",
+      "*/",
+      "}const sortDescending = (arr) => arr.sort((a, b) => a.getTime() > b.getTime())"
+    ],
+    "description": "对日期数组进行排序"
+  },
+  "检查元素是否是另一个元素的后代": {
+    "prefix": ["1locisDescendant", "1locDOM"],
+    "body": [
+      "${1:/**\n * 检查元素是否是另一个元素的后代",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/check-if-an-element-is-a-descendant-of-another.md",
+      "*/",
+      "}const isDescendant = (child, parent) => parent.contains(child);"
+    ],
+    "description": "检查元素是否是另一个元素的后代"
+  },
+  "检查元素是否被聚焦": {
+    "prefix": ["1lochasFocus", "1locDOM"],
+    "body": [
+      "${1:/**\n * 检查元素是否被聚焦",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/check-if-an-element-is-focused.md",
+      "*/",
+      "}const hasFocus = (ele) => ele === document.activeElement;"
+    ],
+    "description": "检查元素是否被聚焦"
+  },
+  "检查触摸事件是否支持": {
+    "prefix": ["1loctouchSupported", "1locDOM"],
+    "body": [
+      "${1:/**\n * 检查触摸事件是否支持",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/check-if-the-touch-events-are-supported.md",
+      "*/",
+      "}const touchSupported = () => 'ontouchstart' in window || (window.DocumentTouch && document instanceof window.DocumentTouch);"
+    ],
+    "description": "检查触摸事件是否支持"
+  },
+  "检查用户是否滚动到页面底部": {
+    "prefix": ["1locisAtBottom", "1locDOM"],
+    "body": [
+      "${1:/**\n * 检查用户是否滚动到页面底部",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/check-if-user-scrolls-to-the-bottom-of-the-page.md",
+      "*/",
+      "}const isAtBottom = () => document.documentElement.clientHeight + window.scrollY >= document.documentElement.scrollHeight;"
+    ],
+    "description": "检查用户是否滚动到页面底部"
+  },
+  "检测 Internet Explorer 浏览器": {
+    "prefix": ["1locisIE", "1locDOM"],
+    "body": [
+      "${1:/**\n * 检测 Internet Explorer 浏览器",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/detect-internet-explorer-browser.md",
+      "*/",
+      "}const isIE = !!document.documentMode;"
+    ],
+    "description": "检测 Internet Explorer 浏览器"
+  },
+  "检测 macOS 浏览器": {
+    "prefix": ["1locisMacBrowser", "1locDOM"],
+    "body": [
+      "${1:/**\n * 检测 macOS 浏览器",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/detect-macos-browser.md",
+      "*/",
+      "}const isMacBrowser = /Mac|iPod|iPhone|iPad/.test(navigator.platform);"
+    ],
+    "description": "检测 macOS 浏览器"
+  },
+  "获取元素的所有同级节点": {
+    "prefix": ["1locsiblings", "1locDOM"],
+    "body": [
+      "${1:/**\n * 获取元素的所有同级节点",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/get-all-siblings-of-an-element.md",
+      "*/",
+      "}const siblings = (ele) => [].slice.call(ele.parentNode.children).filter((child) => child !== ele);"
+    ],
+    "description": "获取元素的所有同级节点"
+  },
+  "获取元素相对于文档的位置": {
+    "prefix": ["1locgetPosition", "1locDOM"],
+    "body": [
+      "${1:/**\n * 获取元素相对于文档的位置",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/get-the-position-of-an-element-relative-to-the-document.md",
+      "*/",
+      "}const getPosition = (ele) => ((r = ele.getBoundingClientRect()), { left: r.left + window.scrollX, top: r.top + window.scrollY });"
+    ],
+    "description": "获取元素相对于文档的位置"
+  },
+  "获取选中的文本": {
+    "prefix": ["1locgetSelectedText", "1locDOM"],
+    "body": [
+      "${1:/**\n * 获取选中的文本",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/get-the-selected-text.md",
+      "*/",
+      "}const getSelectedText = () => window.getSelection().toString();"
+    ],
+    "description": "获取选中的文本"
+  },
+  "返回上一页": {
+    "prefix": ["1locundefined", "1locDOM"],
+    "body": [
+      "${1:/**\n * 返回上一页",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/go-back-to-the-previous-page.md",
+      "*/",
+      "}history.back();history.go(-1);"
+    ],
+    "description": "返回上一页"
+  },
+  "隐藏一个元素": {
+    "prefix": ["1lochide", "1locDOM"],
+    "body": [
+      "${1:/**\n * 隐藏一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/hide-an-element.md",
+      "\n  // 相似 👇🏼",
+      "  const hide = (ele) => (ele.style.visibility = 'hidden')",
+      "  const hide = (ele) => (ele.hidden = true);",
+      "*/",
+      "}const hide = (ele) => (ele.style.display = 'none')"
+    ],
+    "description": "隐藏一个元素"
+  },
+  "在另一个元素之后插入一个元素": {
+    "prefix": ["1locinsertAfter", "1locDOM"],
+    "body": [
+      "${1:/**\n * 在另一个元素之后插入一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/insert-an-element-after-other-one.md",
+      "\n  // 相似 👇🏼",
+      "  const insertAfter = (ele, anotherEle) => anotherEle.insertAdjacentElement('afterend', ele);",
+      "*/",
+      "}const insertAfter = (ele, anotherEle) => anotherEle.parentNode.insertBefore(ele, anotherEle.nextSibling)"
+    ],
+    "description": "在另一个元素之后插入一个元素"
+  },
+  "在另一个元素之前插入一个元素": {
+    "prefix": ["1locinsertBefore", "1locDOM"],
+    "body": [
+      "${1:/**\n * 在另一个元素之前插入一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/insert-an-element-before-other-one.md",
+      "\n  // 相似 👇🏼",
+      "  const insertBefore = (ele, anotherEle) => anotherEle.insertAdjacentElement('beforebegin', ele);",
+      "*/",
+      "}const insertBefore = (ele, anotherEle) => anotherEle.parentNode.insertBefore(ele, anotherEle)"
+    ],
+    "description": "在另一个元素之前插入一个元素"
+  },
+  "在元素之后插入给定的 HTML": {
+    "prefix": ["1locinsertHtmlAfter", "1locDOM"],
+    "body": [
+      "${1:/**\n * 在元素之后插入给定的 HTML",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/insert-given-html-after-an-element.md",
+      "*/",
+      "}const insertHtmlAfter = (html, ele) => ele.insertAdjacentHTML('afterend', html);"
+    ],
+    "description": "在元素之后插入给定的 HTML"
+  },
+  "在元素之前插入给定的 HTML": {
+    "prefix": ["1locinsertHtmlBefore", "1locDOM"],
+    "body": [
+      "${1:/**\n * 在元素之前插入给定的 HTML",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/insert-given-html-before-an-element.md",
+      "*/",
+      "}const insertHtmlBefore = (html, ele) => ele.insertAdjacentHTML('beforebegin', html);"
+    ],
+    "description": "在元素之前插入给定的 HTML"
+  },
+  "重定向到另一个页面": {
+    "prefix": ["1locgoTo", "1locDOM"],
+    "body": [
+      "${1:/**\n * 重定向到另一个页面",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/redirect-to-another-page.md",
+      "*/",
+      "}const goTo = (url) => (location.href = url);"
+    ],
+    "description": "重定向到另一个页面"
+  },
+  "重新加载当前页面": {
+    "prefix": ["1locreload", "1locDOM"],
+    "body": [
+      "${1:/**\n * 重新加载当前页面",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/reload-the-current-page.md",
+      "\n  // 相似 👇🏼",
+      "  const reload = () => (location.href = location.href);",
+      "*/",
+      "}const reload = () => location.reload()"
+    ],
+    "description": "重新加载当前页面"
+  },
+  "替换一个元素": {
+    "prefix": ["1locreplace", "1locDOM"],
+    "body": [
+      "${1:/**\n * 替换一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/replace-an-element.md",
+      "*/",
+      "}const replace = (ele, newEle) => ele.parentNode.replaceChild(newEle, ele);"
+    ],
+    "description": "替换一个元素"
+  },
+  "滚动到页面顶部": {
+    "prefix": ["1locgoToTop", "1locDOM"],
+    "body": [
+      "${1:/**\n * 滚动到页面顶部",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/scroll-to-top-of-the-page.md",
+      "*/",
+      "}const goToTop = () => window.scrollTo(0, 0);"
+    ],
+    "description": "滚动到页面顶部"
+  },
+  "序列化表单数据": {
+    "prefix": ["1locserialize", "1locDOM"],
+    "body": [
+      "${1:/**\n * 序列化表单数据",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/serialize-form-data.md",
+      "*/",
+      "}const serialize = (formEle) => Array.from(new FormData(formEle)).reduce((p, [k, v]) => Object.assign({}, p, { [k]: p[k] ? (Array.isArray(p[k]) ? p[k] : [p[k]]).concat(v) : v }), {});"
+    ],
+    "description": "序列化表单数据"
+  },
+  "显示一个元素": {
+    "prefix": ["1locshow", "1locDOM"],
+    "body": [
+      "${1:/**\n * 显示一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/show-an-element.md",
+      "*/",
+      "}const show = (ele) => (ele.style.display = '');"
+    ],
+    "description": "显示一个元素"
+  },
+  "从给定的文本中去除 HTML": {
+    "prefix": ["1locstripHtml", "1locDOM"],
+    "body": [
+      "${1:/**\n * 从给定的文本中去除 HTML",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/strip-html-from-a-given-text.md",
+      "*/",
+      "}const stripHtml = (html) => new DOMParser().parseFromString(html, 'text/html').body.textContent || '';"
+    ],
+    "description": "从给定的文本中去除 HTML"
+  },
+  "切换一个元素": {
+    "prefix": ["1loctoggle", "1locDOM"],
+    "body": [
+      "${1:/**\n * 切换一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/dom/toggle-an-element.md",
+      "\n  // 相似 👇🏼",
+      "  const toggle = (ele) => (ele.hidden = !ele.hidden);",
+      "*/",
+      "}const toggle = (ele) => (ele.style.display = ele.style.display === 'none' ? 'block' : 'none')"
+    ],
+    "description": "切换一个元素"
+  },
+  "盒子处理程序": {
+    "prefix": ["1locboxHandler", "1locFunction"],
+    "body": [
+      "${1:/**\n * 盒子处理程序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/box-handler.md",
+      "*/",
+      "}const boxHandler = (x) => ({ next: (f) => boxHandler(f(x)), done: (f) => f(x) });"
+    ],
+    "description": "盒子处理程序"
+  },
+  "检查一个值是否为函数": {
+    "prefix": ["1locisFunction", "1locFunction"],
+    "body": [
+      "${1:/**\n * 检查一个值是否为函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/check-if-a-value-is-a-function.md",
+      "*/",
+      "}const isFunction = (v) => ['[object Function]', '[object GeneratorFunction]', '[object AsyncFunction]', '[object Promise]'].includes(Object.prototype.toString.call(v));"
+    ],
+    "description": "检查一个值是否为函数"
+  },
+  "检查一个值是否为生成器函数": {
+    "prefix": ["1locisGeneratorFunction", "1locFunction"],
+    "body": [
+      "${1:/**\n * 检查一个值是否为生成器函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/check-if-a-value-is-a-generator-function.md",
+      "*/",
+      "}const isGeneratorFunction = (v) => Object.prototype.toString.call(v) === '[object GeneratorFunction]';"
+    ],
+    "description": "检查一个值是否为生成器函数"
+  },
+  "检查一个值是否为异步函数": {
+    "prefix": ["1locisAsyncFunction", "1locFunction"],
+    "body": [
+      "${1:/**\n * 检查一个值是否为异步函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/check-if-a-value-is-an-async-function.md",
+      "*/",
+      "}const isAsyncFunction = (v) => Object.prototype.toString.call(v) === '[object AsyncFunction]';"
+    ],
+    "description": "检查一个值是否为异步函数"
+  },
+  "从左到右组合函数": {
+    "prefix": ["1locpipe", "1locFunction"],
+    "body": [
+      "${1:/**\n * 从左到右组合函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/compose-functions-from-left-to-right.md",
+      "*/",
+      "}const pipe = (...fns) => (x) => fns.reduce((y, f) => f(y), x);"
+    ],
+    "description": "从左到右组合函数"
+  },
+  "组合函数": {
+    "prefix": ["1loccompose", "1locFunction"],
+    "body": [
+      "${1:/**\n * 组合函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/compose-functions.md",
+      "*/",
+      "}const compose = (...fns) => (x) => fns.reduceRight((y, f) => f(y), x);"
+    ],
+    "description": "组合函数"
+  },
+  "创建一个接受单一参数的函数": {
+    "prefix": ["1locunary", "1locFunction"],
+    "body": [
+      "${1:/**\n * 创建一个接受单一参数的函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/create-a-function-that-accepts-a-single-argument.md",
+      "*/",
+      "}const unary = (fn) => (arg) => fn(arg);"
+    ],
+    "description": "创建一个接受单一参数的函数"
+  },
+  "创建一个空函数": {
+    "prefix": ["1locnoop", "1locFunction"],
+    "body": [
+      "${1:/**\n * 创建一个空函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/create-an-empty-function.md",
+      "\n  // 相似 👇🏼",
+      "  const noop = Function();",
+      "*/",
+      "}const noop = () => {}"
+    ],
+    "description": "创建一个空函数"
+  },
+  "柯里化函数": {
+    "prefix": ["1loccurry", "1locFunction"],
+    "body": [
+      "${1:/**\n * 柯里化函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/curry-a-function.md",
+      "*/",
+      "}const curry = (fn, ...args) => (fn.length <= args.length ? fn(...args) : curry.bind(null, fn, ...args));"
+    ],
+    "description": "柯里化函数"
+  },
+  "延迟执行函数": {
+    "prefix": ["1locthunkfy", "1locFunction"],
+    "body": [
+      "${1:/**\n * 延迟执行函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/delay-the-evaluation-of-a-function.md",
+      "*/",
+      "}const thunkfy = (fn) => (...args) => () => fn(...args);"
+    ],
+    "description": "延迟执行函数"
+  },
+  "只执行一次函数": {
+    "prefix": ["1loconce", "1locFunction"],
+    "body": [
+      "${1:/**\n * 只执行一次函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/execute-a-function-once.md",
+      "*/",
+      "}const once = (fn) => ((ran = false) => () => ran ? fn : ((ran = !ran), (fn = fn())))();"
+    ],
+    "description": "只执行一次函数"
+  },
+  "交换函数的参数": {
+    "prefix": ["1locflip", "1locFunction"],
+    "body": [
+      "${1:/**\n * 交换函数的参数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/flip-the-arguments-of-a-function.md",
+      "\n  // 相似 👇🏼",
+      "  const flip = (fn) => (b, a) => fn(a, b)",
+      "  const flip = (fn) => (b) => (a) => fn(a)(b);",
+      "*/",
+      "}const flip = (fn) => (...args) => fn(...args.reverse())"
+    ],
+    "description": "交换函数的参数"
+  },
+  "恒等函数": {
+    "prefix": ["1locidentity", "1locFunction"],
+    "body": [
+      "${1:/**\n * 恒等函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/identity-function.md",
+      "*/",
+      "}const identity = (x) => x;"
+    ],
+    "description": "恒等函数"
+  },
+  "逻辑异或运算符": {
+    "prefix": ["1locxor", "1locFunction"],
+    "body": [
+      "${1:/**\n * 逻辑异或运算符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/logical-xor-operator.md",
+      "\n  // 相似 👇🏼",
+      "  const xor = (a, b) => !(!a && !b) && !(a && b)",
+      "  const xor = (a, b) => Boolean(!a ^ !b);",
+      "*/",
+      "}const xor = (a, b) => (a && !b) || (!a && b)"
+    ],
+    "description": "逻辑异或运算符"
+  },
+  "记忆化函数": {
+    "prefix": ["1locmemoize", "1locFunction"],
+    "body": [
+      "${1:/**\n * 记忆化函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/memoize-a-function.md",
+      "*/",
+      "}const memoize = (fn) => ((cache = Object.create(null)) => (arg) => cache[arg] || (cache[arg] = fn(arg)))();"
+    ],
+    "description": "记忆化函数"
+  },
+  "部分应用函数": {
+    "prefix": ["1locpartial", "1locFunction"],
+    "body": [
+      "${1:/**\n * 部分应用函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/partially-apply-a-function.md",
+      "*/",
+      "}const partial = (fn, ...a) => (...b) => fn(...a, ...b);"
+    ],
+    "description": "部分应用函数"
+  },
+  "解柯里化函数": {
+    "prefix": ["1locuncurry", "1locFunction"],
+    "body": [
+      "${1:/**\n * 解柯里化函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/function/uncurry-a-function.md",
+      "*/",
+      "}const uncurry = (fn, n = 1) => (...args) => ((acc) => (args) => args.reduce((x, y) => x(y), acc))(fn)(args.slice(0, n));"
+    ],
+    "description": "解柯里化函数"
+  },
+  "计算两点定义的线的角度": {
+    "prefix": ["1locradiansAngle", "1locMath"],
+    "body": [
+      "${1:/**\n * 计算两点定义的线的角度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/calculate-the-angle-of-a-line-defined-by-two-points.md",
+      "\n  // 相似 👇🏼",
+      "  const degreesAngle = (p1, p2) => (Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180) / Math.PI;",
+      "*/",
+      "}const radiansAngle = (p1, p2) => Math.atan2(p2.y - p1.y, p2.x - p1.x)"
+    ],
+    "description": "计算两点定义的线的角度"
+  },
+  "计算两个点之间的距离": {
+    "prefix": ["1locdistance", "1locMath"],
+    "body": [
+      "${1:/**\n * 计算两个点之间的距离",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/calculate-the-distance-between-two-points.md",
+      "*/",
+      "}const distance = (p1, p2) => Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));"
+    ],
+    "description": "计算两个点之间的距离"
+  },
+  "计算两个数字之间的线性插值": {
+    "prefix": ["1loclerp", "1locMath"],
+    "body": [
+      "${1:/**\n * 计算两个数字之间的线性插值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/calculate-the-linear-interpolation-between-two-numbers.md",
+      "*/",
+      "}const lerp = (a, b, amount) => (1 - amount) * a + amount * b;"
+    ],
+    "description": "计算两个数字之间的线性插值"
+  },
+  "计算两点之间的中点": {
+    "prefix": ["1locmidpoint", "1locMath"],
+    "body": [
+      "${1:/**\n * 计算两点之间的中点",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/calculate-the-midpoint-between-two-points.md",
+      "*/",
+      "}const midpoint = (p1, p2) => [(p1.x + p2.x) / 2, (p1.y + p2.y) / 2];"
+    ],
+    "description": "计算两点之间的中点"
+  },
+  "检查一个点是否在矩形内": {
+    "prefix": ["1locisInside", "1locMath"],
+    "body": [
+      "${1:/**\n * 检查一个点是否在矩形内",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/check-if-a-point-is-inside-a-rectangle.md",
+      "*/",
+      "}const isInside = (point, rect) => point.x > rect.left && point.x < rect.right && point.y > rect.top && point.y < rect.bottom;"
+    ],
+    "description": "检查一个点是否在矩形内"
+  },
+  "检查一个矩形是否包含另一个矩形": {
+    "prefix": ["1loccontains", "1locMath"],
+    "body": [
+      "${1:/**\n * 检查一个矩形是否包含另一个矩形",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/check-if-a-rectangle-contains-other-one.md",
+      "*/",
+      "}const contains = (a, b) => a.x1 <= b.x1 && a.y1 <= b.y1 && a.x2 >= b.x2 && a.y2 >= b.y2;"
+    ],
+    "description": "检查一个矩形是否包含另一个矩形"
+  },
+  "检查两个矩形是否相交": {
+    "prefix": ["1locoverlaps", "1locMath"],
+    "body": [
+      "${1:/**\n * 检查两个矩形是否相交",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/check-if-a-rectangle-overlaps-other-one.md",
+      "*/",
+      "}const overlaps = (a, b) => (a.x1 < b.x2 && b.x1 < a.x2) || (a.y1 < b.y2 && b.y1 < a.y2);"
+    ],
+    "description": "检查两个矩形是否相交"
+  },
+  "将角度转换为弧度": {
+    "prefix": ["1locdegsToRads", "1locMath"],
+    "body": [
+      "${1:/**\n * 将角度转换为弧度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/convert-degrees-to-radians.md",
+      "*/",
+      "}const degsToRads = (deg) => (deg * Math.PI) / 180.0;"
+    ],
+    "description": "将角度转换为弧度"
+  },
+  "将弧度转换为角度": {
+    "prefix": ["1locradsToDegs", "1locMath"],
+    "body": [
+      "${1:/**\n * 将弧度转换为角度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/convert-radians-to-degrees.md",
+      "*/",
+      "}const radsToDegs = (rad) => (rad * 180) / Math.PI;"
+    ],
+    "description": "将弧度转换为角度"
+  },
+  "归一化一个数字在范围内的比值": {
+    "prefix": ["1locnormalizeRatio", "1locMath"],
+    "body": [
+      "${1:/**\n * 归一化一个数字在范围内的比值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/normalize-the-ratio-of-a-number-in-a-range.md",
+      "*/",
+      "}const normalizeRatio = (value, min, max) => (value - min) / (max - min);"
+    ],
+    "description": "归一化一个数字在范围内的比值"
+  },
+  "将数字四舍五入到给定值的最近倍数": {
+    "prefix": ["1locroundNearest", "1locMath"],
+    "body": [
+      "${1:/**\n * 将数字四舍五入到给定值的最近倍数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/math/round-a-number-to-the-nearest-multiple-of-a-given-value.md",
+      "*/",
+      "}const roundNearest = (value, nearest) => Math.round(value / nearest) * nearest;"
+    ],
+    "description": "将数字四舍五入到给定值的最近倍数"
+  },
+  "检查代码是否在 NodeJS 环境中运行": {
+    "prefix": ["1locisNode", "1locMisc"],
+    "body": [
+      "${1:/**\n * 检查代码是否在 NodeJS 环境中运行",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/check-if-the-code-is-running-in-node-js.md",
+      "*/",
+      "}const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;"
+    ],
+    "description": "检查代码是否在 NodeJS 环境中运行"
+  },
+  "检查代码是否在浏览器环境中运行": {
+    "prefix": ["1locisBrowser", "1locMisc"],
+    "body": [
+      "${1:/**\n * 检查代码是否在浏览器环境中运行",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/check-if-the-code-is-running-in-the-browser.md",
+      "*/",
+      "}const isBrowser = typeof window === 'object' && typeof document === 'object';"
+    ],
+    "description": "检查代码是否在浏览器环境中运行"
+  },
+  "清除所有 cookie": {
+    "prefix": ["1locclearCookies", "1locMisc"],
+    "body": [
+      "${1:/**\n * 清除所有 cookie",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/clear-all-cookies.md",
+      "*/",
+      "}const clearCookies = () => document.cookie.split(';').forEach((c) => (document.cookie = c.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`)));"
+    ],
+    "description": "清除所有 cookie"
+  },
+  "将三位色彩转换为六位色彩": {
+    "prefix": ["1loctoFullHexColor", "1locMisc"],
+    "body": [
+      "${1:/**\n * 将三位色彩转换为六位色彩",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/convert-3-digits-color-to-6-digits-color.md",
+      "*/",
+      "}const toFullHexColor = (color) => `#${(color.startsWith('#') ? color.slice(1) : color).split('').map((c) => `${c}${c}`).join('')}`;"
+    ],
+    "description": "将三位色彩转换为六位色彩"
+  },
+  "将摄氏度转换为华氏度": {
+    "prefix": ["1loccelsiusToFahrenheit", "1locMisc"],
+    "body": [
+      "${1:/**\n * 将摄氏度转换为华氏度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/convert-celsius-to-fahrenheit.md",
+      "*/",
+      "}const celsiusToFahrenheit = (celsius) => (celsius * 9) / 5 + 32;"
+    ],
+    "description": "将摄氏度转换为华氏度"
+  },
+  "将 cookie 转换为对象": {
+    "prefix": ["1loccookies", "1locMisc"],
+    "body": [
+      "${1:/**\n * 将 cookie 转换为对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/convert-cookie-to-object.md",
+      "*/",
+      "}const cookies = document.cookie.split(';').map((item) => item.split('=')).reduce((acc, [k, v]) => (acc[k.trim().replace('\"', '')] = v) && acc, {});"
+    ],
+    "description": "将 cookie 转换为对象"
+  },
+  "将华氏度转换为摄氏度": {
+    "prefix": ["1locfahrenheitToCelsius", "1locMisc"],
+    "body": [
+      "${1:/**\n * 将华氏度转换为摄氏度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/convert-fahrenheit-to-celsius.md",
+      "*/",
+      "}const fahrenheitToCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;"
+    ],
+    "description": "将华氏度转换为摄氏度"
+  },
+  "将十六进制转换为RGB": {
+    "prefix": ["1lochexToRgb", "1locMisc"],
+    "body": [
+      "${1:/**\n * 将十六进制颜色值转换为RGB数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/convert-hex-to-rgb.md",
+      "*/}",
+      "}const hexToRgb = (hex) => hex.replace(/^#?([a-f\\d])([a-f\\d])([a-f\\d])$/i, (_, r, g, b) => `#${r}${r}${g}${g}${b}${b}`).substring(1).match(/.{2}/g).map((x) => parseInt(x, 16));"
+    ],
+    "description": "将十六进制颜色值转换为RGB数组"
+  },
+  "将RGB颜色转换为十六进制": {
+    "prefix": ["1locrgbToHex", "1locMisc"],
+    "body": [
+      "${1:/**\n * 将RGB颜色转换为十六进制",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/convert-rgb-color-to-hex.md",
+      "\n  // 类似实现 👇🏼",
+      "  const rgbToHex = (red, green, blue) => `#\\${[red, green, blue].map((v) => v.toString(16).padStart(2, '0')).join('')\\}`;",
+      "*/",
+      "}const rgbToHex = (red, green, blue) => `#${((1 << 24) + (red << 16) + (green << 8) + blue).toString(16).slice(1)}`"
+    ],
+    "description": "将RGB颜色转换为十六进制"
+  },
+  "将URL参数转换为对象": {
+    "prefix": ["1locgetUrlParams", "1locMisc"],
+    "body": [
+      "${1:/**\n * 将URL参数转换为对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/convert-url-parameters-to-object.md",
+      "*/",
+      "}const getUrlParams = (query) => Array.from(new URLSearchParams(query)).reduce((p, [k, v]) => Object.assign({}, p, { [k]: p[k] ? (Array.isArray(p[k]) ? p[k] : [p[k]]).concat(v) : v }), {});"
+    ],
+    "description": "将URL参数转换为对象"
+  },
+  "解码JWT令牌": {
+    "prefix": ["1locdecode", "1locMisc"],
+    "body": [
+      "${1:/**\n * 解码JWT令牌",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/decode-a-jwt-token.md",
+      "*/",
+      "}const decode = (token) => decodeURIComponent(atob(token.split('.')[1].replace('-', '+').replace('_', '/')).split('').map((c) => `%${('00' + c.charCodeAt(0).toString(16)).slice(-2)}`).join(''));"
+    ],
+    "description": "解码JWT令牌"
+  },
+  "检测暗色模式": {
+    "prefix": ["1locisDarkMode", "1locMisc"],
+    "body": [
+      "${1:/**\n * 检测暗色模式",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/detect-dark-mode.md",
+      "*/",
+      "}const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;"
+    ],
+    "description": "检测暗色模式"
+  },
+  "缓动函数": {
+    "prefix": ["1loclinear", "1locMisc"],
+    "body": [
+      "${1:/**\n * 缓动函数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/easing-functions.md",
+      "\n  // 类似实现 👇🏼",
+      "  const easeInQuad = (t) => t * t",
+      "  const easeOutQuad = (t) => t * (2 - t)",
+      "  const easeInOutQuad = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t)",
+      "  const easeInCubic = (t) => t * t * t",
+      "  const easeOutCubic = (t) => --t * t * t + 1",
+      "  const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)",
+      "  const easeInQuart = (t) => t * t * t * t",
+      "  const easeOutQuart = (t) => 1 - --t * t * t * t",
+      "  const easeInOutQuart = (t) => (t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t)",
+      "  const easeInQuint = (t) => t * t * t * t * t",
+      "  const easeOutQuint = (t) => 1 + --t * t * t * t * t",
+      "  const easeInOutQuint = (t) => (t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t)",
+      "  const easeInSine = (t) => 1 + Math.sin((Math.PI / 2) * t - Math.PI / 2)",
+      "  const easeOutSine = (t) => Math.sin((Math.PI / 2) * t)",
+      "  const easeInOutSine = (t) => (1 + Math.sin(Math.PI * t - Math.PI / 2)) / 2",
+      "  const easeInElastic = (t) => (0.04 - 0.04 / t) * Math.sin(25 * t) + 1",
+      "  const easeOutElastic = (t) => ((0.04 * t) / --t) * Math.sin(25 * t)",
+      "  const easeInOutElastic = (t) => ((t -= 0.5) < 0 ? (0.02 + 0.01 / t) * Math.sin(50 * t) : (0.02 - 0.01 / t) * Math.sin(50 * t) + 1);",
+      "*/",
+      "}const linear = (t) => t"
+    ],
+    "description": "缓动函数"
+  },
+  "模拟掷骰子": {
+    "prefix": ["1locthrowdice", "1locMisc"],
+    "body": [
+      "${1:/**\n * 模拟掷骰子",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/emulate-a-dice-throw.md",
+      "*/",
+      "}const throwdice = () => ~~(Math.random() * 6) + 1;"
+    ],
+    "description": "模拟掷骰子"
+  },
+  "编码URL": {
+    "prefix": ["1locencode", "1locMisc"],
+    "body": [
+      "${1:/**\n * 编码URL",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/encode-a-url.md",
+      "*/",
+      "}const encode = (url) => encodeURIComponent(url).replace(/!/g, '%21').replace(/~/g, '%7E').replace(/\\*/g, '%2A').replace(/'/g, '%27').replace(/\\(/g, '%28').replace(/\\)/g, '%29').replace(/%20/g, '+');"
+    ],
+    "description": "编码URL"
+  },
+  "生成唯一且递增的 ID": {
+    "prefix": ["1locuid", "1locMisc"],
+    "body": [
+      "${1:/**\n * 生成唯一且递增的 ID",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/generate-an-unique-and-increment-id.md",
+      "*/",
+      "}const uid = (() => ((id = 0), () => id++))();"
+    ],
+    "description": "生成唯一且递增的 ID"
+  },
+  "获取第一个定义且非空的参数": {
+    "prefix": ["1loccoalesce", "1locMisc"],
+    "body": [
+      "${1:/**\n * 获取第一个定义且非空的参数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/get-the-first-defined-and-non-null-argument.md",
+      "\n  // 类似于 👇🏼",
+      "  const coalesce = (...args) => args.find((item) => ![undefined, null].includes(item));",
+      "*/",
+      "}const coalesce = (...args) => args.find((item) => item !== undefined && item !== null)"
+    ],
+    "description": "获取第一个定义且非空的参数"
+  },
+  "获取 Cookie 的值": {
+    "prefix": ["1loccookie", "1locMisc"],
+    "body": [
+      "${1:/**\n * 获取 Cookie 的值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/get-the-value-of-a-cookie.md",
+      "*/",
+      "}const cookie = (name) => `; ${document.cookie}`.split(`; ${name}=`).pop().split(';').shift();"
+    ],
+    "description": "获取 Cookie 的值"
+  },
+  "从 URL 中获取参数的值": {
+    "prefix": ["1locgetParam", "1locMisc"],
+    "body": [
+      "${1:/**\n * 从 URL 中获取参数的值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/get-the-value-of-a-param-from-a-url.md",
+      "*/",
+      "}const getParam = (url, param) => new URLSearchParams(new URL(url).search).get(param);"
+    ],
+    "description": "从 URL 中获取参数的值"
+  },
+  "获取变量的类型（字符串形式）": {
+    "prefix": ["1locgetTypeOf", "1locMisc"],
+    "body": [
+      "${1:/**\n * 获取变量的类型（字符串形式）",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/get-type-of-a-variable-in-string.md",
+      "*/",
+      "}const getTypeOf = (obj) => Object.prototype.toString.call(obj).match(/\\[object (.*)\\]/)[1];"
+    ],
+    "description": "获取变量的类型（字符串形式）"
+  },
+  "如果页面在 HTTP 下则重定向到 HTTPS": {
+    "prefix": ["1locredirectHttps", "1locMisc"],
+    "body": [
+      "${1:/**\n * 如果页面在 HTTP 下则重定向到 HTTPS",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/redirect-the-page-to-https-if-it-is-in-http.md",
+      "*/",
+      "}const redirectHttps = () => (location.protocol === 'https:' ? {} : location.replace(`https:${location.href}`));"
+    ],
+    "description": "如果页面在 HTTP 下则重定向到 HTTPS"
+  },
+  "按顺序执行 Promise": {
+    "prefix": ["1locrun", "1locMisc"],
+    "body": [
+      "${1:/**\n * 按顺序执行 Promise",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/run-promises-in-sequence.md",
+      "*/",
+      "}const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) => [...rp, rc])), Promise.resolve([]));"
+    ],
+    "description": "按顺序执行 Promise"
+  },
+  "交换两个变量": {
+    "prefix": ["1locb]", "1locMisc"],
+    "body": [
+      "${1:/**\n * 交换两个变量",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/swap-two-variables.md",
+      "*/",
+      "}[a, b] = [b, a];a = [b, (b = a)][0];a = ((x) => x)(b, (b = a));a = b + ((b = a), 0);a = b * ((b = a), 1);"
+    ],
+    "description": "交换两个变量"
+  },
+  "等待一段时间": {
+    "prefix": ["1locwait", "1locMisc"],
+    "body": [
+      "${1:/**\n * 等待一段时间",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/misc/wait-for-an-amount-of-time.md",
+      "*/",
+      "}const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));"
+    ],
+    "description": "等待一段时间"
+  },
+  "给数字添加序数后缀": {
+    "prefix": ["1locaddOrdinal", "1locNumber"],
+    "body": [
+      "${1:/**\n * 给数字添加序数后缀",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/add-an-ordinal-suffix-to-a-number.md",
+      "\n  // 类似于 👇🏼",
+      "  const addOrdinal = (n) => `${n}${[, 'st', 'nd', 'rd'][/1?.\\$/.exec(n)] || 'th'}`",
+      "  const addOrdinal = (n) => `${n}${[, 'st', 'nd', 'rd'][(n % 100 >> 3) ^ 1 && n % 10] || 'th'}`",
+      "  const addOrdinal = (n) => `${n}${{ one: 'st', two: 'nd', few: 'rd', other: 'th' }[new Intl.PluralRules('en', { type: 'ordinal' }).select(n)]}`;",
+      "*/",
+      "}const addOrdinal = (n) => `${n}${['st', 'nd', 'rd'][((((n + 90) % 100) - 10) % 10) - 1] || 'th'}`"
+    ],
+    "description": "给数字添加序数后缀"
+  },
+  "计算斐波那契数列": {
+    "prefix": ["1locfibo", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算斐波那契数列",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/calculate-fibonacci-numbers.md",
+      "*/",
+      "}const fibo = (n, memo = {}) => memo[n] || (n <= 2 ? 1 : (memo[n] = fibo(n - 1, memo) + fibo(n - 2, memo)));"
+    ],
+    "description": "计算斐波那契数列"
+  },
+  "计算平均数": {
+    "prefix": ["1locaverage", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算平均数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/calculate-the-average-of-arguments.md",
+      "*/",
+      "}const average = (...args) => args.reduce((a, b) => a + b) / args.length;"
+    ],
+    "description": "计算平均数"
+  },
+  "计算除法结果": {
+    "prefix": ["1locdivision", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算除法结果",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/calculate-the-division-of-arguments.md",
+      "*/",
+      "}const division = (...args) => args.reduce((a, b) => a / b);"
+    ],
+    "description": "计算除法结果"
+  },
+  "计算阶乘": {
+    "prefix": ["1locfactorial", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算阶乘",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/calculate-the-factorial-of-a-number.md",
+      "*/",
+      "}const factorial = (n) => (n <= 1 ? 1 : n * factorial(n - 1));"
+    ],
+    "description": "计算阶乘"
+  },
+  "计算集合索引的模": {
+    "prefix": ["1locmod", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算集合索引的模",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/calculate-the-mod-of-collection-index.md",
+      "*/",
+      "}const mod = (a, b) => ((a % b) + b) % b;"
+    ],
+    "description": "计算集合索引的模"
+  },
+  "计算除法余数": {
+    "prefix": ["1locremainder", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算除法余数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/calculate-the-remainder-of-division-of-arguments.md",
+      "*/",
+      "}const remainder = (...args) => args.reduce((a, b) => a % b);"
+    ],
+    "description": "计算除法余数"
+  },
+  "计算总和": {
+    "prefix": ["1locsum", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算总和",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/calculate-the-sum-of-arguments.md",
+      "*/",
+      "}const sum = (...args) => args.reduce((a, b) => a + b);"
+    ],
+    "description": "计算总和"
+  },
+  "将数字限制在两个值之间": {
+    "prefix": ["1locclamp", "1locNumber"],
+    "body": [
+      "${1:/**\n * 将数字限制在两个值之间",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/clamp-a-number-between-two-values.md",
+      "*/",
+      "}const clamp = (val, min = 0, max = 1) => Math.max(min, Math.min(max, val));"
+    ],
+    "description": "将数字限制在两个值之间"
+  },
+  "计算两个数的最大公约数": {
+    "prefix": ["1locgcd", "1locNumber"],
+    "body": [
+      "${1:/**\n * 计算两个数的最大公约数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/compute-the-greatest-common-divisor-between-two-numbers.md",
+      "*/",
+      "}const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));"
+    ],
+    "description": "计算两个数的最大公约数"
+  },
+  "将数字转换为相应的字符": {
+    "prefix": ["1loctoChars", "1locNumber"],
+    "body": [
+      "${1:/**\n * 将数字转换为相应的字符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/convert-a-number-to-equivalent-characters.md",
+      "*/",
+      "}const toChars = (n) => `${n >= 26 ? toChars(Math.floor(n / 26) - 1) : ''}${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[n % 26]}`;"
+    ],
+    "description": "将数字转换为相应的字符"
+  },
+  "将字符串转换为数字": {
+    "prefix": ["1loctoNumber", "1locNumber"],
+    "body": [
+      "${1:/**\n * 将字符串转换为数字",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/convert-a-string-to-number.md",
+      "*/",
+      "}const toNumber = (str) => +str;"
+    ],
+    "description": "将字符串转换为数字"
+  },
+  "递归地将十进制转换为二进制": {
+    "prefix": ["1locdecToBi", "1locNumber"],
+    "body": [
+      "${1:/**\n * 递归地将十进制转换为二进制",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/convert-decimal-to-binary-recursively.md",
+      "*/",
+      "}const decToBi = (num) => (num === 0 ? 0 : (num % 2) + 10 * decToBi(~~(num / 2)));"
+    ],
+    "description": "递归地将十进制转换为二进制"
+  },
+  "从数字中获取数字数组": {
+    "prefix": ["1locdigitize", "1locNumber"],
+    "body": [
+      "${1:/**\n * 从数字中获取数字数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/get-the-arrays-of-digits-from-a-number.md",
+      "\n  // 类似于 👇🏼",
+      "  const digitize = (n) => [...`${n}`].map((v) => parseInt(v, 10));",
+      "*/",
+      "}const digitize = (n) => `${n}`.split('').map((v) => parseInt(v, 10))"
+    ],
+    "description": "从数字中获取数字数组"
+  },
+  "将参数相乘": {
+    "prefix": ["1locmul", "1locNumber"],
+    "body": [
+      "${1:/**\n * 将参数相乘",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/multiply-arguments.md",
+      "*/",
+      "}const mul = (...args) => args.reduce((a, b) => a * b);"
+    ],
+    "description": "将参数相乘"
+  },
+  "在整数前填充零": {
+    "prefix": ["1locprefixWithZeros", "1locNumber"],
+    "body": [
+      "${1:/**\n * 在整数前填充零",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/prefix-an-integer-with-zeros.md",
+      "\n  // 类似于 👇🏼",
+      "  const prefixWithZeros = (n, length) => `${Array(length).join('0')}${n}`.slice(-length)",
+      "  const prefixWithZeros = (n, length) => String(n).padStart(length, '0');",
+      "*/",
+      "}const prefixWithZeros = (n, length) => (n / Math.pow(10, length)).toFixed(length).substr(2)"
+    ],
+    "description": "在整数前填充零"
+  },
+  "将数字四舍五入到指定位数": {
+    "prefix": ["1locround", "1locNumber"],
+    "body": [
+      "${1:/**\n * 将数字四舍五入到指定位数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/round-a-number-to-a-given-number-of-digits.md",
+      "*/",
+      "}const round = (n, decimals = 0) => Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`);"
+    ],
+    "description": "将数字四舍五入到指定位数"
+  },
+  "参数相减": {
+    "prefix": ["1locsubtract", "1locNumber"],
+    "body": [
+      "${1:/**\n * 参数相减",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/subtract-arguments.md",
+      "*/",
+      "}const subtract = (...args) => args.reduce((a, b) => a - b);"
+    ],
+    "description": "参数相减"
+  },
+  "截断小数部分": {
+    "prefix": ["1loctruncate", "1locNumber"],
+    "body": [
+      "${1:/**\n * 截断小数部分",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/truncate-a-number-at-decimal.md",
+      "*/",
+      "}const truncate = (n) => ~~n;"
+    ],
+    "description": "截断小数部分"
+  },
+  "在指定小数位数后截断数字而不四舍五入": {
+    "prefix": ["1loctoFixed", "1locNumber"],
+    "body": [
+      "${1:/**\n * 在指定小数位数后截断数字而不四舍五入",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/number/truncate-a-number-to-a-given-number-of-decimal-places-without-rounding.md",
+      "\n  // 类似实现 👇🏼",
+      "  const toFixed = (n, fixed) => ~~(Math.pow(10, fixed) * n) / Math.pow(10, fixed);",
+      "*/",
+      "}const toFixed = (n, fixed) => `${n}`.match(new RegExp(`^-?\\\\d+(?:\\.\\\\d{0,${fixed}})?`))[0]"
+    ],
+    "description": "在指定小数位数后截断数字而不四舍五入"
+  },
+  "检查多个对象是否相等": {
+    "prefix": ["1locisEqual", "1locObject"],
+    "body": [
+      "${1:/**\n * 检查多个对象是否相等",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/check-if-multiple-objects-are-equal.md",
+      "*/",
+      "}const isEqual = (...objects) => objects.every((obj) => JSON.stringify(obj) === JSON.stringify(objects[0]));"
+    ],
+    "description": "检查多个对象是否相等"
+  },
+  "创建一个没有属性的空映射": {
+    "prefix": ["1locmap", "1locObject"],
+    "body": [
+      "${1:/**\n * 创建一个没有属性的空映射",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/create-an-empty-map-that-does-not-have-properties.md",
+      "*/",
+      "}const map = Object.create(null);"
+    ],
+    "description": "创建一个没有属性的空映射"
+  },
+  "从键值对数组创建对象": {
+    "prefix": ["1loctoObj", "1locObject"],
+    "body": [
+      "${1:/**\n * 从键值对数组创建对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/create-an-object-from-the-pairs-of-key-and-value.md",
+      "\n  // 类似实现 👇🏼",
+      "  const toObj = (arr) => arr.reduce((a, c) => ((a[c[0]] = c[1]), a), {});",
+      "*/",
+      "}const toObj = (arr) => Object.fromEntries(arr)"
+    ],
+    "description": "从键值对数组创建对象"
+  },
+  "从对象数组中提取特定属性的值": {
+    "prefix": ["1locpluck", "1locObject"],
+    "body": [
+      "${1:/**\n * 从对象数组中提取特定属性的值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/extract-values-of-a-property-from-an-array-of-objects.md",
+      "*/",
+      "}const pluck = (objs, property) => objs.map((obj) => obj[property]);"
+    ],
+    "description": "从对象数组中提取特定属性的值"
+  },
+  "获取对象给定路径的值": {
+    "prefix": ["1locgetValue", "1locObject"],
+    "body": [
+      "${1:/**\n * 获取对象给定路径的值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/get-the-value-at-given-path-of-an-object.md",
+      "*/",
+      "}const getValue = (path, obj) => path.split('.').reduce((acc, c) => acc && acc[c], obj);"
+    ],
+    "description": "获取对象给定路径的值"
+  },
+  "不可变地重命名对象键": {
+    "prefix": ["1locrenameKeys", "1locObject"],
+    "body": [
+      "${1:/**\n * 不可变地重命名对象键",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/immutably-rename-object-keys.md",
+      "*/",
+      "}const renameKeys = (keysMap, obj) => Object.keys(obj).reduce((acc, key) => ({ ...acc, ...{ [keysMap[key] || key]: obj[key] } }), {});"
+    ],
+    "description": "不可变地重命名对象键"
+  },
+  "反转对象的键和值": {
+    "prefix": ["1locinvert", "1locObject"],
+    "body": [
+      "${1:/**\n * 反转对象的键和值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/invert-keys-and-values-of-an-object.md",
+      "\n  // 类似实现 👇🏼",
+      "  const invert = (obj) => Object.fromEntries(Object.entries(obj).map(([k, v]) => [v, k]));",
+      "*/",
+      "}const invert = (obj) => Object.keys(obj).reduce((res, k) => Object.assign(res, { [obj[k]]: k }), {})"
+    ],
+    "description": "反转对象的键和值"
+  },
+  "从对象中删除一组属性": {
+    "prefix": ["1locomit", "1locObject"],
+    "body": [
+      "${1:/**\n * 从对象中删除一组属性",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/omit-a-subset-of-properties-from-an-object.md",
+      "*/",
+      "}const omit = (obj, keys) => Object.keys(obj).filter((k) => !keys.includes(k)).reduce((res, k) => Object.assign(res, { [k]: obj[k] }), {});"
+    ],
+    "description": "从对象中删除一组属性"
+  },
+  "选择对象的一组属性": {
+    "prefix": ["1locpick", "1locObject"],
+    "body": [
+      "${1:/**\n * 选择对象的一组属性",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/pick-a-subset-of-properties-of-an-object.md",
+      "*/",
+      "}const pick = (obj, keys) => Object.keys(obj).filter((k) => keys.includes(k)).reduce((res, k) => Object.assign(res, { [k]: obj[k] }), {});"
+    ],
+    "description": "选择对象的一组属性"
+  },
+  "从对象中移除所有 null 和 undefined 的属性": {
+    "prefix": ["1locremoveNullUndefined", "1locObject"],
+    "body": [
+      "${1:/**\n * 从对象中移除所有 null 和 undefined 的属性",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/remove-all-null-and-undefined-properties-from-an-object.md",
+      "\n  // 类似实现 👇🏼",
+      "  const removeNullUndefined = (obj) => Object.entries(obj).filter(([_, v]) => v != null).reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {});",
+      "  const removeNullUndefined = (obj) => Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));",
+      "*/",
+      "}const removeNullUndefined = (obj) => Object.entries(obj).reduce((a, [k, v]) => (v == null ? a : ((a[k] = v), a)), {})"
+    ],
+    "description": "从对象中移除所有 null 和 undefined 的属性"
+  },
+  "浅拷贝一个对象": {
+    "prefix": ["1locshallowCopy", "1locObject"],
+    "body": [
+      "${1:/**\n * 浅拷贝一个对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/shallow-copy-an-object.md",
+      "\n  // 类似实现 👇🏼",
+      "  const shallowCopy = obj => {...obj};",
+      "*/",
+      "}const shallowCopy = obj => Object.assign({}, obj)"
+    ],
+    "description": "浅拷贝一个对象"
+  },
+  "按属性排序一个对象": {
+    "prefix": ["1locsort", "1locObject"],
+    "body": [
+      "${1:/**\n * 按属性排序一个对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/object/sort-an-object-by-its-properties.md",
+      "*/",
+      "}const sort = (obj) => Object.keys(obj).sort().reduce((p, c) => ((p[c] = obj[c]), p), {});"
+    ],
+    "description": "按属性排序一个对象"
+  },
+  "生成一个随机布尔值": {
+    "prefix": ["1locrandomBoolean", "1locRandom"],
+    "body": [
+      "${1:/**\n * 生成一个随机布尔值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-boolean.md",
+      "*/",
+      "}const randomBoolean = () => Math.random() >= 0.5;"
+    ],
+    "description": "生成一个随机布尔值"
+  },
+  "在给定范围内生成一个随机浮点数": {
+    "prefix": ["1locrandomFloat", "1locRandom"],
+    "body": [
+      "${1:/**\n * 在给定范围内生成一个随机浮点数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-floating-point-number-in-given-range.md",
+      "*/",
+      "}const randomFloat = (min, max) => Math.random() * (max - min) + min;"
+    ],
+    "description": "在给定范围内生成一个随机浮点数"
+  },
+  "生成一个随机十六进制颜色": {
+    "prefix": ["1locrandomColor", "1locRandom"],
+    "body": [
+      "${1:/**\n * 生成一个随机十六进制颜色",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-hex-color.md",
+      "\n  // 类似实现 👇🏼",
+      "  const randomColor = () => `#${(~~(Math.random() * (1 << 24))).toString(16)}`;",
+      "*/",
+      "}const randomColor = () => `#${Math.random().toString(16).slice(2, 8).padEnd(6, '0')}`"
+    ],
+    "description": "生成一个随机十六进制颜色"
+  },
+  "在给定范围内生成一个随机整数": {
+    "prefix": ["1locrandomInteger", "1locRandom"],
+    "body": [
+      "${1:/**\n * 在给定范围内生成一个随机整数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-integer-in-given-range.md",
+      "*/",
+      "}const randomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;"
+    ],
+    "description": "在给定范围内生成一个随机整数"
+  },
+  "生成一个随机 IP 地址": {
+    "prefix": ["1locrandomIp", "1locRandom"],
+    "body": [
+      "${1:/**\n * 生成一个随机 IP 地址",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-ip-address.md",
+      "*/",
+      "}const randomIp = () => Array(4).fill(0).map((_, i) => Math.floor(Math.random() * 255) + (i === 0 ? 1 : 0)).join('.');"
+    ],
+    "description": "生成一个随机 IP 地址"
+  },
+  "生成一个随机符号": {
+    "prefix": ["1locrandomSign", "1locRandom"],
+    "body": [
+      "${1:/**\n * 生成一个随机符号",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-sign.md",
+      "*/",
+      "}const randomSign = () => (Math.random() >= 0.5 ? 1 : -1);"
+    ],
+    "description": "生成一个随机符号"
+  },
+  "生成指定字符集的随机字符串": {
+    "prefix": ["1locgenerateString", "1locRandom"],
+    "body": [
+      "${1:/**\n * 从给定字符集中生成随机字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-string-from-given-characters.md",
+      "*/",
+      "}const generateString = (length, chars) => Array(length).fill('').map((v) => chars[Math.floor(Math.random() * chars.length)]).join('');"
+    ],
+    "description": "从给定字符集中生成随机字符串"
+  },
+  "使用Node.js的crypto模块生成随机字符串": {
+    "prefix": ["1locrandomStr", "1locRandom"],
+    "body": [
+      "${1:/**\n * 使用Node.js的crypto模块生成随机字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-string-using-node-crypto-module.md",
+      "*/",
+      "}const randomStr = () => require('crypto').randomBytes(32).toString('hex');"
+    ],
+    "description": "使用Node.js的crypto模块生成随机字符串"
+  },
+  "根据指定长度生成随机字符串": {
+    "prefix": ["1locgenerateString", "1locRandom"],
+    "body": [
+      "${1:/**\n * 根据指定长度生成随机字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-string-with-given-length.md",
+      "*/",
+      "}const generateString = (length) => Array(length).fill('').map((v) => Math.random().toString(36).charAt(2)).join('');"
+    ],
+    "description": "根据指定长度生成随机字符串"
+  },
+  "生成随机UUID": {
+    "prefix": ["1locuuid", "1locRandom"],
+    "body": [
+      "${1:/**\n * 生成随机UUID",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-a-random-uuid.md",
+      "*/",
+      "}const uuid = (a) => (a ? (a ^ ((Math.random() * 16) >> (a / 4))).toString(16) : ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, uuid));"
+    ],
+    "description": "生成随机UUID"
+  },
+  "在指定范围内生成随机整数数组": {
+    "prefix": ["1locrandomArrayInRange", "1locRandom"],
+    "body": [
+      "${1:/**\n * 在指定范围内生成随机整数数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/generate-an-array-of-random-integers-in-a-given-range.md",
+      "*/",
+      "}const randomArrayInRange = (min, max, n) => Array.from({ length: n }, () => Math.floor(Math.random() * (max - min + 1)) + min);"
+    ],
+    "description": "在指定范围内生成随机整数数组"
+  },
+  "从数组中随机获取并移除一个元素": {
+    "prefix": ["1locrandomItem", "1locRandom"],
+    "body": [
+      "${1:/**\n * 从数组中随机获取并移除一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/get-a-random-item-and-remove-it-from-an-array.md",
+      "*/",
+      "}const randomItem = (arr) => arr.splice((Math.random() * arr.length) | 0, 1);"
+    ],
+    "description": "从数组中随机获取并移除一个元素"
+  },
+  "从数组中随机获取一个元素": {
+    "prefix": ["1locrandomItem", "1locRandom"],
+    "body": [
+      "${1:/**\n * 从数组中随机获取一个元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/get-a-random-item-from-an-array.md",
+      "*/",
+      "}const randomItem = (arr) => arr[(Math.random() * arr.length) | 0];"
+    ],
+    "description": "从数组中随机获取一个元素"
+  },
+  "从数组中获取随机元素": {
+    "prefix": ["1locrandomItems", "1locRandom"],
+    "body": [
+      "${1:/**\n * 从数组中获取随机元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/get-random-items-of-an-array.md",
+      "*/",
+      "}const randomItems = (arr, count) => arr.concat().reduce((p, _, __, arr) => (p[0] < count ? [p[0] + 1, p[1].concat(arr.splice((Math.random() * arr.length) | 0, 1))] : p), [0, []])[1];"
+    ],
+    "description": "从数组中获取随机元素"
+  },
+  "从对象中随机选择一个属性": {
+    "prefix": ["1locrandomProp", "1locRandom"],
+    "body": [
+      "${1:/**\n * 从对象中随机选择一个属性",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/pick-a-random-property-of-an-object.md",
+      "*/",
+      "}const randomProp = (obj) => Object.keys(obj)[(Math.random() * Object.keys(obj).length) | 0];"
+    ],
+    "description": "从对象中随机选择一个属性"
+  },
+  "从文本文件中随机选择行": {
+    "prefix": ["1locrandomLines", "1locRandom"],
+    "body": [
+      "${1:/**\n * 从文本文件中随机选择行",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/random/pick-random-lines-from-a-text-document.md",
+      "*/",
+      "}const randomLines = (str, count) => str.split(/\\r?\\n/).reduce((p, _, __, arr) => (p[0] < count ? [p[0] + 1, p[1].concat(arr.splice((Math.random() * arr.length) | 0, 1))] : p), [0, []])[1];"
+    ],
+    "description": "从文本文件中随机选择行"
+  },
+  "首字母大写": {
+    "prefix": ["1loccapitalize", "1locString"],
+    "body": [
+      "${1:/**\n * 首字母大写",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/capitalize-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const capitalize = ([first, ...rest]) => `\\${first.toUpperCase()\\}\\${rest.join('')\\}`;",
+      "*/",
+      "}const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`"
+    ],
+    "description": "首字母大写"
+  },
+  "检查路径是否为相对路径": {
+    "prefix": ["1locisRelative", "1locString"],
+    "body": [
+      "${1:/**\n * 检查路径是否为相对路径",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/check-if-a-path-is-relative.md",
+      "*/",
+      "}const isRelative = (path) => !/^([a-z]+:)?[\\\\/]/i.test(path);"
+    ],
+    "description": "检查路径是否为相对路径"
+  },
+  "检查字符串是否由重复的字符序列组成": {
+    "prefix": ["1locconsistsRepeatedSubstring", "1locString"],
+    "body": [
+      "${1:/**\n * 检查字符串是否由重复的字符序列组成",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/check-if-a-string-consists-of-a-repeated-character-sequence.md",
+      "*/",
+      "}const consistsRepeatedSubstring = (str) => `${str}${str}`.indexOf(str, 1) !== str.length;"
+    ],
+    "description": "检查字符串是否由重复的字符序列组成"
+  },
+  "检查字符串是否为回文": {
+    "prefix": ["1locisPalindrome", "1locString"],
+    "body": [
+      "${1:/**\n * 检查字符串是否为回文",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/check-if-a-string-is-a-palindrome.md",
+      "*/",
+      "}const isPalindrome = (str) => str === str.split('').reverse().join('');"
+    ],
+    "description": "检查字符串是否为回文"
+  },
+  "检查URL是否为绝对路径": {
+    "prefix": ["1locisAbsoluteUrl", "1locString"],
+    "body": [
+      "${1:/**\n * 检查URL是否为绝对路径",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/check-if-a-url-is-absolute.md",
+      "*/",
+      "}const isAbsoluteUrl = (url) => /^[a-z][a-z0-9+.-]*:/.test(url);"
+    ],
+    "description": "检查URL是否为绝对路径"
+  },
+  "检查两个字符串是否为变位词": {
+    "prefix": ["1locareAnagram", "1locString"],
+    "body": [
+      "${1:/**\n * 检查两个字符串是否为变位词",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/check-if-two-strings-are-anagram.md",
+      "*/",
+      "}const areAnagram = (str1, str2) => str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');"
+    ],
+    "description": "检查两个字符串是否为变位词"
+  },
+  "将Base64编码的字符串转换为Uint8数组": {
+    "prefix": ["1locbase64ToUint8", "1locString"],
+    "body": [
+      "${1:/**\n * 将Base64编码的字符串转换为Uint8数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-a-base64-encoded-string-to-an-uint8-array.md",
+      "*/",
+      "}const base64ToUint8 = (str) => Uint8Array.from(atob(str), (c) => c.charCodeAt(0));"
+    ],
+    "description": "将Base64编码的字符串转换为Uint8数组"
+  },
+  "将字母转换为对应的emoji": {
+    "prefix": ["1locletterToEmoji", "1locString"],
+    "body": [
+      "${1:/**\n * 将字母转换为对应的emoji",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-a-letter-to-associate-emoji.md",
+      "*/",
+      "}const letterToEmoji = (c) => String.fromCodePoint(c.toLowerCase().charCodeAt(0) + 127365);"
+    ],
+    "description": "将字母转换为对应的emoji"
+  },
+  "将字符串转换为camelCase格式": {
+    "prefix": ["1loctoCamelCase", "1locString"],
+    "body": [
+      "${1:/**\n * 将字符串转换为camelCase格式",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-a-string-to-camel-case.md",
+      "*/",
+      "}const toCamelCase = (str) => str.trim().replace(/[-_\\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''));"
+    ],
+    "description": "将字符串转换为camelCase格式"
+  },
+  "将字符串转换为PascalCase格式": {
+    "prefix": ["1loctoPascalCase", "1locString"],
+    "body": [
+      "${1:/**\n * 将字符串转换为PascalCase格式",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-a-string-to-pascal-case.md",
+      "*/",
+      "}const toPascalCase = (str) => (str.match(/[a-zA-Z0-9]+/g) || []).map((w) => `${w.charAt(0).toUpperCase()}${w.slice(1)}`).join('');"
+    ],
+    "description": "将字符串转换为PascalCase格式"
+  },
+  "将字符串转换为URL slug": {
+    "prefix": ["1locslugify", "1locString"],
+    "body": [
+      "${1:/**\n * 将字符串转换为URL slug",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-a-string-to-url-slug.md",
+      "*/",
+      "}const slugify = (str) => str.toLowerCase().replace(/\\s+/g, '-').replace(/[^\\w-]+/g, '');"
+    ],
+    "description": "将字符串转换为URL slug"
+  },
+  "将Windows文件路径转换为Unix路径": {
+    "prefix": ["1loctoUnixPath", "1locString"],
+    "body": [
+      "${1:/**\n * 将Windows文件路径转换为Unix路径",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-a-windows-file-path-to-unix-path.md",
+      "*/",
+      "}const toUnixPath = (path) => path.replace(/[\\\\/]+/g, '/').replace(/^([a-zA-Z]+:|\\.\\/)/, '');"
+    ],
+    "description": "将Windows文件路径转换为Unix路径"
+  },
+  "将Uint8数组转换为Base64编码的字符串": {
+    "prefix": ["1locuint8ToBase64", "1locString"],
+    "body": [
+      "${1:/**\n * 将Uint8数组转换为Base64编码的字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-an-uint8-array-to-a-base64-encoded-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const uint8ToBase64 = (arr) => Buffer.from(arr).toString('base64');",
+      "*/",
+      "}const uint8ToBase64 = (arr) => btoa(Array(arr.length).fill('').map((_, i) => String.fromCharCode(arr[i])).join(''))"
+    ],
+    "description": "将Uint8数组转换为Base64编码的字符串"
+  },
+  "在camelCase和kebab-case之间相互转换": {
+    "prefix": ["1lockebabToCamel", "1locString"],
+    "body": [
+      "${1:/**\n * 在camelCase和kebab-case之间相互转换",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-camel-case-to-kebab-case-and-vice-versa.md",
+      "\n  // 类似实现 👇🏼",
+      "  const camelToKebab = (str) => str.replace(/([a-z0-9])([A-Z])/g, '\\$1-\\$2').toLowerCase();",
+      "*/",
+      "}const kebabToCamel = (str) => str.replace(/-./g, (m) => m.toUpperCase()[1])"
+    ],
+    "description": "在camelCase和kebab-case之间相互转换"
+  },
+  "将snake_case转换为camelCase": {
+    "prefix": ["1locsnakeToCamel", "1locString"],
+    "body": [
+      "${1:/**\n * 将snake_case转换为camelCase",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-snake-case-to-camel-case.md",
+      "*/",
+      "}const snakeToCamel = (str) => str.toLowerCase().replace(/(_\\w)/g, (m) => m.toUpperCase().substr(1));"
+    ],
+    "description": "将snake_case转换为camelCase"
+  },
+  "将Excel列名转换为数字": {
+    "prefix": ["1locgetIndex", "1locString"],
+    "body": [
+      "${1:/**\n * 将Excel列名转换为数字",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/convert-the-name-of-an-excel-column-to-number.md",
+      "*/",
+      "}const getIndex = (col) => col.split('').reduce((prev, next) => prev * 26 + parseInt(next, 36) - 9, 0);"
+    ],
+    "description": "将Excel列名转换为数字"
+  },
+  "计算字符串中的单词数量": {
+    "prefix": ["1loccountWords", "1locString"],
+    "body": [
+      "${1:/**\n * 计算字符串中的单词数量",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/count-the-number-of-words-in-a-string.md",
+      "*/",
+      "}const countWords = (str) => str.trim().split(/\\s+/).length;"
+    ],
+    "description": "计算字符串中的单词数量"
+  },
+  "计算字符串中某个字符出现的次数": {
+    "prefix": ["1loccountOccurrences", "1locString"],
+    "body": [
+      "${1:/**\n * 计算字符串中某个字符出现的次数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/count-the-occurrences-of-a-character-in-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const countOccurrences = (str, char) => str.split('').reduce((a, v) => (v === char ? a + 1 : a), 0)",
+      "  const countOccurrences = (str, char) => [...str].filter((item) => item === char).length",
+      "  const countOccurrences = (str, char) => str.split('').filter((item) => item === char).length;",
+      "*/",
+      "}const countOccurrences = (str, char) => [...str].reduce((a, v) => (v === char ? a + 1 : a), 0)"
+    ],
+    "description": "计算字符串中某个字符出现的次数"
+  },
+  "将字符串首字母转为小写": {
+    "prefix": ["1locdecapitalize", "1locString"],
+    "body": [
+      "${1:/**\n * 将字符串首字母转为小写",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/decapitalize-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const decapitalize = ([first, ...rest]) => `\\${first.toLowerCase()\\}\\${rest.join('')\\}`;",
+      "*/",
+      "}const decapitalize = (str) => `${str.charAt(0).toLowerCase()}${str.slice(1)}`"
+    ],
+    "description": "将字符串首字母转为小写"
+  },
+  "转义HTML特殊字符": {
+    "prefix": ["1locescape", "1locString"],
+    "body": [
+      "${1:/**\n * 转义HTML特殊字符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/escape-html-special-characters.md",
+      "\n  // 类似实现 👇🏼",
+      "  const escape = (str) => str.replace(/[&<>\"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;', \"'\":'&#39;' \\}[m]));",
+      "*/",
+      "}const escape = (str) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&#39;').replace(/\"/g, '&quot;')"
+    ],
+    "description": "转义HTML特殊字符"
+  },
+  "格式化字符串": {
+    "prefix": ["1locformat", "1locString"],
+    "body": [
+      "${1:/**\n * 格式化字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/format-a-string.md",
+      "*/",
+      "}const format = (str, ...vals) => vals.reduce((s, v, i) => s.replace(new RegExp('\\\\{' + i + '\\\\}', 'g'), v), str);"
+    ],
+    "description": "格式化字符串"
+  },
+  "生成字符串的哈希值": {
+    "prefix": ["1lochash", "1locString"],
+    "body": [
+      "${1:/**\n * 生成字符串的哈希值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/generate-a-hash-of-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const hash = (str) => str.split('').reduce((prev, curr) => ((prev << 5) - prev + curr.charCodeAt(0)) | 0, 0);",
+      "*/",
+      "}const hash = (str) => str.split('').reduce((prev, curr) => (Math.imul(31, prev) + curr.charCodeAt(0)) | 0, 0)"
+    ],
+    "description": "生成字符串的哈希值"
+  },
+  "获取基础URL（不含任何参数）": {
+    "prefix": ["1locbaseUrl", "1locString"],
+    "body": [
+      "${1:/**\n * 获取基础URL（不含任何参数）",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/get-the-base-url-without-any-parameters.md",
+      "\n  // 类似实现 👇🏼",
+      "  const baseUrl = (url) => (url.includes('?') ? url.slice(0, url.indexOf('?')) : url);",
+      "  const baseUrl = (url) => url.split('?')[0];",
+      "*/",
+      "}const baseUrl = (url) => (url.indexOf('?') === -1 ? url : url.slice(0, url.indexOf('?')))"
+    ],
+    "description": "获取基础URL（不含任何参数）"
+  },
+  "从文件名中获取扩展名": {
+    "prefix": ["1locext", "1locString"],
+    "body": [
+      "${1:/**\n * 从文件名中获取扩展名",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/get-the-file-extension-from-a-file-name.md",
+      "*/",
+      "}const ext = (fileName) => fileName.split('.').pop();"
+    ],
+    "description": "从文件名中获取扩展名"
+  },
+  "从URL中获取文件名": {
+    "prefix": ["1locfileName", "1locString"],
+    "body": [
+      "${1:/**\n * 从URL中获取文件名",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/get-the-file-name-from-a-url.md",
+      "*/",
+      "}const fileName = (url: string): string => url.substring(url.lastIndexOf('/') + 1);"
+    ],
+    "description": "从URL中获取文件名"
+  },
+  "获取字符串的字节长度": {
+    "prefix": ["1locbytes", "1locString"],
+    "body": [
+      "${1:/**\n * 获取字符串的字节长度",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/get-the-length-of-a-string-in-bytes.md",
+      "*/",
+      "}const bytes = (str) => new Blob([str]).size;"
+    ],
+    "description": "获取字符串的字节长度"
+  },
+  "计算字符串中某个字符的数量": {
+    "prefix": ["1loccharacterCount", "1locString"],
+    "body": [
+      "${1:/**\n * 计算字符串中某个字符的数量",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/get-the-number-of-a-character-in-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const characterCount = (str, char) => str.replace(new RegExp(String.raw`[^\\${char\\}]`, 'g'), '').length;",
+      "*/",
+      "}const characterCount = (str, char) => str.split(char).length - 1"
+    ],
+    "description": "计算字符串中某个字符的数量"
+  },
+  "将字符串的第一个字符转为小写": {
+    "prefix": ["1loclowercaseFirst", "1locString"],
+    "body": [
+      "${1:/**\n * 将字符串的第一个字符转为小写",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/make-the-first-character-of-a-string-lowercase.md",
+      "*/",
+      "}const lowercaseFirst = (str) => `${str.charAt(0).toLowerCase()}${str.slice(1)}`;"
+    ],
+    "description": "将字符串的第一个字符转为小写"
+  },
+  "规范化文件路径中的斜杠": {
+    "prefix": ["1locnormalizePath", "1locString"],
+    "body": [
+      "${1:/**\n * 规范化文件路径中的斜杠",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/normalize-file-path-slashes.md",
+      "*/",
+      "}const normalizePath = (path) => path.replace(/[\\\\/]+/g, '/');"
+    ],
+    "description": "规范化文件路径中的斜杠"
+  },
+  "在文本文件的每一行前添加行号": {
+    "prefix": ["1locprependNumbers", "1locString"],
+    "body": [
+      "${1:/**\n * 在文本文件的每一行前添加行号",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/prepend-a-line-number-to-each-line-of-a-text-document.md",
+      "*/",
+      "}const prependNumbers = (str) => str.split(/\\r?\\n/).map((line, i) => `${(i + 1).toString().padStart(2, ' ')} ${line}`).join('\\n');"
+    ],
+    "description": "在文本文件的每一行前添加行号"
+  },
+  "删除文本文件中的重复行": {
+    "prefix": ["1locremoveDuplicateLines", "1locString"],
+    "body": [
+      "${1:/**\n * 删除文本文件中的重复行",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/remove-duplicate-lines-of-a-text-document.md",
+      "*/",
+      "}const removeDuplicateLines = (str) => Array.from(new Set(str.split(/\\r?\\n/))).join('\\n');"
+    ],
+    "description": "删除文本文件中的重复行"
+  },
+  "删除文本文件中的空行": {
+    "prefix": ["1locremoveEmptyLines", "1locString"],
+    "body": [
+      "${1:/**\n * 删除文本文件中的空行",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/remove-empty-lines-of-a-text-document.md",
+      "*/",
+      "}const removeEmptyLines = (str) => str.split(/\\r?\\n/).filter((line) => line.trim() !== '').join('\\n');"
+    ],
+    "description": "删除文本文件中的空行"
+  },
+  "删除字符串中的空格": {
+    "prefix": ["1locremoveSpaces", "1locString"],
+    "body": [
+      "${1:/**\n * 删除字符串中的空格",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/remove-spaces-from-a-string.md",
+      "*/",
+      "}const removeSpaces = (str) => str.replace(/\\s/g, '');"
+    ],
+    "description": "删除字符串中的空格"
+  },
+  "重复字符串": {
+    "prefix": ["1locrepeat", "1locString"],
+    "body": [
+      "${1:/**\n * 重复字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/repeat-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const repeat = (str, numberOfTimes) => Array(numberOfTimes + 1).join(str);",
+      "*/",
+      "}const repeat = (str, numberOfTimes) => str.repeat(numberOfTimes)"
+    ],
+    "description": "重复字符串"
+  },
+  "将所有换行符替换为 `` 元素": {
+    "prefix": ["1locnl2br", "1locString"],
+    "body": [
+      "${1:/**\n * 将所有换行符替换为 `<br>` 元素",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/replace-all-line-breaks-with-br-elements.md",
+      "*/",
+      "}const nl2br = (str) => str.replace(new RegExp('\\r?\\n', 'g'), '<br>');str.split('\\n').map((item, index) => (<React.Fragment key={index}> {item} <br /> </React.Fragment>));"
+    ],
+    "description": "将所有换行符替换为 `<br>` 元素"
+  },
+  "将所有制表符替换为空格": {
+    "prefix": ["1locreplace", "1locString"],
+    "body": [
+      "${1:/**\n * 将所有制表符替换为空格",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/replace-all-tab-characters-with-spaces.md",
+      "*/",
+      "}const replace = (str, numSpaces = 4) => str.replaceAll('\\t', ' '.repeat(numSpaces));"
+    ],
+    "description": "将所有制表符替换为空格"
+  },
+  "将多个空格替换为单个空格": {
+    "prefix": ["1locreplaceSpaces", "1locString"],
+    "body": [
+      "${1:/**\n * 将多个空格替换为单个空格",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/replace-multiple-spaces-with-a-single-space.md",
+      "\n  // 类似实现 👇🏼",
+      "  const replaceOnlySpaces = (str) => str.replace(/ +/g, ' ');",
+      "*/",
+      "}const replaceSpaces = (str) => str.replace(/\\s\\s+/g, ' ')"
+    ],
+    "description": "将多个空格替换为单个空格"
+  },
+  "将字符串的前几个字符替换为其他字符": {
+    "prefix": ["1locmask", "1locString"],
+    "body": [
+      "${1:/**\n * 将字符串的前几个字符替换为其他字符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/replace-the-first-given-number-of-characters-of-a-string-with-another-character.md",
+      "*/",
+      "}const mask = (str, num, mask) => `${str}`.slice(num).padStart(`${str}`.length, mask);"
+    ],
+    "description": "将字符串的前几个字符替换为其他字符"
+  },
+  "反转字符串": {
+    "prefix": ["1locreverse", "1locString"],
+    "body": [
+      "${1:/**\n * 反转字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/reverse-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const reverse = (str) => [...str].reverse().join('')",
+      "  const reverse = (str) => str.split('').reduce((rev, char) => `\\${char\\}\\${rev\\}`, '')",
+      "  const reverse = (str) => (str === '' ? '' : `\\${reverse(str.substr(1))\\}\\${str.charAt(0)\\}`);",
+      "*/",
+      "}const reverse = (str) => str.split('').reverse().join('')"
+    ],
+    "description": "反转字符串"
+  },
+  "反转文本中的行顺序": {
+    "prefix": ["1locreverseLines", "1locString"],
+    "body": [
+      "${1:/**\n * 反转文本中的行顺序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/reverse-the-order-of-lines-of-a-text.md",
+      "*/",
+      "}const reverseLines = (str) => str.split(/\\r?\\n/).reverse().join('\\n');"
+    ],
+    "description": "反转文本中的行顺序"
+  },
+  "按字母顺序对文本文件中的行进行排序": {
+    "prefix": ["1locsortLines", "1locString"],
+    "body": [
+      "${1:/**\n * 按字母顺序对文本文件中的行进行排序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/sort-lines-of-a-text-document-in-the-alphabetical-order.md",
+      "\n  // 类似实现 👇🏼",
+      "  const reverseSortedLines = (str) => str.split(/\\r?\\n/).sort().reverse().join('\\n');",
+      "*/",
+      "}const sortLines = (str) => str.split(/\\r?\\n/).sort().join('\\n')"
+    ],
+    "description": "按字母顺序对文本文件中的行进行排序"
+  },
+  "按字母顺序对字符串中的字符进行排序": {
+    "prefix": ["1locsort", "1locString"],
+    "body": [
+      "${1:/**\n * 按字母顺序对字符串中的字符进行排序",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/sort-the-characters-of-a-string-in-the-alphabetical-order.md",
+      "*/",
+      "}const sort = (str) => str.split('').sort((a, b) => a.localeCompare(b)).join('');"
+    ],
+    "description": "按字母顺序对字符串中的字符进行排序"
+  },
+  "去除字符串中的 ANSI 代码": {
+    "prefix": ["1locstripAnsiCodes", "1locString"],
+    "body": [
+      "${1:/**\n * 去除字符串中的 ANSI 代码",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/strip-ansi-codes-from-a-string.md",
+      "*/",
+      "}const stripAnsiCodes = (str) => str.replace(/[\\u001b\\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '');"
+    ],
+    "description": "去除字符串中的 ANSI 代码"
+  },
+  "交换字符串中字符的大小写": {
+    "prefix": ["1locswapCase", "1locString"],
+    "body": [
+      "${1:/**\n * 交换字符串中字符的大小写",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/swap-case-of-characters-in-a-string.md",
+      "*/",
+      "}const swapCase = (str) => str.split('').map((c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase())).join('');"
+    ],
+    "description": "交换字符串中字符的大小写"
+  },
+  "去除字符串开头和结尾的斜杠": {
+    "prefix": ["1loctrimSlashes", "1locString"],
+    "body": [
+      "${1:/**\n * 去除字符串开头和结尾的斜杠",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/trim-slashes-at-the-beginning-and-the-end-of-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const trimSlashes = (str) => str.split('/').filter(Boolean).join('/');",
+      "*/",
+      "}const trimSlashes = (str) => str.replace(/^\\/+|\\/+$/g, '')"
+    ],
+    "description": "去除字符串开头和结尾的斜杠"
+  },
+  "去除某些字符": {
+    "prefix": ["1loctrim", "1locString"],
+    "body": [
+      "${1:/**\n * 去除某些字符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/trim-some-character.md",
+      "*/",
+      "}const trim = (str, char) => str.split(char).filter(Boolean).join();"
+    ],
+    "description": "去除某些字符"
+  },
+  "去除文件名中的扩展名": {
+    "prefix": ["1loctrimExt", "1locString"],
+    "body": [
+      "${1:/**\n * 去除文件名中的扩展名",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/trim-the-file-extension-from-a-file-name.md",
+      "*/",
+      "}const trimExt = (fileName) => (fileName.indexOf('.') === -1 ? fileName : fileName.split('.').slice(0, -1).join('.'));"
+    ],
+    "description": "去除文件名中的扩展名"
+  },
+  "在完整单词处截断字符串": {
+    "prefix": ["1loctruncate", "1locString"],
+    "body": [
+      "${1:/**\n * 在完整单词处截断字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/truncate-a-string-at-full-words.md",
+      "*/",
+      "}const truncate = (str, max, suffix) => (str.length < max ? str : `${str.substr(0, str.substr(0, max - suffix.length).lastIndexOf(' '))}${suffix}`);"
+    ],
+    "description": "在完整单词处截断字符串"
+  },
+  "取消转义 HTML 特殊字符": {
+    "prefix": ["1locunescape", "1locString"],
+    "body": [
+      "${1:/**\n * 取消转义 HTML 特殊字符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/unescape-html-special-characters.md",
+      "*/",
+      "}const unescape = (str) => str.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#0*39;/g, \"'\").replace(/&quot;/g, '\"');"
+    ],
+    "description": "取消转义 HTML 特殊字符"
+  },
+  "将字符串中每个单词的首字母大写": {
+    "prefix": ["1locuppercaseWords", "1locString"],
+    "body": [
+      "${1:/**\n * 将字符串中每个单词的首字母大写",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/string/uppercase-the-first-character-of-each-word-in-a-string.md",
+      "\n  // 类似实现 👇🏼",
+      "  const uppercaseWords = (str) => str.replace(/^(.)|\\s+(.)/g, (c) => c.toUpperCase());",
+      "*/",
+      "}const uppercaseWords = (str) => str.split(' ').map((w) => `${w.charAt(0).toUpperCase()}${w.slice(1)}`).join(' ')"
+    ],
+    "description": "将字符串中每个单词的首字母大写"
+  },
+  "检查一个字符是否为数字": {
+    "prefix": ["1locisDigit", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查一个字符是否为数字",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-character-is-a-digit.md",
+      "\n  // 类似实现 👇🏼",
+      "  const isDigit = (char) => char.length === 1 && c >= '0' && c <= '9'",
+      "  const isDigit = (char) => Boolean([true, true, true, true, true, true, true, true, true, true][char]);",
+      "*/",
+      "}const isDigit = (char) => char < 10"
+    ],
+    "description": "检查一个字符是否为数字"
+  },
+  "检查日期是否为工作日": {
+    "prefix": ["1locisWeekday", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查日期是否为工作日",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-date-is-a-weekday.md",
+      "*/",
+      "}const isWeekday = (date = new Date()) => date.getDay() % 6 !== 0;"
+    ],
+    "description": "检查日期是否为工作日"
+  },
+  "检查日期是否为周末": {
+    "prefix": ["1locisWeekend", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查日期是否为周末",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-date-is-a-weekend.md",
+      "*/",
+      "}const isWeekend = (date = new Date()) => date.getDay() % 6 === 0;"
+    ],
+    "description": "检查日期是否为周末"
+  },
+  "检查日期是否在两个日期之间": {
+    "prefix": ["1locisBetween", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查日期是否在两个日期之间",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-date-is-between-two-dates.md",
+      "*/",
+      "}const isBetween = (date, min, max) => date.getTime() >= min.getTime() && date.getTime() <= max.getTime();"
+    ],
+    "description": "检查日期是否在两个日期之间"
+  },
+  "检查日期是否为今天": {
+    "prefix": ["1locisToday", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查日期是否为今天",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-date-is-today.md",
+      "*/",
+      "}const isToday = (date) => date.toISOString().slice(0, 10) === new Date().toISOString().slice(0, 10);"
+    ],
+    "description": "检查日期是否为今天"
+  },
+  "检查日期是否发生在当前年份": {
+    "prefix": ["1locisCurrentYear", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查日期是否发生在当前年份",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-date-occurs-in-the-current-year.md",
+      "*/",
+      "}const isCurrentYear = (date) => date.getUTCFullYear() === new Date().getUTCFullYear();"
+    ],
+    "description": "检查日期是否发生在当前年份"
+  },
+  "检查扁平数组是否有重复值": {
+    "prefix": ["1lochasDuplicateValues", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查扁平数组是否有重复值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-flat-array-has-duplicate-values.md",
+      "*/",
+      "}const hasDuplicateValues = (arr) => new Set(arr).size !== arr.length;"
+    ],
+    "description": "检查扁平数组是否有重复值"
+  },
+  "检查给定整数是否为质数": {
+    "prefix": ["1locisPrime", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查给定整数是否为质数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-given-integer-is-a-prime-number.md",
+      "*/",
+      "}const isPrime = (n) => n > 1 && Array(Math.floor(Math.sqrt(n)) - 1).fill(0).map((_, i) => i + 2).every((i) => n % i !== 0);"
+    ],
+    "description": "检查给定整数是否为质数"
+  },
+  "检查一个数是否为2的幂": {
+    "prefix": ["1locisPowerOfTwo", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查一个数是否为2的幂",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-number-is-a-power-of-2.md",
+      "*/",
+      "}const isPowerOfTwo = (n) => (n & (n - 1)) === 0;"
+    ],
+    "description": "检查一个数是否为2的幂"
+  },
+  "检查一个数是否为偶数": {
+    "prefix": ["1locisEven", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查一个数是否为偶数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-number-is-even.md",
+      "\n  // 类似方法 👇🏼",
+      "  const isEven = (n) => (n & 1) === 0",
+      "  const isEven = (n) => !(n & 1)",
+      "  const isEven = (n) => Number.isInteger(n / 2);",
+      "*/",
+      "}const isEven = (n) => n % 2 === 0"
+    ],
+    "description": "检查一个数是否为偶数"
+  },
+  "检查一个数是否在给定范围内": {
+    "prefix": ["1locinRange", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查一个数是否在给定范围内",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-number-is-in-a-given-range.md",
+      "*/",
+      "}const inRange = (num, a, b, threshold = 0) => Math.min(a, b) - threshold <= num && num <= Math.max(a, b) + threshold;"
+    ],
+    "description": "检查一个数是否在给定范围内"
+  },
+  "检查一个数是否为负数": {
+    "prefix": ["1locisNegative", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查一个数是否为负数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-number-is-negative.md",
+      "\n  // 类似方法 👇🏼",
+      "  const isNegative = (n) => n < 0;",
+      "*/",
+      "}const isNegative = (n) => Math.sign(n) === -1"
+    ],
+    "description": "检查一个数是否为负数"
+  },
+  "检查一个数是否为奇数": {
+    "prefix": ["1locisOdd", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查一个数是否为奇数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-number-is-odd.md",
+      "\n  // 类似方法 👇🏼",
+      "  const isOdd = (n) => !!(n & 1)",
+      "  const isOdd = (n) => !Number.isInteger(n / 2);",
+      "*/",
+      "}const isOdd = (n) => n % 2 !== 0"
+    ],
+    "description": "检查一个数是否为奇数"
+  },
+  "检查一个数是否为正数": {
+    "prefix": ["1locisPositive", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查一个数是否为正数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-number-is-positive.md",
+      "*/",
+      "}const isPositive = (n) => Math.sign(n) === 1;"
+    ],
+    "description": "检查一个数是否为正数"
+  },
+  "检查字符串是否包含小写字母": {
+    "prefix": ["1loccontainsLowerCase", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否包含小写字母",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-contains-lower-case-characters.md",
+      "*/",
+      "}const containsLowerCase = (str) => str !== str.toUpperCase();"
+    ],
+    "description": "检查字符串是否包含小写字母"
+  },
+  "检查字符串是否只包含ASCII字符": {
+    "prefix": ["1locisAscii", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否只包含ASCII字符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-contains-only-ascii-characters.md",
+      "*/",
+      "}const isAscii = (str) => /^[\\x00-\\x7F]+$/.test(str);"
+    ],
+    "description": "检查字符串是否只包含ASCII字符"
+  },
+  "检查字符串是否只包含数字": {
+    "prefix": ["1locisNumeric", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否只包含数字",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-contains-only-digits.md",
+      "*/",
+      "}const isNumeric = (str) => !/[^0-9]/.test(str);"
+    ],
+    "description": "检查字符串是否只包含数字"
+  },
+  "检查字符串是否只包含字母和数字": {
+    "prefix": ["1locisAlphanumeric", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否只包含字母和数字",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-contains-only-letters-and-numbers.md",
+      "*/",
+      "}const isAlphanumeric = (str) => /^[0-9A-Z]+$/i.test(str);"
+    ],
+    "description": "检查字符串是否只包含字母和数字"
+  },
+  "检查字符串是否只包含字母": {
+    "prefix": ["1locisAlpha", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否只包含字母",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-contains-only-letters.md",
+      "*/",
+      "}const isAlpha = (str) => /^[A-Z]+$/i.test(str);"
+    ],
+    "description": "检查字符串是否只包含字母"
+  },
+  "检查字符串是否包含大写字母": {
+    "prefix": ["1loccontainsUpperCase", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否包含大写字母",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-contains-upper-case-characters.md",
+      "*/",
+      "}const containsUpperCase = (str) => str !== str.toLowerCase();"
+    ],
+    "description": "检查字符串是否包含大写字母"
+  },
+  "检查字符串是否包含空白字符": {
+    "prefix": ["1loccontainsWhitespace", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否包含空白字符",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-contains-whitespace.md",
+      "*/",
+      "}const containsWhitespace = (str) => /\\s/.test(str);"
+    ],
+    "description": "检查字符串是否包含空白字符"
+  },
+  "检查字符串是否为十六进制颜色": {
+    "prefix": ["1locisHexColor", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否为十六进制颜色",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-is-a-hexadecimal-color.md",
+      "*/",
+      "}const isHexColor = (color) => /^#([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6}|[0-9A-F]{8})$/i.test(color);"
+    ],
+    "description": "检查字符串是否为十六进制颜色"
+  },
+  "检查字符串是否为十六进制数": {
+    "prefix": ["1locisHexadecimal", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否为十六进制数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-is-a-hexadecimal-number.md",
+      "\n  // 类似方法 👇🏼",
+      "  const isHexadecimal = (str) => str.split('').every((c) => '0123456789ABCDEFabcdef'.indexOf(c) !== -1);",
+      "*/",
+      "}const isHexadecimal = (str) => /^[A-F0-9]+$/i.test(str)"
+    ],
+    "description": "检查字符串是否为十六进制数"
+  },
+  "检查字符串是否为MongoDB ObjectId": {
+    "prefix": ["1locisMongoId", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否为MongoDB ObjectId",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-is-a-mongo-db-object-id.md",
+      "\n  // 类似方法 👇🏼",
+      "  const isMongoId = (str) => str.length === 24 && str.split('').every((c) => '0123456789ABCDEFabcdef'.indexOf(c) !== -1);",
+      "*/",
+      "}const isMongoId = (str) => str.length === 24 && /^[A-F0-9]+$/i.test(str)"
+    ],
+    "description": "检查字符串是否为MongoDB ObjectId"
+  },
+  "检查字符串是否为八进制数": {
+    "prefix": ["1locisOctal", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否为八进制数",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-is-an-octal-number.md",
+      "*/",
+      "}const isOctal = (str) => /^(0o)?[0-7]+$/i.test(str);"
+    ],
+    "description": "检查字符串是否为八进制数"
+  },
+  "检查字符串是否全为小写字母": {
+    "prefix": ["1locisLowerCase", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否全为小写字母",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-is-lower-case.md",
+      "*/",
+      "}const isLowerCase = (str) => str === str.toLowerCase();"
+    ],
+    "description": "检查字符串是否全为小写字母"
+  },
+  "检查字符串是否全为大写字母": {
+    "prefix": ["1locisUpperCase", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查字符串是否全为大写字母",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-string-is-upper-case.md",
+      "*/",
+      "}const isUpperCase = (str) => str === str.toUpperCase();"
+    ],
+    "description": "检查字符串是否全为大写字母"
+  },
+  "检查值是否为业务标识符代码": {
+    "prefix": ["1locisBIC", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为业务标识符代码",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-a-business-identifier-code.md",
+      "*/",
+      "}const isBIC = (value) => /^[a-zA-Z]{6}[a-zA-Z0-9]{2}([a-zA-Z0-9]{3})?$/.test(value);"
+    ],
+    "description": "检查值是否为业务标识符代码"
+  },
+  "检查值是否为数字": {
+    "prefix": ["1locisNumber", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为数字",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-a-number.md",
+      "*/",
+      "}const isNumber = (value) => !isNaN(parseFloat(value)) && isFinite(value);"
+    ],
+    "description": "检查值是否为数字"
+  },
+  "检查值是否为纯对象": {
+    "prefix": ["1locisPlainObject", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为纯对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-a-plain-object.md",
+      "*/",
+      "}const isPlainObject = (v) => !!v && typeof v === 'object' && (v.__proto__ === null || v.__proto__ === Object.prototype);"
+    ],
+    "description": "检查值是否为纯对象"
+  },
+  "检查值是否为正则表达式": {
+    "prefix": ["1locisRegExp", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为正则表达式",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-a-regular-expression.md",
+      "*/",
+      "}const isRegExp = (value) => Object.prototype.toString.call(value) === '[object RegExp]';"
+    ],
+    "description": "检查值是否为正则表达式"
+  },
+  "检查值是否为字符串": {
+    "prefix": ["1locisString", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为字符串",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-a-string.md",
+      "*/",
+      "}const isString = (value) => Object.prototype.toString.call(value) === '[object String]';"
+    ],
+    "description": "检查值是否为字符串"
+  },
+  "检查值是否为对象": {
+    "prefix": ["1locisObject", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为对象",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-an-object.md",
+      "*/",
+      "}const isObject = (v) => v !== null && typeof v === 'object';"
+    ],
+    "description": "检查值是否为对象"
+  },
+  "检查值是否为base32编码": {
+    "prefix": ["1locisBase32", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为base32编码",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-base32-encoded.md",
+      "*/",
+      "}const isBase32 = (value) => value.length % 8 === 0 && /^[A-Z2-7]+=*$/.test(value);"
+    ],
+    "description": "检查值是否为base32编码"
+  },
+  "检查值是否为base58编码": {
+    "prefix": ["1locisBase58", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为base58编码",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-base58-encoded.md",
+      "*/",
+      "}const isBase58 = (value) => /^[A-HJ-NP-Za-km-z1-9]*$/.test(value);"
+    ],
+    "description": "检查值是否为base58编码"
+  },
+  "检查值是否为base64编码": {
+    "prefix": ["1locisBase64", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为base64编码",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-base64-encoded.md",
+      "*/",
+      "}const isBase64 = (value) => /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$/.test(value);"
+    ],
+    "description": "检查值是否为base64编码"
+  },
+  "检查值是否为nil": {
+    "prefix": ["1locisNil", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查值是否为nil",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-value-is-nil.md",
+      "*/",
+      "}const isNil = (value) => value == null;"
+    ],
+    "description": "检查值是否为nil"
+  },
+  "检查年份是否为闰年": {
+    "prefix": ["1locisLeapYear", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查年份是否为闰年",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-a-year-is-leap-year.md",
+      "\n  // 类似实现 👇🏼",
+      "  const isLeapYear = (year) => new Date(year, 1, 29).getDate() === 29;",
+      "*/",
+      "}const isLeapYear = (year) => (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0"
+    ],
+    "description": "检查年份是否为闰年"
+  },
+  "检查数组中的所有元素是否等于给定值": {
+    "prefix": ["1locisEqual", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查数组中的所有元素是否等于给定值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-all-array-elements-are-equal-to-a-given-value.md",
+      "\n  // 类似实现 👇🏼",
+      "  const isEqual = (arr, value) => !arr.some((item) => item !== value);",
+      "*/",
+      "}const isEqual = (arr, value) => arr.every((item) => item === value)"
+    ],
+    "description": "检查数组中的所有元素是否等于给定值"
+  },
+  "检查数组中的所有项是否相等": {
+    "prefix": ["1locareEqual", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查数组中的所有项是否相等",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-all-items-in-an-array-are-equal.md",
+      "\n  // 类似实现 👇🏼",
+      "  const areEqual = (arr) => new Set(arr).size === 1;",
+      "*/",
+      "}const areEqual = (arr) => arr.length > 0 && arr.every((item) => item === arr[0])"
+    ],
+    "description": "检查数组中的所有项是否相等"
+  },
+  "检查数组中是否存在符合某些条件的值": {
+    "prefix": ["1loccontains", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查数组中是否存在符合某些条件的值",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-an-array-contains-a-value-matching-some-criterias.md",
+      "\n  // 类似实现 👇🏼",
+      "  const contains = (arr, criteria) => arr.some(criteria)",
+      "  const contains = (arr, criteria) => arr.filter(criteria).length > 0;",
+      "*/",
+      "}const contains = (arr, criteria) => arr.some((v) => criteria(v))"
+    ],
+    "description": "检查数组中是否存在符合某些条件的值"
+  },
+  "检查数组是否非空": {
+    "prefix": ["1locisNotEmpty", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查数组是否非空",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-an-array-is-not-empty.md",
+      "*/",
+      "}const isNotEmpty = (arr) => Array.isArray(arr) && Object.keys(arr).length > 0;"
+    ],
+    "description": "检查数组是否非空"
+  },
+  "检查数组是否为另一个数组的子集": {
+    "prefix": ["1locisSubset", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查数组是否为另一个数组的子集",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-an-array-is-subset-of-other-array.md",
+      "\n  // 类似实现 👇🏼",
+      "  const isSubset = (a, b) => b.join('|').includes(a.join('|'));",
+      "*/",
+      "}const isSubset = (a, b) => new Set(b).size === new Set(b.concat(a)).size"
+    ],
+    "description": "检查数组是否为另一个数组的子集"
+  },
+  "检查对象是否为Promise": {
+    "prefix": ["1locisPromise", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查对象是否为Promise",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-an-object-is-a-promise.md",
+      "*/",
+      "}const isPromise = (obj) => !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function';"
+    ],
+    "description": "检查对象是否为Promise"
+  },
+  "检查对象是否为数组": {
+    "prefix": ["1locisArray", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查对象是否为数组",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-an-object-is-an-array.md",
+      "*/",
+      "}const isArray = (obj) => Array.isArray(obj);"
+    ],
+    "description": "检查对象是否为数组"
+  },
+  "检查对象是否为空": {
+    "prefix": ["1locisEmpty", "1locValidator"],
+    "body": [
+      "${1:/**\n * 检查对象是否为空",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/check-if-an-object-is-empty.md",
+      "\n  // 类似实现 👇🏼",
+      "  const isEmpty = (obj) => JSON.stringify(obj) === '{}';",
+      "*/",
+      "}const isEmpty = (obj) => Reflect.ownKeys(obj).length === 0 && obj.constructor === Object"
+    ],
+    "description": "检查对象是否为空"
+  },
+  "验证格里高利历日期": {
+    "prefix": ["1locisValidDate", "1locValidator"],
+    "body": [
+      "${1:/**\n * 验证格里高利历日期",
+      " * https://github.com/1milligram/1loc/blob/master/snippets/validator/validate-a-gregorian-date.md",
+      "*/",
+      "}const isValidDate = (m, d, y) => 0 <= m && m <= 11 && 0 < y && y < 32768 && 0 < d && d <= new Date(y, m, 0).getDate();"
+    ],
+    "description": "验证格里高利历日期"
+  }
+}

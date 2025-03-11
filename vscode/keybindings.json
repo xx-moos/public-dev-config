@@ -1,0 +1,79 @@
+[
+  {
+    "key": "ctrl+' ctrl+q",
+    "command": "workbench.action.quickOpenNavigateNextInViewPicker",
+    "when": "inQuickOpen && inViewsPicker"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+    "when": "inQuickOpen && inViewsPicker"
+  },
+  {
+    "key": "ctrl+e ctrl+q",
+    "command": "workbench.action.quickOpenView"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenView"
+  },
+  {
+    "key": "alt+d",
+    "command": "editor.foldAll",
+    "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "console.log.wrap.down.prefix",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+q",
+    "command": "console.log.wrap.down.prefix",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+/",
+    "command": "comment-divider.makeMainHeader",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+/",
+    "command": "comment-divider.makeSubHeader",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+y",
+    "command": "-comment-divider.insertSolidLine",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+x",
+    "command": "-comment-divider.makeMainHeader",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+x",
+    "command": "-comment-divider.makeSubHeader",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "-surround.with",
+    "when": "editorHasSelection"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "-extension.varTranslation"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "-surround.with",
+    "when": "editorHasSelection"
+  },
+  {
+    "key": "alt+i",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  }
+]
