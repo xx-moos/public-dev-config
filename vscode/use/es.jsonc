@@ -1,0 +1,710 @@
+{
+  "三元运算符": {
+    "prefix": "tif",
+    "body": ["${1} ? ${2} : ${3};"],
+    "description": "ternary operator 三元 运算符"
+  },
+  "初始化axios请求代码": {
+    "prefix": "axi",
+    "body": [
+      "import axios from 'axios';",
+      "",
+      "const server = axios.create({",
+      "  baseURL: '/',",
+      "  timeout: 1000,",
+      "  headers: {",
+      "    'Content-Type': 'application/json',",
+      "  },",
+      "});",
+      "",
+      "server.interceptors.request.use(",
+      "  (config) => {",
+      "    if (localStorage.getItem('token')) {",
+      "      config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;",
+      "    }",
+      "",
+      "    return config;",
+      "  },",
+      "  (error) => {",
+      "    return Promise.reject(error);",
+      "  },",
+      ");",
+      "",
+      "server.interceptors.response.use(",
+      "  (response) => {",
+      "    return response.data;",
+      "  },",
+      "  (error) => {",
+      "    return Promise.reject(error);",
+      "  },",
+      ");",
+      "",
+      "export default server;"
+    ],
+    "description": "初始化axios请求代码"
+  },
+  "Big.js计算函数": {
+    "prefix": "nnbig",
+    "body": [
+      "<script src=\"https://cdn.bootcdn.net/ajax/libs/big.js/6.2.1/big.min.js\"></script>",
+      "<script>",
+      "    // 加",
+      "    function add(a, b) {",
+      "        return Big(a).plus(b).toNumber();",
+      "    }",
+      "",
+      "    // 减",
+      "    function subtract(a, b) {",
+      "        return Big(a).minus(b).toNumber();",
+      "    }",
+      "",
+      "    // 乘",
+      "    function multiply(a, b) {",
+      "        return Big(a).times(b).toNumber();",
+      "    }",
+      "",
+      "    // 除",
+      "    function divide(a, b) {",
+      "        return Big(a).div(b).toNumber();",
+      "    }",
+      "",
+      "    // toTixed",
+      "    function toTixed(a, v = 2) {",
+      "        return a.toFixed(v);",
+      "    }",
+      "</script>"
+    ],
+    "description": "Big.js计算函数"
+  },
+  "注释分隔符": {
+    "prefix": "mm",
+    "body": ["/** $1 */"],
+    "description": "注释分隔符"
+  },
+  "commentBigBlock": {
+    "prefix": "mmb",
+    "body": ["/**", " * ${1:first}", " */"]
+  },
+  "忽略 prettier 格式化": {
+    "prefix": "pig",
+    "body": ["// prettier-ignore"]
+  },
+  "filter-js": {
+    "prefix": "flj",
+    "body": [".filter((val) => {$1})"],
+    "description": "filter-js 版本"
+  },
+  "filter-typescript": {
+    "prefix": "flt",
+    "body": [".filter((val:any) => {$1})"],
+    "description": "filter-ts 版本"
+  },
+  "map-js": {
+    "prefix": "mpj",
+    "body": [".map((it, ind) => ($1))"],
+    "description": "map-js 版本"
+  },
+  "map-typescript": {
+    "prefix": "mpt",
+    "body": [".map((it: any, ind: number) => ($1))"],
+    "description": "map-ts 版本"
+  },
+  ":any": {
+    "prefix": "ta",
+    "body": [": any"],
+    "description": "any  ts  where"
+  },
+  "console JSON.stringify": {
+    "prefix": "cjl",
+    "body": ["console.log('$1- >:', JSON.parse(JSON.stringify($1)));", ""],
+    "description": "vue2 console JSON.stringify"
+  },
+  "vue2的初始化模板": {
+    "prefix": "hv2i",
+    "body": [
+      "new Vue({",
+      "    el:\"#app\",",
+      "    data() {",
+      "        return {",
+      "            ",
+      "        }",
+      "    },",
+      "    components: {},",
+      "    watch: {},",
+      "    created() {",
+      "        ",
+      "    },",
+      "    methods: {",
+      "        ",
+      "    },",
+      "    computed: {",
+      "        ",
+      "    },",
+      "})"
+    ],
+    "description": "html vue2  init 的初始化模板"
+  },
+  "js vue3 class init 初始化模板": {
+    "prefix": "jv3ci",
+    "body": [
+      "import { reactive, toRefs,  defineComponent, } from \"vue\";",
+      "",
+      "export default defineComponent({",
+      "  name: \"$1\",",
+      "  props: {",
+      "    //接收父组件数据",
+      "  },",
+      "  components: {",
+      "  },",
+      "  setup(props, ctx) {",
+      "    //  这里没有this,直接使用props里数据",
+      "    return {};",
+      "  },",
+      "});"
+    ],
+    "description": "js vue3 class init 初始化模板"
+  },
+  "react useEffect 带函数初始化": {
+    "prefix": "ufg",
+    "body": [
+      "const getList = async () => {",
+      "     $1",
+      "};",
+      "",
+      "useEffect(() => {",
+      "    getList();",
+      "}, []);"
+    ],
+    "description": "react useEffect带函数初始化"
+  },
+  "fetch full": {
+    "prefix": "fetch",
+    "body": [
+      "fetch('server', {",
+      "  method: 'POST', // *GET, POST, PUT, DELETE, etc.",
+      "  mode: 'cors', // no-cors, cors, *same-origin",
+      "  credentials: 'same-origin', // include, same-origin, *omit",
+      "  cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached",
+      "  redirect: 'follow', // manual, *follow, error",
+      "  referrer: 'no-referrer', // *client, no-referrer",
+      "  headers: { Accept: 'application/json', 'Content-Type': 'application/json' },",
+      "  body: JSON.stringify(data) // must match 'Content-Type' header",
+      "})",
+      "  .then(response => {",
+      "    if (response.status >= 200 && response.status < 300) {",
+      "      return Promise.resolve(response);",
+      "    }",
+      "",
+      "",
+      "    return Promise.reject(new Error(response.statusText));",
+      "  })",
+      "  .then(response => response.json()) // parses response to JSON",
+      "  .then(result => {",
+      "    // custom error",
+      "  })",
+      "  .catch(error => {",
+      "    // common error",
+      "    return null;",
+      "  });"
+    ],
+    "description": "Working with the Fetch API"
+  },
+  "fetch get": {
+    "prefix": ["fetchget"],
+    "body": [
+      "fetch('server')",
+      "  .then(response => {",
+      "    // network failure, request prevented",
+      "    if (response.status >= 200 && response.status < 300) {",
+      "      return Promise.resolve(response);",
+      "    }",
+      "",
+      "",
+      "    return Promise.reject(new Error(response.statusText));",
+      "  })",
+      "  .then(response => response.json())",
+      "  .then(result => {",
+      "    // custom error",
+      "  })",
+      "  .catch(error => {",
+      "    // common error",
+      "    return null;",
+      "  });"
+    ],
+    "description": "Make a GET request"
+  },
+  "fetch post": {
+    "prefix": ["fetchpost", "fp"],
+    "body": [
+      "fetch('server', {",
+      "  method: 'POST',",
+      "  credentials: 'include',",
+      "  headers: { Accept: 'application/json', 'Content-Type': 'application/json' },",
+      "  body: JSON.stringify(data)",
+      "})",
+      "  .then(response => {",
+      "    // network failure, request prevented",
+      "    if (response.status >= 200 && response.status < 300) {",
+      "      return Promise.resolve(response);",
+      "    }",
+      "",
+      "",
+      "    return Promise.reject(new Error(response.statusText));",
+      "  })",
+      "  .then(response => response.json())",
+      "  .then(result => {",
+      "    // custom error",
+      "  })",
+      "  .catch(error => {",
+      "    // common error",
+      "    return null;",
+      "  });"
+    ],
+    "description": "Make a POST request"
+  },
+  "const string": {
+    "prefix": "cs",
+    "body": ["const ${1:string} = '$2';"],
+    "description": "const string"
+  },
+  "const": {
+    "prefix": "c",
+    "body": ["const ${1:name} = ${2:value};"],
+    "description": "新建变量"
+  },
+  "const object": {
+    "prefix": "co",
+    // prettier-ignore
+    "body": [
+      "const feature = {",
+      "  ",
+      "};"
+    ],
+    "description": "const object"
+  },
+  "解构对象": {
+    "prefix": "cdo",
+    "body": ["const {${2}} = ${1};"],
+    "description": "解构对象"
+  },
+  "解构数组": {
+    "prefix": "cda",
+    "body": ["const [${2}] = ${1};"],
+    "description": "解构数组"
+  },
+  "const array": {
+    "prefix": "ca",
+    "body": ["const ${1:array} = [$2];"],
+    "description": "新建数组"
+  },
+  "const awaited": {
+    "prefix": "caw",
+    "body": ["const ${1:result} = await ${2:promise};"],
+    "description": "新建 await 变量"
+  },
+  "const n function ": {
+    "prefix": "cnf",
+    // prettier-ignore
+    "body": [
+      "const name = function (param)  {",
+      "  ",
+      "};"
+    ],
+    "description": "新建 await 变量"
+  },
+  "const  function ": {
+    "prefix": "caf",
+    // prettier-ignore
+    "body": [
+      "const name = (param) => {",
+      "  ",
+      "};"
+    ],
+    "description": "新建 await 变量"
+  },
+  "const async function ": {
+    "prefix": "cafc",
+    "body": [
+      "const name = async (param) => {",
+      "  const result = await promise;",
+      "  return result;",
+      "};"
+    ],
+    "description": "新建 await 变量"
+  },
+
+  "const Map": {
+    "prefix": ["cmap"],
+    "body": ["const ${1:resource}Map = new Map();"],
+    "description": "const assignment Map"
+  },
+  "const Set": {
+    "prefix": ["cset"],
+    "body": ["const ${1:resource}Set = new Set();"],
+    "description": "const assignment Set"
+  },
+  "const WeakMap": {
+    "prefix": ["cwmap"],
+    "body": ["const ${1:resource}WeakMap = new WeakMap();"],
+    "description": "const assignment WeakMap\n"
+  },
+  "const WeakSet": {
+    "prefix": ["cwset"],
+    "body": ["const ${1:resource}WeakSet = new WeakSet();"],
+    "description": "const assignment WeakSet\n"
+  },
+
+  "await Promise.all": {
+    "prefix": "awall",
+    "body": [" await Promise.all(${1:value}) "],
+    "description": "await Promise.all"
+  },
+  "await Promise.all.map": {
+    "prefix": "awpam",
+    // prettier-ignore
+    "body": [
+      "await Promise.all(array.map((value) => {",
+      "  ",
+      "}))",
+      ""
+    ],
+    "description": "await Promise.all.map"
+  },
+  "Array.isArray()": {
+    "prefix": ["isa"],
+    "body": ["Array.isArray(${1})"],
+    "description": "Array.isArray()"
+  },
+  "Array.prototype.includes()": {
+    "prefix": ["ainc"],
+    "body": ["${1}.includes(${2:value})"],
+    "description": "Array.prototype.includes()"
+  },
+
+  "async function (named)": {
+    "prefix": "acf",
+    "body": [
+      "async function name(param) {",
+      "  const result = await promise;",
+      "  return result;",
+      "}"
+    ],
+    "description": "async function named"
+  },
+  "async arrow function": {
+    "prefix": "acfa",
+    // prettier-ignore
+    "body": [
+      "async (param) => {",
+      "  ",
+      "}"
+    ],
+    "description": "async arrow function"
+  },
+  "setTimeOut(), arrow function": {
+    "prefix": "st",
+    "body": [
+      "const timeout = window.setTimeout(() => {",
+      "  ",
+      "}, delay);",
+      "",
+      "window.clearTimeout(timeout);"
+    ],
+    "description": "setTimeOut"
+  },
+  "setInterval(), clearInterval(), arrow function": {
+    "prefix": "si",
+    "body": [
+      "const timer = window.setInterval(() => {",
+      "  ",
+      "}, interval);",
+      "",
+      "window.clearInterval(timer);"
+    ],
+    "description": "setInterval/clearInterval"
+  },
+
+  "localStorage.setItem('key', 'value');": {
+    "prefix": "lss",
+    "body": ["localStorage.setItem('${1:key}', ${2:value});"],
+    "description": "localStorage.setItem('key', 'value');"
+  },
+  "localStorage.getItem('key');": {
+    "prefix": "lsg",
+    "body": ["localStorage.getItem('${1:key}');"],
+    "description": "localStorage.getItem('key');"
+  },
+  "localStorage.removeItem('key');": {
+    "prefix": "lsr",
+    "body": ["localStorage.removeItem('${1:key}');"],
+    "description": "localStorage.removeItem('key');"
+  },
+  "localStorage.clear();": {
+    "prefix": "lsc",
+    "body": ["localStorage.clear();"],
+    "description": "localStorage.clear();"
+  },
+
+  "typeof": {
+    "prefix": "to",
+    "body": ["typeof ${1:operand} === '${2:undefined}'"],
+    "description": "typeof\n"
+  },
+  "typeof is undefined": {
+    "prefix": "tou",
+    "body": ["typeof ${1:operand} === 'undefined'"],
+    "description": "Type is Undefined\n"
+  },
+  "typeof is function": {
+    "prefix": "tof",
+    "body": ["typeof ${1:operand} === 'function'"],
+    "description": "Type is Function\n"
+  },
+  "typeof is symbol": {
+    "prefix": "tosy",
+    "body": ["typeof ${1:operand} === 'symbol'"],
+    "description": "Type is Symbol\n"
+  },
+  "typeof is string": {
+    "prefix": "tos",
+    "body": ["typeof ${1:operand} === 'string'"],
+    "description": "Type is String\n"
+  },
+  "typeof is number": {
+    "prefix": "ton",
+    "body": ["typeof ${1:operand} === 'number'"],
+    "description": "Type is Number\n"
+  },
+  "typeof is boolean": {
+    "prefix": "tob",
+    "body": ["typeof ${1:operand} === 'boolean'"],
+    "description": "Type is Boolean\n"
+  },
+  "typeof is bigint": {
+    "prefix": "tobi",
+    "body": ["typeof ${1:operand} === 'bigint'"],
+    "description": "Type is Bigint\n"
+  },
+  "JSON.parse()": {
+    "prefix": "jp",
+    "body": ["JSON.parse(${1:obj})"],
+    "description": "JSON.parse()\n"
+  },
+  "JSON.stringify()": {
+    "prefix": "js",
+    "body": ["JSON.stringify(${1:obj})"],
+    "description": "JSON.stringify()\n"
+  },
+  "try/catch": {
+    "prefix": "tc",
+    "body": ["try {\n\t${1}\n} catch (${2:error}) {\n\t\n}"],
+    "description": "try/catch\n"
+  },
+  "try/catch/finally": {
+    "prefix": "tcf",
+    "body": ["try {\n\t${1}\n} catch (${2:error}) {\n\t\n} finally {\n\t\n}"],
+    "description": "try/catch/finally\n"
+  },
+  "try/finally": {
+    "prefix": "tf",
+    "body": ["try {\n\t${1}\n} finally {\n\t\n}"],
+    "description": "try/finally\n"
+  },
+  "return null": {
+    "prefix": "r",
+    "body": ["return null;"],
+    "description": "return null\n"
+  },
+  "debugger": {
+    "prefix": ["de"],
+    "body": ["debugger;"],
+    "description": "debugger\n"
+  },
+  "class all": {
+    "prefix": "csall",
+    "body": [
+      "class name {",
+      "  constructor (param) {",
+      "    ",
+      "  }",
+      "",
+      "  static property = value;",
+      "",
+      "  method (param) {",
+      "    ",
+      "  }",
+      "  ",
+      "  get propertyName () {",
+      "    return this.element;",
+      "  }",
+      "  ",
+      "  set propertyName (value) {",
+      "    this.element = value;",
+      "  }",
+      "}",
+      "",
+      "module.exports = name"
+    ],
+    "description": "class all"
+  },
+  "class extends": {
+    "prefix": "cle",
+    "body": [
+      "class ClassName extends BaseClassName {",
+      "  constructor(param) {",
+      "    super();",
+      "    ",
+      "  }",
+      "",
+      "}"
+    ],
+    "description": "class extends BaseClassName"
+  },
+  "use strict": {
+    "prefix": "us",
+    "body": ["'use strict';"],
+    "description": "use strict mode\n"
+  },
+  "iife, arrow function": {
+    "prefix": "iif",
+    // prettier-ignore
+    "body": [
+      ";((param) => {",
+      "  ",
+      "})()",
+      ""
+    ],
+    "description": "immediately-invoked function expression (IIFE)\n"
+  },
+  "iife": {
+    "prefix": "iife",
+    // prettier-ignore
+    "body": [
+      ";(function (param) {",
+      "  ",
+      "})()",
+      ""
+    ],
+    "description": "immediately-invoked function expression (IIFE)\n"
+  },
+  "Math.random": {
+    "prefix": "mtr",
+    "body": ["Math.random()"],
+    "description": "Math.random()"
+  },
+
+  "import without module name": {
+    "prefix": "im",
+    "body": ["import '${1:module}';"],
+    "description": "Import a module for side effects only\n"
+  },
+  "import default export": {
+    "prefix": "imp",
+    "body": ["import ${2:moduleName} from '${1:module}';"],
+    "description": "Import default export\n"
+  },
+  "import all module as alias": {
+    "prefix": "impall",
+    "body": ["import * as ${2:alias} from '${1:module}';"],
+    "description": "Import all of a module's exports as a module object\n"
+  },
+  "import individual features": {
+    "prefix": "imd",
+    "body": ["import { ${2:moduleName} } from '${1:module}';"],
+    "description": "Import individual features\n"
+  },
+  "import renamed exports": {
+    "prefix": "imdas",
+    "body": ["import { ${2:originalName} as ${3:alias} } from '${1:module}';"],
+    "description": "Import renamed exports\n"
+  },
+
+  "export renaming": {
+    "prefix": "ex",
+    "body": ["export { ${1:variable} as ${2:feature} };"],
+    "description": "*renaming exports as\n"
+  },
+  "export default": {
+    "prefix": "exd",
+    "body": ["export default ${1:expression};"],
+    "description": "*export default\n"
+  },
+  "export const": {
+    "prefix": "exc",
+    "body": ["export const ${1:name} = ${2:value};"],
+    "description": "exporting individual features(const)\n"
+  },
+  "export arrow function statements": {
+    "prefix": "excaf",
+    // prettier-ignore
+    "body": [
+      "export const name = (param) => {",
+      "  ",
+      "};"
+    ],
+    "description": "export named arrow function statements\n"
+  },
+  "export async arrow function (named)": {
+    "prefix": "excafc",
+    "body": [
+      "export const name = async (param) => {",
+      "  const result = await promise;",
+      "  return result;",
+      "};"
+    ],
+    "description": "export named async arrow function\n"
+  },
+  "return promise": {
+    "prefix": "rp",
+    // prettier-ignore
+    "body": [
+      "return new Promise((resolve, reject) => {",
+      "  ",
+      "});"
+    ],
+    "description": "return a new Promise\n"
+  },
+
+  "if": {
+    "prefix": "if",
+    // prettier-ignore
+    "body": [
+      "if () {",
+      "  ",
+      "}"
+    ],
+    "description": "if statement \n"
+  },
+  "if/else": {
+    "prefix": "ifel",
+    // prettier-ignore
+    "body": [
+      "if () {",
+      "  ",
+      "} else {",
+      "  ",
+      "}"
+    ],
+    "description": "if/else statement \n"
+  },
+  "else if": {
+    "prefix": "esif",
+    // prettier-ignore
+    "body": [
+      "else if () {",
+      "  ",
+      "}"
+    ],
+    "description": "else if statement \n"
+  },
+  "else": {
+    "prefix": "el",
+    // prettier-ignore
+    "body": [
+      "else {",
+      "  ",
+      "}"
+    ],
+    "description": "else statement \n"
+  }
+}
